@@ -91,6 +91,7 @@ class LaDesioApp {
     this.dishesBannerTimer = null;
     this.fullBannerSlideIndex = 0;
     this.fullBannerTimer = null;
+
     this.activeFilter = {
       priceMax: 3500,
       dietary: 'all',
@@ -811,6 +812,7 @@ class LaDesioApp {
     this.initHeroCarousel();
     this.initDishesBannerCarousel();
     this.initFullBannerCarousel();
+
 
     // Mount Interactive Dessert Studio on Home
     const studioMount = document.getElementById('homeDessertStudioMount');
