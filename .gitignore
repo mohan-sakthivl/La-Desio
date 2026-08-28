@@ -1,0 +1,17 @@
+# Node / Build artifacts
+node_modules/
+dist/
+build/
+.cache/
+
+# Environment and logs
+.env
+.env.local
+*.log
+npm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

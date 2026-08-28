@@ -1,0 +1,217 @@
+/* LA DESIO - Luxury Italian Patisserie Custom Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
+
+:root {
+  --color-chocolate-dark: #23120C;
+  --color-chocolate-main: #3A1F17;
+  --color-chocolate-warm: #6B3E2E;
+  --color-cream-bg: #F8F1E7;
+  --color-cream-light: #FFFDF9;
+  --color-gold-main: #B8945B;
+  --color-gold-light: #E6CA85;
+  --color-gold-dark: #8F6D35;
+  --color-rose-muted: #C98282;
+  --color-sage-subtle: #8A9A86;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F1E7;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8945B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8F6D35;
+}
+
+/* Global Universal Image Center Alignment */
+img {
+  object-position: center center !important;
+  display: block;
+}
+
+.img-center {
+  object-position: center center !important;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.font-serif-elegant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+.font-sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Luxury Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #DFBA73 0%, #B8945B 50%, #EAD49E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-chocolate-gradient {
+  background: linear-gradient(135deg, #23120C 0%, #3A1F17 60%, #6B3E2E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Borders and Accents */
+.border-gold-subtle {
+  border-color: rgba(184, 148, 91, 0.35);
+}
+.border-gold-glow {
+  box-shadow: 0 0 15px rgba(184, 148, 91, 0.25);
+  border-color: #B8945B;
+}
+
+/* Luxury Card Shadow & Hover */
+.luxury-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #FFFDF9;
+  border: 1px solid rgba(184, 148, 91, 0.22);
+}
+.luxury-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px -8px rgba(58, 31, 23, 0.12), 0 0 0 1px rgba(184, 148, 91, 0.45);
+}
+
+/* Glassmorphism Luxury Header */
+.glass-nav {
+  background: rgba(248, 241, 231, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184, 148, 91, 0.25);
+}
+
+/* Dark Section Background with subtle vignette */
+.bg-dark-espresso {
+  background: radial-gradient(circle at 50% 20%, #3A1F17 0%, #23120C 100%);
+}
+
+/* Subtle Gold Button Shimmer */
+.btn-gold-luxury {
+  background: linear-gradient(135deg, #C9A46B 0%, #B8945B 50%, #9B7840 100%);
+  color: #FFFDF9;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(184, 148, 91, 0.3);
+}
+.btn-gold-luxury:hover {
+  background: linear-gradient(135deg, #D4AF75 0%, #C49E63 50%, #A88349 100%);
+  box-shadow: 0 6px 20px rgba(184, 148, 91, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-chocolate-luxury {
+  background: #3A1F17;
+  color: #F8F1E7;
+  border: 1px solid #B8945B;
+  transition: all 0.3s ease;
+}
+.btn-chocolate-luxury:hover {
+  background: #23120C;
+  color: #E6CA85;
+  border-color: #E6CA85;
+  box-shadow: 0 6px 18px rgba(35, 18, 12, 0.3);
+}
+
+/* Custom Dessert Builder Dynamic Visual Canvas */
+.dessert-canvas-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dessert-plate {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFDF9 60%, #EBDBC8 100%);
+  border: 3px solid #B8945B;
+  box-shadow: 0 15px 35px rgba(58, 31, 23, 0.15), inset 0 0 25px rgba(184, 148, 91, 0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Cloche glass glow */
+.cloche-glow {
+  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 148, 91, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(184, 148, 91, 0); }
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 2.5s infinite;
+}
+
+/* Ribbon badge */
+.luxury-ribbon {
+  position: relative;
+}
+.luxury-ribbon::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #B8945B, transparent);
+}
+
+/* Image zoom smoothly */
+.zoom-container {
+  overflow: hidden;
+}
+.zoom-container img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Mobile Bottom Navigation Safe Zone */
+.pb-mobile-nav {
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .pb-mobile-nav {
+    padding-bottom: 0;
+  }
+}
