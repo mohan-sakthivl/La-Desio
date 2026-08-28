@@ -9,12 +9,12 @@ export class CheckoutManager {
     this.currentStep = 1;
     this.state = {
       address: {
-        fullName: 'Ananya Sharma',
-        email: 'ananya.sharma@ladesio.com',
-        phone: '+91 98201 44892',
-        street: 'Pali Hill, Bandra West, Apt 702',
-        city: 'Mumbai',
-        postal: '400050',
+        fullName: 'Roody Cruz',
+        email: 'theroodyy@gmail.com',
+        phone: '+91 93453 96700',
+        street: 'No.60/A Gnanamani St,West Jafferkhanpet',
+        city: 'Chennai',
+        postal: '6000 83',
         country: 'India',
         instructions: 'Please call on arrival. Temperature insulated delivery.'
       },
@@ -22,12 +22,12 @@ export class CheckoutManager {
       scheduledSlot: 'Today Evening (6:00 PM - 8:00 PM)',
       paymentMethod: 'upi', // upi, card, netbanking, applepay
       cardDetails: {
-        number: '•••• •••• •••• 4242',
-        name: 'ANANYA SHARMA',
+        number: '•••• •••• •••• 2005',
+        name: 'Roody Cruz',
         expiry: '08/28',
         cvv: '•••'
       },
-      upiId: 'ananya.sharma@okaxis',
+      upiId: 'theroodyy@okaxis',
       orderNotes: '',
       isGift: false,
       giftMessage: ''

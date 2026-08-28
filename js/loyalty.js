@@ -22,30 +22,30 @@ export class LoyaltyManager {
 
   loadProfile() {
     const defaultProfile = {
-      name: 'Ananya Sharma',
-      email: 'ananya.sharma@ladesio.com',
-      phone: '+91 98201 44892',
+      name: 'Roody Cruz',
+      email: 'theroodyy@gmail.com',
+      phone: '+91 93453 96700',
       tier: 'Élite', // Amore, Élite, Royale
       points: 2450,
       nextTierPoints: 4000,
-      joinedDate: 'November 2024',
+      joinedDate: 'August 2026',
       savedAddresses: [
         {
           id: 'addr_1',
-          name: 'Ananya Sharma (Home)',
-          address: 'Pali Hill, Bandra West, Apt 702',
-          city: 'Mumbai',
-          postal: '400050',
+          name: 'Roody Cruz (Home)',
+          address: 'No.60/A Gnanamani St,West Jafferkhanpet',
+          city: 'Chennai',
+          postal: '6000 83',
           country: 'India',
-          phone: '+91 98201 44892',
+          phone: '+91 93453 96700',
           isDefault: true
         },
         {
           id: 'addr_2',
-          name: 'Studio Atelier',
-          address: 'Worli Sea Face, Tower B',
-          city: 'Mumbai',
-          postal: '400030',
+          name: 'SLA INSTITUTE - KK NAGAR',
+          address: 'P.T Rajan Salai, KK Nagar',
+          city: 'Chennai',
+          postal: '6000 83',
           country: 'India',
           phone: '+91 98201 44892',
           isDefault: false

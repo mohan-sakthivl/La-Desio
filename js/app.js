@@ -5,11 +5,92 @@ import { loyaltyStore } from './loyalty.js';
 import { DessertBuilder } from './builder.js';
 import { CheckoutManager } from './checkout.js';
 
+export const HERO_SLIDES = [
+  {
+    badge: 'Signature Masterpiece',
+    title: 'Velvet Noir Royale',
+    subtitle: '72% Single-Origin Cocoa • Piedmont Hazelnuts • 24k Gold',
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
+    productId: 'desio-velvet-noir'
+  },
+  {
+    badge: 'Seasonal Atelier',
+    title: 'Caramel Étoile',
+    subtitle: 'Burnt Madagascar Vanilla Caramel • Fleur de Sel • Dark Ganache',
+    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000&q=85',
+    productId: 'caramel-etoile'
+  },
+  {
+    badge: 'Authentic Italian',
+    title: 'Pistachio di Bronte Tiramisù',
+    subtitle: 'Sicilian Bronte Pistachio Cream • Espresso Savoiardi • Mascarpone',
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85',
+    productId: 'tiramisu-pistachio'
+  },
+  {
+    badge: 'Mindful Creation',
+    title: 'Wild Berry & Açaí Parfait',
+    subtitle: 'Desio Natural • Forest Berries • Medjool Date Sweetening',
+    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=85',
+    productId: 'natural-berry-parfait'
+  },
+  {
+    badge: 'Grand Tart',
+    title: 'Fragola & White Chocolate Tart',
+    subtitle: 'Alpine Wild Strawberries • Tahitian Vanilla Ganache • Butter Sablé',
+    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85',
+    productId: 'fragola-tart'
+  }
+];
+
+export const FULL_SIZE_BANNER_IMAGES = [
+  {
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1920&q=85',
+    title: 'Velvet Noir Royale',
+    subtitle: '72% Single-Origin Venezuelan Cocoa & 24K Edible Gold Leaf',
+    badge: 'Signature Reserve',
+    productId: 'desio-velvet-noir'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1920&q=85',
+    title: 'Fragola & White Chocolate Grand Tart',
+    subtitle: 'Alpine Wild Strawberries & Tahitian Vanilla Ganache',
+    badge: 'Seasonal Patisserie',
+    productId: 'fragola-tart'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1920&q=85',
+    title: 'Pistachio di Bronte Tiramisù',
+    subtitle: 'Sicilian Bronte Pistachio Cream & Espresso Savoiardi',
+    badge: 'Authentic Milanese',
+    productId: 'tiramisu-pistachio'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1920&q=85',
+    title: 'Caramel Étoile Entremet',
+    subtitle: 'Burnt Madagascar Vanilla Caramel & Fleur de Sel Ganache',
+    badge: 'Atelier Selection',
+    productId: 'caramel-etoile'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1920&q=85',
+    title: 'Artisanal Milan Atelier',
+    subtitle: 'Handcrafted Daily with Master Italian Craftsmanship',
+    badge: 'Grand Haute Patisserie',
+    productId: 'desio-velvet-noir'
+  }
+];
+
 class LaDesioApp {
   constructor() {
     this.currentRoute = 'home';
     this.selectedCategory = 'all';
     this.searchQuery = '';
+    this.heroSlideIndex = 0;
+    this.heroCarouselTimer = null;
+    this.dishesBannerTimer = null;
+    this.fullBannerSlideIndex = 0;
+    this.fullBannerTimer = null;
     this.activeFilter = {
       priceMax: 3500,
       dietary: 'all',
@@ -187,8 +268,161 @@ class LaDesioApp {
     const naturalProducts = PRODUCTS.filter(p => p.category === 'natural').slice(0, 4);
 
     container.innerHTML = `
+      <!-- ========================================== -->
+      <!-- TOP SHOWCASE BANNER BELOW NAVBAR           -->
+      <!-- ========================================== -->
+      <section class="bg-[#23120C] border-b border-[#B8945B]/30 text-white relative overflow-hidden py-3.5 shadow-md">
+        <!-- Ambient lighting -->
+        <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-[#B8945B]/15 blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-[#E6CA85]/10 blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4">
+            
+            <!-- Brand Badge & Title on the Left -->
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shadow-md flex items-center justify-center">
+                <div class="w-full h-full rounded-full bg-[#23120C] flex items-center justify-center">
+                  <img src="Assets/Logo/emblem_transparent.png" alt="La Desio Emblem" class="w-6 h-6 object-contain" />
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 class="font-display font-bold text-sm sm:text-base text-white tracking-wide">LA DESIO</h2>
+                  <span class="px-2 py-0.5 rounded-full bg-[#B8945B]/30 border border-[#E6CA85]/40 text-[#E6CA85] text-[9px] font-serif uppercase tracking-widest font-semibold">PATISSERIE ATELIER</span>
+                </div>
+                <p class="text-[11px] text-[#F8F1E7]/75 font-serif italic">Artisanal Italian Haute Desserts • Handcrafted Daily</p>
+              </div>
+            </div>
+
+            <!-- Dishes Carousel Showcase with Controls -->
+            <div class="w-full lg:w-auto flex-1 lg:max-w-3xl relative flex items-center">
+              
+              <!-- Left Arrow Button -->
+              <button onclick="window.ladesioApp.scrollDishesBanner(-1)"
+                      class="shrink-0 w-7 h-7 rounded-full bg-black/50 hover:bg-[#B8945B] border border-[#B8945B]/40 text-white flex items-center justify-center transition-all z-10 mr-1.5 shadow focus:outline-none text-sm font-bold"
+                      aria-label="Previous dishes">
+                ‹
+              </button>
+
+              <!-- Sliding Dishes Track -->
+              <div id="dishesBannerTrack"
+                   class="flex items-center gap-2.5 overflow-x-auto py-1 scrollbar-none scroll-smooth w-full select-none">
+                ${PRODUCTS.slice(0, 10).map(product => `
+                  <div onclick="window.ladesioApp.openProductModal('${product.id}')"
+                       class="shrink-0 bg-[#3A1F17]/90 hover:bg-[#4E2A1F] border border-[#B8945B]/35 hover:border-[#E6CA85] rounded-xl p-1.5 pr-3 flex items-center gap-2.5 cursor-pointer transition-all duration-300 shadow hover:scale-102 group">
+                    <img src="${product.image}"
+                         alt="${product.name}"
+                         onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85'"
+                         class="w-9 h-9 rounded-lg object-cover border border-[#B8945B]/30 group-hover:border-[#E6CA85] shrink-0" />
+                    <div class="text-left">
+                      <p class="font-serif font-bold text-xs text-white group-hover:text-[#E6CA85] transition-colors truncate max-w-[120px] sm:max-w-[140px]">${product.name}</p>
+                      <div class="flex items-center gap-2 text-[10px]">
+                        <span class="text-[#E6CA85] font-bold">₹${product.price}</span>
+                        <span class="text-gray-400">★ ${product.rating}</span>
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Right Arrow Button -->
+              <button onclick="window.ladesioApp.scrollDishesBanner(1)"
+                      class="shrink-0 w-7 h-7 rounded-full bg-black/50 hover:bg-[#B8945B] border border-[#B8945B]/40 text-white flex items-center justify-center transition-all z-10 ml-1.5 shadow focus:outline-none text-sm font-bold"
+                      aria-label="Next dishes">
+                ›
+              </button>
+
+            </div>
+
+            <!-- Quick Action CTA Link -->
+            <a href="#menu" class="hidden xl:flex items-center gap-1 text-xs font-serif font-bold text-[#E6CA85] hover:text-white uppercase tracking-wider shrink-0 transition-colors pl-2 border-l border-[#B8945B]/20">
+              <span>View All</span> →
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- FULL-WIDTH SLIDING IMAGE HERO CAROUSEL     -->
+      <!-- ========================================== -->
+      <section id="fullSizeBannerContainer"
+               class="relative w-full h-[400px] sm:h-[500px] md:h-[580px] lg:h-[650px] bg-[#1A0B06] overflow-hidden border-b border-[#B8945B]/30 select-none group">
+        
+        <!-- Sliding Horizontal Track -->
+        <div id="fullBannerTrack"
+             class="flex w-full h-full transition-transform duration-700 ease-in-out"
+             style="transform: translateX(-${this.fullBannerSlideIndex * 100}%);">
+          ${FULL_SIZE_BANNER_IMAGES.map((slide, idx) => `
+            <div class="w-full h-full shrink-0 relative overflow-hidden">
+              <img src="${slide.image}"
+                   alt="${slide.title}"
+                   class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
+              
+              <!-- Luxury Gradient Overlay & Slide Narrative -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/40 flex flex-col justify-end p-6 sm:p-12 lg:p-16">
+                <div class="max-w-3xl space-y-2.5 text-white">
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block px-3 py-1 rounded-full bg-[#B8945B] text-[#140A06] text-[10px] sm:text-xs font-serif uppercase tracking-widest font-bold shadow-md">
+                      ${slide.badge}
+                    </span>
+                    <span class="text-xs font-serif text-[#E6CA85] tracking-wider uppercase hidden sm:inline">Collection No. 0${idx + 1}</span>
+                  </div>
+
+                  <h2 class="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-md leading-tight">
+                    ${slide.title}
+                  </h2>
+                  
+                  <p class="text-xs sm:text-sm md:text-base text-[#F8F1E7]/90 font-light max-w-xl drop-shadow line-clamp-2">
+                    ${slide.subtitle}
+                  </p>
+
+                  <div class="pt-2 sm:pt-4 flex flex-wrap items-center gap-3">
+                    <button onclick="window.ladesioApp.openProductModal('${slide.productId}')"
+                            class="px-6 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center gap-2">
+                      <span>View Creation</span> →
+                    </button>
+                    <a href="#menu" class="px-6 py-3 rounded-xl bg-black/40 hover:bg-black/70 backdrop-blur border border-white/30 text-white font-serif text-xs font-semibold tracking-wider uppercase transition-all">
+                      Explore Full Menu
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Left & Right Arrow Navigation Controls -->
+        <button onclick="event.stopPropagation(); window.ladesioApp.prevFullBannerSlide()"
+                class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-[#B8945B] text-white backdrop-blur border border-white/30 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 hover:scale-110 shadow-2xl focus:outline-none text-2xl font-bold"
+                aria-label="Previous slide">
+          ‹
+        </button>
+        <button onclick="event.stopPropagation(); window.ladesioApp.nextFullBannerSlide()"
+                class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-[#B8945B] text-white backdrop-blur border border-white/30 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 hover:scale-110 shadow-2xl focus:outline-none text-2xl font-bold"
+                aria-label="Next slide">
+          ›
+        </button>
+
+        <!-- Bottom Pagination Indicators & Slide Counter -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full bg-black/60 backdrop-blur border border-white/20 shadow-xl">
+          <div class="flex items-center gap-2">
+            ${FULL_SIZE_BANNER_IMAGES.map((_, idx) => `
+              <button onclick="event.stopPropagation(); window.ladesioApp.setFullBannerSlide(${idx})"
+                      class="full-banner-dot h-2 rounded-full transition-all duration-300 ${idx === this.fullBannerSlideIndex ? 'bg-[#E6CA85] w-8' : 'bg-white/40 hover:bg-white/70 w-2.5'}"
+                      aria-label="Go to slide ${idx + 1}"></button>
+            `).join('')}
+          </div>
+          <span id="fullBannerCounter" class="text-[11px] font-mono text-[#E6CA85] font-bold pl-2 border-l border-white/20">
+            0${this.fullBannerSlideIndex + 1} / 0${FULL_SIZE_BANNER_IMAGES.length}
+          </span>
+        </div>
+
+      </section>
+
       <!-- HERO SECTION -->
-      <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#FFFDF9] via-[#F8F1E7] to-[#FFFDF9] pt-20 pb-16">
+      <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#EDE4D6] via-[#E4D7C5] to-[#EDE4D6] pt-14 pb-16">
         
         <!-- Ambient Gold Glow & Flourishes -->
         <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#B8945B]/10 blur-3xl pointer-events-none"></div>
@@ -240,7 +474,7 @@ class LaDesioApp {
               </div>
             </div>
 
-            <!-- Right Hero Visual Medal & Plated Masterpiece -->
+            <!-- Right Hero Visual Medal & Plated Masterpiece (Automatic Carousel) -->
             <div class="lg:col-span-6 relative flex items-center justify-center">
               
               <!-- Luxury Rotating Circular Seal Frame -->
@@ -248,29 +482,63 @@ class LaDesioApp {
                 <div class="absolute inset-0 rounded-full border border-[#B8945B]/30 animate-spin" style="animation-duration: 40s;"></div>
                 <div class="absolute inset-4 rounded-full border border-dashed border-[#B8945B]/20"></div>
 
-                <!-- Main Hero Dessert Plate Display -->
-                <div class="relative z-10 w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-[#B8945B]/40 group">
-                  <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
-                       alt="La Desio Signature Chocolate Creation"
-                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <!-- Main Hero Dessert Plate Display (Interactive Automatic Carousel) -->
+                <div id="heroCarouselContainer"
+                     class="relative z-10 w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-[#B8945B]/40 group select-none">
                   
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#23120C]/90 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-serif">Signature Masterpiece</span>
-                        <h3 class="font-display text-2xl text-white">Velvet Noir Royale</h3>
-                        <p class="text-xs text-[#F8F1E7]/80 font-sans mt-0.5">72% Single-Origin Cocoa • Piedmont Hazelnuts • 24k Gold</p>
+                  <!-- Slides Container -->
+                  <div class="w-full h-full relative overflow-hidden">
+                    ${HERO_SLIDES.map((slide, idx) => `
+                      <div class="hero-carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === this.heroSlideIndex ? 'opacity-100 pointer-events-auto z-10' : 'opacity-0 pointer-events-none z-0'}"
+                           data-slide-index="${idx}">
+                        <img src="${slide.image}"
+                             alt="${slide.title}"
+                             onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85'"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        
+                        <!-- Slide Gradient Overlay & Caption -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#23120C]/95 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                          <div class="flex items-center justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                              <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-serif font-semibold">${slide.badge}</span>
+                              <h3 class="font-display text-2xl text-white truncate">${slide.title}</h3>
+                              <p class="text-xs text-[#F8F1E7]/80 font-sans mt-0.5 line-clamp-1">${slide.subtitle}</p>
+                            </div>
+                            <button onclick="window.ladesioApp.openProductModal('${slide.productId}')"
+                                    class="px-4 py-2 rounded-lg bg-[#B8945B] text-white font-serif text-xs font-semibold hover:bg-[#E6CA85] hover:text-[#3A1F17] transition-all shrink-0 shadow-lg">
+                              View
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      <button onclick="window.ladesioApp.openProductModal('desio-velvet-noir')"
-                              class="px-4 py-2 rounded-lg bg-[#B8945B] text-white font-serif text-xs font-semibold hover:bg-[#E6CA85] hover:text-[#3A1F17] transition-all">
-                        View
-                      </button>
-                    </div>
+                    `).join('')}
                   </div>
+
+                  <!-- Carousel Controls: Prev & Next Buttons -->
+                  <button onclick="event.stopPropagation(); window.ladesioApp.prevHeroSlide()"
+                          class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/50 hover:bg-[#B8945B] text-white backdrop-blur border border-white/20 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-md focus:outline-none text-lg font-bold"
+                          aria-label="Previous slide">
+                    ‹
+                  </button>
+                  <button onclick="event.stopPropagation(); window.ladesioApp.nextHeroSlide()"
+                          class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/50 hover:bg-[#B8945B] text-white backdrop-blur border border-white/20 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-md focus:outline-none text-lg font-bold"
+                          aria-label="Next slide">
+                    ›
+                  </button>
+
+                  <!-- Carousel Pagination Dots -->
+                  <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur border border-white/10">
+                    ${HERO_SLIDES.map((_, idx) => `
+                      <button onclick="event.stopPropagation(); window.ladesioApp.setHeroSlide(${idx})"
+                              class="hero-carousel-dot w-2 h-2 rounded-full transition-all ${idx === this.heroSlideIndex ? 'bg-[#E6CA85] w-5' : 'bg-white/40 hover:bg-white/70'}"
+                              aria-label="Slide ${idx + 1}"></button>
+                    `).join('')}
+                  </div>
+
                 </div>
 
                 <!-- Floating Italian Emblem Seal (Transparent Background) -->
-                <div class="absolute -top-4 -right-4 w-28 h-28 z-20 drop-shadow-2xl animate-float-slow hidden sm:block">
+                <div class="absolute -top-4 -right-4 w-28 h-28 z-20 drop-shadow-2xl animate-float-slow hidden sm:block pointer-events-none">
                   <img src="Assets/Logo/emblem_transparent.png" alt="La Desio Seal" class="w-full h-full object-contain filter drop-shadow" />
                 </div>
 
@@ -282,68 +550,9 @@ class LaDesioApp {
         </div>
       </section>
 
-      <!-- BRAND INTRODUCTION: "INDULGENCE, REIMAGINED." -->
-      <section class="py-20 bg-[#3A1F17] text-[#FFFDF9] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Editorial Chef Image -->
-            <div class="lg:col-span-5 relative">
-              <div class="relative rounded-2xl overflow-hidden border border-[#B8945B]/40 shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=85"
-                     alt="La Desio Master Pastry Chef"
-                     class="w-full h-[450px] object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/40 backdrop-blur border border-white/10 text-xs">
-                  <p class="font-serif italic text-[#E6CA85]">"Dessert is not just a recipe; it is an intimate expression of desire and artistry."</p>
-                  <p class="text-[10px] text-white/70 mt-1 uppercase tracking-wider">— Chef Alessandro, Milan Atelier</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Introduction Narrative -->
-            <div class="lg:col-span-7 space-y-6">
-              <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Artisanal Philosophy</span>
-              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#FFFDF9] leading-tight">
-                INDULGENCE,<br />
-                <span class="text-gold-gradient font-serif-elegant font-normal italic">REIMAGINED.</span>
-              </h2>
-
-              <p class="text-sm sm:text-base text-[#F8F1E7]/80 leading-relaxed font-light">
-                At La Desio, dessert is far more than a sweet ending. It is a creation thoughtfully crafted around your taste, your choices, and your desire to indulge beautifully.
-              </p>
-
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                <div class="p-4 rounded-xl bg-[#23120C]/80 border border-[#B8945B]/30">
-                  <span class="text-2xl mb-2 block">🇮🇹</span>
-                  <h4 class="font-serif text-sm font-bold text-[#E6CA85]">Italian Elegance</h4>
-                  <p class="text-[11px] text-[#F8F1E7]/70 mt-1">Inspired by grand Milanese and Venetian patisseries.</p>
-                </div>
-                <div class="p-4 rounded-xl bg-[#23120C]/80 border border-[#B8945B]/30">
-                  <span class="text-2xl mb-2 block">✨</span>
-                  <h4 class="font-serif text-sm font-bold text-[#E6CA85]">Bespoke Customization</h4>
-                  <p class="text-[11px] text-[#F8F1E7]/70 mt-1">Infinite combinations crafted to order in real-time.</p>
-                </div>
-                <div class="p-4 rounded-xl bg-[#23120C]/80 border border-[#B8945B]/30">
-                  <span class="text-2xl mb-2 block">🌿</span>
-                  <h4 class="font-serif text-sm font-bold text-[#E6CA85]">Desio Natural</h4>
-                  <p class="text-[11px] text-[#F8F1E7]/70 mt-1">Less refined sweetness with real fruits and dates.</p>
-                </div>
-              </div>
-
-              <div class="pt-4">
-                <a href="#menu" class="inline-flex items-center gap-2 text-xs font-serif tracking-widest text-[#E6CA85] hover:text-white uppercase transition-colors">
-                  <span>DISCOVER THE LA DESIO COLLECTION</span> →
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       <!-- SIGNATURE DESSERTS COLLECTION -->
-      <section class="py-20 bg-[#FFFDF9]">
+      <section class="py-20 bg-[#EDE4D6]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-2xl mx-auto mb-12">
@@ -370,7 +579,7 @@ class LaDesioApp {
       </section>
 
       <!-- INTERACTIVE CREATE YOUR DESSERT STUDIO TEASER -->
-      <section class="py-20 bg-gradient-to-b from-[#F8F1E7] via-[#FFFDF9] to-[#F8F1E7] relative overflow-hidden" id="home-builder-section">
+      <section class="py-20 bg-gradient-to-b from-[#E4D7C5] via-[#EDE4D6] to-[#E4D7C5] relative overflow-hidden" id="home-builder-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-2xl mx-auto mb-10">
@@ -389,7 +598,7 @@ class LaDesioApp {
       </section>
 
       <!-- DESIO NATURAL COLLECTION SPOTLIGHT -->
-      <section class="py-20 bg-[#FFFDF9] border-t border-[#B8945B]/20">
+      <section class="py-20 bg-[#EDE4D6] border-t border-[#B8945B]/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
@@ -475,7 +684,7 @@ class LaDesioApp {
       </section>
 
       <!-- TRENDING CUSTOMER CREATIONS -->
-      <section class="py-20 bg-[#FFFDF9]">
+      <section class="py-20 bg-[#EDE4D6]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-2xl mx-auto mb-12">
@@ -570,7 +779,7 @@ class LaDesioApp {
       </section>
 
       <!-- INSTAGRAM / SOCIAL SECTION -->
-      <section class="py-20 bg-[#FFFDF9]">
+      <section class="py-20 bg-[#EDE4D6]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-2xl mx-auto mb-10">
@@ -598,6 +807,11 @@ class LaDesioApp {
       </section>
     `;
 
+    // Initialize Hero Carousel, Dishes Banner & Full-Size Image Banner
+    this.initHeroCarousel();
+    this.initDishesBannerCarousel();
+    this.initFullBannerCarousel();
+
     // Mount Interactive Dessert Studio on Home
     const studioMount = document.getElementById('homeDessertStudioMount');
     if (studioMount) {
@@ -606,6 +820,187 @@ class LaDesioApp {
       });
       window.dessertStudio.init();
     }
+  }
+
+  // ==========================================
+  // HERO CAROUSEL CONTROLLER METHODS
+  // ==========================================
+  initHeroCarousel() {
+    this.stopHeroCarouselTimer();
+    const container = document.getElementById('heroCarouselContainer');
+    if (!container) return;
+
+    // Pause auto-rotation on mouse enter, resume on mouse leave
+    container.onmouseenter = () => this.stopHeroCarouselTimer();
+    container.onmouseleave = () => this.startHeroCarouselTimer();
+
+    // Start auto-advancing
+    this.startHeroCarouselTimer();
+  }
+
+  startHeroCarouselTimer() {
+    this.stopHeroCarouselTimer();
+    this.heroCarouselTimer = setInterval(() => {
+      this.nextHeroSlide();
+    }, 3500);
+  }
+
+  stopHeroCarouselTimer() {
+    if (this.heroCarouselTimer) {
+      clearInterval(this.heroCarouselTimer);
+      this.heroCarouselTimer = null;
+    }
+  }
+
+  setHeroSlide(index) {
+    const total = HERO_SLIDES.length;
+    this.heroSlideIndex = ((index % total) + total) % total;
+
+    const slides = document.querySelectorAll('.hero-carousel-slide');
+    slides.forEach((slide, idx) => {
+      if (idx === this.heroSlideIndex) {
+        slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+        slide.classList.add('opacity-100', 'pointer-events-auto', 'z-10');
+      } else {
+        slide.classList.remove('opacity-100', 'pointer-events-auto', 'z-10');
+        slide.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+      }
+    });
+
+    const dots = document.querySelectorAll('.hero-carousel-dot');
+    dots.forEach((dot, idx) => {
+      if (idx === this.heroSlideIndex) {
+        dot.className = 'hero-carousel-dot w-5 h-2 rounded-full transition-all bg-[#E6CA85]';
+      } else {
+        dot.className = 'hero-carousel-dot w-2 h-2 rounded-full transition-all bg-white/40 hover:bg-white/70';
+      }
+    });
+  }
+
+  nextHeroSlide() {
+    this.setHeroSlide(this.heroSlideIndex + 1);
+  }
+
+  prevHeroSlide() {
+    this.setHeroSlide(this.heroSlideIndex - 1);
+  }
+
+  // ==========================================
+  // TOP DISHES BANNER CAROUSEL CONTROLLER
+  // ==========================================
+  initDishesBannerCarousel() {
+    if (this.dishesBannerTimer) {
+      clearInterval(this.dishesBannerTimer);
+      this.dishesBannerTimer = null;
+    }
+    const track = document.getElementById('dishesBannerTrack');
+    if (!track) return;
+
+    // Automatic smooth advancement
+    this.dishesBannerTimer = setInterval(() => {
+      if (!track) return;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: 240, behavior: 'smooth' });
+      }
+    }, 3200);
+
+    track.onmouseenter = () => {
+      if (this.dishesBannerTimer) {
+        clearInterval(this.dishesBannerTimer);
+        this.dishesBannerTimer = null;
+      }
+    };
+
+    track.onmouseleave = () => {
+      this.initDishesBannerCarousel();
+    };
+  }
+
+  scrollDishesBanner(direction) {
+    const track = document.getElementById('dishesBannerTrack');
+    if (!track) return;
+    track.scrollBy({ left: direction * 240, behavior: 'smooth' });
+  }
+
+  // ==========================================
+  // FULL-SIZE IMAGE BANNER CONTROLLER METHODS
+  // ==========================================
+  initFullBannerCarousel() {
+    this.stopFullBannerTimer();
+    const container = document.getElementById('fullSizeBannerContainer');
+    if (!container) return;
+
+    // Pause auto-rotation on mouse enter, resume on mouse leave
+    container.onmouseenter = () => this.stopFullBannerTimer();
+    container.onmouseleave = () => this.startFullBannerTimer();
+
+    // Touch swipe support
+    let touchStartX = 0;
+    container.ontouchstart = (e) => {
+      touchStartX = e.touches[0].clientX;
+      this.stopFullBannerTimer();
+    };
+    container.ontouchend = (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (diff > 50) {
+        this.nextFullBannerSlide();
+      } else if (diff < -50) {
+        this.prevFullBannerSlide();
+      }
+      this.startFullBannerTimer();
+    };
+
+    // Start auto-advancing
+    this.startFullBannerTimer();
+  }
+
+  startFullBannerTimer() {
+    this.stopFullBannerTimer();
+    this.fullBannerTimer = setInterval(() => {
+      this.nextFullBannerSlide();
+    }, 4000);
+  }
+
+  stopFullBannerTimer() {
+    if (this.fullBannerTimer) {
+      clearInterval(this.fullBannerTimer);
+      this.fullBannerTimer = null;
+    }
+  }
+
+  setFullBannerSlide(index) {
+    const total = FULL_SIZE_BANNER_IMAGES.length;
+    this.fullBannerSlideIndex = ((index % total) + total) % total;
+
+    const track = document.getElementById('fullBannerTrack');
+    if (track) {
+      track.style.transform = `translateX(-${this.fullBannerSlideIndex * 100}%)`;
+    }
+
+    const dots = document.querySelectorAll('.full-banner-dot');
+    dots.forEach((dot, idx) => {
+      if (idx === this.fullBannerSlideIndex) {
+        dot.className = 'full-banner-dot h-2 rounded-full transition-all duration-300 bg-[#E6CA85] w-8';
+      } else {
+        dot.className = 'full-banner-dot h-2 rounded-full transition-all duration-300 bg-white/40 hover:bg-white/70 w-2.5';
+      }
+    });
+
+    const counter = document.getElementById('fullBannerCounter');
+    if (counter) {
+      counter.textContent = `0${this.fullBannerSlideIndex + 1} / 0${total}`;
+    }
+  }
+
+  nextFullBannerSlide() {
+    this.setFullBannerSlide(this.fullBannerSlideIndex + 1);
+  }
+
+  prevFullBannerSlide() {
+    this.setFullBannerSlide(this.fullBannerSlideIndex - 1);
   }
 
   // ==========================================
