@@ -57,6 +57,48 @@ export class DessertBuilder {
     return total;
   }
 
+  calculateNutrition() {
+    let calories = 0, protein = 0, carbs = 0, fats = 0;
+    const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(b => b.id === this.state.base);
+    if (baseObj?.nutrition) {
+      calories += baseObj.nutrition.calories;
+      protein += baseObj.nutrition.protein;
+      carbs += baseObj.nutrition.carbs;
+      fats += baseObj.nutrition.fats;
+    }
+    const flavorObj = DESSERT_BUILDER_OPTIONS.flavors.find(f => f.id === this.state.flavor);
+    if (flavorObj?.nutrition) {
+      calories += flavorObj.nutrition.calories;
+      protein += flavorObj.nutrition.protein;
+      carbs += flavorObj.nutrition.carbs;
+      fats += flavorObj.nutrition.fats;
+    }
+    const fillingObj = DESSERT_BUILDER_OPTIONS.fillings.find(f => f.id === this.state.filling);
+    if (fillingObj?.nutrition) {
+      calories += fillingObj.nutrition.calories;
+      protein += fillingObj.nutrition.protein;
+      carbs += fillingObj.nutrition.carbs;
+      fats += fillingObj.nutrition.fats;
+    }
+    this.state.toppings.forEach(topId => {
+      const topObj = DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === topId);
+      if (topObj?.nutrition) {
+        calories += topObj.nutrition.calories;
+        protein += topObj.nutrition.protein;
+        carbs += topObj.nutrition.carbs;
+        fats += topObj.nutrition.fats;
+      }
+    });
+    const sauceObj = DESSERT_BUILDER_OPTIONS.sauces.find(s => s.id === this.state.sauce);
+    if (sauceObj?.nutrition) {
+      calories += sauceObj.nutrition.calories;
+      protein += sauceObj.nutrition.protein;
+      carbs += sauceObj.nutrition.carbs;
+      fats += sauceObj.nutrition.fats;
+    }
+    return { calories, protein, carbs, fats };
+  }
+
   renderVisualDessert() {
     const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(b => b.id === this.state.base) || DESSERT_BUILDER_OPTIONS.bases[0];
     const flavorObj = DESSERT_BUILDER_OPTIONS.flavors.find(f => f.id === this.state.flavor) || DESSERT_BUILDER_OPTIONS.flavors[0];
@@ -179,7 +221,10 @@ export class DessertBuilder {
                      onclick="window.dessertStudio.selectFlavor('${flavor.id}')">
                   <span class="text-2xl">${flavor.icon}</span>
                   <h4 class="font-serif text-sm font-semibold text-[#3A1F17]">${flavor.name}</h4>
-                  <span class="text-xs font-medium text-[#B8945B]">+₹${flavor.price}</span>
+                  <div class="flex items-center gap-1.5 text-[11px]">
+                    <span class="font-medium text-[#B8945B]">+₹${flavor.price}</span>
+                    <span class="text-gray-400 font-mono text-[10px]">(${flavor.nutrition.calories} kcal)</span>
+                  </div>
                 </div>
               `).join('')}
             </div>
@@ -200,7 +245,10 @@ export class DessertBuilder {
                      onclick="window.dessertStudio.selectFilling('${filling.id}')">
                   <div class="flex items-center gap-3">
                     <span class="w-6 h-6 rounded-full border border-black/20 shadow-inner shrink-0" style="background: ${filling.color}"></span>
-                    <span class="font-serif text-sm font-bold text-[#3A1F17]">${filling.name}</span>
+                    <div>
+                      <span class="font-serif text-sm font-bold text-[#3A1F17] block">${filling.name}</span>
+                      <span class="text-[10px] text-gray-400 font-mono">${filling.nutrition.calories} kcal</span>
+                    </div>
                   </div>
                   <span class="text-xs font-semibold text-[#B8945B]">+₹${filling.price}</span>
                 </div>
@@ -225,7 +273,10 @@ export class DessertBuilder {
                        onclick="window.dessertStudio.toggleTopping('${top.id}')">
                     <div class="flex items-center gap-2">
                       <span class="text-lg">${top.icon}</span>
-                      <span class="font-serif text-xs font-semibold text-[#3A1F17] truncate">${top.name.split(' ')[0]}</span>
+                      <div>
+                        <span class="font-serif text-xs font-semibold text-[#3A1F17] block truncate">${top.name.split(' ')[0]}</span>
+                        <span class="text-[9px] text-gray-400 font-mono">${top.nutrition.calories} kcal</span>
+                      </div>
                     </div>
                     <div class="flex items-center gap-1.5">
                       <span class="text-[11px] text-[#B8945B] font-medium">+₹${top.price}</span>
@@ -254,7 +305,10 @@ export class DessertBuilder {
                      onclick="window.dessertStudio.selectSauce('${sauce.id}')">
                   <div class="flex items-center gap-3">
                     <span class="w-5 h-5 rounded-full border border-black/20 shadow-inner shrink-0" style="background: ${sauce.color}"></span>
-                    <span class="font-serif text-sm font-semibold text-[#3A1F17]">${sauce.name}</span>
+                    <div>
+                      <span class="font-serif text-sm font-semibold text-[#3A1F17] block">${sauce.name}</span>
+                      <span class="text-[10px] text-gray-400 font-mono">${sauce.nutrition.calories} kcal</span>
+                    </div>
                   </div>
                   <span class="text-xs font-semibold text-[#B8945B]">+₹${sauce.price}</span>
                 </div>
@@ -296,10 +350,10 @@ export class DessertBuilder {
               </div>
 
               <!-- Recipe Summary Card -->
-              <div class="p-3.5 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 text-xs space-y-1.5">
+              <div class="p-3.5 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 text-xs space-y-2">
                 <div class="font-serif font-bold text-[#3A1F17] flex items-center justify-between">
                   <span>Recipe Specification:</span>
-                  <span class="text-[#B8945B] font-sans">⏱ 25 Mins Prep</span>
+                  <span class="text-[#B8945B] font-sans">⏱ 25 Mins Handcrafted</span>
                 </div>
                 <p class="text-[#6B3E2E] leading-relaxed">
                   <strong>Base:</strong> ${baseObj?.name} • 
@@ -310,6 +364,17 @@ export class DessertBuilder {
                 <p class="text-[#6B3E2E]">
                   <strong>Toppings:</strong> ${this.state.toppings.map(id => DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === id)?.name).join(', ') || 'None selected'}
                 </p>
+
+                <!-- Nutrition Breakdown in Step 6 -->
+                ${(() => {
+                  const n = this.calculateNutrition();
+                  return `
+                    <div class="pt-2 border-t border-[#B8945B]/20 flex items-center justify-between text-[11px]">
+                      <span class="font-serif font-bold text-[#3A1F17] flex items-center gap-1">⚡ ${n.calories} kcal</span>
+                      <span class="text-[10px] text-[#6B3E2E] font-medium">P: ${n.protein}g • C: ${n.carbs}g • F: ${n.fats}g</span>
+                    </div>
+                  `;
+                })()}
               </div>
 
               <div class="flex items-center gap-2 pt-2">
@@ -332,6 +397,7 @@ export class DessertBuilder {
     if (!this.container) return;
 
     const totalPrice = this.calculatePrice();
+    const nutrition = this.calculateNutrition();
     const steps = [
       { num: 1, title: 'Base' },
       { num: 2, title: 'Flavor' },
@@ -377,9 +443,17 @@ export class DessertBuilder {
               <h4 class="font-serif text-lg text-[#3A1F17] font-semibold">${this.state.name}</h4>
             </div>
             ${this.renderVisualDessert()}
-            <div class="mt-6 flex items-center justify-between w-full max-w-xs px-4 py-2 bg-white rounded-xl border border-[#B8945B]/30 shadow-sm text-xs">
-              <span class="text-[#6B3E2E]">Calculated Price:</span>
-              <span class="font-display font-bold text-base text-[#3A1F17]">₹${totalPrice}</span>
+            
+            <!-- Live Calculated Price & Macros Bar -->
+            <div class="mt-6 w-full max-w-sm space-y-2">
+              <div class="flex items-center justify-between px-4 py-2 bg-white rounded-xl border border-[#B8945B]/30 shadow-sm text-xs">
+                <span class="text-[#6B3E2E]">Calculated Price:</span>
+                <span class="font-display font-bold text-base text-[#3A1F17]">₹${totalPrice}</span>
+              </div>
+              <div class="flex items-center justify-between px-4 py-1.5 bg-[#F8F1E7]/80 rounded-xl border border-[#B8945B]/20 text-[11px]">
+                <span class="font-serif font-bold text-[#3A1F17] flex items-center gap-1">⚡ ${nutrition.calories} kcal</span>
+                <span class="text-[10px] text-[#6B3E2E] font-medium">P: ${nutrition.protein}g • C: ${nutrition.carbs}g • F: ${nutrition.fats}g</span>
+              </div>
             </div>
           </div>
 

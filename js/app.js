@@ -1727,6 +1727,23 @@ class LaDesioApp {
                 </span>
               `).join('')}
             </div>
+
+            <!-- Calories & Macronutrient Quick Highlights -->
+            ${product.nutrition ? `
+              <div class="mt-2.5 px-2.5 py-1.5 rounded-lg bg-[#F8F1E7]/80 border border-[#B8945B]/25 flex items-center justify-between text-[11px]">
+                <div class="flex items-center gap-1 font-serif font-bold text-[#3A1F17]">
+                  <span class="text-[#B8945B]">⚡</span>
+                  <span>${product.nutrition.calories} kcal</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-[10px] text-[#6B3E2E] font-medium">
+                  <span title="Protein">P: <strong class="text-[#3A1F17]">${product.nutrition.protein}</strong></span>
+                  <span class="text-gray-300">•</span>
+                  <span title="Carbohydrates">C: <strong class="text-[#3A1F17]">${product.nutrition.carbs}</strong></span>
+                  <span class="text-gray-300">•</span>
+                  <span title="Fats">F: <strong class="text-[#3A1F17]">${product.nutrition.fats}</strong></span>
+                </div>
+              </div>
+            ` : ''}
           </div>
 
           <!-- Bottom Action Row -->
@@ -1816,6 +1833,47 @@ class LaDesioApp {
           </div>
 
           <p class="text-xs text-[#6B3E2E] leading-relaxed">${product.description}</p>
+
+          <!-- Nutritional & Macro Profile Module -->
+          ${product.nutrition ? `
+            <div class="p-3.5 rounded-xl bg-gradient-to-br from-[#FFFDF9] to-[#F8F1E7] border border-[#B8945B]/35 shadow-xs space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-serif uppercase tracking-wider font-bold text-[#3A1F17] flex items-center gap-1.5">
+                  <span>⚡</span> Approximate Nutrition & Macros
+                </span>
+                <span class="text-[10px] font-mono text-[#8C6B38] bg-[#B8945B]/10 px-2 py-0.5 rounded-full border border-[#B8945B]/20">
+                  ${product.nutrition.serving}
+                </span>
+              </div>
+
+              <!-- Macro Metric Grid -->
+              <div class="grid grid-cols-4 gap-2 text-center">
+                <div class="p-2 rounded-lg bg-white border border-[#B8945B]/20 shadow-xs">
+                  <span class="block text-[9px] text-[#6B3E2E] uppercase font-semibold">Calories</span>
+                  <span class="font-display font-bold text-sm text-[#3A1F17]">${product.nutrition.calories} <span class="text-[9px] font-sans font-normal text-gray-500">kcal</span></span>
+                </div>
+                <div class="p-2 rounded-lg bg-white border border-[#B8945B]/20 shadow-xs">
+                  <span class="block text-[9px] text-[#6B3E2E] uppercase font-semibold">Protein</span>
+                  <span class="font-display font-bold text-sm text-[#3A1F17]">${product.nutrition.protein}</span>
+                </div>
+                <div class="p-2 rounded-lg bg-white border border-[#B8945B]/20 shadow-xs">
+                  <span class="block text-[9px] text-[#6B3E2E] uppercase font-semibold">Carbs</span>
+                  <span class="font-display font-bold text-sm text-[#3A1F17]">${product.nutrition.carbs}</span>
+                </div>
+                <div class="p-2 rounded-lg bg-white border border-[#B8945B]/20 shadow-xs">
+                  <span class="block text-[9px] text-[#6B3E2E] uppercase font-semibold">Fats</span>
+                  <span class="font-display font-bold text-sm text-[#3A1F17]">${product.nutrition.fats}</span>
+                </div>
+              </div>
+              
+              ${product.nutrition.fiber ? `
+                <div class="flex items-center justify-between text-[10px] text-[#6B3E2E] px-1 pt-1 border-t border-[#B8945B]/15">
+                  <span>Dietary Fiber: <strong class="text-[#3A1F17]">${product.nutrition.fiber}</strong></span>
+                  <span class="text-[#8C6B38] font-serif italic">Artisanal Patisserie Craft</span>
+                </div>
+              ` : ''}
+            </div>
+          ` : ''}
 
           <!-- Artisanal Modifiers -->
           <div class="p-4 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 space-y-2.5 text-xs">

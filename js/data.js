@@ -41,7 +41,15 @@ export const PRODUCTS = [
     flavor: 'Chocolate',
     servingSize: '1-2 Persons (210g)',
     prepTime: '25 mins handcrafted',
-    storageInfo: 'Store refrigerated at 4°C. Best enjoyed within 48 hours.'
+    storageInfo: 'Store refrigerated at 4°C. Best enjoyed within 48 hours.',
+    nutrition: {
+      calories: 480,
+      protein: '7g',
+      carbs: '46g',
+      fats: '31g',
+      fiber: '5g',
+      serving: 'Per Serving (210g)'
+    }
   },
   {
     id: 'desio-pistachio-royale',
@@ -66,7 +74,15 @@ export const PRODUCTS = [
     flavor: 'Pistachio',
     servingSize: '1-2 Persons (200g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Keep chilled. Serve cool for maximum aroma release.'
+    storageInfo: 'Keep chilled. Serve cool for maximum aroma release.',
+    nutrition: {
+      calories: 460,
+      protein: '9g',
+      carbs: '42g',
+      fats: '29g',
+      fiber: '4g',
+      serving: 'Per Serving (200g)'
+    }
   },
   {
     id: 'desio-berry-elan',
@@ -90,7 +106,15 @@ export const PRODUCTS = [
     flavor: 'Berry',
     servingSize: '1-2 Persons (190g)',
     prepTime: '15 mins handcrafted',
-    storageInfo: 'Keep refrigerated. Consume fresh.'
+    storageInfo: 'Keep refrigerated. Consume fresh.',
+    nutrition: {
+      calories: 340,
+      protein: '5g',
+      carbs: '44g',
+      fats: '16g',
+      fiber: '3g',
+      serving: 'Per Serving (190g)'
+    }
   },
   {
     id: 'desio-caramel-etoile',
@@ -113,7 +137,15 @@ export const PRODUCTS = [
     flavor: 'Caramel',
     servingSize: '1-2 Persons (220g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Chilled or room temperature for 10 minutes before serving.'
+    storageInfo: 'Chilled or room temperature for 10 minutes before serving.',
+    nutrition: {
+      calories: 490,
+      protein: '6g',
+      carbs: '52g',
+      fats: '29g',
+      fiber: '3g',
+      serving: 'Per Serving (220g)'
+    }
   },
   {
     id: 'desio-tiramisu-classico',
@@ -136,7 +168,15 @@ export const PRODUCTS = [
     flavor: 'Coffee',
     servingSize: '1-2 Persons (230g)',
     prepTime: '15 mins handcrafted',
-    storageInfo: 'Keep chilled at 3-5°C.'
+    storageInfo: 'Keep chilled at 3-5°C.',
+    nutrition: {
+      calories: 420,
+      protein: '8g',
+      carbs: '39g',
+      fats: '26g',
+      fiber: '2g',
+      serving: 'Per Serving (230g)'
+    }
   },
   {
     id: 'desio-strawberry-rose',
@@ -160,7 +200,15 @@ export const PRODUCTS = [
     flavor: 'Strawberry',
     servingSize: '1-2 Persons (200g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Refrigerate immediately. Enjoy cold.'
+    storageInfo: 'Refrigerate immediately. Enjoy cold.',
+    nutrition: {
+      calories: 360,
+      protein: '5g',
+      carbs: '48g',
+      fats: '17g',
+      fiber: '3g',
+      serving: 'Per Serving (200g)'
+    }
   },
 
   // ==========================================
@@ -188,7 +236,15 @@ export const PRODUCTS = [
     flavor: 'Berry',
     servingSize: '1-2 Persons (190g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Keep chilled. Natural fruit dessert.'
+    storageInfo: 'Keep chilled. Natural fruit dessert.',
+    nutrition: {
+      calories: 290,
+      protein: '6g',
+      carbs: '34g',
+      fats: '15g',
+      fiber: '6g',
+      serving: 'Per Serving (190g)'
+    }
   },
   {
     id: 'desio-date-dark-chocolate-natural',
@@ -212,7 +268,15 @@ export const PRODUCTS = [
     flavor: 'Chocolate',
     servingSize: '1-2 Persons (205g)',
     prepTime: '25 mins handcrafted',
-    storageInfo: 'Store in cool room or refrigerator.'
+    storageInfo: 'Store in cool room or refrigerator.',
+    nutrition: {
+      calories: 380,
+      protein: '8g',
+      carbs: '40g',
+      fats: '22g',
+      fiber: '7g',
+      serving: 'Per Serving (205g)'
+    }
   },
   {
     id: 'desio-mango-cloud-natural',
@@ -235,7 +299,15 @@ export const PRODUCTS = [
     flavor: 'Mango',
     servingSize: '1 Person (180g)',
     prepTime: '15 mins handcrafted',
-    storageInfo: 'Serve cold from refrigeration.'
+    storageInfo: 'Serve cold from refrigeration.',
+    nutrition: {
+      calories: 240,
+      protein: '4g',
+      carbs: '32g',
+      fats: '11g',
+      fiber: '5g',
+      serving: 'Per Serving (180g)'
+    }
   },
   {
     id: 'desio-banana-cacao-natural',
@@ -258,7 +330,15 @@ export const PRODUCTS = [
     flavor: 'Chocolate',
     servingSize: '1-2 Persons (210g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Store at 4-8°C.'
+    storageInfo: 'Store at 4-8°C.',
+    nutrition: {
+      calories: 350,
+      protein: '7g',
+      carbs: '45g',
+      fats: '16g',
+      fiber: '6g',
+      serving: 'Per Serving (210g)'
+    }
   },
   {
     id: 'desio-strawberry-almond-natural',
@@ -281,7 +361,15 @@ export const PRODUCTS = [
     flavor: 'Strawberry',
     servingSize: '1 Person (175g)',
     prepTime: '15 mins handcrafted',
-    storageInfo: 'Keep chilled.'
+    storageInfo: 'Keep chilled.',
+    nutrition: {
+      calories: 220,
+      protein: '4g',
+      carbs: '28g',
+      fats: '11g',
+      fiber: '4g',
+      serving: 'Per Serving (175g)'
+    }
   },
   {
     id: 'desio-pistachio-fruit-tart-natural',
@@ -304,7 +392,15 @@ export const PRODUCTS = [
     flavor: 'Pistachio',
     servingSize: '1-2 Persons (200g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Refrigerate. Consume within 24 hours.'
+    storageInfo: 'Refrigerate. Consume within 24 hours.',
+    nutrition: {
+      calories: 370,
+      protein: '8g',
+      carbs: '38g',
+      fats: '21g',
+      fiber: '6g',
+      serving: 'Per Serving (200g)'
+    }
   },
 
   // ==========================================
@@ -331,7 +427,15 @@ export const PRODUCTS = [
     flavor: 'Chocolate',
     servingSize: '1 Person (160g)',
     prepTime: '15 mins handcrafted',
-    storageInfo: 'Warm for 15 seconds in microwave for molten bliss.'
+    storageInfo: 'Warm for 15 seconds in microwave for molten bliss.',
+    nutrition: {
+      calories: 440,
+      protein: '6g',
+      carbs: '48g',
+      fats: '26g',
+      fiber: '4g',
+      serving: 'Per Serving (160g)'
+    }
   },
 
   // ==========================================
@@ -358,7 +462,15 @@ export const PRODUCTS = [
     flavor: 'Vanilla',
     servingSize: '1-2 Persons (220g)',
     prepTime: '20 mins handcrafted',
-    storageInfo: 'Store chilled.'
+    storageInfo: 'Store chilled.',
+    nutrition: {
+      calories: 450,
+      protein: '10g',
+      carbs: '34g',
+      fats: '31g',
+      fiber: '1g',
+      serving: 'Per Serving (220g)'
+    }
   },
 
   // ==========================================
@@ -386,7 +498,15 @@ export const PRODUCTS = [
     flavor: 'Assorted',
     servingSize: '4-6 Persons (1.2kg)',
     prepTime: 'Same Day Handcrafted',
-    storageInfo: 'Temperature controlled packaging included.'
+    storageInfo: 'Temperature controlled packaging included.',
+    nutrition: {
+      calories: 2580,
+      protein: '40g',
+      carbs: '270g',
+      fats: '148g',
+      fiber: '23g',
+      serving: 'Complete 6-Piece Box (1.2kg)'
+    }
   },
   {
     id: 'desio-couples-collection',
@@ -410,7 +530,15 @@ export const PRODUCTS = [
     flavor: 'Assorted',
     servingSize: '2 Persons (550g)',
     prepTime: 'Same Day Handcrafted',
-    storageInfo: 'Refrigerated delivery.'
+    storageInfo: 'Refrigerated delivery.',
+    nutrition: {
+      calories: 1180,
+      protein: '18g',
+      carbs: '120g',
+      fats: '70g',
+      fiber: '10g',
+      serving: 'Complete Twin Box (550g)'
+    }
   }
 ];
 
@@ -424,7 +552,8 @@ export const DESSERT_BUILDER_OPTIONS = {
       price: 220,
       image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
       color: '#3B231B',
-      calories: '280 kcal'
+      calories: '280 kcal',
+      nutrition: { calories: 280, protein: 4, carbs: 32, fats: 16 }
     },
     {
       id: 'base-cheesecake',
@@ -433,7 +562,8 @@ export const DESSERT_BUILDER_OPTIONS = {
       price: 260,
       image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=600&q=80',
       color: '#F4E7CE',
-      calories: '310 kcal'
+      calories: '310 kcal',
+      nutrition: { calories: 310, protein: 7, carbs: 26, fats: 21 }
     },
     {
       id: 'base-waffle',
@@ -442,7 +572,8 @@ export const DESSERT_BUILDER_OPTIONS = {
       price: 190,
       image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80',
       color: '#D29E57',
-      calories: '260 kcal'
+      calories: '260 kcal',
+      nutrition: { calories: 260, protein: 5, carbs: 36, fats: 11 }
     },
     {
       id: 'base-cookie',
@@ -451,7 +582,8 @@ export const DESSERT_BUILDER_OPTIONS = {
       price: 180,
       image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80',
       color: '#C4945A',
-      calories: '240 kcal'
+      calories: '240 kcal',
+      nutrition: { calories: 240, protein: 3, carbs: 33, fats: 11 }
     },
     {
       id: 'base-cake',
@@ -460,45 +592,46 @@ export const DESSERT_BUILDER_OPTIONS = {
       price: 210,
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
       color: '#F9ECD2',
-      calories: '210 kcal'
+      calories: '210 kcal',
+      nutrition: { calories: 210, protein: 4, carbs: 30, fats: 8 }
     }
   ],
 
   flavors: [
-    { id: 'flavor-chocolate', name: 'Dark Chocolate', color: '#3A1F17', price: 60, icon: '🍫' },
-    { id: 'flavor-pistachio', name: 'Bronte Pistachio', color: '#93A879', price: 90, icon: '🌱' },
-    { id: 'flavor-strawberry', name: 'Wild Strawberry', color: '#C95D63', price: 75, icon: '🍓' },
-    { id: 'flavor-coffee', name: 'Espresso Arabica', color: '#5B3A29', price: 60, icon: '☕' },
-    { id: 'flavor-caramel', name: 'Salted Caramel', color: '#B87B42', price: 75, icon: '🍯' },
-    { id: 'flavor-vanilla', name: 'Bourbon Vanilla', color: '#F4ECE1', price: 60, icon: '🍦' },
-    { id: 'flavor-mango', name: 'Alphonso Mango', color: '#EAA221', price: 85, icon: '🥭' }
+    { id: 'flavor-chocolate', name: 'Dark Chocolate', color: '#3A1F17', price: 60, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 5, fats: 2 } },
+    { id: 'flavor-pistachio', name: 'Bronte Pistachio', color: '#93A879', price: 90, icon: '🌱', nutrition: { calories: 60, protein: 2, carbs: 4, fats: 4 } },
+    { id: 'flavor-strawberry', name: 'Wild Strawberry', color: '#C95D63', price: 75, icon: '🍓', nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0 } },
+    { id: 'flavor-coffee', name: 'Espresso Arabica', color: '#5B3A29', price: 60, icon: '☕', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0 } },
+    { id: 'flavor-caramel', name: 'Salted Caramel', color: '#B87B42', price: 75, icon: '🍯', nutrition: { calories: 50, protein: 0, carbs: 10, fats: 1 } },
+    { id: 'flavor-vanilla', name: 'Bourbon Vanilla', color: '#F4ECE1', price: 60, icon: '🍦', nutrition: { calories: 30, protein: 0, carbs: 6, fats: 0 } },
+    { id: 'flavor-mango', name: 'Alphonso Mango', color: '#EAA221', price: 85, icon: '🥭', nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0 } }
   ],
 
   fillings: [
-    { id: 'filling-chocolate-ganache', name: 'Valrhona Chocolate Ganache', color: '#2B140E', price: 75 },
-    { id: 'filling-vanilla-cream', name: 'Madagascar Vanilla Silk Cream', color: '#FFF8EB', price: 65 },
-    { id: 'filling-pistachio-mousse', name: 'Sicilian Pistachio Mousse', color: '#A0B486', price: 95 },
-    { id: 'filling-caramel-confit', name: 'Fleur de Sel Caramel Confit', color: '#C8833B', price: 75 },
-    { id: 'filling-berry-compote', name: 'Handmade Forest Berry Compote', color: '#88223B', price: 75 }
+    { id: 'filling-chocolate-ganache', name: 'Valrhona Chocolate Ganache', color: '#2B140E', price: 75, nutrition: { calories: 70, protein: 1, carbs: 8, fats: 4 } },
+    { id: 'filling-vanilla-cream', name: 'Madagascar Vanilla Silk Cream', color: '#FFF8EB', price: 65, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3 } },
+    { id: 'filling-pistachio-mousse', name: 'Sicilian Pistachio Mousse', color: '#A0B486', price: 95, nutrition: { calories: 80, protein: 2, carbs: 7, fats: 5 } },
+    { id: 'filling-caramel-confit', name: 'Fleur de Sel Caramel Confit', color: '#C8833B', price: 75, nutrition: { calories: 65, protein: 0, carbs: 12, fats: 2 } },
+    { id: 'filling-berry-compote', name: 'Handmade Forest Berry Compote', color: '#88223B', price: 75, nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0 } }
   ],
 
   toppings: [
-    { id: 'top-strawberries', name: 'Fresh Hand-Cut Strawberries', price: 60, icon: '🍓' },
-    { id: 'top-blueberries', name: 'Wild Alpine Blueberries', price: 70, icon: '🫐' },
-    { id: 'top-almonds', name: 'Toasted Sicilian Almonds', price: 55, icon: '🌰' },
-    { id: 'top-hazelnuts', name: 'Roasted Piedmont Hazelnuts', price: 75, icon: '🌰' },
-    { id: 'top-choc-chips', name: 'Valrhona Chocolate Pearls', price: 45, icon: '🍫' },
-    { id: 'top-oreo', name: 'Artisan Dark Biscuit Crumbs', price: 35, icon: '🍪' },
-    { id: 'top-coconut', name: 'Toasted Coconut Shavings', price: 35, icon: '🥥' },
-    { id: 'top-brownie-crumbs', name: 'Fudgy Brownie Chunks', price: 55, icon: '🍰' },
-    { id: 'top-gold-leaf', name: '24k Edible Gold Leaf Flourish', price: 120, icon: '✨' }
+    { id: 'top-strawberries', name: 'Fresh Hand-Cut Strawberries', price: 60, icon: '🍓', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0 } },
+    { id: 'top-blueberries', name: 'Wild Alpine Blueberries', price: 70, icon: '🫐', nutrition: { calories: 20, protein: 0, carbs: 4, fats: 0 } },
+    { id: 'top-almonds', name: 'Toasted Sicilian Almonds', price: 55, icon: '🌰', nutrition: { calories: 45, protein: 1, carbs: 2, fats: 4 } },
+    { id: 'top-hazelnuts', name: 'Roasted Piedmont Hazelnuts', price: 75, icon: '🌰', nutrition: { calories: 50, protein: 1, carbs: 2, fats: 5 } },
+    { id: 'top-choc-chips', name: 'Valrhona Chocolate Pearls', price: 45, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 4, fats: 2 } },
+    { id: 'top-oreo', name: 'Artisan Dark Biscuit Crumbs', price: 35, icon: '🍪', nutrition: { calories: 35, protein: 0, carbs: 6, fats: 1 } },
+    { id: 'top-coconut', name: 'Toasted Coconut Shavings', price: 35, icon: '🥥', nutrition: { calories: 30, protein: 0, carbs: 1, fats: 3 } },
+    { id: 'top-brownie-crumbs', name: 'Fudgy Brownie Chunks', price: 55, icon: '🍰', nutrition: { calories: 50, protein: 1, carbs: 6, fats: 3 } },
+    { id: 'top-gold-leaf', name: '24k Edible Gold Leaf Flourish', price: 120, icon: '✨', nutrition: { calories: 0, protein: 0, carbs: 0, fats: 0 } }
   ],
 
   sauces: [
-    { id: 'sauce-dark-chocolate', name: 'Warm 70% Dark Chocolate Drizzle', color: '#2B140E', price: 45 },
-    { id: 'sauce-white-chocolate', name: 'Champagne White Chocolate Silk', color: '#FDF7EB', price: 55 },
-    { id: 'sauce-caramel', name: 'Warm Fleur de Sel Salted Butter Caramel', color: '#BF782F', price: 45 },
-    { id: 'sauce-strawberry', name: 'Fresh Wild Strawberry Purée Coulis', color: '#BC2841', price: 45 }
+    { id: 'sauce-dark-chocolate', name: 'Warm 70% Dark Chocolate Drizzle', color: '#2B140E', price: 45, nutrition: { calories: 45, protein: 1, carbs: 5, fats: 3 } },
+    { id: 'sauce-white-chocolate', name: 'Champagne White Chocolate Silk', color: '#FDF7EB', price: 55, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3 } },
+    { id: 'sauce-caramel', name: 'Warm Fleur de Sel Salted Butter Caramel', color: '#BF782F', price: 45, nutrition: { calories: 45, protein: 0, carbs: 8, fats: 2 } },
+    { id: 'sauce-strawberry', name: 'Fresh Wild Strawberry Purée Coulis', color: '#BC2841', price: 45, nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0 } }
   ]
 };
 
