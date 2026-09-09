@@ -4,6 +4,7 @@
 export const CATEGORIES = [
   { id: 'all', name: 'All Desserts', icon: 'sparkles' },
   { id: 'signature', name: 'Signature Collection', icon: 'crown' },
+  { id: 'protein', name: 'High-Protein & Whey', icon: 'dumbbell' },
   { id: 'natural', name: 'Desio Natural', icon: 'leaf' },
   { id: 'cakes', name: 'Cakes & Tortes', icon: 'cake' },
   { id: 'cheesecakes', name: 'Cheesecakes', icon: 'cheese' },
@@ -539,6 +540,213 @@ export const PRODUCTS = [
       fiber: '10g',
       serving: 'Complete Twin Box (550g)'
     }
+  },
+
+  // ==========================================
+  // HIGH-PROTEIN & WHEY PATISSERIE COLLECTION
+  // ==========================================
+  {
+    id: 'desio-protein-whey-brownie',
+    name: 'Whey Isolate Noir Brownie',
+    subtitle: '32g CFM Whey Isolate • 72% Venezuelan Cacao • Almond Crust',
+    category: 'protein',
+    secondaryCategory: 'brownies',
+    price: 495,
+    originalPrice: 595,
+    rating: 4.97,
+    reviewsCount: 118,
+    badge: '32g Protein • Whey Isolate',
+    proteinRich: true,
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'High-performance luxury patisserie. Baked with CFM cross-flow microfiltered Whey Protein Isolate, 72% Venezuelan dark cacao ganache, and organic almond flour. Zero chalkiness with an ultra-fudgy molten core.',
+    ingredients: ['CFM Whey Protein Isolate (90%)', '72% Venezuelan Dark Chocolate', 'Blanched Almond Flour', 'Organic Grass-Fed Butter', 'Valrhona Cocoa Powder', 'Monk Fruit & Honey'],
+    allergens: ['Dairy', 'Tree Nuts (Almonds)'],
+    dietary: ['High Protein', 'Gluten-Free Flour', 'Low Carb', 'Vegetarian'],
+    flavor: 'Chocolate',
+    servingSize: '1 Person (190g)',
+    prepTime: '20 mins handcrafted',
+    storageInfo: 'Keep chilled at 4°C. Delicious warm or chilled.',
+    nutrition: {
+      calories: 340,
+      protein: '32g',
+      carbs: '18g',
+      fats: '12g',
+      fiber: '7g',
+      serving: 'Per Serving (190g)'
+    }
+  },
+  {
+    id: 'desio-protein-basque-cheesecake',
+    name: 'Pro-Atelier Basque Cheesecake',
+    subtitle: '28g Hydrolyzed Whey • Caramelized Burnt Top • Madagascar Vanilla Bean',
+    category: 'protein',
+    secondaryCategory: 'cheesecakes',
+    price: 565,
+    originalPrice: 650,
+    rating: 4.96,
+    reviewsCount: 92,
+    badge: '28g Protein • Low Carb',
+    proteinRich: true,
+    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'San Sebastián-style caramelized crust embracing a molten custard center infused with hydrolyzed whey protein isolate and Bourbon vanilla bean. Decadent creaminess with high athletic nutrition.',
+    ingredients: ['Hydrolyzed Whey Protein Isolate', 'Artisanal Cream Cheese', 'Organic Egg Yolks', 'Tahitian Bourbon Vanilla', 'Fresh Dairy Cream'],
+    allergens: ['Dairy', 'Eggs'],
+    dietary: ['High Protein', 'Keto-Friendly', 'Gluten-Free', 'Grain-Free'],
+    flavor: 'Vanilla Caramel',
+    servingSize: '1-2 Persons (210g)',
+    prepTime: '25 mins handcrafted',
+    storageInfo: 'Store refrigerated at 4°C.',
+    nutrition: {
+      calories: 330,
+      protein: '28g',
+      carbs: '14g',
+      fats: '16g',
+      fiber: '4g',
+      serving: 'Per Serving (210g)'
+    }
+  },
+  {
+    id: 'desio-protein-berry-parfait',
+    name: 'Wild Berry Plant-Protein Parfait',
+    subtitle: '26g Organic Pea & Sprouted Rice Protein • Forest Berry Coulis • Greek Curd',
+    category: 'protein',
+    secondaryCategory: 'natural',
+    price: 480,
+    originalPrice: 550,
+    rating: 4.93,
+    reviewsCount: 74,
+    badge: '26g Protein • 100% Plant Isolate',
+    proteinRich: true,
+    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Pure plant power meets alpine freshness. Layers of whipped organic pea and sprouted brown rice protein mousse, unsweetened Greek strained curd, and wild hand-crushed forest berries with chia seeds.',
+    ingredients: ['Organic Pea Protein Isolate', 'Sprouted Brown Rice Protein', 'Alpine Wild Raspberries & Blueberries', 'Strained Greek Curd', 'Organic Chia Seeds'],
+    allergens: ['Dairy'],
+    dietary: ['High Protein', 'No Added Refined Sugar', 'Gluten-Free', 'Vegetarian'],
+    flavor: 'Berry',
+    servingSize: '1 Person (200g)',
+    prepTime: '15 mins handcrafted',
+    storageInfo: 'Keep chilled. Consume fresh.',
+    nutrition: {
+      calories: 280,
+      protein: '26g',
+      carbs: '22g',
+      fats: '6g',
+      fiber: '8g',
+      serving: 'Per Serving (200g)'
+    }
+  },
+  {
+    id: 'desio-protein-pistachio-tiramisu',
+    name: 'Pistachio Bronte Pro-Tiramisù',
+    subtitle: '30g Micellar Casein & Whey • PDO Bronte Pistachio Crème • Espresso Savoiardi',
+    category: 'protein',
+    secondaryCategory: 'tiramisu',
+    price: 580,
+    originalPrice: 670,
+    rating: 4.99,
+    reviewsCount: 136,
+    badge: '30g Protein • Chef Masterpiece',
+    proteinRich: true,
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Traditional Italian artisan elegance elevated with a sustained-release micellar casein and whey isolate matrix. Rich Sicilian PDO Bronte pistachio cream with espresso-soaked protein savoiardi biscuits.',
+    ingredients: ['Micellar Casein Protein', 'Whey Isolate', 'PDO Sicilian Bronte Pistachio Paste', 'Espresso Arabica Roast', 'Protein Savoiardi', 'Mascarpone'],
+    allergens: ['Dairy', 'Tree Nuts (Pistachios)', 'Gluten'],
+    dietary: ['High Protein', 'Slow-Release Protein', 'Vegetarian'],
+    flavor: 'Pistachio',
+    servingSize: '1-2 Persons (220g)',
+    prepTime: '25 mins handcrafted',
+    storageInfo: 'Refrigerate at 4°C. Best enjoyed cold.',
+    nutrition: {
+      calories: 350,
+      protein: '30g',
+      carbs: '20g',
+      fats: '13g',
+      fiber: '5g',
+      serving: 'Per Serving (220g)'
+    }
+  },
+  {
+    id: 'desio-protein-waffle-tower',
+    name: 'Tahitian Vanilla Pro-Waffle Tower',
+    subtitle: '34g Whey Isolate Brioche • Salted Caramel Sugar-Free • Roasted Hazelnuts',
+    category: 'protein',
+    secondaryCategory: 'cookies',
+    price: 510,
+    originalPrice: 590,
+    rating: 4.91,
+    reviewsCount: 65,
+    badge: '34g Protein • High Fuel',
+    proteinRich: true,
+    image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Golden crisp Belgian-style brioche waffles formulated with high-potency whey isolate, crowned with warm sugar-free fleur de sel salted caramel and slow-roasted Piedmont hazelnuts.',
+    ingredients: ['Whey Protein Isolate', 'Whole Oat Flour', 'Piedmont Hazelnuts', 'Sugar-Free Salted Butter Caramel', 'Bourbon Vanilla'],
+    allergens: ['Dairy', 'Tree Nuts (Hazelnuts)', 'Gluten'],
+    dietary: ['High Protein', 'Sugar-Conscious', 'Vegetarian'],
+    flavor: 'Caramel Vanilla',
+    servingSize: '1-2 Persons (230g)',
+    prepTime: '20 mins handcrafted',
+    storageInfo: 'Enjoy freshly warm or keep chilled.',
+    nutrition: {
+      calories: 370,
+      protein: '34g',
+      carbs: '24g',
+      fats: '12g',
+      fiber: '6g',
+      serving: 'Per Serving (230g)'
+    }
+  },
+  {
+    id: 'desio-protein-hazelnut-skillet',
+    name: 'Choc-Hazelnut Protein Truffle Skillet',
+    subtitle: '27g Collagen & Whey Isolate • Molten Dark Hazelnut Core • Sugar-Free',
+    category: 'protein',
+    secondaryCategory: 'cakes',
+    price: 530,
+    originalPrice: 620,
+    rating: 4.95,
+    reviewsCount: 89,
+    badge: '27g Protein • Collagen Boost',
+    proteinRich: true,
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Warm molten chocolate skillet pudding packed with grass-fed hydrolyzed bovine collagen peptides and whey isolate. Molten Gianduja dark hazelnut center with crunchy cacao nibs.',
+    ingredients: ['Hydrolyzed Collagen Peptides', 'Whey Isolate', '70% Sugar-Free Dark Chocolate', 'Roasted Hazelnut Butter', 'Cacao Nibs'],
+    allergens: ['Dairy', 'Tree Nuts (Hazelnuts)'],
+    dietary: ['High Protein', 'Collagen Peptides', 'Low Sugar', 'Gluten-Free'],
+    flavor: 'Chocolate',
+    servingSize: '1 Person (200g)',
+    prepTime: '20 mins handcrafted',
+    storageInfo: 'Best warm.',
+    nutrition: {
+      calories: 320,
+      protein: '27g',
+      carbs: '16g',
+      fats: '14g',
+      fiber: '6g',
+      serving: 'Per Serving (200g)'
+    }
   }
 ];
 
@@ -594,6 +802,26 @@ export const DESSERT_BUILDER_OPTIONS = {
       color: '#F9ECD2',
       calories: '210 kcal',
       nutrition: { calories: 210, protein: 4, carbs: 30, fats: 8 }
+    },
+    {
+      id: 'base-whey-brownie',
+      name: 'Whey Isolate Fudge Brownie (30g Protein)',
+      description: 'Dense 72% Venezuelan dark cacao infused with CFM Whey Isolate',
+      price: 260,
+      image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
+      color: '#2F1810',
+      calories: '310 kcal',
+      nutrition: { calories: 310, protein: 30, carbs: 16, fats: 10 }
+    },
+    {
+      id: 'base-protein-cheesecake',
+      name: 'Pro-Basque Baked Cheesecake (25g Protein)',
+      description: 'Creamy caramelized Basque cheesecake enriched with hydrolyzed protein',
+      price: 280,
+      image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80',
+      color: '#EBD8B8',
+      calories: '290 kcal',
+      nutrition: { calories: 290, protein: 25, carbs: 12, fats: 14 }
     }
   ],
 
@@ -604,7 +832,9 @@ export const DESSERT_BUILDER_OPTIONS = {
     { id: 'flavor-coffee', name: 'Espresso Arabica', color: '#5B3A29', price: 60, icon: '☕', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0 } },
     { id: 'flavor-caramel', name: 'Salted Caramel', color: '#B87B42', price: 75, icon: '🍯', nutrition: { calories: 50, protein: 0, carbs: 10, fats: 1 } },
     { id: 'flavor-vanilla', name: 'Bourbon Vanilla', color: '#F4ECE1', price: 60, icon: '🍦', nutrition: { calories: 30, protein: 0, carbs: 6, fats: 0 } },
-    { id: 'flavor-mango', name: 'Alphonso Mango', color: '#EAA221', price: 85, icon: '🥭', nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0 } }
+    { id: 'flavor-mango', name: 'Alphonso Mango', color: '#EAA221', price: 85, icon: '🥭', nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0 } },
+    { id: 'flavor-whey-isolate', name: 'Pure CFM Whey Isolate (+15g Protein)', color: '#D4AF37', price: 85, icon: '⚡', nutrition: { calories: 60, protein: 15, carbs: 1, fats: 0 } },
+    { id: 'flavor-plant-protein', name: 'Organic Plant Pea & Rice (+12g Protein)', color: '#8A9A86', price: 80, icon: '🌱', nutrition: { calories: 50, protein: 12, carbs: 1, fats: 1 } }
   ],
 
   fillings: [
@@ -624,7 +854,9 @@ export const DESSERT_BUILDER_OPTIONS = {
     { id: 'top-oreo', name: 'Artisan Dark Biscuit Crumbs', price: 35, icon: '🍪', nutrition: { calories: 35, protein: 0, carbs: 6, fats: 1 } },
     { id: 'top-coconut', name: 'Toasted Coconut Shavings', price: 35, icon: '🥥', nutrition: { calories: 30, protein: 0, carbs: 1, fats: 3 } },
     { id: 'top-brownie-crumbs', name: 'Fudgy Brownie Chunks', price: 55, icon: '🍰', nutrition: { calories: 50, protein: 1, carbs: 6, fats: 3 } },
-    { id: 'top-gold-leaf', name: '24k Edible Gold Leaf Flourish', price: 120, icon: '✨', nutrition: { calories: 0, protein: 0, carbs: 0, fats: 0 } }
+    { id: 'top-gold-leaf', name: '24k Edible Gold Leaf Flourish', price: 120, icon: '✨', nutrition: { calories: 0, protein: 0, carbs: 0, fats: 0 } },
+    { id: 'top-protein-crisps', name: 'Whey Cacao Protein Crisps (+8g Protein)', price: 65, icon: '💪', nutrition: { calories: 40, protein: 8, carbs: 2, fats: 1 } },
+    { id: 'top-chia-almond', name: 'Chia & Sliced Almond Crunch (+6g Protein)', price: 60, icon: '🌰', nutrition: { calories: 50, protein: 6, carbs: 3, fats: 3 } }
   ],
 
   sauces: [
@@ -637,6 +869,24 @@ export const DESSERT_BUILDER_OPTIONS = {
 
 // TRENDING CUSTOMER CREATIONS (INR)
 export const TRENDING_CREATIONS = [
+  {
+    id: 'trend-pro-power-brownie',
+    name: 'Pro-Power Velvet Brownie',
+    creator: 'Dr. Vikram M.',
+    creatorAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
+    recipe: 'Whey Brownie (30g P) + Whey Isolate (+15g P) + Valrhona Ganache + Protein Crisps (+8g P)',
+    likes: 426,
+    price: 545,
+    config: {
+      base: 'base-whey-brownie',
+      flavor: 'flavor-whey-isolate',
+      filling: 'filling-chocolate-ganache',
+      toppings: ['top-protein-crisps', 'top-almonds'],
+      sauce: 'sauce-dark-chocolate',
+      name: 'Pro-Power Velvet Brownie'
+    }
+  },
   {
     id: 'trend-berry-noir',
     name: 'Berry Noir',

@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
 
 :root {
-  --color-chocolate-dark: #23120C;
-  --color-chocolate-main: #3A1F17;
-  --color-chocolate-warm: #6B3E2E;
-  --color-cream-bg: #EDE4D6;
-  --color-cream-light: #F7F1E8;
+  --color-chocolate-dark: #120804;
+  --color-chocolate-main: #1F0D08;
+  --color-chocolate-warm: #2C140D;
+  --color-chocolate-card: #28120B;
+  --color-cream-bg: #1F0D08;
+  --color-cream-light: #2D160E;
+  --color-cream-text: #F8F1E7;
   --color-gold-main: #B8945B;
   --color-gold-light: #E6CA85;
   --color-gold-dark: #8F6D35;
@@ -14,8 +16,14 @@
   --color-sage-subtle: #8A9A86;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
-  background-color: #EDE4D6;
+  background-color: #1F0D08;
+  color: #F8F1E7;
 }
 
 /* Custom Scrollbar */
@@ -24,14 +32,14 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #EDE4D6;
+  background: #140804;
 }
 ::-webkit-scrollbar-thumb {
   background: #B8945B;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8F6D35;
+  background: #E6CA85;
 }
 
 /* Global Universal Image Center Alignment */
@@ -69,7 +77,7 @@ img {
 }
 
 .text-chocolate-gradient {
-  background: linear-gradient(135deg, #23120C 0%, #3A1F17 60%, #6B3E2E 100%);
+  background: linear-gradient(135deg, #FFFDF9 0%, #F8F1E7 50%, #E6CA85 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -83,50 +91,138 @@ img {
   border-color: #B8945B;
 }
 
-/* Luxury Card Shadow & Hover */
+/* Luxury Card Styling (Clean Light Chocolate Shade against Dark Espresso) */
 .luxury-card {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  background: #FFFDF9;
-  border: 1px solid rgba(184, 148, 91, 0.22);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  background: linear-gradient(175deg, #583324 0%, #4A281A 55%, #3E2014 100%) !important;
+  border: 1px solid rgba(184, 148, 91, 0.35) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 235, 195, 0.22) !important;
+  color: #FFFDF9 !important;
 }
 .luxury-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 35px -8px rgba(58, 31, 23, 0.12), 0 0 0 1px rgba(184, 148, 91, 0.45);
+  transform: translateY(-6px) !important;
+  background: linear-gradient(175deg, #663C2A 0%, #563020 55%, #462518 100%) !important;
+  border-color: rgba(230, 202, 133, 0.7) !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.78), 0 0 24px rgba(184, 148, 91, 0.25), inset 0 1px 0 rgba(255, 240, 205, 0.35) !important;
+}
+
+/* Card Internal Elements Specificity */
+.luxury-card h3,
+.luxury-card .card-title {
+  color: #FFFDF9 !important;
+}
+.luxury-card h3:hover,
+.luxury-card .card-title:hover {
+  color: #E6CA85 !important;
+}
+.luxury-card p,
+.luxury-card .card-description {
+  color: #E8D7C7 !important;
+}
+.luxury-card .card-subtitle {
+  color: #E6CA85 !important;
+}
+.luxury-card .card-price {
+  color: #FFFDF9 !important;
+}
+.luxury-card .card-pill {
+  background-color: #240F06 !important;
+  border: 1px solid rgba(184, 148, 91, 0.3) !important;
+  color: #E6CA85 !important;
+}
+.luxury-card .card-pill strong,
+.luxury-card .card-pill span {
+  color: #FFFDF9 !important;
+}
+.luxury-card .card-customize-btn {
+  border: 1px solid rgba(184, 148, 91, 0.6) !important;
+  color: #E6CA85 !important;
+  background: rgba(36, 15, 6, 0.5) !important;
+}
+.luxury-card .card-customize-btn:hover {
+  background: #B8945B !important;
+  color: #1A0904 !important;
+  border-color: #E6CA85 !important;
 }
 
 /* Glassmorphism Luxury Header */
 .glass-nav {
-  background: rgba(237, 228, 214, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(20, 8, 4, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(184, 148, 91, 0.3);
 }
 
 .nav-link {
   position: relative;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   transition: all 0.25s ease;
+  color: #D6C2B0 !important;
+  padding: 0.32rem 0.55rem !important;
+  border-radius: 0.75rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.74rem;
+}
+
+@media (min-width: 1280px) {
+  .nav-link {
+    padding: 0.36rem 0.65rem !important;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .nav-link {
+    padding: 0.42rem 0.8rem !important;
+    font-size: 0.84rem;
+    letter-spacing: 0.07em;
+  }
+}
+
+.nav-link:hover {
+  color: #E6CA85 !important;
+  background: rgba(184, 148, 91, 0.12) !important;
+}
+
+.nav-link.active {
+  color: #FFFDF9 !important;
+  background: linear-gradient(135deg, rgba(184, 148, 91, 0.38) 0%, rgba(138, 98, 48, 0.25) 100%) !important;
+  border: 1px solid rgba(230, 202, 133, 0.75) !important;
+  box-shadow: 0 0 16px rgba(184, 148, 91, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0px;
-  left: 0;
+  bottom: -3px;
+  left: 15%;
   width: 0%;
-  height: 2px;
-  background: #B8945B;
+  height: 2.5px;
+  background: #E6CA85;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px #E6CA85, 0 0 4px #B8945B;
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+a[data-nav="account"].active {
+  color: #E6CA85 !important;
+  background: rgba(184, 148, 91, 0.25) !important;
+  border: 1px solid rgba(230, 202, 133, 0.6) !important;
 }
 
 /* Dark Section Background with subtle vignette */
 .bg-dark-espresso {
-  background: radial-gradient(circle at 50% 20%, #3A1F17 0%, #23120C 100%);
+  background: radial-gradient(circle at 50% 20%, #2A140C 0%, #120704 100%);
 }
 
 /* Subtle Gold Button Shimmer */
@@ -140,21 +236,21 @@ img {
 }
 .btn-gold-luxury:hover {
   background: linear-gradient(135deg, #D4AF75 0%, #C49E63 50%, #A88349 100%);
-  box-shadow: 0 6px 20px rgba(184, 148, 91, 0.45);
+  box-shadow: 0 6px 20px rgba(184, 148, 91, 0.5);
   transform: translateY(-1px);
 }
 
 .btn-chocolate-luxury {
-  background: #3A1F17;
+  background: #2D140C;
   color: #F8F1E7;
   border: 1px solid #B8945B;
   transition: all 0.3s ease;
 }
 .btn-chocolate-luxury:hover {
-  background: #23120C;
-  color: #E6CA85;
+  background: #B8945B;
+  color: #1F0D08;
   border-color: #E6CA85;
-  box-shadow: 0 6px 18px rgba(35, 18, 12, 0.3);
+  box-shadow: 0 6px 18px rgba(184, 148, 91, 0.35);
 }
 
 /* Custom Dessert Builder Dynamic Visual Canvas */
@@ -236,8 +332,235 @@ img {
 .pb-mobile-nav {
   padding-bottom: 5rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pb-mobile-nav {
     padding-bottom: 0;
   }
 }
+
+/* ==========================================================================
+   THEME INVERSION: DARK CHOCOLATE & LUXURY GOLD UTILITY ADAPTATIONS
+   ========================================================================== */
+
+/* Curated Luxury Dark Chocolate Section Backgrounds */
+.bg-hero-dark {
+  background: radial-gradient(ellipse at 50% 18%, #361A0E 0%, #200D06 50%, #110502 100%) !important;
+  position: relative;
+}
+.bg-hero-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 148, 91, 0.55) 50%, transparent 100%);
+  pointer-events-none;
+}
+.bg-hero-dark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 148, 91, 0.35) 50%, transparent 100%);
+  pointer-events-none;
+}
+/* Unified Consistent Section Background (Cohesive Dark Espresso across all sections) */
+.section-collection,
+.section-bespoke,
+.section-natural,
+.section-origins,
+.section-creations,
+.section-gifting,
+.section-instagram,
+.bg-section-dark,
+.bg-section-alt {
+  background: #140704 !important;
+  position: relative;
+}
+
+/* Section Decorative Filigree Dividers */
+.gold-filigree-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.25rem auto 1.75rem auto;
+  max-width: 220px;
+}
+.gold-filigree-divider::before,
+.gold-filigree-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 148, 91, 0.6), transparent);
+}
+.gold-filigree-divider span {
+  color: #E6CA85;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  opacity: 0.9;
+}
+
+/* Card Wishlist & Modifier Buttons */
+.card-wishlist-btn {
+  background: rgba(22, 9, 5, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+.card-wishlist-btn:hover {
+  background: #B8945B !important;
+  border-color: #E6CA85 !important;
+  transform: scale(1.12) !important;
+}
+
+/* Background Inversions */
+.bg-\[\#EDE4D6\] {
+  background-color: #150703 !important;
+}
+.bg-\[\#FFFDF9\] {
+  background-color: #241109 !important;
+}
+.bg-\[\#F8F1E7\] {
+  background-color: #341A10 !important;
+}
+.bg-\[\#F8F1E7\]\/80 {
+  background-color: rgba(52, 26, 16, 0.85) !important;
+}
+.bg-\[\#F8F1E7\]\/50 {
+  background-color: rgba(52, 26, 16, 0.55) !important;
+}
+.bg-white:not(.qr-code-canvas):not(.keep-white) {
+  background-color: #28120B !important;
+  color: #F8F1E7 !important;
+}
+
+/* Subtle Gradient Section Adaptations */
+.from-\[\#E4D7C5\] {
+  --tw-gradient-from: #150804 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(21 8 4 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.via-\[\#EDE4D6\] {
+  --tw-gradient-to: rgb(31 13 8 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #1F0D08 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+.to-\[\#E4D7C5\] {
+  --tw-gradient-to: #150804 var(--tw-gradient-to-position) !important;
+}
+
+/* Typography Inversions */
+.text-\[\#3A1F17\] {
+  color: #F8F1E7 !important;
+}
+.text-\[\#23120C\] {
+  color: #FFFDF9 !important;
+}
+.text-\[\#6B3E2E\] {
+  color: #D6C2B0 !important;
+}
+.hover\:text-\[\#3A1F17\]:hover {
+  color: #1F0D08 !important;
+}
+.hover\:bg-\[\#F8F1E7\]:hover {
+  background-color: #3D1E13 !important;
+}
+
+/* Form Inputs, Selects, and Textareas */
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+select,
+textarea {
+  background-color: #180905 !important;
+  color: #F8F1E7 !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: rgba(214, 194, 176, 0.45) !important;
+}
+select option {
+  background-color: #1F0D08 !important;
+  color: #F8F1E7 !important;
+}
+
+/* Modals, Drawers & Mobile Nav Surfaces */
+#wishlistDrawer,
+#cartDrawer,
+#productDetailModal > div,
+#searchModal > div {
+  background-color: #241009 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #F8F1E7 !important;
+}
+
+.md\:hidden.fixed.bottom-0 {
+  background-color: rgba(24, 10, 6, 0.96) !important;
+  border-top: 1px solid rgba(184, 148, 91, 0.3) !important;
+}
+.mobile-nav-item {
+  color: #D6C2B0 !important;
+  position: relative;
+  transition: all 0.25s ease;
+}
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+  color: #E6CA85 !important;
+}
+.mobile-nav-item.active svg {
+  stroke: #E6CA85 !important;
+  filter: drop-shadow(0 0 6px rgba(230, 202, 133, 0.7));
+}
+.mobile-nav-item.active span {
+  color: #FFFDF9 !important;
+  font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   DESSERT BUILDER & STUDIO LUXURY PALETTE OVERRIDES
+   ========================================================================== */
+#fullDessertStudioMount > div,
+#homeDessertStudioMount > div {
+  background: linear-gradient(175deg, #241009 0%, #1A0905 55%, #120502 100%) !important;
+  border: 1px solid rgba(184, 148, 91, 0.4) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+  color: #FFFDF9 !important;
+}
+
+/* Studio Left Preview Area */
+#fullDessertStudioMount .bg-radial,
+#homeDessertStudioMount .bg-radial {
+  background: radial-gradient(circle at 50% 40%, #2A140C 0%, #150703 100%) !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+}
+
+/* Studio Option Cards */
+#fullDessertStudioMount [onclick^="window.dessertStudio.select"],
+#homeDessertStudioMount [onclick^="window.dessertStudio.select"],
+#fullDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"],
+#homeDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"] {
+  background-color: #1A0905 !important;
+  border-color: rgba(184, 148, 91, 0.3) !important;
+  color: #FFFDF9 !important;
+  transition: all 0.25s ease !important;
+}
+
+#fullDessertStudioMount [onclick^="window.dessertStudio.select"]:hover,
+#homeDessertStudioMount [onclick^="window.dessertStudio.select"]:hover,
+#fullDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"]:hover,
+#homeDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"]:hover {
+  border-color: rgba(230, 202, 133, 0.7) !important;
+  transform: translateY(-2px);
+}
+
+/* Studio Progress Dots & Tracks */
+#fullDessertStudioMount .bg-\[\#F8F1E7\],
+#homeDessertStudioMount .bg-\[\#F8F1E7\] {
+  background-color: #2D140C !important;
+  color: #E6CA85 !important;
+}
+

@@ -48,43 +48,49 @@
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 
-<body class="bg-[#EDE4D6] text-[#3A1F17] font-sans antialiased selection:bg-[#B8945B] selection:text-white flex flex-col min-h-screen">
+<body class="bg-[#1F0D08] text-[#F8F1E7] font-sans antialiased selection:bg-[#B8945B] selection:text-white flex flex-col min-h-screen">
 
 
   <!-- ========================================== -->
   <!-- STICKY LUXURY NAVBAR                       -->
   <!-- ========================================== -->
-  <header class="sticky top-0 z-40 glass-nav transition-all duration-300 shadow-sm">
-    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-      <div class="flex items-center justify-between gap-4 h-20 md:h-24">
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-300 shadow-sm w-full">
+    <div class="w-full px-3 sm:px-5 lg:px-6 xl:px-8 max-w-[1600px] mx-auto">
+      <div class="flex items-center justify-between gap-2 lg:gap-3 xl:gap-4 h-18 md:h-20 lg:h-22">
         
-        <!-- Left: Transparent Brand Emblem + Logo -->
-        <div class="flex items-center shrink-0">
-          <a href="#home" class="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none py-2">
+        <!-- Left: Transparent Brand Emblem + Gold Logo + Active Page Badge -->
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a href="#home" class="flex items-center gap-2 sm:gap-3 group focus:outline-none py-1.5">
             <img src="Assets/Logo/emblem_transparent.png"
                  alt="LA DESIO Emblem"
-                 class="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6 drop-shadow-sm" />
-            <img src="Assets/Logo/logo_transparent.png"
+                 class="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6 drop-shadow-sm brightness-110" />
+            <img src="Assets/Logo/logo_gold_transparent.png"
                  alt="LA DESIO Logo"
-                 class="h-8 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                 class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
           </a>
+
+          <!-- Live Active Page Indicator Pill (Visible on tablets and wide 2XL screens) -->
+          <div id="activePageBadge" class="hidden md:inline-flex lg:hidden 2xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#160703] border border-[#B8945B]/60 text-[10px] font-serif text-[#E6CA85] tracking-widest uppercase shadow-md shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#E6CA85] animate-ping"></span>
+            <span id="activePageTitle" class="font-bold">HOME SALON</span>
+          </div>
         </div>
 
-        <!-- Center: Desktop Navigation Links -->
-        <nav class="hidden xl:flex items-center gap-2 2xl:gap-5 text-[13px] 2xl:text-sm font-serif font-bold tracking-wider uppercase shrink-0">
-          <a href="#home" class="nav-link px-2.5 py-1.5 rounded-lg text-[#3A1F17] hover:text-[#B8945B] transition-all font-bold whitespace-nowrap">Home</a>
-          <a href="#menu" class="nav-link px-2.5 py-1.5 rounded-lg text-[#3A1F17] hover:text-[#B8945B] transition-all font-bold whitespace-nowrap">Menu</a>
-          <a href="#builder" class="nav-link px-2.5 py-1.5 rounded-lg text-[#3A1F17] hover:text-[#B8945B] transition-all font-bold whitespace-nowrap">Create Your Dessert</a>
-          <a href="#natural" class="nav-link px-2.5 py-1.5 rounded-lg text-[#3A1F17] hover:text-[#B8945B] transition-all font-bold whitespace-nowrap">Desio Natural</a>
-          <a href="#gifting" class="nav-link px-2.5 py-1.5 rounded-lg text-[#3A1F17] hover:text-[#B8945B] transition-all font-bold whitespace-nowrap">Gifting</a>
+        <!-- Center: Desktop Navigation Links (Spacious, elegant 5-link haute patisserie navigation) -->
+        <nav class="hidden lg:flex items-center gap-2 xl:gap-3.5 2xl:gap-5 font-serif font-bold tracking-wider uppercase shrink min-w-0">
+          <a href="#home" data-nav="home" class="nav-link">Home</a>
+          <a href="#menu" data-nav="menu" class="nav-link">Menu</a>
+          <a href="#builder" data-nav="builder" class="nav-link">Create</a>
+          <a href="#natural" data-nav="natural" class="nav-link">Natural</a>
+          <a href="#gifting" data-nav="gifting" class="nav-link">Gifting</a>
         </nav>
 
         <!-- Right: Utility Icons & CTA Button -->
-        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div class="flex items-center gap-1 sm:gap-2 shrink-0">
           
           <!-- Search Icon Button -->
           <button onclick="window.ladesioApp.openSearchModal()"
-                  class="p-2 rounded-full text-[#3A1F17] hover:text-[#B8945B] hover:bg-[#3A1F17]/5 transition-all"
+                  class="p-1.5 sm:p-2 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all"
                   title="Search Desserts">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -93,7 +99,7 @@
 
           <!-- Wishlist Drawer Trigger Button -->
           <button onclick="window.ladesioApp.openWishlistDrawer()"
-                  class="p-2 rounded-full text-[#3A1F17] hover:text-[#B8945B] hover:bg-[#3A1F17]/5 transition-all relative hidden sm:block"
+                  class="p-1.5 sm:p-2 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all relative hidden sm:block"
                   title="Wishlist">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
@@ -103,26 +109,27 @@
 
           <!-- Cart Drawer Trigger Button -->
           <button onclick="window.ladesioApp.openCartDrawer()"
-                  class="p-2 rounded-full text-[#3A1F17] hover:text-[#B8945B] hover:bg-[#3A1F17]/5 transition-all relative"
+                  class="p-1.5 sm:p-2 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all relative"
                   title="Shopping Bag">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
             </svg>
-            <span class="cart-count-badge absolute top-1 right-1 w-4 h-4 bg-[#3A1F17] text-[#E6CA85] text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
+            <span class="cart-count-badge absolute top-1 right-1 w-4 h-4 bg-[#B8945B] text-white text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
           </button>
 
           <!-- Customer Privé Account Link -->
           <a href="#account"
-             class="p-2 rounded-full text-[#3A1F17] hover:text-[#B8945B] hover:bg-[#3A1F17]/5 transition-all hidden sm:block"
+             data-nav="account"
+             class="p-1.5 sm:p-2 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all"
              title="La Desio Privé Account">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
             </svg>
           </a>
 
-          <!-- Primary CTA Button -->
+          <!-- Primary CTA Button (Visible on 2XL wide screens) -->
           <a href="#builder"
-             class="hidden xl:inline-flex items-center gap-1.5 px-4 py-2 2xl:px-5 2xl:py-2.5 rounded-xl btn-gold-luxury font-serif text-[11px] 2xl:text-xs font-semibold tracking-wider uppercase shadow-md transition-all ml-1 shrink-0 whitespace-nowrap">
+             class="hidden 2xl:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl btn-gold-luxury font-serif text-[11px] font-semibold tracking-wider uppercase shadow-md transition-all ml-1 shrink-0 whitespace-nowrap">
             <span>CREATE DESSERT</span> ✨
           </a>
 
@@ -225,15 +232,15 @@
   <!-- ========================================== -->
   <!-- MOBILE BOTTOM STICKY NAVIGATION BAR        -->
   <!-- ========================================== -->
-  <div class="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#FFFDF9]/95 backdrop-blur-md border-t border-[#B8945B]/30 py-2 px-3 flex items-center justify-around shadow-2xl">
-    <a href="#home" data-route="home" class="mobile-nav-item flex flex-col items-center text-[#6B3E2E] hover:text-[#B8945B] text-[10px] font-serif font-semibold">
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#180A06]/95 backdrop-blur-md border-t border-[#B8945B]/30 py-2 px-3 flex items-center justify-around shadow-2xl">
+    <a href="#home" data-route="home" class="mobile-nav-item flex flex-col items-center text-[#D6C2B0] hover:text-[#E6CA85] text-[10px] font-serif font-semibold">
       <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
       </svg>
       <span>Home</span>
     </a>
 
-    <a href="#menu" data-route="menu" class="mobile-nav-item flex flex-col items-center text-[#6B3E2E] hover:text-[#B8945B] text-[10px] font-serif font-semibold">
+    <a href="#menu" data-route="menu" class="mobile-nav-item flex flex-col items-center text-[#D6C2B0] hover:text-[#E6CA85] text-[10px] font-serif font-semibold">
       <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h7"></path>
       </svg>
@@ -242,14 +249,14 @@
 
     <!-- Create Custom Dessert Mobile Center Button -->
     <a href="#builder" data-route="builder" class="flex flex-col items-center -mt-5">
-      <div class="w-12 h-12 rounded-full btn-gold-luxury border-2 border-white shadow-xl flex items-center justify-center text-white text-lg">
+      <div class="w-12 h-12 rounded-full btn-gold-luxury border-2 border-[#B8945B] shadow-xl flex items-center justify-center text-white text-lg">
         ✨
       </div>
-      <span class="text-[9px] font-serif font-bold text-[#3A1F17] mt-0.5 uppercase tracking-tighter">Create</span>
+      <span class="text-[9px] font-serif font-bold text-[#E6CA85] mt-0.5 uppercase tracking-tighter">Create</span>
     </a>
 
     <!-- Wishlist Trigger Button Mobile -->
-    <button onclick="window.ladesioApp.openWishlistDrawer()" class="mobile-nav-item flex flex-col items-center text-[#6B3E2E] hover:text-[#B8945B] text-[10px] font-serif font-semibold relative">
+    <button onclick="window.ladesioApp.openWishlistDrawer()" class="mobile-nav-item flex flex-col items-center text-[#D6C2B0] hover:text-[#E6CA85] text-[10px] font-serif font-semibold relative">
       <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
       </svg>
@@ -258,67 +265,67 @@
     </button>
 
     <!-- Cart Trigger Button Mobile -->
-    <button onclick="window.ladesioApp.openCartDrawer()" class="mobile-nav-item flex flex-col items-center text-[#6B3E2E] hover:text-[#B8945B] text-[10px] font-serif font-semibold relative">
+    <button onclick="window.ladesioApp.openCartDrawer()" class="mobile-nav-item flex flex-col items-center text-[#D6C2B0] hover:text-[#E6CA85] text-[10px] font-serif font-semibold relative">
       <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
       </svg>
       <span>Bag</span>
-      <span class="cart-count-badge absolute -top-1 right-1 w-4 h-4 bg-[#3A1F17] text-[#E6CA85] text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
+      <span class="cart-count-badge absolute -top-1 right-1 w-4 h-4 bg-[#B8945B] text-white text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
     </button>
   </div>
 
   <!-- ========================================== -->
   <!-- SLIDEOVER WISHLIST DRAWER                  -->
   <!-- ========================================== -->
-  <div id="wishlistBackdrop" onclick="window.ladesioApp.closeWishlistDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="wishlistDrawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-[#FFFDF9] z-50 shadow-2xl border-l border-[#B8945B]/30 transform translate-x-full transition-transform duration-300 flex flex-col">
+  <div id="wishlistBackdrop" onclick="window.ladesioApp.closeWishlistDrawer()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="wishlistDrawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-[#241009] z-50 shadow-2xl border-l border-[#B8945B]/30 transform translate-x-full transition-transform duration-300 flex flex-col">
     
     <!-- Drawer Header -->
-    <div class="p-5 border-b border-[#B8945B]/20 flex items-center justify-between bg-[#F8F1E7]/80">
+    <div class="p-5 border-b border-[#B8945B]/20 flex items-center justify-between bg-[#1A0905]">
       <div class="flex items-center gap-2">
-        <span class="text-rose-600 text-lg">♥</span>
-        <span class="font-serif text-lg font-bold text-[#3A1F17]">Your Saved Wishlist</span>
+        <span class="text-rose-400 text-lg">♥</span>
+        <span class="font-serif text-lg font-bold text-[#FFFDF9]">Your Saved Wishlist</span>
         <span class="wishlist-count-badge px-2 py-0.5 rounded-full bg-[#B8945B] text-white text-xs font-bold font-mono">0</span>
       </div>
-      <button onclick="window.ladesioApp.closeWishlistDrawer()" class="p-1 text-[#3A1F17] hover:text-[#B8945B] text-xl font-bold">✕</button>
+      <button onclick="window.ladesioApp.closeWishlistDrawer()" class="p-1 text-[#F8F1E7] hover:text-[#E6CA85] text-xl font-bold">✕</button>
     </div>
 
     <!-- Wishlist Item List -->
     <div id="wishlistDrawerItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
 
     <!-- Wishlist Summary Footer -->
-    <div id="wishlistDrawerSummary" class="p-5 border-t border-[#B8945B]/30 bg-[#F8F1E7]/50"></div>
+    <div id="wishlistDrawerSummary" class="p-5 border-t border-[#B8945B]/30 bg-[#1A0905]"></div>
   </aside>
 
   <!-- ========================================== -->
   <!-- SLIDEOVER SHOPPING CART DRAWER             -->
   <!-- ========================================== -->
-  <div id="cartBackdrop" onclick="window.ladesioApp.closeCartDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="cartDrawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-[#FFFDF9] z-50 shadow-2xl border-l border-[#B8945B]/30 transform translate-x-full transition-transform duration-300 flex flex-col">
+  <div id="cartBackdrop" onclick="window.ladesioApp.closeCartDrawer()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="cartDrawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-[#241009] z-50 shadow-2xl border-l border-[#B8945B]/30 transform translate-x-full transition-transform duration-300 flex flex-col">
     
     <!-- Drawer Header -->
-    <div class="p-5 border-b border-[#B8945B]/20 flex items-center justify-between bg-[#F8F1E7]/80">
+    <div class="p-5 border-b border-[#B8945B]/20 flex items-center justify-between bg-[#1A0905]">
       <div class="flex items-center gap-2">
-        <span class="font-serif text-lg font-bold text-[#3A1F17]">Your Shopping Bag</span>
-        <span class="cart-count-badge px-2 py-0.5 rounded-full bg-[#3A1F17] text-[#E6CA85] text-xs font-bold font-mono">0</span>
+        <span class="font-serif text-lg font-bold text-[#FFFDF9]">Your Shopping Bag</span>
+        <span class="cart-count-badge px-2 py-0.5 rounded-full bg-[#B8945B] text-white text-xs font-bold font-mono">0</span>
       </div>
-      <button onclick="window.ladesioApp.closeCartDrawer()" class="p-1 text-[#3A1F17] hover:text-[#B8945B] text-xl font-bold">✕</button>
+      <button onclick="window.ladesioApp.closeCartDrawer()" class="p-1 text-[#F8F1E7] hover:text-[#E6CA85] text-xl font-bold">✕</button>
     </div>
 
     <!-- Drawer Item List -->
     <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
 
     <!-- Drawer Summary Footer -->
-    <div id="cartDrawerSummary" class="p-5 border-t border-[#B8945B]/30 bg-[#F8F1E7]/50"></div>
+    <div id="cartDrawerSummary" class="p-5 border-t border-[#B8945B]/30 bg-[#1A0905]"></div>
   </aside>
 
   <!-- ========================================== -->
   <!-- PRODUCT DETAIL & CUSTOMIZATION MODAL       -->
   <!-- ========================================== -->
-  <div id="productDetailModal" class="modal-wrapper fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden">
-    <div class="relative w-full max-w-3xl bg-[#FFFDF9] rounded-3xl border border-[#B8945B]/40 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto p-6 md:p-8 animate-float-slow">
+  <div id="productDetailModal" class="modal-wrapper fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-3xl bg-[#241009] rounded-3xl border border-[#B8945B]/40 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto p-6 md:p-8 animate-float-slow text-[#F8F1E7]">
       <button onclick="window.ladesioApp.closeAllModals()"
-              class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/80 border border-[#B8945B]/30 flex items-center justify-center text-[#3A1F17] hover:bg-[#3A1F17] hover:text-white transition-all text-sm font-bold">
+              class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 border border-[#B8945B]/30 flex items-center justify-center text-[#F8F1E7] hover:bg-[#B8945B] hover:text-[#1F0D08] transition-all text-sm font-bold">
         ✕
       </button>
       <div id="productModalContent"></div>
@@ -328,15 +335,15 @@
   <!-- ========================================== -->
   <!-- GLOBAL SEARCH MODAL                        -->
   <!-- ========================================== -->
-  <div id="searchModal" class="modal-wrapper fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/70 backdrop-blur-sm hidden">
-    <div class="relative w-full max-w-2xl bg-[#FFFDF9] rounded-3xl border border-[#B8945B]/40 shadow-2xl p-6 space-y-4">
+  <div id="searchModal" class="modal-wrapper fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/80 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-[#241009] rounded-3xl border border-[#B8945B]/40 shadow-2xl p-6 space-y-4">
       <div class="flex items-center justify-between border-b border-[#B8945B]/30 pb-3">
         <div class="flex items-center gap-3 flex-1">
           <span class="text-xl text-[#B8945B]">🔍</span>
           <input type="text" id="globalSearchInput" placeholder="Search desserts by name, flavor, or dietary preference..."
-                 class="w-full bg-transparent text-sm text-[#3A1F17] focus:outline-none font-serif" />
+                 class="w-full bg-transparent text-sm text-[#F8F1E7] placeholder-stone-400 focus:outline-none font-serif" />
         </div>
-        <button onclick="window.ladesioApp.closeAllModals()" class="text-xs font-bold text-gray-400 hover:text-[#3A1F17] ml-2">ESC</button>
+        <button onclick="window.ladesioApp.closeAllModals()" class="text-xs font-bold text-gray-400 hover:text-[#E6CA85] ml-2">ESC</button>
       </div>
 
       <div id="searchResultsContainer"></div>
@@ -348,7 +355,10 @@
   <!-- ========================================== -->
   <div id="toastContainer" class="fixed bottom-20 md:bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
 
-  <!-- Module Script -->
-  <script type="module" src="js/app.js"></script>
+  <!-- Three.js 3D WebGL Engine for Create Studio -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Universal Application Script (Runs seamlessly on file://, localhost, and servers) -->
+  <script src="js/bundle.js"></script>
 </body>
 </html>

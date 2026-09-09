@@ -183,3 +183,6 @@ export class CartManager {
 }
 
 export const cartStore = new CartManager();
+if (typeof window !== 'undefined') {
+  window.cartStore = cartStore;
+}

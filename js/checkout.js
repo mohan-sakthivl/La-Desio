@@ -4,6 +4,9 @@ import { loyaltyStore } from './loyalty.js';
 
 export class CheckoutManager {
   constructor(containerId, onOrderCompleted) {
+    if (typeof window !== 'undefined') {
+      window.checkoutManager = this;
+    }
     this.container = document.getElementById(containerId);
     this.onOrderCompleted = onOrderCompleted;
     this.currentStep = 1;
@@ -35,6 +38,9 @@ export class CheckoutManager {
   }
 
   init() {
+    if (typeof window !== 'undefined') {
+      window.checkoutManager = this;
+    }
     this.currentStep = 1;
     this.render();
   }
@@ -188,15 +194,32 @@ export class CheckoutManager {
                        class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]" />
               </div>
               <div>
-                <label class="block font-semibold text-[#3A1F17] mb-1">City / Atelier</label>
-                <select id="chkCity" class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]">
-                  <option value="Mumbai" ${this.state.address.city === 'Mumbai' ? 'selected' : ''}>Mumbai (Bandra Atelier & Downtown)</option>
-                  <option value="Delhi" ${this.state.address.city === 'Delhi' ? 'selected' : ''}>Delhi NCR (DLF Emporio Dispatch)</option>
-                  <option value="Bengaluru" ${this.state.address.city === 'Bengaluru' ? 'selected' : ''}>Bengaluru (Lavelle Road Atelier)</option>
-                  <option value="Milan" ${this.state.address.city === 'Milan' ? 'selected' : ''}>Milan (Via Montenapoleone)</option>
-                  <option value="London" ${this.state.address.city === 'London' ? 'selected' : ''}>London (Mayfair Boutique)</option>
-                  <option value="Dubai" ${this.state.address.city === 'Dubai' ? 'selected' : ''}>Dubai (Downtown Courier)</option>
-                </select>
+                <label class="block font-semibold text-[#3A1F17] mb-1">City / Delivery Destination</label>
+                <div class="relative">
+                  <input type="text"
+                         id="chkCity"
+                         list="citySuggestions"
+                         value="${this.state.address.city || 'Chennai'}"
+                         placeholder="Type or select city (e.g. Chennai)"
+                         class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17] font-medium" />
+                  <datalist id="citySuggestions">
+                    <option value="Chennai">Chennai (Flagship Salon & Express Dispatch)</option>
+                    <option value="Bengaluru">Bengaluru (Lavelle Road Atelier)</option>
+                    <option value="Mumbai">Mumbai (Bandra Atelier & Downtown)</option>
+                    <option value="Delhi">Delhi NCR (DLF Emporio Dispatch)</option>
+                    <option value="Hyderabad">Hyderabad (Jubilee Hills Atelier)</option>
+                    <option value="Coimbatore">Coimbatore (Express Courier)</option>
+                    <option value="Kochi">Kochi (Marine Drive Dispatch)</option>
+                    <option value="Madurai">Madurai (Express Courier)</option>
+                    <option value="Pune">Pune (Koregaon Park Delivery)</option>
+                    <option value="Kolkata">Kolkata (Park Street Delivery)</option>
+                    <option value="Ahmedabad">Ahmedabad (Bodakdev Dispatch)</option>
+                    <option value="Milan">Milan (Via Montenapoleone)</option>
+                    <option value="London">London (Mayfair Boutique)</option>
+                    <option value="Dubai">Dubai (Downtown Courier)</option>
+                  </datalist>
+                </div>
+                <span class="text-[10px] text-[#8C6838] mt-1 block">📍 Default: <strong>Chennai</strong>. You can manually type any city or pick from the list.</span>
               </div>
               <div class="sm:col-span-2">
                 <label class="block font-semibold text-[#3A1F17] mb-1">Street Address, Apartment / Villa</label>
@@ -486,9 +509,14 @@ export class CheckoutManager {
 
         <!-- Action CTAs -->
         <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
-          <a href="#account" class="px-6 py-2.5 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold tracking-wider">
-            View in Privé Dashboard
+          <a href="#account" onclick="if(window.ladesioApp && window.ladesioApp.setActiveAccountTab) window.ladesioApp.setActiveAccountTab('orders');"
+             class="px-6 py-2.5 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-md">
+            <span>📦</span> View in Order History
           </a>
+          <button type="button" onclick="if(window.ladesioApp && window.ladesioApp.openOrderTracker) window.ladesioApp.openOrderTracker('${order.id}');"
+                  class="px-6 py-2.5 rounded-lg border border-[#B8945B] text-[#3A1F17] hover:bg-[#F8F1E7] font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-sm">
+            <span>🚚</span> Track Live Dispatch
+          </button>
           <a href="#menu" class="px-6 py-2.5 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider">
             Continue Exploring
           </a>
@@ -502,7 +530,7 @@ export class CheckoutManager {
     const name = document.getElementById('chkName')?.value || this.state.address.fullName;
     const email = document.getElementById('chkEmail')?.value || this.state.address.email;
     const phone = document.getElementById('chkPhone')?.value || this.state.address.phone;
-    const city = document.getElementById('chkCity')?.value || this.state.address.city;
+    const city = document.getElementById('chkCity')?.value || this.state.address.city || 'Chennai';
     const street = document.getElementById('chkStreet')?.value || this.state.address.street;
     const instructions = document.getElementById('chkInstructions')?.value || this.state.address.instructions;
 
@@ -527,11 +555,45 @@ export class CheckoutManager {
 
   placeOrder() {
     const summary = cartStore.getSummary();
+    const city = this.state.address.city || 'Chennai';
+
+    // Auto-save any custom creations from this order into loyaltyStore
+    summary.items.forEach(item => {
+      if (item.isCustom) {
+        let config = {};
+        try {
+          if (item.customConfigKey) config = JSON.parse(item.customConfigKey);
+        } catch (e) {}
+        loyaltyStore.saveCustomCreation({
+          name: item.name,
+          recipe: item.subtitle || 'Bespoke Studio Recipe',
+          price: item.price,
+          image: item.image,
+          config: config
+        });
+      }
+    });
+
     const orderData = {
-      items: summary.items.map(i => ({ name: i.name, qty: i.quantity, price: i.price, isCustom: i.isCustom })),
+      items: summary.items.map(i => ({
+        name: i.name,
+        qty: i.quantity,
+        price: i.price,
+        image: i.image,
+        subtitle: i.subtitle || '',
+        isCustom: !!i.isCustom,
+        options: i.options || null,
+        customConfigKey: i.customConfigKey || null
+      })),
+      subtotal: summary.subtotal,
+      discount: summary.discount,
+      deliveryFee: summary.delivery,
       total: summary.total,
-      address: this.state.address,
-      deliverySlot: this.state.deliveryMethod === 'express' ? 'Express Artisanal — Within 45 Mins' : 'Scheduled Luxury Slot',
+      paymentMethod: this.state.paymentMethod === 'card' ? 'Visa / Mastercard' : (this.state.paymentMethod === 'upi' ? 'UPI / Google Pay' : 'Net Banking Portal'),
+      address: { ...this.state.address, city },
+      deliverySlot: this.state.deliveryMethod === 'express' 
+        ? `Express Artisanal — Within 45 Mins (${city})` 
+        : `Scheduled Luxury Slot (${city})`,
       trackingNumber: 'IN-EXP-' + Math.floor(1000 + Math.random() * 9000) + '-DESIO'
     };
 
