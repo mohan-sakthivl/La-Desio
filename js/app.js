@@ -3017,7 +3017,7 @@ class LaDesioApp {
           <div class="flex flex-col sm:flex-row items-center gap-5 p-4 rounded-2xl bg-[#241009] border border-[#B8945B]/30">
             <div class="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-1 shrink-0 shadow-xl overflow-hidden">
               <img id="profileModalAvatarPreview" 
-                   src="${profile.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80'}" 
+                   src="${profile.avatar || 'Assets/Profile/roody.jpg'}" 
                    alt="Avatar Preview" 
                    class="w-full h-full object-cover rounded-full" />
               <input type="hidden" id="editProfileAvatarValue" value="${profile.avatar || ''}" />

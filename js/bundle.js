@@ -1260,12 +1260,12 @@ const FRIENDS_KEY = 'ladesio_friends_v1';
 const DUMMY_FRIENDS = [
   {
     id: 'friend_chiara',
-    name: 'Chiara Rossi',
-    handle: '@chiara.milan',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-    bio: 'Patisserie apprentice in Milan. Obsessed with Bronte pistachios, silky mascarpone, and delicate choux pastry.',
+    name: 'Vinoth Kumar',
+    handle: '@vinokutty',
+    avatar: 'Assets/Profile/vinoth.jpeg',
+    bio: 'Obsessed with Bronte pistachios, silky mascarpone, and delicate choux pastry.',
     tier: 'Royale Member',
-    location: 'Milan, Italy',
+    location: 'Trichy',
     creationsCount: 2,
     ordersCount: 24,
     creations: [
@@ -1307,9 +1307,9 @@ const DUMMY_FRIENDS = [
   },
   {
     id: 'friend_vikram',
-    name: 'Dr. Vikram Malhotra',
-    handle: '@vikram.fuel',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+    name: 'Tharun R K',
+    handle: '@tharunchocoboy',
+    avatar: 'Assets/Profile/tharun.jpeg',
     bio: 'Sports nutritionist & dessert lover. Formulating 35g+ whey isolate brownies and guilt-free low-carb Basque cheesecakes.',
     tier: 'Élite Member',
     location: 'Bengaluru, India',
@@ -1354,12 +1354,12 @@ const DUMMY_FRIENDS = [
   },
   {
     id: 'friend_elena',
-    name: 'Elena De Luca',
-    handle: '@elena.couture',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    name: 'Jeneefar',
+    handle: '@jeneefarking',
+    avatar: 'Assets/Profile/jeneefar.jpeg',
     bio: 'Luxury food stylist & berry devotee. If it doesn\'t have alpine wild strawberries, Champagne cream, and 24k gold leaf, count me out!',
     tier: 'Royale Member',
-    location: 'Chennai / London',
+    location: 'Kerala',
     creationsCount: 2,
     ordersCount: 38,
     creations: [
@@ -1421,7 +1421,7 @@ class LoyaltyManager {
   loadProfile() {
     const defaultProfile = {
       name: 'Roody Cruz',
-      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80',
+      avatar: 'Assets/Profile/roody.jpg',
       bio: 'Haute patisserie enthusiast & dark cacao devotee. Passionate about custom artisanal desserts, authentic Bronte pistachio, and high-protein creations in Chennai.',
       email: 'theroodyy@gmail.com',
       phone: '+91 93453 96700',
@@ -1456,7 +1456,14 @@ class LoyaltyManager {
 
     try {
       const saved = localStorage.getItem(PROFILE_KEY);
-      return saved ? { ...defaultProfile, ...JSON.parse(saved) } : defaultProfile;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.avatar && parsed.avatar.includes('images.unsplash.com/photo-1535713875002-d1d0cf377fde')) {
+          parsed.avatar = defaultProfile.avatar;
+        }
+        return { ...defaultProfile, ...parsed };
+      }
+      return defaultProfile;
     } catch (e) {
       return defaultProfile;
     }
@@ -1478,7 +1485,23 @@ class LoyaltyManager {
   loadFriends() {
     try {
       const saved = localStorage.getItem(FRIENDS_KEY);
-      return saved ? JSON.parse(saved) : DUMMY_FRIENDS;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return DUMMY_FRIENDS.map(df => {
+          const matched = parsed.find(f => f.id === df.id);
+          if (!matched) return df;
+          if (!matched.avatar || matched.avatar.includes('images.unsplash.com')) {
+            matched.avatar = df.avatar;
+          }
+          if (matched.name === 'Chiara Rossi' || matched.name === 'Dr. Vikram Malhotra' || matched.name === 'Elena De Luca') {
+            matched.name = df.name;
+            matched.handle = df.handle;
+            matched.location = df.location;
+          }
+          return { ...df, ...matched };
+        });
+      }
+      return DUMMY_FRIENDS;
     } catch (e) {
       return DUMMY_FRIENDS;
     }
@@ -7201,7 +7224,7 @@ class LaDesioApp {
           <div class="flex flex-col sm:flex-row items-center gap-5 p-4 rounded-2xl bg-[#241009] border border-[#B8945B]/30">
             <div class="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-1 shrink-0 shadow-xl overflow-hidden">
               <img id="profileModalAvatarPreview" 
-                   src="${profile.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80'}" 
+                   src="${profile.avatar || 'Assets/Profile/roody.jpg'}" 
                    alt="Avatar Preview" 
                    class="w-full h-full object-cover rounded-full" />
               <input type="hidden" id="editProfileAvatarValue" value="${profile.avatar || ''}" />
