@@ -876,8 +876,8 @@ const TRENDING_CREATIONS = [
   {
     id: 'trend-pro-power-brownie',
     name: 'Pro-Power Velvet Brownie',
-    creator: 'Dr. Vikram M.',
-    creatorAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    creator: 'Tharun R K',
+    creatorAvatar: 'Assets/Profile/tharun.jpeg',
     image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
     recipe: 'Whey Brownie (30g P) + Whey Isolate (+15g P) + Valrhona Ganache + Protein Crisps (+8g P)',
     likes: 426,
@@ -894,8 +894,8 @@ const TRENDING_CREATIONS = [
   {
     id: 'trend-berry-noir',
     name: 'Berry Noir',
-    creator: 'Ananya S.',
-    creatorAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    creator: 'Vinoth Kumar',
+    creatorAvatar: 'Assets/Profile/vinoth.jpeg',
     image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
     recipe: 'Brownie + Dark Chocolate + Wild Strawberry + Almonds + Dark Drizzle',
     likes: 248,
@@ -912,8 +912,8 @@ const TRENDING_CREATIONS = [
   {
     id: 'trend-pistachio-cloud',
     name: 'Pistachio Sublime',
-    creator: 'Marco V.',
-    creatorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    creator: 'Roody Cruz',
+    creatorAvatar: 'Assets/Profile/roody.jpg',
     image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80',
     recipe: 'Cheesecake + Bronte Pistachio + Pistachio Mousse + Hazelnuts + White Drizzle',
     likes: 312,
@@ -948,8 +948,8 @@ const TRENDING_CREATIONS = [
   {
     id: 'trend-ruby-tiramisu',
     name: 'Espresso Rosa',
-    creator: 'Chiara L.',
-    creatorAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+    creator: 'Jeneefar',
+    creatorAvatar: 'Assets/Profile/jeneefar.jpeg',
     image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80',
     recipe: 'Genoese Sponge + Espresso + Vanilla Silk Cream + Blueberries + Dark Drizzle',
     likes: 279,
@@ -1252,10 +1252,10 @@ if (typeof window !== 'undefined') {
 
 // LA DESIO - Privé Loyalty, Customer Profile, Saved Creations & Order History (INR Edition)
 
-const PROFILE_KEY = 'ladesio_profile_v1';
+const PROFILE_KEY = 'ladesio_profile_v2';
 const CREATIONS_KEY = 'ladesio_creations_v1';
 const ORDERS_KEY = 'ladesio_orders_v1';
-const FRIENDS_KEY = 'ladesio_friends_v1';
+const FRIENDS_KEY = 'ladesio_friends_v2';
 
 const DUMMY_FRIENDS = [
   {

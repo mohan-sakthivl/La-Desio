@@ -1,9 +1,9 @@
 // LA DESIO - Privé Loyalty, Customer Profile, Saved Creations & Order History (INR Edition)
 
-const PROFILE_KEY = 'ladesio_profile_v1';
+const PROFILE_KEY = 'ladesio_profile_v2';
 const CREATIONS_KEY = 'ladesio_creations_v1';
 const ORDERS_KEY = 'ladesio_orders_v1';
-const FRIENDS_KEY = 'ladesio_friends_v1';
+const FRIENDS_KEY = 'ladesio_friends_v2';
 
 export const DUMMY_FRIENDS = [
   {
