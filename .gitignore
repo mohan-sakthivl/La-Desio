@@ -4,9 +4,11 @@ dist/
 build/
 .cache/
 
-# Environment and logs
+# Environment and secrets
 .env
-.env.local
+.env.*
+server/.env
+server/.env.*
 *.log
 npm-debug.log*
 

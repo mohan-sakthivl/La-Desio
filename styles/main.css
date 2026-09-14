@@ -564,3 +564,71 @@ select option {
   color: #E6CA85 !important;
 }
 
+/* ==========================================================================
+   LUXURY AUTHENTICATION & LOGIN PORTAL STYLING
+   ========================================================================== */
+.auth-glass-panel {
+  background: linear-gradient(165deg, rgba(36, 16, 9, 0.95) 0%, rgba(26, 9, 5, 0.98) 100%);
+  border: 1px solid rgba(184, 148, 91, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(184, 148, 91, 0.15);
+  backdrop-filter: blur(16px);
+}
+
+.auth-input {
+  background: rgba(18, 7, 4, 0.85);
+  border: 1px solid rgba(184, 148, 91, 0.35);
+  color: #FFFDF9;
+  transition: all 0.25s ease;
+}
+
+.auth-input:focus {
+  border-color: #E6CA85;
+  box-shadow: 0 0 0 3px rgba(184, 148, 91, 0.25);
+  outline: none;
+}
+
+.auth-tab-btn {
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.auth-tab-btn.active {
+  color: #E6CA85;
+  border-bottom: 2px solid #B8945B;
+  font-weight: 600;
+}
+
+.auth-tab-btn:not(.active) {
+  color: #A8907E;
+}
+
+.auth-tab-btn:not(.active):hover {
+  color: #FFFDF9;
+}
+
+.social-btn {
+  background: rgba(26, 9, 5, 0.8);
+  border: 1px solid rgba(184, 148, 91, 0.3);
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  border-color: #E6CA85;
+  background: rgba(36, 16, 9, 0.95);
+  transform: translateY(-1px);
+}
+
+
+
+
+/* PFP DROPDOWN SOLID OPAQUE OVERLAY */
+#headerPfpDropdown {
+  background-color: #140603 !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#headerPfpDropdown * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}

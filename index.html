@@ -44,19 +44,22 @@
   <link rel="shortcut icon" type="image/png" href="Assets/Logo/emblem_transparent.png" />
   <link rel="apple-touch-icon" href="Assets/Logo/emblem_transparent.png" />
 
+  <!-- Leaflet Map Stylesheet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 
-<body class="bg-[#1F0D08] text-[#F8F1E7] font-sans antialiased selection:bg-[#B8945B] selection:text-white flex flex-col min-h-screen">
+<body class="bg-[#160703] text-[#FFFDF9] min-h-screen flex flex-col selection:bg-[#B8945B] selection:text-[#160703]">
 
 
   <!-- ========================================== -->
-  <!-- STICKY LUXURY NAVBAR                       -->
+  <!-- LUXURY FLOATING GLASS NAVIGATION BAR       -->
   <!-- ========================================== -->
-  <header class="sticky top-0 z-40 glass-nav transition-all duration-300 shadow-sm w-full">
-    <div class="w-full px-3 sm:px-5 lg:px-6 xl:px-8 max-w-[1600px] mx-auto">
-      <div class="flex items-center justify-between gap-2 lg:gap-3 xl:gap-4 h-18 md:h-20 lg:h-22">
+  <header class="sticky top-0 z-40 bg-[#160703]/95 backdrop-blur-md border-b border-[#B8945B]/30 shadow-2xl transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20 gap-2">
         
         <!-- Left: Transparent Brand Emblem + Gold Logo + Active Page Badge -->
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -82,7 +85,6 @@
           <a href="#menu" data-nav="menu" class="nav-link">Menu</a>
           <a href="#builder" data-nav="builder" class="nav-link">Create</a>
           <a href="#natural" data-nav="natural" class="nav-link">Natural</a>
-          <a href="#gifting" data-nav="gifting" class="nav-link">Gifting</a>
         </nav>
 
         <!-- Right: Utility Icons & CTA Button -->
@@ -117,15 +119,75 @@
             <span class="cart-count-badge absolute top-1 right-1 w-4 h-4 bg-[#B8945B] text-white text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
           </button>
 
-          <!-- Customer Privé Account Link -->
-          <a href="#account"
-             data-nav="account"
-             class="p-1.5 sm:p-2 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all"
-             title="La Desio Privé Account">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>
-          </a>
+          <!-- Customer Privé Profile & Auth Trigger -->
+          <div id="headerAuthContainer" class="relative flex items-center shrink-0">
+            
+            <!-- Guest Sign In Link (Visible ONLY when logged out) -->
+            <a href="#login"
+               id="headerSignInLink"
+               onclick="window.ladesioApp ? window.ladesioApp.handleHeaderAuthClick(event) : null"
+               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0905]/90 text-xs font-serif transition-all shadow-sm cursor-pointer"
+               title="Sign In or Register Profile">
+              <span>🔑</span> <span>Sign In</span>
+            </a>
+
+            <!-- PFP Trigger Button (Visible ONLY when logged in - clicking opens PFP menu with Sign Out) -->
+            <button type="button"
+                    id="headerProfileBtn"
+                    onclick="window.ladesioApp ? window.ladesioApp.togglePfpDropdown(event) : null"
+                    class="hidden p-1 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all relative shrink-0 focus:outline-none items-center gap-1 cursor-pointer"
+                    title="Privé Profile Menu">
+              <!-- PFP Avatar Container -->
+              <div id="headerPfpAvatar" class="w-9 h-9 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shadow-lg flex items-center justify-center overflow-hidden">
+                <span id="headerPfpInitials" class="w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center">👑</span>
+              </div>
+            </button>
+
+            <!-- LUXURY PFP DROPDOWN POPOVER (Opens ONLY when clicking PFP) -->
+            <div id="headerPfpDropdown"
+                 class="hidden absolute top-full right-0 mt-3 w-64 sm:w-72 rounded-2xl bg-[#140603] border-2 border-[#B8945B]/60 shadow-[0_25px_60px_rgba(0,0,0,0.95)] z-50 overflow-hidden transform transition-all duration-200"
+                 style="background-color: #140603 !important; opacity: 1 !important; backdrop-filter: none !important;">
+              
+              <!-- Dropdown Header: Avatar, Name, Email, Tier (Clickable to open profile) -->
+              <div onclick="window.ladesioApp.navigateTo('account'); window.ladesioApp.closePfpDropdown();"
+                   class="p-4 bg-[#1F0A05] border-b border-[#B8945B]/30 cursor-pointer hover:bg-[#2A0E07] transition-colors group" 
+                   style="background-color: #1F0A05 !important;"
+                   title="Click to view your Privé Profile">
+                <div class="flex items-center gap-3">
+                  <div id="dropdownPfpAvatar" class="w-11 h-11 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shadow-lg shrink-0 overflow-hidden">
+                    <div id="dropdownPfpInitials" class="w-full h-full rounded-full bg-[#140603] text-[#E6CA85] font-serif font-bold text-sm flex items-center justify-center">👑</div>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex items-center justify-between">
+                      <h4 id="dropdownPfpName" class="font-display text-sm font-bold text-white truncate group-hover:text-[#E6CA85] transition-colors">Privé Member</h4>
+                      <span class="text-[#E6CA85] text-xs transition-transform group-hover:translate-x-0.5">→</span>
+                    </div>
+                    <p id="dropdownPfpEmail" class="text-[11px] text-stone-400 font-sans truncate"></p>
+                    <span id="dropdownPfpTier" class="inline-block mt-0.5 px-2 py-0.5 rounded-full bg-[#2A0E06] border border-[#B8945B]/50 text-[#E6CA85] text-[9px] font-serif font-bold uppercase tracking-wider">
+                      ✨ Privé Club
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dropdown Actions: EXACTLY 'Go to my profile' & 'Sign out' -->
+              <div class="p-3 bg-[#140603] space-y-2" style="background-color: #140603 !important;">
+                <button type="button"
+                        onclick="window.ladesioApp.navigateTo('account'); window.ladesioApp.closePfpDropdown();"
+                        class="w-full py-2.5 px-4 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer">
+                  <span>👤</span> Go to my profile
+                </button>
+
+                <button type="button"
+                        onclick="window.ladesioApp.handleLogout()"
+                        class="w-full py-2.5 px-4 rounded-xl border border-rose-600 bg-[#380D0B] hover:bg-[#501310] text-rose-100 hover:text-white font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+                        style="background-color: #380D0B !important;">
+                  <span>🚪</span> Sign out
+                </button>
+              </div>
+
+            </div>
+          </div>
 
           <!-- Primary CTA Button (Visible on 2XL wide screens) -->
           <a href="#builder"
@@ -182,7 +244,6 @@
             <li><a href="#menu" class="hover:text-white transition-colors">The Menu</a></li>
             <li><a href="#builder" class="hover:text-white transition-colors">Create Your Dessert</a></li>
             <li><a href="#natural" class="hover:text-white transition-colors">Desio Natural</a></li>
-            <li><a href="#gifting" class="hover:text-white transition-colors">Luxury Gifting</a></li>
           </ul>
         </div>
 
@@ -190,7 +251,8 @@
         <div class="lg:col-span-2 space-y-3 text-xs">
           <h4 class="font-serif font-bold uppercase tracking-widest text-[#E6CA85]">Concierge</h4>
           <ul class="space-y-2 text-[#F8F1E7]/75">
-            <li><a href="#account" class="hover:text-white transition-colors">La Desio Privé Club</a></li>
+            <li><a href="#login" class="hover:text-white transition-colors">Privé Sign In & Register</a></li>
+            <li><a href="#account" class="hover:text-white transition-colors">La Desio Privé Salon</a></li>
             <li><a href="#menu" class="hover:text-white transition-colors">Signature Tasting</a></li>
             <li><a href="#home" class="hover:text-white transition-colors">Frequently Asked Questions</a></li>
             <li><a href="#home" class="hover:text-white transition-colors">Temperature Delivery</a></li>
@@ -355,10 +417,16 @@
   <!-- ========================================== -->
   <div id="toastContainer" class="fixed bottom-20 md:bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
 
-  <!-- Three.js 3D WebGL Engine for Create Studio -->
+  <!-- Three.js 3D WebGL Engine & Blender GLTF Loader for Create Studio -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
-  <!-- Universal Application Script (Runs seamlessly on file://, localhost, and servers) -->
-  <script src="js/bundle.js?v=2.0.0"></script>
+  <!-- Leaflet Interactive Maps Engine -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Cloud & Local Hybrid API Adapter -->
+  <script src="js/api.js"></script>
+  <!-- Universal Standalone Application Bundle -->
+  <script src="js/bundle.js?v=3.0.1"></script>
 </body>
 </html>

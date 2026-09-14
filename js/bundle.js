@@ -1,21 +1,24 @@
-// LA DESIO - UNIVERSAL STANDALONE APPLICATION BUNDLE (Generated)
+// LA DESIO - UNIVERSAL STANDALONE APPLICATION BUNDLE (Generated v3.0.1 - Verified Imagery Edition)
 (function() {
   'use strict';
 
+
+
+// --- data.js ---
 // LA DESIO - Complete Product & Recipe Catalog Data (Hyper-Accurate Verified Photography & INR Edition)
 // Visual theme: Italian luxury patisserie, ingredient-conscious, handcrafted
 
 const CATEGORIES = [
   { id: 'all', name: 'All Desserts', icon: 'sparkles' },
   { id: 'signature', name: 'Signature Collection', icon: 'crown' },
+  { id: 'ancient-naturals', name: 'Ancient Grains & Pulses (Kids)', icon: 'wheat' },
   { id: 'protein', name: 'High-Protein & Whey', icon: 'dumbbell' },
   { id: 'natural', name: 'Desio Natural', icon: 'leaf' },
   { id: 'cakes', name: 'Cakes & Tortes', icon: 'cake' },
   { id: 'cheesecakes', name: 'Cheesecakes', icon: 'cheese' },
   { id: 'brownies', name: 'Brownies & Fudges', icon: 'square' },
   { id: 'tiramisu', name: 'Tiramisu & Cold Desserts', icon: 'coffee' },
-  { id: 'cookies', name: 'Artisan Cookies & Waffles', icon: 'cookie' },
-  { id: 'gifting', name: 'Luxury Dessert Boxes', icon: 'gift' }
+  { id: 'cookies', name: 'Artisan Cookies & Waffles', icon: 'cookie' }
 ];
 
 const PRODUCTS = [
@@ -32,7 +35,29 @@ const PRODUCTS = [
     originalPrice: 595,
     rating: 4.95,
     reviewsCount: 142,
-    badge: 'Chef Signature',
+    reviews: [
+          {
+                "id": "rev-vn-1",
+                "author": "Ananya S.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "2 days ago",
+                "title": "Unmatched 72% Venezuelan dark cacao",
+                "comment": "The mousse is silk-smooth and intensely deep without excessive sugar. The crunch of roasted Piedmont hazelnuts on top makes it world-class!"
+          },
+          {
+                "id": "rev-vn-2",
+                "author": "Karthik N.",
+                "city": "Coimbatore",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "Best chocolate gateau in Tamil Nadu",
+                "comment": "Ordered for our anniversary. The 24k gold leaf and velvet texture looked like a jewel. Also love that it is 100% eggless!"
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Chef Signature',
     image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
@@ -66,7 +91,29 @@ const PRODUCTS = [
     originalPrice: 650,
     rating: 4.98,
     reviewsCount: 208,
-    badge: 'Bestseller',
+    reviews: [
+          {
+                "id": "rev-pr-1",
+                "author": "Dr. Meera V.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "3 days ago",
+                "title": "Authentic Sicilian Bronte Pistachio",
+                "comment": "You can immediately tell this is pure PDO Bronte pistachio, not artificial coloring or flavoring. The almond sablé crust remained wonderfully crisp."
+          },
+          {
+                "id": "rev-pr-2",
+                "author": "Siddharth M.",
+                "city": "Bangalore",
+                "rating": 5,
+                "date": "2 weeks ago",
+                "title": "Perfection in every spoonful",
+                "comment": "Balanced sweetness with Belgian white chocolate and savory pistachio pearls. Worth every single rupee."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Bestseller',
     image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1000&q=85',
@@ -98,7 +145,20 @@ const PRODUCTS = [
     price: 475,
     rating: 4.91,
     reviewsCount: 97,
-    badge: 'Seasonal Harvest',
+    reviews: [
+          {
+                "id": "rev-be-1",
+                "author": "Pooja K.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "4 days ago",
+                "title": "Airy vanilla chantilly & tart berries",
+                "comment": "The wild raspberry compote cuts right through the sweet Bourbon vanilla cream. Lightest chiffon sponge I have ever tasted."
+          }
+    ],
+        isEggless: false,
+    dietaryBadge: 'contains-egg',
+badge: 'Seasonal Harvest',
     image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85',
@@ -130,8 +190,21 @@ const PRODUCTS = [
     price: 490,
     rating: 4.88,
     reviewsCount: 86,
-    badge: 'Popular',
-    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000&q=85',
+    reviews: [
+          {
+                "id": "rev-ce-1",
+                "author": "Rohan D.",
+                "city": "Hyderabad",
+                "rating": 5,
+                "date": "5 days ago",
+                "title": "Fleur de sel caramel is divine",
+                "comment": "Real Guérande sea salt caramel paired with crunchy toasted pecans. Highly recommend warming it slightly before serving."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Popular',
+    image: 'https://images.unsplash.com/photo-1547414368-ac947d00b91d?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000&q=85'
     ],
@@ -161,7 +234,20 @@ const PRODUCTS = [
     price: 450,
     rating: 4.97,
     reviewsCount: 310,
-    badge: 'Italian Masterpiece',
+    reviews: [
+          {
+                "id": "rev-tc-1",
+                "author": "Marco G.",
+                "city": "Chennai Expat",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "Authentic Italian style",
+                "comment": "Proper savoiardi soaked in strong Arabica espresso with real mascarpone cream. True to Roman pasticceria traditions."
+          }
+    ],
+        isEggless: false,
+    dietaryBadge: 'contains-egg',
+badge: 'Italian Masterpiece',
     image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85'
@@ -192,7 +278,20 @@ const PRODUCTS = [
     price: 480,
     rating: 4.93,
     reviewsCount: 115,
-    badge: 'Romantic Collection',
+    reviews: [
+          {
+                "id": "rev-sr-1",
+                "author": "Lavanya R.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "2 days ago",
+                "title": "Subtle Damascus rose infusion",
+                "comment": "The aroma of natural rosewater with sweet strawberries and ivory white ganache is sublime. Looked stunning at our high-tea."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Romantic Collection',
     image: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1000&q=85',
@@ -228,7 +327,20 @@ const PRODUCTS = [
     price: 520,
     rating: 4.94,
     reviewsCount: 164,
-    badge: 'Desio Natural',
+    reviews: [
+          {
+                "id": "rev-bb-1",
+                "author": "Aditi T.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "3 days ago",
+                "title": "Clean ingredients, zero guilt",
+                "comment": "Naturally sweetened with date paste and raw almond crust. Pure berry freshness and 100% plant-based."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Desio Natural',
     image: 'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=1000&q=85',
@@ -260,7 +372,20 @@ const PRODUCTS = [
     price: 550,
     rating: 4.96,
     reviewsCount: 189,
-    badge: 'Desio Natural',
+    reviews: [
+          {
+                "id": "rev-dd-1",
+                "author": "Vikram B.",
+                "city": "Madurai",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "Rich Medjool date & dark cacao",
+                "comment": "Intense and velvety. Perfect for those who avoid refined sugar without sacrificing decadent dessert flavor."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Desio Natural',
     image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=1000&q=85',
@@ -292,7 +417,20 @@ const PRODUCTS = [
     price: 460,
     rating: 4.89,
     reviewsCount: 78,
-    badge: 'Desio Natural',
+    reviews: [
+          {
+                "id": "rev-mc-1",
+                "author": "Sunil K.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "4 days ago",
+                "title": "Burst of Ratnagiri Alphonso",
+                "comment": "Creamy coconut cream mousse topped with pure mango pulp and passionfruit reduction. Refreshingly tropical."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Desio Natural',
     image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=1000&q=85'
@@ -323,8 +461,21 @@ const PRODUCTS = [
     price: 495,
     rating: 4.90,
     reviewsCount: 92,
-    badge: 'Desio Natural',
-    image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=1000&q=85',
+    reviews: [
+          {
+                "id": "rev-bc-1",
+                "author": "Deepa S.",
+                "city": "Trichy",
+                "rating": 5,
+                "date": "6 days ago",
+                "title": "Moist and packed with natural banana",
+                "comment": "Real caramelized bananas baked into a rich cacao crumb with dark ganache ribbon. A family favorite."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Desio Natural',
+    image: 'https://images.unsplash.com/photo-1696259459108-7a8f4896b3e2?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=1000&q=85'
     ],
@@ -354,7 +505,20 @@ const PRODUCTS = [
     price: 450,
     rating: 4.92,
     reviewsCount: 65,
-    badge: 'Desio Natural',
+    reviews: [
+          {
+                "id": "rev-sa-1",
+                "author": "Harish P.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "Silky smooth almond panna cotta",
+                "comment": "Gelatin-free using natural agar. The almond milk fragrance with fresh strawberry reduction is unmatched."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Desio Natural',
     image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=85'
@@ -385,7 +549,20 @@ const PRODUCTS = [
     price: 540,
     rating: 4.95,
     reviewsCount: 122,
-    badge: 'Desio Natural',
+    reviews: [
+          {
+                "id": "rev-pf-1",
+                "author": "Maya N.",
+                "city": "Bangalore",
+                "rating": 5,
+                "date": "3 days ago",
+                "title": "Loaded with fresh figs and berries",
+                "comment": "The pistachio frangipane filling inside the crisp fluted tart is divine. A centerpiece pastry."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Desio Natural',
     image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1000&q=85'
@@ -420,7 +597,20 @@ const PRODUCTS = [
     price: 380,
     rating: 4.92,
     reviewsCount: 177,
-    badge: 'Warm Indulgence',
+    reviews: [
+          {
+                "id": "rev-fb-1",
+                "author": "Arjun V.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "2 days ago",
+                "title": "Molten chocolate center",
+                "comment": "Gooey, dense, and crackly top crust with roasted walnuts. Best heated for 15 seconds in the microwave."
+          }
+    ],
+        isEggless: false,
+    dietaryBadge: 'contains-egg',
+badge: 'Warm Indulgence',
     image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85'
@@ -455,7 +645,20 @@ const PRODUCTS = [
     price: 490,
     rating: 4.96,
     reviewsCount: 240,
-    badge: 'Popular',
+    reviews: [
+          {
+                "id": "rev-bs-1",
+                "author": "Chef Tanya",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "5 days ago",
+                "title": "Custardy center and caramelized top",
+                "comment": "Authentic San Sebastian style. Melts like silky custard inside. The burnished bitter caramel crust balances the cream cheese."
+          }
+    ],
+        isEggless: false,
+    dietaryBadge: 'contains-egg',
+badge: 'Popular',
     image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=1000&q=85'
@@ -485,13 +688,26 @@ const PRODUCTS = [
     id: 'desio-celebration-box-royale',
     name: 'The Desio Royale Hamper',
     subtitle: '6-Piece Signature Patisserie Selection & Gold Ribbon',
-    category: 'gifting',
+    category: 'signature',
     secondaryCategory: 'signature',
     price: 2450,
     originalPrice: 2950,
     rating: 5.00,
     reviewsCount: 88,
-    badge: 'Luxury Gift Box',
+    reviews: [
+          {
+                "id": "rev-cr-1",
+                "author": "Vinod S.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "Luxurious Diwali / Birthday gift hamper",
+                "comment": "The wax seal packaging, gold foil box, and personalized note made this the most memorable gift for our corporate clients."
+          }
+    ],
+        isEggless: false,
+    dietaryBadge: 'contains-egg',
+badge: 'Luxury Gift Box',
     image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=1000&q=85'
@@ -517,12 +733,25 @@ const PRODUCTS = [
     id: 'desio-couples-collection',
     name: 'The Couple\'s Desio Box',
     subtitle: 'Twin Bespoke Desserts, Chocolate Strawberries & Rosé Note',
-    category: 'gifting',
+    category: 'signature',
     secondaryCategory: 'signature',
     price: 1250,
     rating: 4.97,
     reviewsCount: 104,
-    badge: 'Romantic Gifting',
+    reviews: [
+          {
+                "id": "rev-cc-1",
+                "author": "Sneha & Rahul",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "3 days ago",
+                "title": "Perfect date night dessert box",
+                "comment": "The chocolate dipped strawberries with 24k gold leaf and twin velvet tarts created a truly special evening."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Romantic Gifting',
     image: 'https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&w=1000&q=85',
     gallery: [
       'https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&w=1000&q=85',
@@ -559,6 +788,17 @@ const PRODUCTS = [
     originalPrice: 595,
     rating: 4.97,
     reviewsCount: 118,
+    reviews: [
+          {
+                "id": "rev-pwb-1",
+                "author": "Gautam R. (Gym Coach)",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "1 day ago",
+                "title": "32g protein without chalky taste",
+                "comment": "Made with CFM Whey Isolate and almond flour. Tastes exactly like an indulgent bakery fudge brownie. No artificial aftertaste."
+          }
+    ],
     badge: '32g Protein • Whey Isolate',
     proteinRich: true,
     image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85',
@@ -593,6 +833,17 @@ const PRODUCTS = [
     originalPrice: 650,
     rating: 4.96,
     reviewsCount: 92,
+    reviews: [
+          {
+                "id": "rev-pbc-1",
+                "author": "Dr. Nikhil",
+                "city": "Bangalore",
+                "rating": 5,
+                "date": "4 days ago",
+                "title": "28g protein keto marvel",
+                "comment": "Grain-free, gluten-free, and rich in natural whey protein. Keeps you satiated for hours."
+          }
+    ],
     badge: '28g Protein • Low Carb',
     proteinRich: true,
     image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1000&q=85',
@@ -627,6 +878,17 @@ const PRODUCTS = [
     originalPrice: 550,
     rating: 4.93,
     reviewsCount: 74,
+    reviews: [
+          {
+                "id": "rev-pbp-1",
+                "author": "Tara M.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "2 days ago",
+                "title": "Plant protein & thick Greek curd",
+                "comment": "Organic pea and brown rice protein blended so smoothly with blueberry coulis and crunchy chia seeds."
+          }
+    ],
     badge: '26g Protein • 100% Plant Isolate',
     proteinRich: true,
     image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=85',
@@ -661,6 +923,17 @@ const PRODUCTS = [
     originalPrice: 670,
     rating: 4.99,
     reviewsCount: 136,
+    reviews: [
+          {
+                "id": "rev-ppt-1",
+                "author": "Abhinav C.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "5 days ago",
+                "title": "30g slow-release casein protein",
+                "comment": "Vibrant green pistachio cream over espresso protein savoiardi. Perfect nighttime protein dessert."
+          }
+    ],
     badge: '30g Protein • Chef Masterpiece',
     proteinRich: true,
     image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85',
@@ -695,6 +968,17 @@ const PRODUCTS = [
     originalPrice: 590,
     rating: 4.91,
     reviewsCount: 65,
+    reviews: [
+          {
+                "id": "rev-pwt-1",
+                "author": "Varun S.",
+                "city": "Coimbatore",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "34g whey brioche waffles",
+                "comment": "Crisp exterior, fluffy interior. The sugar-free salted butter caramel and roasted hazelnuts are fantastic."
+          }
+    ],
     badge: '34g Protein • High Fuel',
     proteinRich: true,
     image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=1000&q=85',
@@ -728,6 +1012,17 @@ const PRODUCTS = [
     originalPrice: 620,
     rating: 4.95,
     reviewsCount: 89,
+    reviews: [
+          {
+                "id": "rev-phs-1",
+                "author": "Rajesh P.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "3 days ago",
+                "title": "Molten dark hazelnut core",
+                "comment": "Warm, gooey, and packed with 27g collagen & whey protein. Incredible texture when warmed."
+          }
+    ],
     badge: '27g Protein • Collagen Boost',
     proteinRich: true,
     image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
@@ -751,12 +1046,340 @@ const PRODUCTS = [
       fiber: '6g',
       serving: 'Per Serving (200g)'
     }
+  },
+
+  // ==========================================
+  // ANCIENT NATURALS, CEREALS & PULSES (KID-FRIENDLY)
+  // ==========================================
+  {
+    id: 'desio-ragi-cacao-crunchies',
+    name: 'Ragi & Cacao Choco-Crunchies',
+    subtitle: 'Sprouted Finger Millet, Popped Amaranth & Medjool Date Toffee',
+    category: 'ancient-naturals',
+    secondaryCategory: 'cookies',
+    price: 345,
+    originalPrice: 395,
+    rating: 4.96,
+    reviewsCount: 118,
+    reviews: [
+          {
+                "id": "rev-rcc-1",
+                "author": "Nithya R.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "2 days ago",
+                "title": "Kids loved this healthy treat",
+                "comment": "Sprouted ragi millet with popped amaranth and raw Peruvian cacao. Crunchy, naturally sweet with Medjool dates, and 100% wholesome."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+    isEggless: false,
+    dietaryBadge: 'contains-egg',
+    isEggless: true,
+    dietaryBadge: 'eggless',
+    isEggless: true,
+    dietaryBadge: 'eggless',
+    isEggless: true,
+    dietaryBadge: 'eggless',
+    isEggless: true,
+    dietaryBadge: 'eggless',
+    isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Kids Favorite • 0 Refined Sugar',
+    image: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Handcrafted crunchy clusters made from sprouted finger millet (ragi), popped Andean amaranth, and 70% pure Peruvian raw cacao gently bonded with slow-simmered Medjool date toffee. Packed with bioavailable calcium, plant iron, and dietary fiber for growing minds and active children.',
+    ingredients: ['Sprouted Ragi Flour (Finger Millet)', 'Popped Organic Amaranth', 'Peruvian Raw Cacao', 'Medjool Date Paste', 'Cold-Pressed Virgin Coconut Oil', 'Himalayan Pink Salt'],
+    allergens: ['Gluten-Free', 'Nut-Free Friendly', 'Dairy-Free Friendly'],
+    dietary: ['100% Plant-Based', 'Zero Refined Sugar', 'Kid-Safe Nutrition', 'Gluten-Free'],
+    flavor: 'Dark Cacao & Toffee',
+    servingSize: 'Box of 12 Clusters (180g)',
+    prepTime: 'Handcrafted Fresh',
+    storageInfo: 'Store in an airtight container in a cool pantry. Best enjoyed within 14 days.',
+    nutrition: {
+      calories: 195,
+      protein: '6g',
+      carbs: '28g',
+      fats: '7g',
+      fiber: '6g',
+      calcium: '140mg',
+      iron: '3.8mg',
+      naturalSugar: '11g',
+      serving: 'Per 3 Clusters (45g)'
+    }
+  },
+  {
+    id: 'desio-spelt-teddy-biscotti',
+    name: 'Spelt & Wild Honey Bear Biscotti',
+    subtitle: 'Heritage Spelt Grain, Forest Honey & Roasted Almond Dust',
+    category: 'ancient-naturals',
+    secondaryCategory: 'cookies',
+    price: 325,
+    originalPrice: 380,
+    rating: 4.93,
+    reviewsCount: 94,
+    reviews: [
+          {
+                "id": "rev-stb-1",
+                "author": "Kavitha B.",
+                "city": "Madurai",
+                "rating": 5,
+                "date": "4 days ago",
+                "title": "Ancient spelt with pure forest honey",
+                "comment": "Light, crunchy biscotti with roasted almond dust and cinnamon. No refined sugar or artificial preservatives."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Heritage Cereal',
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=85',
+      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Artisanal bear-shaped Italian biscotti crafted from slow-milled ancient spelt (farro monococcum), sweetened solely with raw Himalayan wild forest honey and pure Ceylon cinnamon. A gentle, easy-to-digest wholesome crunch for school tiffin and afternoon milk pairing.',
+    ingredients: ['Stone-Milled Ancient Spelt Flour', 'Raw Forest Honey', 'Cold-Pressed Coconut Butter', 'Finely Milled Almond Flour', 'Ceylon Cinnamon', 'Bourbon Vanilla Pod'],
+    allergens: ['Gluten (Heritage Spelt)', 'Tree Nuts (Almonds)'],
+    dietary: ['Zero Refined Sugar', 'No Artificial Preservatives', 'Vegetarian'],
+    flavor: 'Spelt & Honey',
+    servingSize: 'Box of 8 Bears (160g)',
+    prepTime: 'Slow-Baked Daily',
+    storageInfo: 'Store in cool ambient jar. Shelf life 20 days.',
+    nutrition: {
+      calories: 175,
+      protein: '5g',
+      carbs: '24g',
+      fats: '6g',
+      fiber: '5g',
+      calcium: '65mg',
+      iron: '2.1mg',
+      naturalSugar: '9g',
+      serving: 'Per 2 Biscotti (40g)'
+    }
+  },
+  {
+    id: 'desio-nutri-pulse-truffles',
+    name: 'Nutri-Pulse Golden Truffles',
+    subtitle: 'Roasted Bengal Gram, Sprouted Moong & Cashew Fudge',
+    category: 'ancient-naturals',
+    secondaryCategory: 'brownies',
+    price: 395,
+    originalPrice: 460,
+    rating: 4.97,
+    reviewsCount: 135,
+    reviews: [
+          {
+                "id": "rev-npt-1",
+                "author": "Sangeetha M.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "1 week ago",
+                "title": "Roasted moong & cashew fudge balls",
+                "comment": "Traditional Indian pulse nutrition crafted into a luxury French truffle. Palm jaggery sweetness is spot on."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'High-Fiber Pulse',
+    image: 'https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Velvety artisanal energy spheres celebrating nutrient-packed roasted Bengal gram (chana) and sprouted yellow moong, slow-blended with creamy stone-ground cashew butter, crushed cardamom, and organic palm jaggery. Provides sustained stamina and muscle-building plant protein without sugar crashes.',
+    ingredients: ['Slow-Roasted Bengal Gram Flour', 'Sprouted Moong Crisps', 'Stone-Ground Cashew Butter', 'Organic Palm Jaggery', 'Green Cardamom', 'Toasted Sesame Dust'],
+    allergens: ['Tree Nuts (Cashews)', 'Sesame'],
+    dietary: ['High Plant Protein', 'Zero Refined Sugar', 'Vegetarian', 'Gluten-Free'],
+    flavor: 'Roasted Pulse & Cashew',
+    servingSize: 'Box of 6 Truffles (150g)',
+    prepTime: 'Hand-Rolled Fresh',
+    storageInfo: 'Refrigerate at 4°C. Best within 10 days.',
+    nutrition: {
+      calories: 180,
+      protein: '8g',
+      carbs: '20g',
+      fats: '7g',
+      fiber: '5g',
+      calcium: '88mg',
+      iron: '3.2mg',
+      naturalSugar: '10g',
+      serving: 'Per 2 Truffles (50g)'
+    }
+  },
+  {
+    id: 'desio-foxtail-fig-tartlet',
+    name: 'Foxtail Millet & Sun-Dried Fig Tartlet',
+    subtitle: 'Ancient Millet Tart, Aegean Fig Compote & Greek Yogurt Chantilly',
+    category: 'ancient-naturals',
+    secondaryCategory: 'cakes',
+    price: 420,
+    originalPrice: 490,
+    rating: 4.94,
+    reviewsCount: 88,
+    reviews: [
+          {
+                "id": "rev-fft-1",
+                "author": "Divya N.",
+                "city": "Salem",
+                "rating": 5,
+                "date": "3 days ago",
+                "title": "Foxtail millet crust with Aegean figs",
+                "comment": "Crisp ancient grain shell with sun-dried figs and Greek yogurt chantilly. Wonderful gut-healthy option."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Gut Health & Calcium',
+    image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'A delicate golden tartlet shell baked from heritage foxtail millet and almond meal, filled with naturally simmered Aegean fig and black raisin compote, topped with airy probiotic Greek yogurt chantilly and crushed pistachios.',
+    ingredients: ['Foxtail Millet Flour', 'Almond Meal', 'Sun-Dried Aegean Figs', 'Probiotic Greek Yogurt', 'Pure Wild Honey', 'Sicilian Pistachios'],
+    allergens: ['Dairy', 'Tree Nuts (Almonds, Pistachios)'],
+    dietary: ['Gluten-Free Crust', 'Zero Refined Sugar', 'Probiotic & Prebiotic'],
+    flavor: 'Millet & Honeyed Fig',
+    servingSize: '1 Tartlet (110g)',
+    prepTime: '20 mins handcrafted',
+    storageInfo: 'Keep chilled. Consume within 48 hours.',
+    nutrition: {
+      calories: 230,
+      protein: '7g',
+      carbs: '31g',
+      fats: '8g',
+      fiber: '6g',
+      calcium: '110mg',
+      iron: '2.5mg',
+      naturalSugar: '14g',
+      serving: '1 Tartlet (110g)'
+    }
+  },
+  {
+    id: 'desio-toasted-oats-quinoa-bar',
+    name: 'Toasted Oats & Quinoa Berry Bar',
+    subtitle: 'Rolled Oats, Puffed Quinoa, Forest Berry Jam & 85% Cacao',
+    category: 'ancient-naturals',
+    secondaryCategory: 'cookies',
+    price: 295,
+    originalPrice: 350,
+    rating: 4.91,
+    reviewsCount: 76,
+    reviews: [
+          {
+                "id": "rev-toq-1",
+                "author": "Manoj G.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "5 days ago",
+                "title": "Real artisanal energy bar",
+                "comment": "Rolled oats, popped quinoa, blueberry jam and 85% Venezuelan dark cacao drizzle. Substantial and satisfying."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'Whole Grain Power',
+    image: 'https://images.unsplash.com/photo-1782861826337-e136b28b98ea?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Crispy whole-grain bar loaded with stone-milled whole oats, popped Andean quinoa, pumpkin seeds, and blueberry reduction, lightly drizzled with 85% single-origin Venezuelan dark cacao.',
+    ingredients: ['Whole Rolled Oats', 'Puffed Quinoa', 'Wild Blueberry Puree', 'Raw Pumpkin Seeds', 'Dates', '85% Venezuelan Cacao'],
+    allergens: ['Gluten-Free Oats'],
+    dietary: ['100% Vegan', 'Zero Refined Sugar', 'High Fiber'],
+    flavor: 'Berry & Cacao Oats',
+    servingSize: 'Box of 4 Bars (260g)',
+    prepTime: 'Freshly Baked',
+    storageInfo: 'Store in a cool dry place. Shelf life 18 days.',
+    nutrition: {
+      calories: 210,
+      protein: '6g',
+      carbs: '32g',
+      fats: '6g',
+      fiber: '7g',
+      calcium: '55mg',
+      iron: '2.8mg',
+      naturalSugar: '9g',
+      serving: 'Per Bar (65g)'
+    }
+  },
+  {
+    id: 'desio-sprouted-moong-cookie',
+    name: 'Roasted Moong & Pistachio Soft-Bake',
+    subtitle: 'Golden Sprouted Moong Flour, Bronte Pistachio & Date Butter',
+    category: 'ancient-naturals',
+    secondaryCategory: 'cookies',
+    price: 310,
+    originalPrice: 360,
+    rating: 4.95,
+    reviewsCount: 102,
+    reviews: [
+          {
+                "id": "rev-smc-1",
+                "author": "Shankar V.",
+                "city": "Chennai",
+                "rating": 5,
+                "date": "2 days ago",
+                "title": "Melt-in-mouth moong pistachio cookie",
+                "comment": "The aroma of A2 cow ghee and cardamom combined with sprouted moong flour. Superior to regular bakery cookies."
+          }
+    ],
+        isEggless: true,
+    dietaryBadge: 'eggless',
+badge: 'High Protein Snack',
+    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=85'
+    ],
+    description: 'Melt-in-the-mouth soft baked cookie crafted from sprouted golden moong flour and Sicilian Bronte pistachio butter, sweetened naturally with slow-cooked date puree and a pinch of roasted green cardamom.',
+    ingredients: ['Sprouted Moong Pulse Flour', 'Bronte Pistachio Paste', 'Medjool Date Puree', 'Grass-Fed Cow A2 Ghee', 'Cardamom', 'Sea Salt'],
+    allergens: ['Dairy (A2 Ghee)', 'Tree Nuts (Pistachio)'],
+    dietary: ['Gluten-Free', 'High Plant Protein', 'Zero Refined Sugar'],
+    flavor: 'Moong & Pistachio',
+    servingSize: 'Box of 6 Cookies (180g)',
+    prepTime: 'Daily Small-Batch Bake',
+    storageInfo: 'Keep in an airtight jar. Best within 12 days.',
+    nutrition: {
+      calories: 190,
+      protein: '7g',
+      carbs: '22g',
+      fats: '8g',
+      fiber: '5g',
+      calcium: '70mg',
+      iron: '3.1mg',
+      naturalSugar: '8g',
+      serving: 'Per Cookie (50g)'
+    }
   }
 ];
 
-// CREATE YOUR DESSERT - INGREDIENTS MATRIX (INR)
+// CREATE YOUR DESSERT - INGREDIENTS MATRIX (INR Edition with Atomic Dynamic Nutrition)
 const DESSERT_BUILDER_OPTIONS = {
   bases: [
+    {
+      id: 'base-ragi-spelt',
+      name: 'Sprouted Ragi & Spelt Sponge',
+      description: 'Ancient finger millet and heritage spelt sponge sweetened with date paste',
+      price: 230,
+      image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80',
+      color: '#4A2A20',
+      calories: '185 kcal',
+      badge: 'Ancient Cereal • Kid Healthy',
+      nutrition: { calories: 185, protein: 6, carbs: 27, fats: 5, fiber: 6, calcium: 130, iron: 3.5, naturalSugar: 8 }
+    },
+    {
+      id: 'base-oat-pulse-crust',
+      name: 'Toasted Oat & Roasted Moong Crust',
+      description: 'Slow-roasted moong pulse flour, rolled oats, and cold-pressed coconut crust',
+      price: 240,
+      image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=600&q=80',
+      color: '#B5874C',
+      calories: '195 kcal',
+      badge: 'Heritage Pulse • High Fiber',
+      nutrition: { calories: 195, protein: 7, carbs: 24, fats: 7, fiber: 7, calcium: 75, iron: 2.9, naturalSugar: 5 }
+    },
     {
       id: 'base-brownie',
       name: 'Fudge Brownie',
@@ -765,7 +1388,7 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
       color: '#3B231B',
       calories: '280 kcal',
-      nutrition: { calories: 280, protein: 4, carbs: 32, fats: 16 }
+      nutrition: { calories: 280, protein: 4, carbs: 32, fats: 16, fiber: 4, calcium: 35, iron: 2.2, naturalSugar: 18 }
     },
     {
       id: 'base-cheesecake',
@@ -775,7 +1398,7 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=600&q=80',
       color: '#F4E7CE',
       calories: '310 kcal',
-      nutrition: { calories: 310, protein: 7, carbs: 26, fats: 21 }
+      nutrition: { calories: 310, protein: 7, carbs: 26, fats: 21, fiber: 1, calcium: 95, iron: 0.8, naturalSugar: 16 }
     },
     {
       id: 'base-waffle',
@@ -785,7 +1408,7 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80',
       color: '#D29E57',
       calories: '260 kcal',
-      nutrition: { calories: 260, protein: 5, carbs: 36, fats: 11 }
+      nutrition: { calories: 260, protein: 5, carbs: 36, fats: 11, fiber: 2, calcium: 40, iron: 1.4, naturalSugar: 14 }
     },
     {
       id: 'base-cookie',
@@ -795,7 +1418,7 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80',
       color: '#C4945A',
       calories: '240 kcal',
-      nutrition: { calories: 240, protein: 3, carbs: 33, fats: 11 }
+      nutrition: { calories: 240, protein: 3, carbs: 33, fats: 11, fiber: 2, calcium: 25, iron: 1.2, naturalSugar: 17 }
     },
     {
       id: 'base-cake',
@@ -805,7 +1428,7 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
       color: '#F9ECD2',
       calories: '210 kcal',
-      nutrition: { calories: 210, protein: 4, carbs: 30, fats: 8 }
+      nutrition: { calories: 210, protein: 4, carbs: 30, fats: 8, fiber: 1, calcium: 30, iron: 1.0, naturalSugar: 15 }
     },
     {
       id: 'base-whey-brownie',
@@ -815,7 +1438,8 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
       color: '#2F1810',
       calories: '310 kcal',
-      nutrition: { calories: 310, protein: 30, carbs: 16, fats: 10 }
+      badge: 'Whey Isolate • 30g P',
+      nutrition: { calories: 310, protein: 30, carbs: 16, fats: 10, fiber: 5, calcium: 80, iron: 2.8, naturalSugar: 6 }
     },
     {
       id: 'base-protein-cheesecake',
@@ -825,49 +1449,57 @@ const DESSERT_BUILDER_OPTIONS = {
       image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80',
       color: '#EBD8B8',
       calories: '290 kcal',
-      nutrition: { calories: 290, protein: 25, carbs: 12, fats: 14 }
+      badge: 'Hydrolyzed • 25g P',
+      nutrition: { calories: 290, protein: 25, carbs: 12, fats: 14, fiber: 1, calcium: 110, iron: 0.9, naturalSugar: 7 }
     }
   ],
 
   flavors: [
-    { id: 'flavor-chocolate', name: 'Dark Chocolate', color: '#3A1F17', price: 60, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 5, fats: 2 } },
-    { id: 'flavor-pistachio', name: 'Bronte Pistachio', color: '#93A879', price: 90, icon: '🌱', nutrition: { calories: 60, protein: 2, carbs: 4, fats: 4 } },
-    { id: 'flavor-strawberry', name: 'Wild Strawberry', color: '#C95D63', price: 75, icon: '🍓', nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0 } },
-    { id: 'flavor-coffee', name: 'Espresso Arabica', color: '#5B3A29', price: 60, icon: '☕', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0 } },
-    { id: 'flavor-caramel', name: 'Salted Caramel', color: '#B87B42', price: 75, icon: '🍯', nutrition: { calories: 50, protein: 0, carbs: 10, fats: 1 } },
-    { id: 'flavor-vanilla', name: 'Bourbon Vanilla', color: '#F4ECE1', price: 60, icon: '🍦', nutrition: { calories: 30, protein: 0, carbs: 6, fats: 0 } },
-    { id: 'flavor-mango', name: 'Alphonso Mango', color: '#EAA221', price: 85, icon: '🥭', nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0 } },
-    { id: 'flavor-whey-isolate', name: 'Pure CFM Whey Isolate (+15g Protein)', color: '#D4AF37', price: 85, icon: '⚡', nutrition: { calories: 60, protein: 15, carbs: 1, fats: 0 } },
-    { id: 'flavor-plant-protein', name: 'Organic Plant Pea & Rice (+12g Protein)', color: '#8A9A86', price: 80, icon: '🌱', nutrition: { calories: 50, protein: 12, carbs: 1, fats: 1 } }
+    { id: 'flavor-forest-honey', name: 'Raw Forest Honey & Vanilla', color: '#E8BF5A', price: 70, icon: '🍯', badge: 'Natural Sugar', nutrition: { calories: 35, protein: 0, carbs: 9, fats: 0, fiber: 0, calcium: 10, iron: 0.3, naturalSugar: 9 } },
+    { id: 'flavor-mango-date', name: 'Alphonso Mango & Date Coulis', color: '#EAA221', price: 80, icon: '🥭', badge: '100% Fruit', nutrition: { calories: 40, protein: 1, carbs: 10, fats: 0, fiber: 2, calcium: 15, iron: 0.5, naturalSugar: 8 } },
+    { id: 'flavor-chocolate', name: 'Dark Chocolate', color: '#3A1F17', price: 60, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 5, fats: 2, fiber: 1, calcium: 12, iron: 0.8, naturalSugar: 3 } },
+    { id: 'flavor-pistachio', name: 'Bronte Pistachio', color: '#93A879', price: 90, icon: '🌱', nutrition: { calories: 60, protein: 2, carbs: 4, fats: 4, fiber: 1, calcium: 20, iron: 0.6, naturalSugar: 2 } },
+    { id: 'flavor-strawberry', name: 'Wild Strawberry', color: '#C95D63', price: 75, icon: '🍓', nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0, fiber: 1, calcium: 8, iron: 0.2, naturalSugar: 5 } },
+    { id: 'flavor-coffee', name: 'Espresso Arabica', color: '#5B3A29', price: 60, icon: '☕', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0, fiber: 0, calcium: 5, iron: 0.1, naturalSugar: 1 } },
+    { id: 'flavor-caramel', name: 'Salted Caramel', color: '#B87B42', price: 75, icon: '🍮', nutrition: { calories: 50, protein: 0, carbs: 10, fats: 1, fiber: 0, calcium: 10, iron: 0.1, naturalSugar: 9 } },
+    { id: 'flavor-vanilla', name: 'Bourbon Vanilla', color: '#F4ECE1', price: 60, icon: '🍦', nutrition: { calories: 30, protein: 0, carbs: 6, fats: 0, fiber: 0, calcium: 15, iron: 0.2, naturalSugar: 5 } },
+    { id: 'flavor-whey-isolate', name: 'Pure CFM Whey Isolate (+15g Protein)', color: '#D4AF37', price: 85, icon: '⚡', badge: '15g Protein', nutrition: { calories: 60, protein: 15, carbs: 1, fats: 0, fiber: 0, calcium: 50, iron: 0.4, naturalSugar: 0 } },
+    { id: 'flavor-plant-protein', name: 'Organic Plant Pea & Rice (+12g Protein)', color: '#8A9A86', price: 80, icon: '🌱', badge: '12g Plant Protein', nutrition: { calories: 50, protein: 12, carbs: 1, fats: 1, fiber: 1, calcium: 40, iron: 1.8, naturalSugar: 0 } }
   ],
 
   fillings: [
-    { id: 'filling-chocolate-ganache', name: 'Valrhona Chocolate Ganache', color: '#2B140E', price: 75, nutrition: { calories: 70, protein: 1, carbs: 8, fats: 4 } },
-    { id: 'filling-vanilla-cream', name: 'Madagascar Vanilla Silk Cream', color: '#FFF8EB', price: 65, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3 } },
-    { id: 'filling-pistachio-mousse', name: 'Sicilian Pistachio Mousse', color: '#A0B486', price: 95, nutrition: { calories: 80, protein: 2, carbs: 7, fats: 5 } },
-    { id: 'filling-caramel-confit', name: 'Fleur de Sel Caramel Confit', color: '#C8833B', price: 75, nutrition: { calories: 65, protein: 0, carbs: 12, fats: 2 } },
-    { id: 'filling-berry-compote', name: 'Handmade Forest Berry Compote', color: '#88223B', price: 75, nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0 } }
+    { id: 'filling-pulse-praline', name: 'Roasted Bengal Gram & Almond Praline', color: '#B8860B', price: 85, badge: 'Kid Nutri-Pulse', nutrition: { calories: 75, protein: 4, carbs: 7, fats: 4, fiber: 3, calcium: 45, iron: 1.8, naturalSugar: 4 } },
+    { id: 'filling-greek-yogurt', name: 'Probiotic Greek Yogurt Vanilla Mousse', color: '#FFFDF5', price: 75, badge: 'Gut Health', nutrition: { calories: 50, protein: 5, carbs: 4, fats: 2, fiber: 0, calcium: 90, iron: 0.2, naturalSugar: 3 } },
+    { id: 'filling-chocolate-ganache', name: 'Valrhona Chocolate Ganache', color: '#2B140E', price: 75, nutrition: { calories: 70, protein: 1, carbs: 8, fats: 4, fiber: 1, calcium: 15, iron: 0.9, naturalSugar: 6 } },
+    { id: 'filling-vanilla-cream', name: 'Madagascar Vanilla Silk Cream', color: '#FFF8EB', price: 65, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3, fiber: 0, calcium: 25, iron: 0.2, naturalSugar: 5 } },
+    { id: 'filling-pistachio-mousse', name: 'Sicilian Pistachio Mousse', color: '#A0B486', price: 95, nutrition: { calories: 80, protein: 2, carbs: 7, fats: 5, fiber: 1, calcium: 30, iron: 0.7, naturalSugar: 4 } },
+    { id: 'filling-caramel-confit', name: 'Fleur de Sel Caramel Confit', color: '#C8833B', price: 75, nutrition: { calories: 65, protein: 0, carbs: 12, fats: 2, fiber: 0, calcium: 10, iron: 0.1, naturalSugar: 10 } },
+    { id: 'filling-berry-compote', name: 'Handmade Forest Berry Compote', color: '#88223B', price: 75, nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0, fiber: 2, calcium: 12, iron: 0.4, naturalSugar: 7 } }
   ],
 
   toppings: [
-    { id: 'top-strawberries', name: 'Fresh Hand-Cut Strawberries', price: 60, icon: '🍓', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0 } },
-    { id: 'top-blueberries', name: 'Wild Alpine Blueberries', price: 70, icon: '🫐', nutrition: { calories: 20, protein: 0, carbs: 4, fats: 0 } },
-    { id: 'top-almonds', name: 'Toasted Sicilian Almonds', price: 55, icon: '🌰', nutrition: { calories: 45, protein: 1, carbs: 2, fats: 4 } },
-    { id: 'top-hazelnuts', name: 'Roasted Piedmont Hazelnuts', price: 75, icon: '🌰', nutrition: { calories: 50, protein: 1, carbs: 2, fats: 5 } },
-    { id: 'top-choc-chips', name: 'Valrhona Chocolate Pearls', price: 45, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 4, fats: 2 } },
-    { id: 'top-oreo', name: 'Artisan Dark Biscuit Crumbs', price: 35, icon: '🍪', nutrition: { calories: 35, protein: 0, carbs: 6, fats: 1 } },
-    { id: 'top-coconut', name: 'Toasted Coconut Shavings', price: 35, icon: '🥥', nutrition: { calories: 30, protein: 0, carbs: 1, fats: 3 } },
-    { id: 'top-brownie-crumbs', name: 'Fudgy Brownie Chunks', price: 55, icon: '🍰', nutrition: { calories: 50, protein: 1, carbs: 6, fats: 3 } },
-    { id: 'top-gold-leaf', name: '24k Edible Gold Leaf Flourish', price: 120, icon: '✨', nutrition: { calories: 0, protein: 0, carbs: 0, fats: 0 } },
-    { id: 'top-protein-crisps', name: 'Whey Cacao Protein Crisps (+8g Protein)', price: 65, icon: '💪', nutrition: { calories: 40, protein: 8, carbs: 2, fats: 1 } },
-    { id: 'top-chia-almond', name: 'Chia & Sliced Almond Crunch (+6g Protein)', price: 60, icon: '🌰', nutrition: { calories: 50, protein: 6, carbs: 3, fats: 3 } }
+    { id: 'top-popped-amaranth', name: 'Popped Amaranth & Honey Clusters', price: 55, icon: '🌾', badge: 'Ancient Grain', nutrition: { calories: 35, protein: 2, carbs: 6, fats: 1, fiber: 2, calcium: 50, iron: 1.6, naturalSugar: 3 } },
+    { id: 'top-moong-crisp', name: 'Golden Roasted Moong Crunch', price: 50, icon: '✨', badge: 'Crispy Pulse', nutrition: { calories: 40, protein: 3, carbs: 5, fats: 1, fiber: 2, calcium: 25, iron: 1.2, naturalSugar: 1 } },
+    { id: 'top-cacao-nibs', name: 'Raw Peruvian Cacao Nibs', price: 55, icon: '🍫', badge: 'Antioxidants', nutrition: { calories: 45, protein: 1, carbs: 2, fats: 4, fiber: 3, calcium: 15, iron: 1.1, naturalSugar: 0 } },
+    { id: 'top-strawberries', name: 'Fresh Hand-Cut Strawberries', price: 60, icon: '🍓', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0, fiber: 1, calcium: 10, iron: 0.2, naturalSugar: 2 } },
+    { id: 'top-blueberries', name: 'Wild Alpine Blueberries', price: 70, icon: '🫐', nutrition: { calories: 20, protein: 0, carbs: 4, fats: 0, fiber: 1, calcium: 6, iron: 0.2, naturalSugar: 3 } },
+    { id: 'top-almonds', name: 'Toasted Sicilian Almonds', price: 55, icon: '🌰', nutrition: { calories: 45, protein: 1, carbs: 2, fats: 4, fiber: 1, calcium: 30, iron: 0.5, naturalSugar: 1 } },
+    { id: 'top-hazelnuts', name: 'Roasted Piedmont Hazelnuts', price: 75, icon: '🌰', nutrition: { calories: 50, protein: 1, carbs: 2, fats: 5, fiber: 1, calcium: 20, iron: 0.7, naturalSugar: 1 } },
+    { id: 'top-choc-chips', name: 'Valrhona Chocolate Pearls', price: 45, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 4, fats: 2, fiber: 1, calcium: 10, iron: 0.6, naturalSugar: 3 } },
+    { id: 'top-oreo', name: 'Artisan Dark Biscuit Crumbs', price: 35, icon: '🍪', nutrition: { calories: 35, protein: 0, carbs: 6, fats: 1, fiber: 0, calcium: 5, iron: 0.3, naturalSugar: 4 } },
+    { id: 'top-coconut', name: 'Toasted Coconut Shavings', price: 35, icon: '🥥', nutrition: { calories: 30, protein: 0, carbs: 1, fats: 3, fiber: 1, calcium: 4, iron: 0.3, naturalSugar: 1 } },
+    { id: 'top-brownie-crumbs', name: 'Fudgy Brownie Chunks', price: 55, icon: '🍰', nutrition: { calories: 50, protein: 1, carbs: 6, fats: 3, fiber: 1, calcium: 10, iron: 0.5, naturalSugar: 4 } },
+    { id: 'top-gold-leaf', name: '24k Edible Gold Leaf Flourish', price: 120, icon: '✨', nutrition: { calories: 0, protein: 0, carbs: 0, fats: 0, fiber: 0, calcium: 0, iron: 0, naturalSugar: 0 } },
+    { id: 'top-protein-crisps', name: 'Whey Cacao Protein Crisps (+8g Protein)', price: 65, icon: '💪', nutrition: { calories: 40, protein: 8, carbs: 2, fats: 1, fiber: 0, calcium: 40, iron: 0.6, naturalSugar: 1 } },
+    { id: 'top-chia-almond', name: 'Chia & Sliced Almond Crunch (+6g Protein)', price: 60, icon: '🌰', nutrition: { calories: 50, protein: 6, carbs: 3, fats: 3, fiber: 2, calcium: 45, iron: 1.0, naturalSugar: 1 } }
   ],
 
   sauces: [
-    { id: 'sauce-dark-chocolate', name: 'Warm 70% Dark Chocolate Drizzle', color: '#2B140E', price: 45, nutrition: { calories: 45, protein: 1, carbs: 5, fats: 3 } },
-    { id: 'sauce-white-chocolate', name: 'Champagne White Chocolate Silk', color: '#FDF7EB', price: 55, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3 } },
-    { id: 'sauce-caramel', name: 'Warm Fleur de Sel Salted Butter Caramel', color: '#BF782F', price: 45, nutrition: { calories: 45, protein: 0, carbs: 8, fats: 2 } },
-    { id: 'sauce-strawberry', name: 'Fresh Wild Strawberry Purée Coulis', color: '#BC2841', price: 45, nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0 } }
+    { id: 'sauce-date-caramel', name: '100% Medjool Date Caramel Drizzle', color: '#8B4513', price: 55, badge: 'Zero Refined Sugar', nutrition: { calories: 40, protein: 1, carbs: 9, fats: 0, fiber: 2, calcium: 20, iron: 0.7, naturalSugar: 8 } },
+    { id: 'sauce-dark-chocolate', name: 'Warm 70% Dark Chocolate Drizzle', color: '#2B140E', price: 45, nutrition: { calories: 45, protein: 1, carbs: 5, fats: 3, fiber: 1, calcium: 12, iron: 0.8, naturalSugar: 3 } },
+    { id: 'sauce-white-chocolate', name: 'Champagne White Chocolate Silk', color: '#FDF7EB', price: 55, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3, fiber: 0, calcium: 25, iron: 0.1, naturalSugar: 5 } },
+    { id: 'sauce-caramel', name: 'Warm Fleur de Sel Salted Butter Caramel', color: '#BF782F', price: 45, nutrition: { calories: 45, protein: 0, carbs: 8, fats: 2, fiber: 0, calcium: 8, iron: 0.1, naturalSugar: 7 } },
+    { id: 'sauce-strawberry', name: 'Fresh Wild Strawberry Purée Coulis', color: '#BC2841', price: 45, nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0, fiber: 1, calcium: 10, iron: 0.2, naturalSugar: 5 } }
   ]
 };
 
@@ -1060,6 +1692,7 @@ const BOUTIQUES = [
 ];
 
 
+// --- cart.js ---
 // LA DESIO - Shopping Cart & Checkout Data Store (INR Edition)
 // Handles Cart persistence, Promo Codes, Quantities, and Delivery estimation
 
@@ -1250,18 +1883,146 @@ if (typeof window !== 'undefined') {
 }
 
 
-// LA DESIO - Privé Loyalty, Customer Profile, Saved Creations & Order History (INR Edition)
+// --- loyalty.js ---
+// LA DESIO - Privé Loyalty, Real Mobile OTP Authentication & Friends Mobile Search (INR Edition)
 
+const USERS_KEY = 'ladesio_users_v5';
+const ACTIVE_USER_ID_KEY = 'ladesio_active_user_id_v4';
+const AUTH_SESSION_KEY = 'ladesio_auth_session_phone_v4';
+const OTP_STORE_KEY = 'ladesio_otp_store_v1';
 const PROFILE_KEY = 'ladesio_profile_v2';
 const CREATIONS_KEY = 'ladesio_creations_v1';
 const ORDERS_KEY = 'ladesio_orders_v1';
-const FRIENDS_KEY = 'ladesio_friends_v2';
+const FRIENDS_KEY = 'ladesio_friends_v4';
+
+const DEFAULT_PRESET_USERS = [
+  {
+    id: 'user_roody',
+    name: 'Roody Cruz',
+    avatar: 'Assets/Profile/roody.jpg',
+    bio: 'Haute patisserie enthusiast & dark cacao devotee. Passionate about custom artisanal desserts, authentic Bronte pistachio, and high-protein creations in Chennai.',
+    email: 'theroodyy@gmail.com',
+    phone: '9345396700',
+    displayPhone: '+91 93453 96700',
+    city: 'Chennai',
+    tier: 'Élite',
+    points: 2450,
+    nextTierPoints: 4000,
+    joinedDate: 'August 2026',
+    dietary: ['Dark Cacao Devotee', 'High Protein Preferred'],
+    savedAddresses: [
+      {
+        id: 'addr_1',
+        name: 'Roody Cruz (Home)',
+        address: 'No.60/A Gnanamani St, West Jafferkhanpet',
+        city: 'Chennai',
+        postal: '6000 83',
+        country: 'India',
+        phone: '+91 93453 96700',
+        isDefault: true
+      },
+      {
+        id: 'addr_2',
+        name: 'SLA INSTITUTE - KK NAGAR',
+        address: 'P.T Rajan Salai, KK Nagar',
+        city: 'Chennai',
+        postal: '6000 83',
+        country: 'India',
+        phone: '+91 98201 44892',
+        isDefault: false
+      }
+    ]
+  },
+  {
+    id: 'user_vinoth',
+    name: 'Vinoth Kumar',
+    avatar: 'Assets/Profile/vinoth.jpeg',
+    bio: 'Obsessed with Bronte pistachios, silky mascarpone, and delicate choux pastry.',
+    email: 'vinoth@ladesio.com',
+    phone: '9790496706',
+    displayPhone: '+91 97904 96706',
+    city: 'Trichy',
+    tier: 'Royale',
+    points: 5200,
+    nextTierPoints: 10000,
+    joinedDate: 'June 2025',
+    dietary: ['Pistachio Devotee', 'Artisanal Italian'],
+    savedAddresses: [
+      {
+        id: 'addr_v1',
+        name: 'Vinoth Kumar (Trichy)',
+        address: 'Main Guard Gate, Thillai Nagar',
+        city: 'Trichy',
+        postal: '6200 18',
+        country: 'India',
+        phone: '+91 97904 96706',
+        isDefault: true
+      }
+    ]
+  },
+  {
+    id: 'user_tharun',
+    name: 'Tharun R K',
+    avatar: 'Assets/Profile/tharun.jpeg',
+    bio: 'Sports nutritionist & dessert lover. Formulating 35g+ whey isolate brownies and guilt-free low-carb Basque cheesecakes.',
+    email: 'tharun@ladesio.com',
+    phone: '9566783614',
+    displayPhone: '+91 95667 83614',
+    city: 'Bengaluru',
+    tier: 'Élite',
+    points: 3100,
+    nextTierPoints: 4000,
+    joinedDate: 'September 2025',
+    dietary: ['High Protein (30g+)', 'Low Sugar'],
+    savedAddresses: [
+      {
+        id: 'addr_t1',
+        name: 'Tharun R K (Bengaluru)',
+        address: '100 Feet Road, Indiranagar',
+        city: 'Bengaluru',
+        postal: '5600 38',
+        country: 'India',
+        phone: '+91 95667 83614',
+        isDefault: true
+      }
+    ]
+  },
+  {
+    id: 'user_jeneefar',
+    name: 'Jeneefar',
+    avatar: 'Assets/Profile/jeneefar.jpeg',
+    bio: 'Luxury food stylist & berry devotee. If it doesn\'t have alpine wild strawberries, Champagne cream, and 24k gold leaf, count me out!',
+    email: 'jeneefar@ladesio.com',
+    phone: '9677407374',
+    displayPhone: '+91 96774 07374',
+    city: 'Kerala',
+    tier: 'Royale',
+    points: 4800,
+    nextTierPoints: 10000,
+    joinedDate: 'July 2025',
+    dietary: ['Wild Berries Devotee', 'Champagne Cream Enthusiast'],
+    savedAddresses: [
+      {
+        id: 'addr_j1',
+        name: 'Jeneefar (Kerala)',
+        address: 'Marine Drive Waterfront Villa',
+        city: 'Kochi',
+        postal: '6820 31',
+        country: 'India',
+        phone: '+91 96774 07374',
+        isDefault: true
+      }
+    ]
+  },
+];
 
 const DUMMY_FRIENDS = [
   {
     id: 'friend_chiara',
     name: 'Vinoth Kumar',
     handle: '@vinokutty',
+    phone: '9790496706',
+    displayPhone: '+91 97904 96706',
     avatar: 'Assets/Profile/vinoth.jpeg',
     bio: 'Obsessed with Bronte pistachios, silky mascarpone, and delicate choux pastry.',
     tier: 'Royale Member',
@@ -1309,6 +2070,8 @@ const DUMMY_FRIENDS = [
     id: 'friend_vikram',
     name: 'Tharun R K',
     handle: '@tharunchocoboy',
+    phone: '9566783614',
+    displayPhone: '+91 95667 83614',
     avatar: 'Assets/Profile/tharun.jpeg',
     bio: 'Sports nutritionist & dessert lover. Formulating 35g+ whey isolate brownies and guilt-free low-carb Basque cheesecakes.',
     tier: 'Élite Member',
@@ -1356,6 +2119,8 @@ const DUMMY_FRIENDS = [
     id: 'friend_elena',
     name: 'Jeneefar',
     handle: '@jeneefarking',
+    phone: '9677407374',
+    displayPhone: '+91 96774 07374',
     avatar: 'Assets/Profile/jeneefar.jpeg',
     bio: 'Luxury food stylist & berry devotee. If it doesn\'t have alpine wild strawberries, Champagne cream, and 24k gold leaf, count me out!',
     tier: 'Royale Member',
@@ -1403,11 +2168,34 @@ const DUMMY_FRIENDS = [
 
 class LoyaltyManager {
   constructor() {
-    this.profile = this.loadProfile();
+    this.users = this.loadUsers();
+    this.activeUserId = this.loadActiveUserId();
+    this.profile = this.getActiveUser();
     this.creations = this.loadCreations();
     this.orders = this.loadOrders();
     this.friends = this.loadFriends();
+    this.pendingOtp = null;
     this.listeners = [];
+  }
+
+  // Clean phone to 10 digits
+  cleanPhone(phone) {
+    if (!phone) return '';
+    let digits = String(phone).replace(/\D/g, '');
+    if (digits.length === 12 && digits.startsWith('91')) {
+      digits = digits.substring(2);
+    } else if (digits.length === 11 && digits.startsWith('0')) {
+      digits = digits.substring(1);
+    }
+    return digits;
+  }
+
+  formatPhone(digits) {
+    const clean = this.cleanPhone(digits);
+    if (clean.length === 10) {
+      return `+91 ${clean.substring(0, 5)} ${clean.substring(5)}`;
+    }
+    return `+91 ${clean}`;
   }
 
   subscribe(callback) {
@@ -1418,68 +2206,583 @@ class LoyaltyManager {
     this.listeners.forEach(cb => cb(this.getData()));
   }
 
-  loadProfile() {
-    const defaultProfile = {
-      name: 'Roody Cruz',
-      avatar: 'Assets/Profile/roody.jpg',
-      bio: 'Haute patisserie enthusiast & dark cacao devotee. Passionate about custom artisanal desserts, authentic Bronte pistachio, and high-protein creations in Chennai.',
-      email: 'theroodyy@gmail.com',
-      phone: '+91 93453 96700',
-      city: 'Chennai',
-      tier: 'Élite', // Amore, Élite, Royale
-      points: 2450,
-      nextTierPoints: 4000,
-      joinedDate: 'August 2026',
-      savedAddresses: [
-        {
-          id: 'addr_1',
-          name: 'Roody Cruz (Home)',
-          address: 'No.60/A Gnanamani St,West Jafferkhanpet',
-          city: 'Chennai',
-          postal: '6000 83',
-          country: 'India',
-          phone: '+91 93453 96700',
-          isDefault: true
-        },
-        {
-          id: 'addr_2',
-          name: 'SLA INSTITUTE - KK NAGAR',
-          address: 'P.T Rajan Salai, KK Nagar',
-          city: 'Chennai',
-          postal: '6000 83',
-          country: 'India',
-          phone: '+91 98201 44892',
-          isDefault: false
-        }
-      ]
-    };
-
+  loadUsers() {
     try {
-      const saved = localStorage.getItem(PROFILE_KEY);
+      const saved = localStorage.getItem(USERS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.avatar && parsed.avatar.includes('images.unsplash.com/photo-1535713875002-d1d0cf377fde')) {
-          parsed.avatar = defaultProfile.avatar;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+      // Normalize specific member numbers
+      parsed = parsed.map(u => {
+        const lower = (u.name || '').toLowerCase();
+        if (lower.includes('vinoth')) {
+          u.phone = '9790496706';
+          u.displayPhone = '+91 97904 96706';
+        } else if (lower.includes('tharun')) {
+          u.phone = '9566783614';
+          u.displayPhone = '+91 95667 83614';
+        } else if (lower.includes('jeneefar')) {
+          u.phone = '9677407374';
+          u.displayPhone = '+91 96774 07374';
         }
-        return { ...defaultProfile, ...parsed };
+        return u;
+      });
+          return parsed;
+        }
       }
-      return defaultProfile;
+      return DEFAULT_PRESET_USERS;
     } catch (e) {
-      return defaultProfile;
+      return DEFAULT_PRESET_USERS;
     }
   }
 
-  saveProfile() {
+  saveUsers() {
     try {
+      localStorage.setItem(USERS_KEY, JSON.stringify(this.users));
+      localStorage.setItem(ACTIVE_USER_ID_KEY, this.activeUserId);
       localStorage.setItem(PROFILE_KEY, JSON.stringify(this.profile));
     } catch (e) {}
     this.notify();
   }
 
+  loadActiveUserId() {
+    try {
+      const sessionPhone = localStorage.getItem(AUTH_SESSION_KEY);
+      if (sessionPhone) {
+        const match = this.users.find(u => this.cleanPhone(u.phone) === this.cleanPhone(sessionPhone));
+        if (match) return match.id;
+      }
+      const saved = localStorage.getItem(ACTIVE_USER_ID_KEY);
+      if (saved && sessionPhone && this.users.find(u => u.id === saved)) {
+        return saved;
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  getActiveUser() {
+    if (!this.activeUserId) return null;
+    const found = this.users.find(u => u.id === this.activeUserId);
+    return found || null;
+  }
+
+  getUsers() {
+    return this.users;
+  }
+
+  // Check if current user has an active authenticated session
+  isUserAuthenticated() {
+    try {
+      const sessionPhone = localStorage.getItem(AUTH_SESSION_KEY);
+      if (!sessionPhone || !this.activeUserId) return false;
+      return this.users.some(u => u.id === this.activeUserId);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // ==========================================
+  // REAL MOBILE NUMBER & OTP GENERATOR
+  // ==========================================
+  generateOtp(phoneInput) {
+    const phone = this.cleanPhone(phoneInput);
+    if (!phone || phone.length !== 10) {
+      return { success: false, message: 'Please enter a valid 10-digit Indian mobile number.' };
+    }
+
+    // Generate random 6-digit verification code
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    const expiresAt = Date.now() + 5 * 60 * 1000; // 5 mins
+
+    this.pendingOtp = {
+      phone,
+      otp,
+      expiresAt
+    };
+
+    try {
+      localStorage.setItem(OTP_STORE_KEY, JSON.stringify(this.pendingOtp));
+    } catch (e) {}
+
+    const formatted = this.formatPhone(phone);
+    const existingUser = this.users.find(u => this.cleanPhone(u.phone) === phone);
+
+    return {
+      success: true,
+      phone,
+      formattedPhone: formatted,
+      otp,
+      isExisting: !!existingUser,
+      userName: existingUser ? existingUser.name : null,
+      message: `OTP generated and sent to ${formatted}. Valid for 5 minutes.`
+    };
+  }
+
+  // Verify entered OTP
+  verifyOtp(phoneInput, enteredOtp) {
+    const phone = this.cleanPhone(phoneInput);
+    const trimmedOtp = String(enteredOtp || '').trim();
+
+    if (!trimmedOtp || trimmedOtp.length !== 6) {
+      return { success: false, message: 'Please enter the full 6-digit OTP code.' };
+    }
+
+    // Check memory or localStorage
+    let stored = this.pendingOtp;
+    if (!stored) {
+      try {
+        const saved = localStorage.getItem(OTP_STORE_KEY);
+        if (saved) stored = JSON.parse(saved);
+      } catch (e) {}
+    }
+
+    if (!stored || stored.phone !== phone) {
+      return { success: false, message: 'No active OTP found for this mobile number. Please request a new OTP.' };
+    }
+
+    if (Date.now() > stored.expiresAt) {
+      return { success: false, message: 'This OTP has expired. Please request a fresh OTP.' };
+    }
+
+    if (stored.otp !== trimmedOtp) {
+      return { success: false, message: 'Incorrect OTP entered. Please check your verification code.' };
+    }
+
+    // Clear pending OTP
+    this.pendingOtp = null;
+    try {
+      localStorage.removeItem(OTP_STORE_KEY);
+    } catch (e) {}
+
+    // Check if user already exists
+    const existing = this.users.find(u => this.cleanPhone(u.phone) === phone);
+    if (existing) {
+      this.activeUserId = existing.id;
+      this.profile = existing;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, phone);
+      } catch (e) {}
+      this.saveUsers();
+      return {
+        success: true,
+        isNewUser: false,
+        user: this.profile,
+        message: `Verification successful! Welcome back, ${this.profile.name}.`
+      };
+    } else {
+      // New phone number: Needs profile setup details
+      return {
+        success: true,
+        isNewUser: true,
+        phone,
+        message: 'Mobile number verified! Please complete your name and city to create your Privé profile.'
+      };
+    }
+  }
+
+  // Register brand new profile using mobile number
+  registerWithMobile(userData) {
+    const phone = this.cleanPhone(userData.phone);
+    if (!phone || phone.length !== 10) {
+      return { success: false, message: 'Valid 10-digit mobile number required.' };
+    }
+
+    const existing = this.users.find(u => this.cleanPhone(u.phone) === phone);
+    if (existing) {
+      this.activeUserId = existing.id;
+      this.profile = existing;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, phone);
+      } catch (e) {}
+      this.saveUsers();
+      return { success: true, user: existing, message: `Logged into existing account for ${existing.name}.` };
+    }
+
+    const initials = (userData.name || 'Prive Member').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    const newUser = {
+      id: 'user_' + Date.now(),
+      name: userData.name || 'Privé Connoisseur',
+      phone: phone,
+      displayPhone: this.formatPhone(phone),
+      email: userData.email || `${userData.name?.toLowerCase().replace(/\s+/g, '') || 'member'}@ladesioprive.in`,
+      avatar: userData.avatar || '',
+      initials: initials,
+      bio: userData.bio || 'Haute patisserie devotee enjoying bespoke La Desio creations.',
+      city: userData.city || 'Chennai',
+      tier: 'Amore',
+      points: 250, // Welcome bonus points!
+      nextTierPoints: 2000,
+      joinedDate: new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+      dietary: userData.dietary || ['All Flavors Welcome'],
+      savedAddresses: [
+        {
+          id: 'addr_' + Date.now(),
+          name: `${userData.name || 'Member'} (Primary)`,
+          address: userData.address || 'Flagship Avenue',
+          city: userData.city || 'Chennai',
+          postal: userData.postal || '6000 01',
+          country: 'India',
+          phone: this.formatPhone(phone),
+          isDefault: true
+        }
+      ]
+    };
+
+    this.users.unshift(newUser);
+    this.activeUserId = newUser.id;
+    this.profile = newUser;
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, phone);
+    } catch (e) {}
+    this.saveUsers();
+
+    return {
+      success: true,
+      user: newUser,
+      message: `Profile successfully created! 250 welcome points credited to ${newUser.name}.`
+    };
+  }
+
+  // Email & Password Authentication
+  loginByEmail(emailOrIdentifier, password) {
+    const cleanId = (emailOrIdentifier || '').trim().toLowerCase();
+    const cleanDigits = cleanId.replace(/\D/g, '');
+
+    // Match by email or 10-digit mobile number
+    let user = this.users.find(u => {
+      const uEmail = (u.email || '').toLowerCase();
+      const uPhone = this.cleanPhone(u.phone);
+      return uEmail === cleanId || (cleanDigits.length === 10 && uPhone === cleanDigits);
+    });
+
+    if (!user) {
+      // Auto-register user with this email so login NEVER fails!
+      const nameParts = cleanId.split('@')[0].split(/[._-]/).filter(Boolean);
+      const formattedName = nameParts.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ') || 'Privé Connoisseur';
+      return this.registerWithEmailAndPassword({
+        name: formattedName,
+        email: cleanId,
+        password: password || 'desio123',
+        phone: '98' + Math.floor(10000000 + Math.random() * 90000000)
+      });
+    }
+
+    // Verify password if user has explicitly set one
+    if (user.password && password && password !== user.password && password !== 'desio123') {
+      return {
+        success: false,
+        message: 'Incorrect password entered. Please use "desio123" or sign in via OTP.'
+      };
+    }
+
+    this.activeUserId = user.id;
+    this.profile = user;
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(user.phone) || user.email);
+      localStorage.setItem(ACTIVE_USER_ID_KEY, user.id);
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(user));
+    } catch (e) {}
+    this.saveUsers();
+
+    return {
+      success: true,
+      user: this.profile,
+      message: `Welcome to La Desio Privé, ${this.profile.name}!`
+    };
+  }
+
+  // Register brand new user with Email, Password & Mobile
+  registerWithEmailAndPassword(userData) {
+    const email = (userData.email || '').trim().toLowerCase();
+    const phone = this.cleanPhone(userData.phone);
+    const name = (userData.name || '').trim();
+    const password = userData.password || 'desio123';
+
+    if (!email || !email.includes('@')) {
+      return { success: false, message: 'Please enter a valid email address.' };
+    }
+    if (!name) {
+      return { success: false, message: 'Please enter your full name.' };
+    }
+
+    const existing = this.users.find(u => 
+      (u.email && u.email.toLowerCase() === email) || 
+      (phone && this.cleanPhone(u.phone) === phone)
+    );
+
+    if (existing) {
+      this.activeUserId = existing.id;
+      this.profile = existing;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(existing.phone));
+      } catch (e) {}
+      this.saveUsers();
+      return {
+        success: true,
+        user: existing,
+        message: `Welcome back, ${existing.name}! An account with this contact already existed.`
+      };
+    }
+
+    const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    const newUser = {
+      id: 'user_' + Date.now(),
+      name: name,
+      email: email,
+      phone: phone || '9876543210',
+      displayPhone: this.formatPhone(phone || '9876543210'),
+      avatar: userData.avatar || '',
+      initials: initials,
+      bio: userData.bio || 'Haute patisserie devotee enjoying bespoke La Desio creations.',
+      city: userData.city || 'Chennai',
+      tier: 'Amore',
+      points: 250, // Welcome bonus points!
+      nextTierPoints: 2000,
+      joinedDate: new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+      dietary: userData.dietary || ['All Flavors Welcome'],
+      password: password,
+      savedAddresses: [
+        {
+          id: 'addr_' + Date.now(),
+          name: `${name} (Primary)`,
+          address: userData.address || 'Flagship Avenue',
+          city: userData.city || 'Chennai',
+          postal: userData.postal || '6000 01',
+          country: 'India',
+          phone: this.formatPhone(phone || '9876543210'),
+          isDefault: true
+        }
+      ]
+    };
+
+    this.users.unshift(newUser);
+    this.activeUserId = newUser.id;
+    this.profile = newUser;
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(newUser.phone));
+    } catch (e) {}
+    this.saveUsers();
+
+    return {
+      success: true,
+      user: newUser,
+      message: `Welcome to La Desio Privé, ${newUser.name}! 250 welcome points credited to your account.`
+    };
+  }
+
+  // Request password reset
+  requestPasswordReset(emailInput) {
+    const clean = (emailInput || '').trim().toLowerCase();
+    return {
+      success: true,
+      message: `Password reset instructions and verification link dispatched to ${clean}.`
+    };
+  }
+
+  // Direct login by phone (for demo quick-switches)
+  loginByPhone(phoneInput) {
+    const phone = this.cleanPhone(phoneInput);
+    const user = this.users.find(u => this.cleanPhone(u.phone) === phone);
+    if (!user) {
+      return { success: false, message: 'No account registered with this mobile number.' };
+    }
+    this.activeUserId = user.id;
+    this.profile = user;
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, phone);
+    } catch (e) {}
+    this.saveUsers();
+    return { success: true, user: this.profile, message: `Welcome, ${this.profile.name}!` };
+  }
+
+  // Switch between existing user profiles
+  switchProfile(userId) {
+    const target = this.users.find(u => u.id === userId);
+    if (!target) return null;
+    this.activeUserId = target.id;
+    this.profile = target;
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(target.phone));
+    } catch (e) {}
+    this.saveUsers();
+    return this.profile;
+  }
+
+  // Sign out
+  logout() {
+    try {
+      localStorage.removeItem(AUTH_SESSION_KEY);
+      localStorage.removeItem(ACTIVE_USER_ID_KEY);
+      localStorage.removeItem(PROFILE_KEY);
+    } catch (e) {}
+    this.activeUserId = null;
+    this.profile = null;
+    this.notify();
+    return null;
+  }
+
+  // Update profile details
   updateProfile(data) {
     this.profile = { ...this.profile, ...data };
-    this.saveProfile();
+    if (data.phone) {
+      this.profile.phone = this.cleanPhone(data.phone);
+      this.profile.displayPhone = this.formatPhone(this.profile.phone);
+    }
+    const idx = this.users.findIndex(u => u.id === this.activeUserId);
+    if (idx !== -1) {
+      this.users[idx] = this.profile;
+    }
+    this.checkTierUpgrade();
+    this.saveUsers();
     return this.profile;
+  }
+
+  addSavedAddress(newAddr) {
+    if (!this.profile.savedAddresses) {
+      this.profile.savedAddresses = [];
+    }
+    const addr = {
+      id: 'addr_' + Date.now(),
+      name: newAddr.name || `${this.profile.name} (New Address)`,
+      address: newAddr.address || newAddr.street || '',
+      city: newAddr.city || this.profile.city || 'Chennai',
+      postal: newAddr.postal || '6000 83',
+      country: newAddr.country || 'India',
+      phone: newAddr.phone || this.profile.displayPhone || '+91 93453 96700',
+      isDefault: !!newAddr.isDefault
+    };
+
+    if (addr.isDefault) {
+      this.profile.savedAddresses.forEach(a => a.isDefault = false);
+    }
+    this.profile.savedAddresses.push(addr);
+    this.updateProfile({ savedAddresses: this.profile.savedAddresses });
+    return addr;
+  }
+
+  deleteSavedAddress(addrId) {
+    if (!this.profile.savedAddresses) return;
+    this.profile.savedAddresses = this.profile.savedAddresses.filter(a => a.id !== addrId);
+    if (this.profile.savedAddresses.length > 0 && !this.profile.savedAddresses.some(a => a.isDefault)) {
+      this.profile.savedAddresses[0].isDefault = true;
+    }
+    this.updateProfile({ savedAddresses: this.profile.savedAddresses });
+  }
+
+  // ==========================================
+  // SEARCH USERS / FRIENDS BY MOBILE NUMBER
+  // ==========================================
+  searchUsersByMobile(query) {
+    const raw = String(query || '').trim();
+    if (!raw) return [];
+
+    const cleanQuery = this.cleanPhone(raw);
+    const textQuery = raw.toLowerCase();
+
+    return this.users.filter(u => {
+      // Don't include self
+      if (u.id === this.activeUserId) return false;
+
+      const userCleanPhone = this.cleanPhone(u.phone);
+      if (cleanQuery && userCleanPhone.includes(cleanQuery)) {
+        return true;
+      }
+      if (u.name && u.name.toLowerCase().includes(textQuery)) {
+        return true;
+      }
+      return false;
+    }).map(u => ({
+      id: u.id,
+      name: u.name,
+      phone: u.phone,
+      displayPhone: u.displayPhone || this.formatPhone(u.phone),
+      avatar: u.avatar || 'Assets/Profile/roody.jpg',
+      bio: u.bio || 'Patisserie lover in the La Desio Circle.',
+      city: u.city || 'Chennai',
+      tier: u.tier || 'Élite Member',
+      points: u.points || 0,
+      isRegisteredUser: true,
+      isAlreadyFriend: this.friends.some(f => f.id === u.id || this.cleanPhone(f.phone) === this.cleanPhone(u.phone)),
+      friendId: (this.friends.find(f => f.id === u.id || this.cleanPhone(f.phone) === this.cleanPhone(u.phone)) || {}).id || u.id,
+      creationsCount: 2
+    }));
+  }
+
+  addFriendByMobile(phoneInput, nameInput = '', cityInput = 'Chennai') {
+    const phone = this.cleanPhone(phoneInput);
+    if (!phone || phone.length !== 10) {
+      return { success: false, message: 'Please enter a valid 10-digit Indian mobile number.' };
+    }
+
+    // Check if self
+    if (this.profile && this.cleanPhone(this.profile.phone) === phone) {
+      return { success: false, message: 'You cannot add your own profile as a friend.' };
+    }
+
+    // Check if already in circle
+    const alreadyFriend = this.friends.find(f => this.cleanPhone(f.phone) === phone);
+    if (alreadyFriend) {
+      return { success: false, message: `${alreadyFriend.name} is already in your Friends Circle!` };
+    }
+
+    // Check registered users
+    const existingUser = this.users.find(u => this.cleanPhone(u.phone) === phone);
+    if (existingUser) {
+      this.addFriendFromUser(existingUser);
+      return {
+        success: true,
+        message: `✨ Added ${existingUser.name} to your Friends Circle!`,
+        friend: this.friends[0]
+      };
+    }
+
+    // Create new friend entry
+    const formatted = this.formatPhone(phone);
+    const friendName = (nameInput || '').trim() || `Connoisseur (${phone.substring(6)})`;
+    const newFriend = {
+      id: 'friend_' + Date.now(),
+      name: friendName,
+      handle: '@' + (friendName.toLowerCase().replace(/\s+/g, '') || ('member' + phone.substring(6))),
+      phone: phone,
+      displayPhone: formatted,
+      avatar: 'Assets/Profile/roody.jpg',
+      bio: `Handcrafted dessert enthusiast connected via ${formatted}.`,
+      tier: 'Privé Member',
+      location: (cityInput || 'Chennai').trim(),
+      creationsCount: 1,
+      ordersCount: 8,
+      creations: [
+        {
+          id: 'custom_f_' + Date.now(),
+          name: `${friendName.split(' ')[0]}'s Signature Torte`,
+          recipe: 'Valrhona Noir + Dark Chocolate Ganache + Roasted Hazelnuts + Gold Flourish',
+          price: 520,
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
+          createdDate: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+          nutrition: { calories: 330, protein: '8g', carbs: '32g', fats: '18g' }
+        }
+      ]
+    };
+
+    this.friends.unshift(newFriend);
+    this.saveFriends();
+    return {
+      success: true,
+      message: `✨ Connected +91 ${phone} (${newFriend.name}) to your Friends Circle!`,
+      friend: newFriend
+    };
+  }
+
+  removeFriend(friendIdOrPhone) {
+    const cleanP = this.cleanPhone(friendIdOrPhone);
+    const friend = this.friends.find(f => f.id === friendIdOrPhone || (cleanP && this.cleanPhone(f.phone) === cleanP));
+    const targetId = friend ? friend.id : friendIdOrPhone;
+    this.friends = this.friends.filter(f => f.id !== targetId);
+    this.saveFriends();
+    return {
+      success: true,
+      message: friend ? `${friend.name} was removed from your circle.` : 'Friend removed from your circle.'
+    };
   }
 
   loadFriends() {
@@ -1487,19 +2790,7 @@ class LoyaltyManager {
       const saved = localStorage.getItem(FRIENDS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        return DUMMY_FRIENDS.map(df => {
-          const matched = parsed.find(f => f.id === df.id);
-          if (!matched) return df;
-          if (!matched.avatar || matched.avatar.includes('images.unsplash.com')) {
-            matched.avatar = df.avatar;
-          }
-          if (matched.name === 'Chiara Rossi' || matched.name === 'Dr. Vikram Malhotra' || matched.name === 'Elena De Luca') {
-            matched.name = df.name;
-            matched.handle = df.handle;
-            matched.location = df.location;
-          }
-          return { ...df, ...matched };
-        });
+        return parsed;
       }
       return DUMMY_FRIENDS;
     } catch (e) {
@@ -1516,6 +2807,40 @@ class LoyaltyManager {
       localStorage.setItem(FRIENDS_KEY, JSON.stringify(this.friends));
     } catch (e) {}
     this.notify();
+  }
+
+  addFriendFromUser(user) {
+    const exists = this.friends.some(f => f.id === user.id || this.cleanPhone(f.phone) === this.cleanPhone(user.phone));
+    if (exists) return false;
+
+    const newFriend = {
+      id: user.id,
+      name: user.name,
+      handle: '@' + user.name.toLowerCase().replace(/\s+/g, ''),
+      phone: user.phone,
+      displayPhone: user.displayPhone || this.formatPhone(user.phone),
+      avatar: user.avatar || 'Assets/Profile/roody.jpg',
+      bio: user.bio || 'Patisserie lover in the La Desio Circle.',
+      tier: user.tier || 'Élite Member',
+      location: user.city || 'Chennai',
+      creationsCount: 2,
+      ordersCount: 12,
+      creations: [
+        {
+          id: 'custom_f_' + Date.now(),
+          name: `${user.name.split(' ')[0]}'s Signature Torte`,
+          recipe: 'Valrhona Noir + Dark Chocolate Ganache + Roasted Hazelnuts + Gold Flourish',
+          price: 520,
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
+          createdDate: '10 Mar 2026',
+          nutrition: { calories: 330, protein: '8g', carbs: '32g', fats: '18g' }
+        }
+      ]
+    };
+
+    this.friends.unshift(newFriend);
+    this.saveFriends();
+    return true;
   }
 
   updateFriend(id, data) {
@@ -1578,11 +2903,11 @@ class LoyaltyManager {
     } catch (e) {}
     this.notify();
   }
-
   loadOrders() {
     const defaultOrders = [
       {
         id: 'DESIO-8942',
+        userId: 'user_roody',
         date: '14 Feb 2025',
         time: '18:30',
         status: 'Delivered',
@@ -1616,16 +2941,130 @@ class LoyaltyManager {
           postal: '6000 83'
         },
         deliverySlot: 'Express Artisanal — 14 Feb, 6:00 PM (Chennai)',
-        trackingNumber: 'IN-EXP-8942-DESIO'
+        trackingNumber: 'IN-EXP-8942-DESIO',
+        distanceKm: 1.4,
+        estimatedMinutes: 12
+      },
+      {
+        id: 'DESIO-7182',
+        userId: 'user_vinoth',
+        date: '10 Jan 2025',
+        time: '19:15',
+        status: 'Delivered',
+        statusColor: 'emerald',
+        items: [
+          {
+            name: 'Pistachio Royale Tiramisù',
+            qty: 2,
+            price: 545,
+            image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80',
+            subtitle: 'Bronte Pistachio & Mascarpone'
+          }
+        ],
+        subtotal: 1090,
+        discount: 0,
+        deliveryFee: 0,
+        total: 1090,
+        paymentMethod: 'Credit Card',
+        address: {
+          fullName: 'Vinoth Kumar',
+          phone: '+91 97904 96706',
+          street: 'Main Guard Gate, Thillai Nagar',
+          city: 'Trichy',
+          postal: '6200 18'
+        },
+        deliverySlot: 'Scheduled Evening — 10 Jan, 7:00 PM (Trichy)',
+        trackingNumber: 'IN-EXP-7182-DESIO',
+        distanceKm: 2.1,
+        estimatedMinutes: 20
+      },
+      {
+        id: 'DESIO-5421',
+        userId: 'user_tharun',
+        date: '02 Feb 2025',
+        time: '14:20',
+        status: 'Delivered',
+        statusColor: 'emerald',
+        items: [
+          {
+            name: '35g Whey Isolate Brownie Slab',
+            qty: 2,
+            price: 480,
+            image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
+            subtitle: 'Dark Cocoa & Whey Isolate'
+          }
+        ],
+        subtotal: 960,
+        discount: 0,
+        deliveryFee: 0,
+        total: 960,
+        paymentMethod: 'UPI / PhonePe',
+        address: {
+          fullName: 'Tharun R K',
+          phone: '+91 95667 83614',
+          street: '100 Feet Road, Indiranagar',
+          city: 'Bengaluru',
+          postal: '5600 38'
+        },
+        deliverySlot: 'Express Artisanal — 02 Feb, 2:00 PM (Bengaluru)',
+        trackingNumber: 'IN-EXP-5421-DESIO',
+        distanceKm: 3.5,
+        estimatedMinutes: 25
+      },
+      {
+        id: 'DESIO-3319',
+        userId: 'user_jeneefar',
+        date: '28 Jan 2025',
+        time: '16:45',
+        status: 'Delivered',
+        statusColor: 'emerald',
+        items: [
+          {
+            name: 'Berry Élan & Wild Strawberries',
+            qty: 1,
+            price: 520,
+            image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80',
+            subtitle: 'Alpine Strawberries & Champagne Cream'
+          }
+        ],
+        subtotal: 520,
+        discount: 0,
+        deliveryFee: 0,
+        total: 520,
+        paymentMethod: 'Net Banking',
+        address: {
+          fullName: 'Jeneefar',
+          phone: '+91 96774 07374',
+          street: 'Panampilly Nagar',
+          city: 'Kerala',
+          postal: '6820 36'
+        },
+        deliverySlot: 'Standard Artisanal — 28 Jan, 4:30 PM',
+        trackingNumber: 'IN-EXP-3319-DESIO',
+        distanceKm: 4.0,
+        estimatedMinutes: 30
       }
     ];
 
     try {
       const saved = localStorage.getItem(ORDERS_KEY);
-      return saved ? JSON.parse(saved) : defaultOrders;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Ensure every order has a userId (migrate any old untagged orders to user_roody)
+        return parsed.map(o => ({
+          ...o,
+          userId: o.userId || 'user_roody'
+        }));
+      }
+      return defaultOrders;
     } catch (e) {
       return defaultOrders;
     }
+  }
+
+  getUserOrders(userId = this.activeUserId) {
+    if (!userId) return [];
+    return (this.orders || []).filter(o => o.userId === userId);
   }
 
   saveOrders() {
@@ -1635,12 +3074,17 @@ class LoyaltyManager {
     this.notify();
   }
 
-  // Add newly placed order
+  // Add newly placed order tied to the active user profile
   addOrder(orderData) {
     const orderId = 'DESIO-' + Math.floor(1000 + Math.random() * 9000);
     const now = new Date();
+    const currentUserName = this.profile ? this.profile.name : 'Patisserie Connoisseur';
+    const currentUserPhone = this.profile ? this.profile.displayPhone : '+91 93453 96700';
+    const currentUserCity = this.profile ? this.profile.city : 'Chennai';
+
     const newOrder = {
       id: orderId,
+      userId: this.activeUserId || 'guest',
       date: now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
       time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
       status: 'Preparing in Atelier',
@@ -1661,24 +3105,28 @@ class LoyaltyManager {
       total: orderData.total || 0,
       paymentMethod: orderData.paymentMethod || 'Credit / Debit Card',
       address: orderData.address || {
-        fullName: 'Patisserie Client',
-        phone: '+91 93453 96700',
+        fullName: currentUserName,
+        phone: currentUserPhone,
         street: 'West Jafferkhanpet',
-        city: 'Chennai'
+        city: currentUserCity
       },
-      deliverySlot: orderData.deliverySlot || 'Express Artisanal — Within 45 Mins (Chennai)',
+      deliverySlot: orderData.deliverySlot || 'Express Artisanal — Within 18 Mins (Chennai)',
       trackingNumber: orderData.trackingNumber || ('IN-EXP-' + Math.floor(1000 + Math.random() * 9000) + '-DESIO'),
+      distanceKm: orderData.distanceKm || 3.2,
+      estimatedMinutes: orderData.estimatedMinutes || 18,
       createdAt: now.toISOString()
     };
 
     this.orders.unshift(newOrder);
     this.saveOrders();
 
-    // Add loyalty points (1 point per ₹10 spent)
-    const pointsEarned = Math.round(newOrder.total / 10);
-    this.profile.points += pointsEarned;
-    this.checkTierUpgrade();
-    this.saveProfile();
+    // Add loyalty points if profile is active (1 point per ₹10 spent)
+    if (this.profile) {
+      const pointsEarned = Math.round(newOrder.total / 10);
+      this.profile.points = (this.profile.points || 0) + pointsEarned;
+      this.checkTierUpgrade();
+      this.saveUsers();
+    }
 
     return newOrder;
   }
@@ -1693,6 +3141,7 @@ class LoyaltyManager {
   }
 
   checkTierUpgrade() {
+    if (!this.profile) return;
     if (this.profile.points >= 5000) {
       this.profile.tier = 'Royale';
     } else if (this.profile.points >= 2000) {
@@ -1702,7 +3151,6 @@ class LoyaltyManager {
     }
   }
 
-  // Save new custom creation with deduplication and validation
   saveCustomCreation(creation) {
     const existingIndex = this.creations.findIndex(c => 
       c.name.trim().toLowerCase() === (creation.name || '').trim().toLowerCase() &&
@@ -1738,17 +3186,17 @@ class LoyaltyManager {
     }
   }
 
-  deleteCreation(id) {
-    this.creations = this.creations.filter(c => c.id !== id);
-    this.saveCreations();
-  }
-
   getData() {
+    const userProfile = this.profile || (this.isUserAuthenticated() ? this.getActiveUser() : null);
     return {
-      profile: this.profile,
+      profile: userProfile || { name: 'Guest Client', tier: 'Connoisseur', points: 0, nextTierPoints: 2000, savedAddresses: [] },
+      users: this.users,
+      activeUserId: this.activeUserId,
       creations: this.creations,
-      orders: this.orders,
-      friends: this.friends
+      orders: this.getUserOrders(),
+      allOrders: this.orders,
+      friends: this.friends,
+      isAuthenticated: this.isUserAuthenticated()
     };
   }
 }
@@ -1759,79 +3207,116 @@ if (typeof window !== 'undefined') {
 }
 
 
+// --- builder.js ---
 // LA DESIO - Interactive Bespoke Dessert Studio Builder (INR Edition)
 
 
 
-// 3D Canvas Patisserie Engine (100% Self-Contained, Zero CDN Dependencies)
-function hexToRgb(hex) {
-  let c = (hex || '#888888').replace('#', '');
-  if (c.length === 3) c = c.split('').map(x => x + x).join('');
-  const num = parseInt(c, 16) || 0;
-  return {
-    r: (num >> 16) & 255,
-    g: (num >> 8) & 255,
-    b: num & 255
-  };
-}
-
-function shadeColor(hex, factor) {
-  const rgb = hexToRgb(hex);
-  const r = Math.min(255, Math.max(0, Math.round(rgb.r * factor)));
-  const g = Math.min(255, Math.max(0, Math.round(rgb.g * factor)));
-  const b = Math.min(255, Math.max(0, Math.round(rgb.b * factor)));
-  return `rgb(${r},${g},${b})`;
-}
-
+// ============================================================================
+// PHOTOREALISTIC THREE.JS WEBGL 3D DESSERT ATELIER (UNIQUE HIGH-FIDELITY MODELS)
+// ============================================================================
 class Dessert3DViewer {
   constructor(canvas, state, step) {
     this.canvas = canvas;
-    this.ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
     this.state = state || {};
     this.step = step || 1;
     this.isAutoRotating = true;
     this.rotY = 0.55;
-    this.rotX = 0.38;
-    this.targetRotY = 0.55;
-    this.targetRotX = 0.38;
+    this.rotX = 0.32;
     this.isDragging = false;
     this.lastPointerX = 0;
     this.lastPointerY = 0;
     this.animationFrameId = null;
-    this.time = 0;
+    this.isThree = false;
 
-    // 36 Celebration Golden Sparkles for Step 06
-    this.sparkles = [];
-    for (let i = 0; i < 36; i++) {
-      this.sparkles.push({
-        angle: Math.random() * Math.PI * 2,
-        radius: 2.1 + Math.random() * 1.8,
-        y: -0.3 + Math.random() * 2.5,
-        speed: 0.006 + Math.random() * 0.015,
-        size: 2.5 + Math.random() * 4.5,
-        phase: Math.random() * Math.PI * 2
-      });
-    }
-
-    // Aroma Shimmer Motes for Step 02 Flavor Infusion
-    this.aromaMotes = [];
-    for (let i = 0; i < 16; i++) {
-      this.aromaMotes.push({
-        x: (Math.random() - 0.5) * 2.4,
-        z: (Math.random() - 0.5) * 2.4,
-        y: 0.4 + Math.random() * 1.4,
-        speedY: 0.008 + Math.random() * 0.012,
-        phase: Math.random() * Math.PI * 2,
-        size: 1.5 + Math.random() * 2.5
-      });
-    }
-
-    if (this.canvas && this.ctx) {
+    if (this.canvas) {
+      if (typeof window !== 'undefined' && window.THREE) {
+        this.initThree();
+      }
       this.setupInteraction();
-      this.render = this.render.bind(this);
       this.animate = this.animate.bind(this);
       this.animate();
     }
+  }
+
+  initThree() {
+    const THREE = window.THREE;
+    this.isThree = true;
+    const width = this.canvas.clientWidth || 440;
+    const height = this.canvas.clientHeight || 440;
+
+    this.renderer = new THREE.WebGLRenderer({
+      canvas: this.canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance'
+    });
+    this.renderer.setSize(width, height, false);
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = 1.22;
+
+    this.scene = new THREE.Scene();
+
+    this.camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 100);
+    this.camera.position.set(0, 2.7, 4.6);
+    this.camera.lookAt(0, 0.65, 0);
+
+    // Studio 3-Point Master Patisserie Lighting
+    const ambientLight = new THREE.AmbientLight(0xFFFDF9, 0.75);
+    this.scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xFFF6EA, 1.5);
+    keyLight.position.set(4, 6.5, 4.5);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.width = 1024;
+    keyLight.shadow.mapSize.height = 1024;
+    keyLight.shadow.bias = -0.0008;
+    this.scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xB8945B, 0.65);
+    fillLight.position.set(-4, 3.5, -2);
+    this.scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xE6CA85, 1.0);
+    rimLight.position.set(0, 5, -4.5);
+    this.scene.add(rimLight);
+
+    // Luxury Ceramic & 24k Gold Trim Pedestal Platter
+    const plateGroup = new THREE.Group();
+    const plateGeom = new THREE.CylinderGeometry(1.8, 1.55, 0.09, 64);
+    const plateMat = new THREE.MeshPhysicalMaterial({
+      color: 0x140703,
+      roughness: 0.18,
+      clearcoat: 0.9,
+      clearcoatRoughness: 0.08
+    });
+    const plateMesh = new THREE.Mesh(plateGeom, plateMat);
+    plateMesh.receiveShadow = true;
+    plateGroup.add(plateMesh);
+
+    // 24k Gold Rim Trim
+    const goldRimGeom = new THREE.TorusGeometry(1.78, 0.028, 16, 64);
+    goldRimGeom.rotateX(Math.PI / 2);
+    const goldRimMat = new THREE.MeshStandardMaterial({
+      color: 0xB8945B,
+      roughness: 0.15,
+      metalness: 0.92
+    });
+    const goldRimMesh = new THREE.Mesh(goldRimGeom, goldRimMat);
+    goldRimMesh.position.y = 0.045;
+    plateGroup.add(goldRimMesh);
+
+    plateGroup.position.y = 0;
+    this.scene.add(plateGroup);
+
+    // Dynamic Dessert Group
+    this.dessertGroup = new THREE.Group();
+    this.scene.add(this.dessertGroup);
+
+    this.buildDessertMesh();
   }
 
   setupInteraction() {
@@ -1857,7 +3342,7 @@ class Dessert3DViewer {
       this.lastPointerY = clientY;
 
       this.rotY += deltaX * 0.014;
-      this.rotX = Math.max(0.12, Math.min(0.74, this.rotX + deltaY * 0.008));
+      this.rotX = Math.max(0.04, Math.min(0.85, this.rotX + deltaY * 0.008));
     };
 
     const onPointerUp = () => {
@@ -1885,887 +3370,720 @@ class Dessert3DViewer {
     };
   }
 
+  // ==========================================================================
+  // UNIQUE BASE GEOMETRIES (Substantial Foundation Layout)
+  // ==========================================================================
+  createBaseMesh(THREE, baseObj) {
+    const baseGroup = new THREE.Group();
+    const id = baseObj?.id || '';
+    let topSurfaceY = 0.55;
+    let topRadius = 1.35;
+
+    if (id === 'base-waffle') {
+      // 1. BELGIAN LIEGE WAFFLE (Unique 3D Waffle with indented grid pockets)
+      const waffleW = 2.4, waffleD = 2.4, waffleH = 0.42;
+      const waffleColor = new THREE.Color('#D29E57');
+      const waffleMat = new THREE.MeshStandardMaterial({
+        color: waffleColor,
+        roughness: 0.78,
+        metalness: 0.04
+      });
+
+      // Main waffle body with rounded edges
+      const bodyGeom = new THREE.BoxGeometry(waffleW, waffleH, waffleD, 16, 4, 16);
+      const bodyMesh = new THREE.Mesh(bodyGeom, waffleMat);
+      bodyMesh.position.y = waffleH / 2 + 0.02;
+      bodyMesh.castShadow = true;
+      bodyMesh.receiveShadow = true;
+      baseGroup.add(bodyMesh);
+
+      // Grid of 4x4 indented waffle square pockets
+      const pocketMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#9E6828'),
+        roughness: 0.85
+      });
+      const pocketSize = 0.38;
+      const pocketDepth = 0.12;
+      const pGeom = new THREE.BoxGeometry(pocketSize, pocketDepth, pocketSize);
+
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          const x = -0.75 + c * 0.50;
+          const z = -0.75 + r * 0.50;
+          const pMesh = new THREE.Mesh(pGeom, pocketMat);
+          pMesh.position.set(x, waffleH - pocketDepth / 2 + 0.025, z);
+          baseGroup.add(pMesh);
+        }
+      }
+      topSurfaceY = waffleH + 0.02;
+      topRadius = 1.25;
+
+    } else if (id === 'base-cheesecake') {
+      // 2. NEW YORK CHEESECAKE (Two distinct layers: golden crumb base + velvety cream body)
+      const crustH = 0.16;
+      const cheeseH = 0.46;
+      const rad = 1.36;
+
+      // Golden graham almond crust base
+      const crustMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#9C6634'),
+        roughness: 0.92
+      });
+      const crustGeom = new THREE.CylinderGeometry(rad, rad * 1.02, crustH, 64);
+      const crustMesh = new THREE.Mesh(crustGeom, crustMat);
+      crustMesh.position.y = crustH / 2 + 0.02;
+      crustMesh.castShadow = true;
+      crustMesh.receiveShadow = true;
+      baseGroup.add(crustMesh);
+
+      // Cream cheese body
+      const cheeseMat = new THREE.MeshPhysicalMaterial({
+        color: new THREE.Color('#FFF4DC'),
+        roughness: 0.42,
+        clearcoat: 0.25,
+        clearcoatRoughness: 0.3
+      });
+      const cheeseGeom = new THREE.CylinderGeometry(rad * 0.98, rad, cheeseH, 64);
+      const cheeseMesh = new THREE.Mesh(cheeseGeom, cheeseMat);
+      cheeseMesh.position.y = crustH + cheeseH / 2 + 0.02;
+      cheeseMesh.castShadow = true;
+      baseGroup.add(cheeseMesh);
+
+      // Delicate toasted golden baking ring around top rim
+      const ringGeom = new THREE.TorusGeometry(rad * 0.96, 0.04, 16, 64);
+      ringGeom.rotateX(Math.PI / 2);
+      const ringMat = new THREE.MeshStandardMaterial({ color: new THREE.Color('#D49F5A'), roughness: 0.8 });
+      const ringMesh = new THREE.Mesh(ringGeom, ringMat);
+      ringMesh.position.y = crustH + cheeseH + 0.02;
+      baseGroup.add(ringMesh);
+
+      topSurfaceY = crustH + cheeseH + 0.02;
+      topRadius = rad * 0.96;
+
+    } else if (id === 'base-protein-cheesecake') {
+      // 3. PRO-BASQUE BURNT CHEESECAKE (Sunken rustic top, caramelized dark crust)
+      const basqueH = 0.54;
+      const rad = 1.34;
+
+      const sideMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#C98D4A'),
+        roughness: 0.88
+      });
+      const sideGeom = new THREE.CylinderGeometry(rad * 0.96, rad, basqueH, 48);
+      const sideMesh = new THREE.Mesh(sideGeom, sideMat);
+      sideMesh.position.y = basqueH / 2 + 0.02;
+      sideMesh.castShadow = true;
+      baseGroup.add(sideMesh);
+
+      // Sunken, rustic burnt caramel top
+      const topMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#2C1309'),
+        roughness: 0.65
+      });
+      const topGeom = new THREE.CylinderGeometry(rad * 0.94, rad * 0.94, 0.06, 48);
+      const topMesh = new THREE.Mesh(topGeom, topMat);
+      topMesh.position.y = basqueH - 0.02;
+      baseGroup.add(topMesh);
+
+      topSurfaceY = basqueH + 0.02;
+      topRadius = rad * 0.94;
+
+    } else if (id === 'base-cookie') {
+      // 4. GIANT CHOC-CHUNK SKILLET COOKIE (Wide organic disc with protruding molten chocolate pools)
+      const cookieH = 0.38;
+      const rad = 1.45;
+      const cookieMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#C4945A'),
+        roughness: 0.82
+      });
+      const cookieGeom = new THREE.CylinderGeometry(rad * 0.96, rad, cookieH, 48);
+      const cookieMesh = new THREE.Mesh(cookieGeom, cookieMat);
+      cookieMesh.position.y = cookieH / 2 + 0.02;
+      cookieMesh.castShadow = true;
+      baseGroup.add(cookieMesh);
+
+      // Embedded molten chocolate chunks
+      const chunkMat = new THREE.MeshPhysicalMaterial({
+        color: new THREE.Color('#1F0C06'),
+        roughness: 0.22,
+        clearcoat: 0.6
+      });
+      const chunkGeom = new THREE.DodecahedronGeometry(0.14, 0);
+
+      const chunkPositions = [
+        [0.45, 0.35], [-0.55, 0.25], [0.15, -0.65],
+        [-0.45, -0.45], [0.72, -0.15], [-0.12, 0.05], [0.55, 0.72]
+      ];
+      chunkPositions.forEach(pos => {
+        const cMesh = new THREE.Mesh(chunkGeom, chunkMat);
+        cMesh.position.set(pos[0], cookieH + 0.02, pos[1]);
+        cMesh.scale.set(1.2, 0.6, 1.1);
+        cMesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+        baseGroup.add(cMesh);
+      });
+
+      topSurfaceY = cookieH + 0.04;
+      topRadius = rad * 0.94;
+
+    } else if (id === 'base-oat-pulse-crust') {
+      // 5. TOASTED OAT & MOONG TARTLET (Pastry tart shell with crimped/fluted rim)
+      const tartH = 0.44;
+      const outerRad = 1.45;
+      const innerRad = 1.25;
+
+      const pastryMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#B5874C'),
+        roughness: 0.85
+      });
+
+      // Bottom shell
+      const bottomGeom = new THREE.CylinderGeometry(innerRad, innerRad * 1.05, 0.14, 48);
+      const bottomMesh = new THREE.Mesh(bottomGeom, pastryMat);
+      bottomMesh.position.y = 0.07 + 0.02;
+      baseGroup.add(bottomMesh);
+
+      // Fluted pastry rim
+      const rimGeom = new THREE.CylinderGeometry(outerRad, innerRad, tartH, 48, 1, true);
+      const rimMesh = new THREE.Mesh(rimGeom, pastryMat);
+      rimMesh.position.y = tartH / 2 + 0.02;
+      rimMesh.castShadow = true;
+      baseGroup.add(rimMesh);
+
+      topSurfaceY = 0.18;
+      topRadius = innerRad;
+
+    } else if (id.includes('brownie')) {
+      // 6. FUDGE BROWNIE / WHEY BROWNIE (Substantial square slab with beveled edges)
+      const bW = 2.2, bD = 2.2, bH = 0.54;
+      const bColor = id.includes('whey') ? new THREE.Color('#25130D') : new THREE.Color('#381E15');
+      const bMat = new THREE.MeshStandardMaterial({
+        color: bColor,
+        roughness: 0.86,
+        metalness: 0.05
+      });
+
+      const bGeom = new THREE.BoxGeometry(bW, bH, bD, 12, 6, 12);
+      const bMesh = new THREE.Mesh(bGeom, bMat);
+      bMesh.position.y = bH / 2 + 0.02;
+      bMesh.castShadow = true;
+      baseGroup.add(bMesh);
+
+      // Papery crinkly top crust
+      const crustMat = new THREE.MeshStandardMaterial({
+        color: id.includes('whey') ? new THREE.Color('#1F0C06') : new THREE.Color('#2B140E'),
+        roughness: 0.5,
+        metalness: 0.1
+      });
+      const topCap = new THREE.BoxGeometry(bW * 0.98, 0.02, bD * 0.98);
+      const capMesh = new THREE.Mesh(topCap, crustMat);
+      capMesh.position.y = bH + 0.025;
+      baseGroup.add(capMesh);
+
+      topSurfaceY = bH + 0.03;
+      topRadius = 1.25;
+
+    } else if (id === 'base-ragi-spelt') {
+      // 7. SPROUTED RAGI & SPELT SPONGE (Earthy, rustic artisanal round with natural grain texture)
+      const rH = 0.52;
+      const rad = 1.35;
+      const rMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#48281E'),
+        roughness: 0.92,
+        metalness: 0.02
+      });
+      const rGeom = new THREE.CylinderGeometry(rad * 0.96, rad, rH, 64);
+      const rMesh = new THREE.Mesh(rGeom, rMat);
+      rMesh.position.y = rH / 2 + 0.02;
+      rMesh.castShadow = true;
+      baseGroup.add(rMesh);
+
+      topSurfaceY = rH + 0.02;
+      topRadius = rad * 0.96;
+
+    } else {
+      // 8. GENOESE SPONGE CAKE (Classic light Italian layered round)
+      const cH = 0.52;
+      const rad = 1.35;
+      const cMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#F9ECD2'),
+        roughness: 0.75
+      });
+      const cGeom = new THREE.CylinderGeometry(rad * 0.97, rad, cH, 64);
+      const cMesh = new THREE.Mesh(cGeom, cMat);
+      cMesh.position.y = cH / 2 + 0.02;
+      cMesh.castShadow = true;
+      baseGroup.add(cMesh);
+
+      topSurfaceY = cH + 0.02;
+      topRadius = rad * 0.97;
+    }
+
+    return { baseGroup, topSurfaceY, topRadius };
+  }
+
+  // ==========================================================================
+  // MASTER THREE.JS BUILD PIPELINE
+  // ==========================================================================
+  buildDessertMesh() {
+    if (!this.isThree || !this.dessertGroup || !window.THREE) return;
+    const THREE = window.THREE;
+
+    // Clear previous children
+    while (this.dessertGroup.children.length > 0) {
+      const child = this.dessertGroup.children[0];
+      this.dessertGroup.remove(child);
+      if (child.geometry) child.geometry.dispose();
+      if (child.material) {
+        if (Array.isArray(child.material)) child.material.forEach(m => m.dispose());
+        else child.material.dispose();
+      }
+    }
+
+    const baseObj = (DESSERT_BUILDER_OPTIONS.bases || []).find(b => b.id === this.state.base) || DESSERT_BUILDER_OPTIONS.bases[0];
+    const flavorObj = (DESSERT_BUILDER_OPTIONS.flavors || []).find(f => f.id === this.state.flavor) || DESSERT_BUILDER_OPTIONS.flavors[0];
+    const fillingObj = (DESSERT_BUILDER_OPTIONS.fillings || []).find(f => f.id === this.state.filling) || DESSERT_BUILDER_OPTIONS.fillings[0];
+    const sauceObj = (DESSERT_BUILDER_OPTIONS.sauces || []).find(s => s.id === this.state.sauce) || DESSERT_BUILDER_OPTIONS.sauces[0];
+
+    // 1. UNIQUE BASE FOUNDATION (Substantial & Big)
+    const { baseGroup, topSurfaceY, topRadius } = this.createBaseMesh(THREE, baseObj);
+    this.dessertGroup.add(baseGroup);
+
+    let currentY = topSurfaceY;
+    const isBox = baseObj.id.includes('brownie') || baseObj.id === 'base-waffle';
+
+    // 2. DELICATE INFUSION SOAK (Thin Glistening Coat, NOT a thick layer)
+    if (this.step >= 2 && flavorObj) {
+      const soakH = 0.035;
+      const soakColor = new THREE.Color(flavorObj.color || '#EAA221');
+      const soakMat = new THREE.MeshPhysicalMaterial({
+        color: soakColor,
+        roughness: 0.12,
+        clearcoat: 0.95,
+        clearcoatRoughness: 0.08,
+        transmission: 0.38,
+        reflectivity: 0.9
+      });
+
+      let soakMesh;
+      if (isBox) {
+        soakMesh = new THREE.Mesh(new THREE.BoxGeometry(topRadius * 1.85, soakH, topRadius * 1.85), soakMat);
+      } else {
+        soakMesh = new THREE.Mesh(new THREE.CylinderGeometry(topRadius * 0.98, topRadius, soakH, 64), soakMat);
+      }
+      soakMesh.position.y = currentY + soakH / 2;
+      this.dessertGroup.add(soakMesh);
+      currentY += soakH;
+    }
+
+    // 3. SILKY FILLING CENTER (Delicate Pastry Mousse Coat + Piped Rosettes)
+    if (this.step >= 3 && fillingObj) {
+      const fillH = 0.18; // Elegant thin mousse layer
+      const fillColor = new THREE.Color(fillingObj.color || '#FFF8EB');
+      const fillMat = new THREE.MeshPhysicalMaterial({
+        color: fillColor,
+        roughness: 0.35,
+        clearcoat: 0.45,
+        clearcoatRoughness: 0.2
+      });
+
+      let fillMesh;
+      if (isBox) {
+        fillMesh = new THREE.Mesh(new THREE.BoxGeometry(topRadius * 1.8, fillH, topRadius * 1.8), fillMat);
+      } else {
+        fillMesh = new THREE.Mesh(new THREE.CylinderGeometry(topRadius * 0.96, topRadius * 0.98, fillH, 64), fillMat);
+      }
+      fillMesh.position.y = currentY + fillH / 2;
+      fillMesh.castShadow = true;
+      this.dessertGroup.add(fillMesh);
+
+      // Artisanal piped cream quenelles around perimeter
+      const pipingCount = 8;
+      const pMat = new THREE.MeshStandardMaterial({ color: fillColor, roughness: 0.4 });
+      for (let p = 0; p < pipingCount; p++) {
+        const theta = (p / pipingCount) * Math.PI * 2;
+        const pR = topRadius * 0.88;
+        const pGeom = new THREE.SphereGeometry(0.08, 12, 12);
+        pGeom.scale(1, 1.3, 1);
+        const pOrb = new THREE.Mesh(pGeom, pMat);
+        pOrb.position.set(Math.cos(theta) * pR, currentY + fillH + 0.04, Math.sin(theta) * pR);
+        this.dessertGroup.add(pOrb);
+      }
+
+      currentY += fillH;
+    }
+
+    // 4. MIRROR GLAZE / SAUCE DRIZZLE (Thin Glossy Coat with Realistic Dripping Physics)
+    if (this.step >= 5 && sauceObj) {
+      const glazeH = 0.038;
+      const sauceColor = new THREE.Color(sauceObj.color || '#2B140E');
+      const glazeMat = new THREE.MeshPhysicalMaterial({
+        color: sauceColor,
+        roughness: 0.04,
+        metalness: 0.08,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.02,
+        reflectivity: 0.98
+      });
+
+      let glazeMesh;
+      if (isBox) {
+        glazeMesh = new THREE.Mesh(new THREE.BoxGeometry(topRadius * 1.78, glazeH, topRadius * 1.78), glazeMat);
+      } else {
+        glazeMesh = new THREE.Mesh(new THREE.CylinderGeometry(topRadius * 0.95, topRadius * 0.97, glazeH, 64), glazeMat);
+      }
+      glazeMesh.position.y = currentY + glazeH / 2;
+      glazeMesh.castShadow = true;
+      this.dessertGroup.add(glazeMesh);
+
+      // Realistic pastry drips cascading down sides
+      const dripCount = 10;
+      for (let d = 0; d < dripCount; d++) {
+        const angle = (d / dripCount) * Math.PI * 2;
+        const dripLen = 0.16 + (d % 3) * 0.14;
+        const dripR = topRadius * 0.98;
+        const dripGeom = new THREE.CylinderGeometry(0.035, 0.055, dripLen, 12);
+        const dripMesh = new THREE.Mesh(dripGeom, glazeMat);
+        dripMesh.position.set(
+          Math.cos(angle) * dripR,
+          currentY - dripLen / 2 + 0.01,
+          Math.sin(angle) * dripR
+        );
+        this.dessertGroup.add(dripMesh);
+
+        // Teardrop droplet at bottom of drip
+        const dropGeom = new THREE.SphereGeometry(0.05, 12, 12);
+        const dropMesh = new THREE.Mesh(dropGeom, glazeMat);
+        dropMesh.position.set(
+          Math.cos(angle) * dripR,
+          currentY - dripLen,
+          Math.sin(angle) * dripR
+        );
+        this.dessertGroup.add(dropMesh);
+      }
+
+      currentY += glazeH;
+    }
+
+    // 5. PHOTOREALISTIC TOPPINGS (No cartoons! Real cut fruits, almond flakes, chocolate ribbons)
+    if (this.step >= 4 && Array.isArray(this.state.toppings)) {
+      const topY = currentY + 0.02;
+
+      this.state.toppings.forEach((topId) => {
+        if (topId === 'top-strawberries') {
+          // REALISTIC HALVED STRAWBERRIES (Cut face showing white core, radiating striations, and glossy red skin)
+          const angles = [0.35, 2.45, 4.55];
+          angles.forEach(ang => {
+            const r = 0.46;
+            const berryGroup = new THREE.Group();
+
+            // Sliced strawberry half
+            const bGeom = new THREE.ConeGeometry(0.22, 0.36, 24);
+            bGeom.rotateZ(Math.PI / 2.3);
+            bGeom.scale(1, 0.65, 1);
+
+            const skinMat = new THREE.MeshPhysicalMaterial({
+              color: 0xC8102E,
+              roughness: 0.15,
+              clearcoat: 0.95,
+              clearcoatRoughness: 0.06
+            });
+            const bMesh = new THREE.Mesh(bGeom, skinMat);
+            bMesh.castShadow = true;
+            berryGroup.add(bMesh);
+
+            // Cut face highlight
+            const cutFaceGeom = new THREE.PlaneGeometry(0.32, 0.24);
+            const cutMat = new THREE.MeshStandardMaterial({
+              color: 0xFFEBEB,
+              roughness: 0.4
+            });
+            const cutMesh = new THREE.Mesh(cutFaceGeom, cutMat);
+            cutMesh.position.set(0.01, 0.08, 0);
+            cutMesh.rotation.x = -Math.PI / 2;
+            berryGroup.add(cutMesh);
+
+            // Fresh natural green stem leaves
+            const leafMat = new THREE.MeshStandardMaterial({ color: 0x225E27, roughness: 0.65 });
+            for (let l = 0; l < 3; l++) {
+              const leafGeom = new THREE.ConeGeometry(0.05, 0.12, 6);
+              leafGeom.rotateX(Math.PI / 2 + (l - 1) * 0.4);
+              const leafMesh = new THREE.Mesh(leafGeom, leafMat);
+              leafMesh.position.set(-0.16, 0.04, (l - 1) * 0.06);
+              berryGroup.add(leafMesh);
+            }
+
+            berryGroup.position.set(Math.cos(ang) * r, topY + 0.12, Math.sin(ang) * r);
+            berryGroup.rotation.y = ang + 0.5;
+            this.dessertGroup.add(berryGroup);
+          });
+
+        } else if (topId === 'top-blueberries') {
+          // PLUMP NATURAL BLUEBERRIES with indented waxy star calyx
+          const bCount = 7;
+          for (let b = 0; b < bCount; b++) {
+            const ang = (b / bCount) * Math.PI * 2 + 0.2;
+            const r = 0.52 + (b % 2) * 0.22;
+
+            const berryGeom = new THREE.SphereGeometry(0.12, 20, 20);
+            berryGeom.scale(1.1, 0.92, 1.1); // Slightly flattened natural plump sphere
+
+            const berryMat = new THREE.MeshPhysicalMaterial({
+              color: 0x242D54, // Deep indigo
+              roughness: 0.58,  // Dusty waxy bloom
+              clearcoat: 0.25,
+              clearcoatRoughness: 0.4
+            });
+            const berryMesh = new THREE.Mesh(berryGeom, berryMat);
+            berryMesh.position.set(Math.cos(ang) * r, topY + 0.08, Math.sin(ang) * r);
+            berryMesh.castShadow = true;
+
+            // Star calyx crown
+            const starGeom = new THREE.TorusGeometry(0.035, 0.012, 8, 5);
+            starGeom.rotateX(Math.PI / 2);
+            const starMat = new THREE.MeshStandardMaterial({ color: 0x121730, roughness: 0.8 });
+            const starMesh = new THREE.Mesh(starGeom, starMat);
+            starMesh.position.y = 0.095;
+            berryMesh.add(starMesh);
+
+            this.dessertGroup.add(berryMesh);
+          }
+
+        } else if (topId === 'top-almonds') {
+          // TOASTED ALMOND FLAKES (Delicate curved slivers scattered naturally)
+          const fCount = 12;
+          for (let f = 0; f < fCount; f++) {
+            const ang = (f / fCount) * Math.PI * 2;
+            const r = 0.35 + (f % 3) * 0.25;
+
+            const flakeGeom = new THREE.CylinderGeometry(0.16, 0.16, 0.018, 16);
+            flakeGeom.scale(1.5, 1, 0.7);
+
+            const flakeMat = new THREE.MeshStandardMaterial({
+              color: (f % 2 === 0) ? 0xEED2A4 : 0xC79354, // Toasted golden edges
+              roughness: 0.7
+            });
+            const flakeMesh = new THREE.Mesh(flakeGeom, flakeMat);
+            flakeMesh.position.set(Math.cos(ang) * r, topY + 0.03, Math.sin(ang) * r);
+            flakeMesh.rotation.set((Math.random() - 0.5) * 0.4, ang, (Math.random() - 0.5) * 0.4);
+            flakeMesh.castShadow = true;
+            this.dessertGroup.add(flakeMesh);
+          }
+
+        } else if (topId === 'top-hazelnuts') {
+          // ROASTED PIEDMONT HAZELNUTS (Halved roasted nuts showing textured skin)
+          const hCount = 5;
+          for (let h = 0; h < hCount; h++) {
+            const ang = (h / hCount) * Math.PI * 2 + 0.4;
+            const r = 0.62;
+
+            const nutGeom = new THREE.SphereGeometry(0.14, 16, 16);
+            nutGeom.scale(1.2, 0.88, 1.1);
+
+            const nutMat = new THREE.MeshStandardMaterial({
+              color: 0x8C4E23,
+              roughness: 0.72
+            });
+            const nutMesh = new THREE.Mesh(nutGeom, nutMat);
+            nutMesh.position.set(Math.cos(ang) * r, topY + 0.07, Math.sin(ang) * r);
+            nutMesh.rotation.set(0.3, ang, 0.2);
+            nutMesh.castShadow = true;
+            this.dessertGroup.add(nutMesh);
+          }
+
+        } else if (topId === 'top-choc-chips' || topId === 'top-cacao-nibs') {
+          // ARTISANAL SHAVED CHOCOLATE CURLS & NIBS (Curved ribbons shaved with a pastry knife)
+          const cCount = 8;
+          for (let c = 0; c < cCount; c++) {
+            const ang = (c / cCount) * Math.PI * 2 + 0.2;
+            const r = 0.4 + (c % 2) * 0.35;
+
+            // Curved ribbon spiral
+            const curlGeom = new THREE.TorusGeometry(0.11, 0.024, 10, 24, Math.PI * 1.3);
+            const curlMat = new THREE.MeshPhysicalMaterial({
+              color: 0x180905,
+              roughness: 0.25,
+              clearcoat: 0.65
+            });
+            const curlMesh = new THREE.Mesh(curlGeom, curlMat);
+            curlMesh.position.set(Math.cos(ang) * r, topY + 0.05, Math.sin(ang) * r);
+            curlMesh.rotation.set(Math.PI / 2 + (Math.random() - 0.5), ang, Math.random());
+            curlMesh.castShadow = true;
+            this.dessertGroup.add(curlMesh);
+          }
+
+        } else if (topId === 'top-popped-amaranth' || topId === 'top-moong-crisp') {
+          // ORGANIC POPPED GRAIN & PULSE CRUST CLUSTERS
+          const pCount = 20;
+          for (let p = 0; p < pCount; p++) {
+            const ang = Math.random() * Math.PI * 2;
+            const r = Math.random() * 0.82;
+            const gGeom = new THREE.DodecahedronGeometry(0.042, 0);
+            const gMat = new THREE.MeshStandardMaterial({
+              color: topId === 'top-moong-crisp' ? 0xD4A037 : 0xF3E6C4,
+              roughness: 0.65
+            });
+            const gMesh = new THREE.Mesh(gGeom, gMat);
+            gMesh.position.set(Math.cos(ang) * r, topY + 0.025, Math.sin(ang) * r);
+            gMesh.rotation.set(Math.random() * 3, Math.random() * 3, Math.random() * 3);
+            this.dessertGroup.add(gMesh);
+          }
+
+        } else if (topId === 'top-gold-leaf') {
+          // 24K EDIBLE GOLD LEAF FLAKES (Ultra-thin crumpled organic leaf foil draped naturally)
+          const gCount = 6;
+          for (let g = 0; g < gCount; g++) {
+            const ang = (g / gCount) * Math.PI * 2 + 0.35;
+            const r = 0.32 + (g % 3) * 0.28;
+
+            const goldGeom = new THREE.PlaneGeometry(0.18, 0.14, 4, 4);
+            // Subtle crinkling of leaf vertices
+            const pos = goldGeom.attributes.position;
+            for (let v = 0; v < pos.count; v++) {
+              pos.setZ(v, (Math.random() - 0.5) * 0.04);
+            }
+            goldGeom.computeVertexNormals();
+
+            const goldMat = new THREE.MeshPhysicalMaterial({
+              color: 0xFFD700,
+              metalness: 0.98,
+              roughness: 0.12,
+              clearcoat: 0.85,
+              reflectivity: 1.0,
+              side: THREE.DoubleSide
+            });
+            const goldMesh = new THREE.Mesh(goldGeom, goldMat);
+            goldMesh.position.set(Math.cos(ang) * r, topY + 0.06, Math.sin(ang) * r);
+            goldMesh.rotation.set(-Math.PI / 2.2, (Math.random() - 0.5) * 0.6, ang);
+            this.dessertGroup.add(goldMesh);
+          }
+        }
+      });
+    }
+
+    // 6. CELEBRATION SPARKLES (Step 6)
+    if (this.step === 6) {
+      const sparkleGeom = new THREE.BufferGeometry();
+      const count = 54;
+      const positions = new Float32Array(count * 3);
+      for (let s = 0; s < count; s++) {
+        const theta = Math.random() * Math.PI * 2;
+        const rad = 1.4 + Math.random() * 1.3;
+        positions[s * 3] = Math.cos(theta) * rad;
+        positions[s * 3 + 1] = 0.25 + Math.random() * 2.0;
+        positions[s * 3 + 2] = Math.sin(theta) * rad;
+      }
+      sparkleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const sparkleMat = new THREE.PointsMaterial({
+        color: 0xE6CA85,
+        size: 0.08,
+        transparent: true,
+        opacity: 0.9
+      });
+      const sparkles = new THREE.Points(sparkleGeom, sparkleMat);
+      this.dessertGroup.add(sparkles);
+    }
+  }
+
+  loadBlenderModel(url) {
+    if (!this.isThree || !window.THREE) return;
+    const THREE = window.THREE;
+    if (typeof THREE.GLTFLoader !== 'function') {
+      console.info('GLTFLoader not loaded, using procedural atelier.');
+      return;
+    }
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      url,
+      (gltf) => {
+        while (this.dessertGroup.children.length > 0) {
+          this.dessertGroup.remove(this.dessertGroup.children[0]);
+        }
+        const model = gltf.scene;
+        const box = new THREE.Box3().setFromObject(model);
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = 2.4 / (maxDim || 1);
+        model.scale.set(scale, scale, scale);
+        model.position.y = 0.06;
+        model.traverse(child => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        this.dessertGroup.add(model);
+      },
+      undefined,
+      (err) => {
+        console.warn('Could not load Blender model, using procedural.', err);
+      }
+    );
+  }
+
+  animate() {
+    this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
+
+    if (this.isThree && this.renderer && this.scene && this.camera) {
+      if (this.isAutoRotating && !this.isDragging) {
+        this.rotY += 0.005;
+      }
+
+      if (this.dessertGroup) {
+        this.dessertGroup.rotation.y = this.rotY;
+        this.dessertGroup.rotation.x = this.rotX;
+      }
+
+      this.renderer.render(this.scene, this.camera);
+    }
+  }
+
   update(state, step) {
     this.state = state || {};
     this.step = step || 1;
-    if (this.step === 6) {
-      this.isAutoRotating = true;
+    if (this.isThree) {
+      this.buildDessertMesh();
+      if (this.step === 6) {
+        this.isAutoRotating = true;
+      }
     }
   }
 
   setPresetView(view) {
     if (view === 'glamour') {
-      this.rotX = 0.38;
+      this.rotX = 0.32;
       this.rotY = 0.55;
     } else if (view === 'top') {
-      this.rotX = 0.72;
+      this.rotX = 0.85;
     } else if (view === 'profile') {
-      this.rotX = 0.16;
+      this.rotX = 0.04;
     }
   }
 
   resetView() {
-    this.rotX = 0.38;
+    this.rotX = 0.32;
     this.rotY = 0.55;
     this.isAutoRotating = true;
   }
 
-  project(x, y, z, cx, cy, scale = 1.0) {
-    const cosY = Math.cos(this.rotY), sinY = Math.sin(this.rotY);
-    const cosX = Math.cos(this.rotX), sinX = Math.sin(this.rotX);
-
-    // Yaw (around Y axis)
-    const x1 = x * cosY + z * sinY;
-    const z1 = -x * sinY + z * cosY;
-
-    // Pitch (around X axis)
-    const y2 = y * cosX - z1 * sinX;
-    const z2 = y * sinX + z1 * cosX;
-
-    const fov = 440;
-    const camDist = 6.2;
-    const factor = fov / (fov + (z2 + camDist) * 56);
-
-    return {
-      sx: cx + x1 * 54 * factor * scale,
-      sy: cy - y2 * 54 * factor * scale,
-      depth: z2,
-      factor
-    };
-  }
-
-  animate() {
-    if (typeof requestAnimationFrame !== 'undefined') {
-      this.animationFrameId = requestAnimationFrame(this.animate);
-    }
-    this.time += 0.02;
-
-    if (this.isAutoRotating && !this.isDragging) {
-      this.rotY += 0.009;
-    }
-
-    this.render();
-  }
-
-  render() {
-    if (!this.ctx || !this.canvas) return;
-    const ctx = this.ctx;
-    const canvas = this.canvas;
-
-    const dpr = Math.min((typeof window !== 'undefined' && window.devicePixelRatio) || 1, 2.5);
-    const width = canvas.clientWidth || 440;
-    const height = canvas.clientHeight || 440;
-
-    if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-    }
-
-    ctx.save();
-    if (ctx.scale) ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, width, height);
-
-    const cx = width / 2;
-    const cy = height / 2 + 36;
-    const scale = Math.min(width, height) / 380;
-
-    // 1. Luxury Atelier Studio Spotlight Backdrop
-    const stageGrad = ctx.createRadialGradient(cx, cy - 25, 20, cx, cy, 240 * scale);
-    stageGrad.addColorStop(0, 'rgba(184, 148, 91, 0.14)');
-    stageGrad.addColorStop(0.45, 'rgba(58, 31, 23, 0.12)');
-    stageGrad.addColorStop(1, 'rgba(16, 7, 4, 0)');
-    ctx.fillStyle = stageGrad;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 240 * scale, 0, Math.PI * 2);
-    ctx.fill();
-
-    // 2. Realistic Dual-Pass Ambient Table Shadow
-    const shadowP = this.project(0, -0.22, 0, cx, cy, scale);
-    const outerShadow = ctx.createRadialGradient(shadowP.sx, shadowP.sy + 6, 15, shadowP.sx, shadowP.sy + 6, 160 * scale * shadowP.factor);
-    outerShadow.addColorStop(0, 'rgba(8, 3, 1, 0.72)');
-    outerShadow.addColorStop(0.55, 'rgba(16, 6, 3, 0.38)');
-    outerShadow.addColorStop(1, 'rgba(20, 8, 4, 0)');
-    ctx.fillStyle = outerShadow;
-    ctx.beginPath();
-    ctx.ellipse(shadowP.sx, shadowP.sy + 8, 155 * scale * shadowP.factor, 54 * scale * shadowP.factor, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    // 3. Luxury Porcelain Plate with 24k Gold Bezel
-    this.renderPlate(ctx, cx, cy, scale);
-
-    // 4. Dessert Layers (Base, Flavor, Filling, Toppings, Sauce)
-    this.renderDessert(ctx, cx, cy, scale);
-
-    // 5. Step 06 Showcase Celebration Effects
-    if (this.step === 6) {
-      this.renderShowcaseCelebration(ctx, cx, cy, scale, width, height);
-    }
-
-    ctx.restore();
-  }
-
-  renderPlate(ctx, cx, cy, scale) {
-    const segments = 44;
-    const rOuter = 2.8;
-    const rInner = 2.2;
-    const plateY = -0.09;
-
-    // Pedestal Rim (Side wall)
-    const botPts = [];
-    const topPts = [];
-    for (let i = 0; i <= segments; i++) {
-      const a = (i / segments) * Math.PI * 2;
-      const x = Math.cos(a) * rOuter;
-      const z = Math.sin(a) * rOuter;
-      botPts.push(this.project(x, plateY - 0.14, z, cx, cy, scale));
-      topPts.push(this.project(x, plateY, z, cx, cy, scale));
-    }
-
-    // Beveled Wall with porcelain luster & rim light
-    for (let i = 0; i < segments; i++) {
-      const p1 = botPts[i], p2 = botPts[i + 1];
-      const p3 = topPts[i + 1], p4 = topPts[i];
-      const midAngle = ((i + 0.5) / segments) * Math.PI * 2 + this.rotY;
-      const lightFactor = 0.45 + 0.55 * Math.cos(midAngle - 0.55);
-      const rimFactor = Math.max(0, Math.cos(midAngle + Math.PI * 0.75)) * 0.25;
-      ctx.fillStyle = shadeColor('#EDE4D6', 0.65 + lightFactor * 0.45 + rimFactor);
-      ctx.beginPath();
-      ctx.moveTo(p1.sx, p1.sy);
-      ctx.lineTo(p2.sx, p2.sy);
-      ctx.lineTo(p3.sx, p3.sy);
-      ctx.lineTo(p4.sx, p4.sy);
-      ctx.closePath();
-      ctx.fill();
-    }
-
-    // Top Porcelain Dish Surface
-    ctx.beginPath();
-    for (let i = 0; i <= segments; i++) {
-      const p = topPts[i];
-      if (i === 0) ctx.moveTo(p.sx, p.sy);
-      else ctx.lineTo(p.sx, p.sy);
-    }
-    ctx.closePath();
-    const plateGrad = ctx.createLinearGradient(cx - 100, cy - 100, cx + 100, cy + 100);
-    plateGrad.addColorStop(0, '#FFFFFF');
-    plateGrad.addColorStop(0.35, '#FBF7F0');
-    plateGrad.addColorStop(0.85, '#EDE3D2');
-    plateGrad.addColorStop(1, '#DFCDB8');
-    ctx.fillStyle = plateGrad;
-    ctx.fill();
-
-    // 24k Gold Bezel Outer Rim with Specular Sheen
-    ctx.strokeStyle = '#D4AF37';
-    ctx.lineWidth = 3.2 * scale;
-    ctx.stroke();
-
-    // Inner 24k Gold Filigree Pinstripe
-    ctx.beginPath();
-    for (let i = 0; i <= segments; i++) {
-      const a = (i / segments) * Math.PI * 2;
-      const p = this.project(Math.cos(a) * rInner, plateY + 0.006, Math.sin(a) * rInner, cx, cy, scale);
-      if (i === 0) ctx.moveTo(p.sx, p.sy);
-      else ctx.lineTo(p.sx, p.sy);
-    }
-    ctx.closePath();
-    ctx.strokeStyle = 'rgba(212, 175, 55, 0.65)';
-    ctx.lineWidth = 1.4 * scale;
-    ctx.stroke();
-
-    // Ambient Contact Occlusion Shadow where cake sits on dish
-    const cakeShadowP = this.project(0, plateY + 0.01, 0, cx, cy, scale);
-    const cakeShadowGrad = ctx.createRadialGradient(cakeShadowP.sx, cakeShadowP.sy, 10, cakeShadowP.sx, cakeShadowP.sy, 95 * scale * cakeShadowP.factor);
-    cakeShadowGrad.addColorStop(0, 'rgba(25, 10, 5, 0.45)');
-    cakeShadowGrad.addColorStop(0.65, 'rgba(35, 15, 8, 0.22)');
-    cakeShadowGrad.addColorStop(1, 'rgba(40, 20, 10, 0)');
-    ctx.fillStyle = cakeShadowGrad;
-    ctx.beginPath();
-    ctx.ellipse(cakeShadowP.sx, cakeShadowP.sy, 90 * scale * cakeShadowP.factor, 32 * scale * cakeShadowP.factor, 0, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  renderDessert(ctx, cx, cy, scale) {
-    const { base = 'base-brownie', flavor = 'flavor-chocolate', filling = 'filling-chocolate-ganache', toppings = [], sauce = 'sauce-dark-chocolate' } = this.state;
-    const step = this.step || 1;
-
-    // Luxury Flavor Tint Palette
-    const flavorTints = {
-      'flavor-chocolate': { base: '#25120A', crumb: '#1F0D06', name: 'Dark Chocolate' },
-      'flavor-pistachio': { base: '#6E894E', crumb: '#5F7941', name: 'Sicilian Pistachio' },
-      'flavor-vanilla': { base: '#F4E9D0', crumb: '#ECE0C4', name: 'Bourbon Vanilla' },
-      'flavor-coffee': { base: '#371E12', crumb: '#2B160B', name: 'Espresso Roast' },
-      'flavor-caramel': { base: '#B46820', crumb: '#9E5817', name: 'Salted Caramel' },
-      'flavor-strawberry': { base: '#B84351', crumb: '#A03441', name: 'Alpine Strawberry' },
-      'flavor-mango': { base: '#D78524', crumb: '#C17319', name: 'Alphonso Mango' },
-      'flavor-whey-isolate': { base: '#26130A', crumb: '#1D0C05', name: 'Whey Cocoa' },
-      'flavor-plant-protein': { base: '#7D6F52', crumb: '#6A5E44', name: 'Plant Protein' }
-    };
-    const activeFlavor = flavorTints[flavor] || flavorTints['flavor-chocolate'];
-
-    let topY = 0.5;
-
-    // STEP 01 & 02: BASE FOUNDATION & FLAVOR INFUSION
-    if (base === 'base-brownie' || base === 'base-whey-brownie') {
-      const brownieColor = step >= 2 ? activeFlavor.base : (base === 'base-whey-brownie' ? '#1D0C05' : '#281309');
-      topY = this.drawBrownie(ctx, cx, cy, scale, 0.05, 2.35, 0.92, 2.35, brownieColor);
-    } else if (base === 'base-cheesecake') {
-      // Golden graham cracker crust bottom with crumb texture
-      this.drawCylinder(ctx, cx, cy, scale, 0.02, 0.24, 1.72, 1.72, '#C8945B', '#8E6235', false, 'graham');
-      // Silky cheesecake body
-      const cakeColor = step >= 2 ? activeFlavor.base : '#FAF1DE';
-      topY = this.drawCylinder(ctx, cx, cy, scale, 0.26, 0.86, 1.66, 1.66, cakeColor, shadeColor(cakeColor, 0.8), false, 'cheesecake');
-    } else if (base === 'base-protein-cheesecake') {
-      // Graham crust bottom
-      this.drawCylinder(ctx, cx, cy, scale, 0.02, 0.22, 1.72, 1.72, '#9C6230', '#73441B', false, 'graham');
-      // Protein cheesecake body
-      const cakeColor = step >= 2 ? activeFlavor.base : '#F0DBB0';
-      this.drawCylinder(ctx, cx, cy, scale, 0.24, 0.88, 1.66, 1.66, cakeColor, shadeColor(cakeColor, 0.8), false, 'cheesecake');
-      // Scorched Basque burnt caramelized top
-      topY = this.drawCylinder(ctx, cx, cy, scale, 1.12, 0.09, 1.64, 1.60, '#3A1808', '#200A02', true, 'basque');
-    } else if (base === 'base-tart') {
-      // Fluted Tart pastry shell
-      this.drawFlutedTart(ctx, cx, cy, scale, 0.02, 0.58, 1.48, 1.88, '#D69850');
-      // Baked custard interior well
-      const innerColor = step >= 2 ? activeFlavor.base : '#E8B368';
-      topY = this.drawCylinder(ctx, cx, cy, scale, 0.26, 0.26, 1.44, 1.44, innerColor, shadeColor(innerColor, 0.8), true);
-    } else if (base === 'base-cake') {
-      // Sponge Tier 1
-      const spongeColor = step >= 2 ? activeFlavor.base : '#E4B366';
-      this.drawCylinder(ctx, cx, cy, scale, 0.02, 0.48, 1.68, 1.68, spongeColor, shadeColor(spongeColor, 0.8), false, 'sponge');
-      // Piped Chantilly Cream Seam (Bulging softly)
-      this.drawCylinder(ctx, cx, cy, scale, 0.50, 0.14, 1.62, 1.62, '#FFFCF4', '#E8DEC0', true);
-      // Sponge Tier 2
-      topY = this.drawCylinder(ctx, cx, cy, scale, 0.64, 0.48, 1.68, 1.68, spongeColor, shadeColor(spongeColor, 0.8), false, 'sponge');
-    } else if (base === 'base-waffle') {
-      // Golden Waffle Disc
-      const waffleColor = step >= 2 ? activeFlavor.base : '#D28B3A';
-      topY = this.drawCylinder(ctx, cx, cy, scale, 0.02, 0.54, 1.74, 1.74, waffleColor, '#9B5F1B');
-      // Deep 3D Waffle Grid Wells
-      this.drawWaffleGrid(ctx, cx, cy, scale, topY, 1.70);
-    } else {
-      // Artisan Cookie
-      const cookieColor = step >= 2 ? activeFlavor.base : '#D8A060';
-      topY = this.drawCylinder(ctx, cx, cy, scale, 0.02, 0.50, 1.72, 1.72, cookieColor, '#94652F', false, 'cookie');
-    }
-
-    // Step 02: Floating Aroma Shimmer Particles
-    if (step === 2) {
-      this.drawAromaMotes(ctx, cx, cy, scale, topY);
-    }
-
-    // STEP 03: SILKY FILLING LAYER (Pillowed contour with specular gloss)
-    if (step >= 3) {
-      const fillingColors = {
-        'filling-chocolate-ganache': '#180A04',
-        'filling-vanilla-cream': '#FFFDF4',
-        'filling-pistachio-mousse': '#8CA569',
-        'filling-berry-compote': '#891328',
-        'filling-caramel-confit': '#B66A1F'
-      };
-      const fillColor = fillingColors[filling] || '#FFFDF4';
-
-      // Drop shadow from filling onto base
-      const fillShadowP = this.project(0, topY + 0.01, 0, cx, cy, scale);
-      ctx.fillStyle = 'rgba(20, 8, 4, 0.35)';
-      ctx.beginPath();
-      ctx.ellipse(fillShadowP.sx, fillShadowP.sy, 75 * scale * fillShadowP.factor, 26 * scale * fillShadowP.factor, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Pillowed filling cylinder
-      topY = this.drawCylinder(ctx, cx, cy, scale, topY, 0.38, 1.50, 1.45, fillColor, shadeColor(fillColor, 0.75), true, 'filling');
-    }
-
-    // STEP 05: WARM SAUCE DRIZZLE & FLUID DRIPS
-    if (step >= 5) {
-      const sauceColors = {
-        'sauce-dark-chocolate': '#100502',
-        'sauce-caramel': '#B36413',
-        'sauce-white-chocolate': '#FFFDE8',
-        'sauce-strawberry': '#940E22'
-      };
-      const scColor = sauceColors[sauce] || '#100502';
-
-      // Top glossy sauce glaze pool
-      this.drawCylinder(ctx, cx, cy, scale, topY, 0.08, 1.44, 1.40, scColor, shadeColor(scColor, 0.8), true, 'sauce');
-
-      // 6 Realistic Viscous Sauce Drips
-      const drips = [
-        { angle: 0.35, length: 0.44, radius: 0.14 },
-        { angle: 1.35, length: 0.62, radius: 0.17 },
-        { angle: 2.45, length: 0.38, radius: 0.13 },
-        { angle: 3.65, length: 0.55, radius: 0.16 },
-        { angle: 4.85, length: 0.42, radius: 0.14 },
-        { angle: 5.75, length: 0.50, radius: 0.15 }
-      ];
-      drips.forEach(d => {
-        const cosA = Math.cos(d.angle), sinA = Math.sin(d.angle);
-        const cakeEdgeR = 1.46;
-        this.drawSauceDrip(ctx, cx, cy, scale, cosA * cakeEdgeR, topY + 0.06, sinA * cakeEdgeR, d.length, d.radius, scColor);
-      });
-
-      topY += 0.08;
-    }
-
-    // STEP 04: ARTISANAL TOPPINGS IN HIGH FIDELITY
-    if (step >= 4 && toppings && toppings.length > 0) {
-      toppings.forEach(topId => {
-        if (topId === 'top-strawberries') {
-          this.drawStrawberry(ctx, cx, cy, scale, 0.46, topY + 0.18, 0.36, 0.30, 0.22);
-          this.drawStrawberry(ctx, cx, cy, scale, -0.44, topY + 0.18, -0.28, 0.27, -0.32);
-        }
-        if (topId === 'top-blueberries') {
-          this.drawBlueberry(ctx, cx, cy, scale, -0.46, topY + 0.13, 0.46, 0.17);
-          this.drawBlueberry(ctx, cx, cy, scale, 0.40, topY + 0.13, -0.46, 0.16);
-          this.drawBlueberry(ctx, cx, cy, scale, 0.68, topY + 0.13, 0.06, 0.18);
-        }
-        if (topId === 'top-hazelnuts') {
-          this.drawHazelnut(ctx, cx, cy, scale, 0.0, topY + 0.14, 0.56, 0.20);
-          this.drawHazelnut(ctx, cx, cy, scale, -0.56, topY + 0.14, -0.2, 0.19);
-          this.drawHazelnut(ctx, cx, cy, scale, 0.56, topY + 0.14, -0.36, 0.20);
-        }
-        if (topId === 'top-almonds') {
-          this.drawAlmond(ctx, cx, cy, scale, -0.26, topY + 0.09, 0.26, 0.34, 0.18, 0.3);
-          this.drawAlmond(ctx, cx, cy, scale, 0.36, topY + 0.09, 0.30, 0.34, 0.18, -0.4);
-          this.drawAlmond(ctx, cx, cy, scale, -0.16, topY + 0.09, -0.42, 0.32, 0.17, 0.8);
-        }
-        if (topId === 'top-gold-leaf') {
-          this.drawGoldLeaf(ctx, cx, cy, scale, 0.16, topY + 0.12, 0.16, 0.24, 0.2);
-          this.drawGoldLeaf(ctx, cx, cy, scale, -0.34, topY + 0.12, 0.20, 0.22, -0.5);
-          this.drawGoldLeaf(ctx, cx, cy, scale, 0.24, topY + 0.12, -0.24, 0.20, 0.7);
-        }
-        if (topId === 'top-choc-chips' || topId === 'top-protein-crisps') {
-          const chips = [
-            [-0.22, topY + 0.09, 0.46], [0.42, topY + 0.09, 0.42],
-            [-0.36, topY + 0.09, -0.16], [0.16, topY + 0.09, -0.46]
-          ];
-          chips.forEach(c => {
-            this.drawChocChip(ctx, cx, cy, scale, c[0], c[1], c[2], 0.12);
-          });
-        }
-        if (topId === 'top-chia-almond') {
-          for (let k = 0; k < 10; k++) {
-            const angle = (k / 10) * Math.PI * 2;
-            const r = 0.85 + (k % 2) * 0.38;
-            const p = this.project(Math.cos(angle) * r, topY + 0.05, Math.sin(angle) * r, cx, cy, scale);
-            ctx.fillStyle = '#1A1715';
-            ctx.beginPath();
-            ctx.arc(p.sx, p.sy, 2.4 * scale * p.factor, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-      });
-    }
-  }
-
-  drawBrownie(ctx, cx, cy, scale, yBase, w, h, d, color) {
-    const hw = w / 2, hd = d / 2;
-    const yTop = yBase + h;
-
-    const v = [
-      [-hw, yBase, -hd], [hw, yBase, -hd], [hw, yBase, hd], [-hw, yBase, hd],
-      [-hw, yTop, -hd], [hw, yTop, -hd], [hw, yTop, hd], [-hw, yTop, hd]
-    ].map(pt => this.project(pt[0], pt[1], pt[2], cx, cy, scale));
-
-    const faces = [
-      { indices: [0, 1, 5, 4], normal: [0, 0, -1], name: 'front' },
-      { indices: [1, 2, 6, 5], normal: [1, 0, 0], name: 'right' },
-      { indices: [2, 3, 7, 6], normal: [0, 0, 1], name: 'back' },
-      { indices: [3, 0, 4, 7], normal: [-1, 0, 0], name: 'left' },
-      { indices: [4, 5, 6, 7], normal: [0, 1, 0], name: 'top' }
-    ];
-
-    faces.forEach(face => {
-      const cosY = Math.cos(this.rotY), sinY = Math.sin(this.rotY);
-      const cosX = Math.cos(this.rotX), sinX = Math.sin(this.rotX);
-      const nx1 = face.normal[0] * cosY + face.normal[2] * sinY;
-      const nz1 = -face.normal[0] * sinY + face.normal[2] * cosY;
-      const ny2 = face.normal[1] * cosX - nz1 * sinX;
-      const nz2 = face.normal[1] * sinX + nz1 * cosX;
-
-      if (nz2 < 0.1 || face.name === 'top') {
-        const lightFactor = 0.5 + 0.5 * (nx1 * 0.5 + ny2 * 0.8 - nz2 * 0.3);
-        ctx.fillStyle = shadeColor(color, Math.max(0.4, Math.min(1.25, lightFactor)));
-        ctx.beginPath();
-        face.indices.forEach((idx, i) => {
-          const pt = v[idx];
-          if (i === 0) ctx.moveTo(pt.sx, pt.sy);
-          else ctx.lineTo(pt.sx, pt.sy);
-        });
-        ctx.closePath();
-        ctx.fill();
-
-        // Bevel highlight
-        ctx.strokeStyle = shadeColor(color, 1.25);
-        ctx.lineWidth = 1.4 * scale;
-        ctx.stroke();
-
-        // Micro-crumb texture on top face
-        if (face.name === 'top') {
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-          for (let k = 0; k < 12; k++) {
-            const rx = (Math.sin(k * 43.1) * 0.7) * hw;
-            const rz = (Math.cos(k * 29.3) * 0.7) * hd;
-            const pt = this.project(rx, yTop + 0.01, rz, cx, cy, scale);
-            ctx.beginPath();
-            ctx.arc(pt.sx, pt.sy, 1.8 * scale * pt.factor, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-      }
-    });
-
-    return yTop;
-  }
-
-  drawFlutedTart(ctx, cx, cy, scale, yBase, height, rBot, rTop, color) {
-    const segments = 36;
-    const botPts = [];
-    const topPts = [];
-    const yTop = yBase + height;
-
-    for (let i = 0; i <= segments; i++) {
-      const a = (i / segments) * Math.PI * 2;
-      const fluteR = (i % 2 === 0 ? 1.0 : 0.94);
-      botPts.push(this.project(Math.cos(a) * rBot, yBase, Math.sin(a) * rBot, cx, cy, scale));
-      topPts.push(this.project(Math.cos(a) * rTop * fluteR, yTop, Math.sin(a) * rTop * fluteR, cx, cy, scale));
-    }
-
-    for (let i = 0; i < segments; i++) {
-      const p1 = botPts[i], p2 = botPts[i + 1];
-      const p3 = topPts[i + 1], p4 = topPts[i];
-      const midAngle = ((i + 0.5) / segments) * Math.PI * 2 + this.rotY;
-      const cosFacing = Math.cos(midAngle);
-
-      if (cosFacing > -0.2) {
-        const lightDiffuse = 0.55 + 0.45 * Math.cos(midAngle - 0.7);
-        const fluteShade = (i % 2 === 0 ? 1.12 : 0.85);
-        ctx.fillStyle = shadeColor(color, Math.max(0.45, Math.min(1.3, lightDiffuse * fluteShade)));
-        ctx.beginPath();
-        ctx.moveTo(p1.sx, p1.sy);
-        ctx.lineTo(p2.sx, p2.sy);
-        ctx.lineTo(p3.sx, p3.sy);
-        ctx.lineTo(p4.sx, p4.sy);
-        ctx.closePath();
-        ctx.fill();
-      }
-    }
-
-    // Fluted Top Rim
-    ctx.beginPath();
-    for (let i = 0; i <= segments; i++) {
-      const p = topPts[i];
-      if (i === 0) ctx.moveTo(p.sx, p.sy);
-      else ctx.lineTo(p.sx, p.sy);
-    }
-    ctx.closePath();
-    ctx.fillStyle = shadeColor(color, 1.1);
-    ctx.fill();
-    ctx.strokeStyle = shadeColor(color, 0.8);
-    ctx.lineWidth = 1.2 * scale;
-    ctx.stroke();
-
-    return yTop;
-  }
-
-  drawCylinder(ctx, cx, cy, scale, yBase, height, rBot, rTop, color, strokeColor, isGlossy = false, textureType = '') {
-    const segments = 36;
-    const botPts = [];
-    const topPts = [];
-    const yTop = yBase + height;
-
-    for (let i = 0; i <= segments; i++) {
-      const a = (i / segments) * Math.PI * 2;
-      botPts.push(this.project(Math.cos(a) * rBot, yBase, Math.sin(a) * rBot, cx, cy, scale));
-      topPts.push(this.project(Math.cos(a) * rTop, yTop, Math.sin(a) * rTop, cx, cy, scale));
-    }
-
-    // Cylindrical wall panels with Lambertian + Rim Light
-    for (let i = 0; i < segments; i++) {
-      const p1 = botPts[i], p2 = botPts[i + 1];
-      const p3 = topPts[i + 1], p4 = topPts[i];
-      const midAngle = ((i + 0.5) / segments) * Math.PI * 2 + this.rotY;
-      const cosFacing = Math.cos(midAngle);
-
-      if (cosFacing > -0.2) {
-        const lightDiffuse = 0.52 + 0.48 * Math.cos(midAngle - 0.65);
-        const rimLight = Math.max(0, Math.cos(midAngle + Math.PI * 0.7)) * 0.22;
-        ctx.fillStyle = shadeColor(color, Math.max(0.42, Math.min(1.3, lightDiffuse + rimLight)));
-        ctx.beginPath();
-        ctx.moveTo(p1.sx, p1.sy);
-        ctx.lineTo(p2.sx, p2.sy);
-        ctx.lineTo(p3.sx, p3.sy);
-        ctx.lineTo(p4.sx, p4.sy);
-        ctx.closePath();
-        ctx.fill();
-      }
-    }
-
-    // Top Cap Disc
-    ctx.beginPath();
-    for (let i = 0; i <= segments; i++) {
-      const p = topPts[i];
-      if (i === 0) ctx.moveTo(p.sx, p.sy);
-      else ctx.lineTo(p.sx, p.sy);
-    }
-    ctx.closePath();
-
-    if (textureType === 'basque') {
-      // Scorched Basque burnt top with blistered marbling
-      const topCenter = this.project(0, yTop, 0, cx, cy, scale);
-      const basqueGrad = ctx.createRadialGradient(
-        topCenter.sx - 15 * scale, topCenter.sy - 10 * scale, 12 * scale,
-        topCenter.sx, topCenter.sy, 80 * scale
-      );
-      basqueGrad.addColorStop(0, '#5C220E');
-      basqueGrad.addColorStop(0.45, '#351206');
-      basqueGrad.addColorStop(0.85, '#200802');
-      basqueGrad.addColorStop(1, '#4A1C0B');
-      ctx.fillStyle = basqueGrad;
-    } else if (isGlossy) {
-      const topCenter = this.project(0, yTop, 0, cx, cy, scale);
-      const topGrad = ctx.createRadialGradient(
-        topCenter.sx - 24 * scale, topCenter.sy - 18 * scale, 6 * scale,
-        topCenter.sx, topCenter.sy, 75 * scale
-      );
-      topGrad.addColorStop(0, shadeColor(color, 1.5));
-      topGrad.addColorStop(0.45, color);
-      topGrad.addColorStop(1, shadeColor(color, 0.72));
-      ctx.fillStyle = topGrad;
-    } else {
-      ctx.fillStyle = shadeColor(color, 1.06);
-    }
-    ctx.fill();
-
-    if (strokeColor) {
-      ctx.strokeStyle = strokeColor;
-      ctx.lineWidth = 1 * scale;
-      ctx.stroke();
-    }
-
-    return yTop;
-  }
-
-  drawWaffleGrid(ctx, cx, cy, scale, yTop, radius) {
-    ctx.strokeStyle = '#8E5214';
-    ctx.lineWidth = 2.8 * scale;
-    for (let i = -2; i <= 2; i++) {
-      const offset = i * 0.44;
-      const span = Math.sqrt(Math.max(0, radius * radius - offset * offset));
-      const p1 = this.project(offset, yTop + 0.02, -span, cx, cy, scale);
-      const p2 = this.project(offset, yTop + 0.02, span, cx, cy, scale);
-      ctx.beginPath();
-      ctx.moveTo(p1.sx, p1.sy);
-      ctx.lineTo(p2.sx, p2.sy);
-      ctx.stroke();
-
-      const q1 = this.project(-span, yTop + 0.02, offset, cx, cy, scale);
-      const q2 = this.project(span, yTop + 0.02, offset, cx, cy, scale);
-      ctx.beginPath();
-      ctx.moveTo(q1.sx, q1.sy);
-      ctx.lineTo(q2.sx, q2.sy);
-      ctx.stroke();
-    }
-  }
-
-  drawSauceDrip(ctx, cx, cy, scale, x, yStart, z, length, radius, color) {
-    const pStart = this.project(x, yStart, z, cx, cy, scale);
-    const pEnd = this.project(x, yStart - length, z, cx, cy, scale);
-
-    // Viscous fluid drip flow
-    ctx.strokeStyle = color;
-    ctx.lineWidth = radius * 48 * scale * pStart.factor;
-    ctx.lineCap = 'round';
-    ctx.beginPath();
-    ctx.moveTo(pStart.sx, pStart.sy);
-    ctx.lineTo(pEnd.sx, pEnd.sy);
-    ctx.stroke();
-
-    // High-shine highlight along drip spine
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-    ctx.lineWidth = radius * 14 * scale * pStart.factor;
-    ctx.beginPath();
-    ctx.moveTo(pStart.sx - 1, pStart.sy);
-    ctx.lineTo(pEnd.sx - 1, pEnd.sy);
-    ctx.stroke();
-
-    // Bulbous droplet at bottom
-    const dripBulbGrad = ctx.createRadialGradient(
-      pEnd.sx - 2, pEnd.sy - 2, 1,
-      pEnd.sx, pEnd.sy, radius * 40 * scale * pEnd.factor
-    );
-    dripBulbGrad.addColorStop(0, shadeColor(color, 1.55));
-    dripBulbGrad.addColorStop(0.55, color);
-    dripBulbGrad.addColorStop(1, shadeColor(color, 0.55));
-    ctx.fillStyle = dripBulbGrad;
-    ctx.beginPath();
-    ctx.arc(pEnd.sx, pEnd.sy, radius * 38 * scale * pEnd.factor, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  drawStrawberry(ctx, cx, cy, scale, x, y, z, r, angle) {
-    const p = this.project(x, y, z, cx, cy, scale);
-    const rad = r * 54 * scale * p.factor;
-
-    // Contact drop shadow onto cream
-    ctx.fillStyle = 'rgba(20, 8, 4, 0.35)';
-    ctx.beginPath();
-    ctx.ellipse(p.sx, p.sy + rad * 0.9, rad * 0.8, rad * 0.35, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.save();
-    ctx.translate(p.sx, p.sy);
-    ctx.rotate(angle);
-
-    // Sculpted Berry Body
-    const berryGrad = ctx.createRadialGradient(-rad * 0.35, -rad * 0.35, rad * 0.1, 0, 0, rad * 1.25);
-    berryGrad.addColorStop(0, '#FF4D6D');
-    berryGrad.addColorStop(0.35, '#D91E36');
-    berryGrad.addColorStop(0.85, '#990D22');
-    berryGrad.addColorStop(1, '#590511');
-
-    ctx.fillStyle = berryGrad;
-    ctx.beginPath();
-    ctx.moveTo(0, rad * 1.15);
-    ctx.bezierCurveTo(-rad * 1.15, rad * 0.55, -rad * 0.95, -rad * 0.85, 0, -rad * 0.85);
-    ctx.bezierCurveTo(rad * 0.95, -rad * 0.85, rad * 1.15, rad * 0.55, 0, rad * 1.15);
-    ctx.closePath();
-    ctx.fill();
-
-    // 16 Golden Seed Pits inset in dimples
-    ctx.fillStyle = '#FFE066';
-    for (let i = 0; i < 16; i++) {
-      const sa = (i / 16) * Math.PI * 2;
-      const sr = (i % 3 === 0 ? 0.35 : (i % 3 === 1 ? 0.6 : 0.85)) * rad * 0.7;
-      const sy = ((i % 5) - 2) * rad * 0.22;
-      ctx.beginPath();
-      ctx.arc(Math.cos(sa) * sr, sy, 1.1 * scale * p.factor, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    // Leafy Green Star Calyx
-    ctx.fillStyle = '#2E7D32';
-    for (let k = 0; k < 5; k++) {
-      const a = (k / 5) * Math.PI * 2;
-      const lx = Math.cos(a) * rad * 0.75;
-      const ly = -rad * 0.85 + Math.sin(a) * rad * 0.35;
-      ctx.beginPath();
-      ctx.ellipse(lx, ly, rad * 0.3, rad * 0.15, a, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    // Stem Nub
-    ctx.fillStyle = '#1B5E20';
-    ctx.beginPath();
-    ctx.arc(0, -rad * 0.9, rad * 0.14, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.restore();
-  }
-
-  drawBlueberry(ctx, cx, cy, scale, x, y, z, r) {
-    const p = this.project(x, y, z, cx, cy, scale);
-    const rad = r * 54 * scale * p.factor;
-
-    // Contact drop shadow
-    ctx.fillStyle = 'rgba(20, 8, 4, 0.35)';
-    ctx.beginPath();
-    ctx.ellipse(p.sx, p.sy + rad * 0.85, rad * 0.75, rad * 0.32, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Dusty waxy bloom gradient
-    const bbGrad = ctx.createRadialGradient(p.sx - rad * 0.35, p.sy - rad * 0.35, rad * 0.1, p.sx, p.sy, rad);
-    bbGrad.addColorStop(0, '#5D6B9E');
-    bbGrad.addColorStop(0.35, '#2B3363');
-    bbGrad.addColorStop(0.85, '#151A3B');
-    bbGrad.addColorStop(1, '#0B0D1E');
-
-    ctx.fillStyle = bbGrad;
-    ctx.beginPath();
-    ctx.arc(p.sx, p.sy, rad, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Star-shaped calyx indentation crown
-    ctx.strokeStyle = '#7D8DC9';
-    ctx.lineWidth = 1.2 * scale;
-    ctx.beginPath();
-    ctx.arc(p.sx, p.sy - rad * 0.22, rad * 0.26, 0, Math.PI * 2);
-    ctx.stroke();
-  }
-
-  drawHazelnut(ctx, cx, cy, scale, x, y, z, r) {
-    const p = this.project(x, y, z, cx, cy, scale);
-    const rad = r * 54 * scale * p.factor;
-
-    ctx.fillStyle = 'rgba(20, 8, 4, 0.35)';
-    ctx.beginPath();
-    ctx.ellipse(p.sx, p.sy + rad * 0.9, rad * 0.8, rad * 0.35, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    const hnGrad = ctx.createRadialGradient(p.sx - rad * 0.35, p.sy - rad * 0.35, rad * 0.1, p.sx, p.sy, rad);
-    hnGrad.addColorStop(0, '#BF834F');
-    hnGrad.addColorStop(0.45, '#824820');
-    hnGrad.addColorStop(0.85, '#52270E');
-    hnGrad.addColorStop(1, '#301306');
-
-    ctx.fillStyle = hnGrad;
-    ctx.beginPath();
-    ctx.ellipse(p.sx, p.sy, rad, rad * 1.15, 0.2, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Pale circular root scar
-    ctx.fillStyle = '#D9B487';
-    ctx.beginPath();
-    ctx.ellipse(p.sx + rad * 0.2, p.sy + rad * 0.7, rad * 0.35, rad * 0.18, 0.2, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  drawAlmond(ctx, cx, cy, scale, x, y, z, l, w, rot) {
-    const p = this.project(x, y, z, cx, cy, scale);
-    const len = l * 54 * scale * p.factor;
-    const wid = w * 54 * scale * p.factor;
-
-    ctx.save();
-    ctx.translate(p.sx, p.sy);
-    ctx.rotate(rot);
-
-    ctx.fillStyle = 'rgba(20, 8, 4, 0.25)';
-    ctx.beginPath();
-    ctx.ellipse(2, 3, len * 0.9, wid * 0.9, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.fillStyle = '#F0DCAE';
-    ctx.strokeStyle = '#AA7944';
-    ctx.lineWidth = 1.4 * scale;
-    ctx.beginPath();
-    ctx.ellipse(0, 0, len, wid, 0, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  drawGoldLeaf(ctx, cx, cy, scale, x, y, z, s, rot) {
-    const p = this.project(x, y, z, cx, cy, scale);
-    const size = s * 54 * scale * p.factor;
-
-    ctx.save();
-    ctx.translate(p.sx, p.sy);
-    ctx.rotate(rot + Math.sin(this.time * 2.5) * 0.18);
-
-    const goldGrad = ctx.createLinearGradient(-size, -size, size, size);
-    goldGrad.addColorStop(0, '#FFF3A8');
-    goldGrad.addColorStop(0.45, '#D4AF37');
-    goldGrad.addColorStop(0.75, '#F9D56E');
-    goldGrad.addColorStop(1, '#9C7514');
-
-    ctx.fillStyle = goldGrad;
-    ctx.beginPath();
-    ctx.moveTo(-size * 0.85, -size * 0.55);
-    ctx.lineTo(size * 0.25, -size * 0.95);
-    ctx.lineTo(size * 0.95, -size * 0.15);
-    ctx.lineTo(size * 0.45, size * 0.85);
-    ctx.lineTo(-size * 0.65, size * 0.65);
-    ctx.closePath();
-    ctx.fill();
-
-    // Brilliant metallic specular glint
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-    ctx.beginPath();
-    ctx.arc(0, 0, size * 0.28, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-  }
-
-  drawChocChip(ctx, cx, cy, scale, x, y, z, r) {
-    const p = this.project(x, y, z, cx, cy, scale);
-    const rad = r * 54 * scale * p.factor;
-    ctx.fillStyle = '#220E06';
-    ctx.beginPath();
-    ctx.arc(p.sx, p.sy, rad, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
-    ctx.beginPath();
-    ctx.arc(p.sx - rad * 0.3, p.sy - rad * 0.3, rad * 0.3, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  drawAromaMotes(ctx, cx, cy, scale, topY) {
-    this.aromaMotes.forEach(m => {
-      const p = this.project(m.x, topY + m.y, m.z, cx, cy, scale);
-      const alpha = 0.3 + 0.4 * Math.sin(this.time * 2 + m.phase);
-      ctx.fillStyle = `rgba(230, 202, 133, ${alpha})`;
-      ctx.beginPath();
-      ctx.arc(p.sx, p.sy, m.size * scale * p.factor, 0, Math.PI * 2);
-      ctx.fill();
-    });
-  }
-
-  renderShowcaseCelebration(ctx, cx, cy, scale, width, height) {
-    this.sparkles.forEach(s => {
-      s.angle += s.speed;
-      const x = Math.cos(s.angle) * s.radius;
-      const z = Math.sin(s.angle) * s.radius;
-      const p = this.project(x, s.y, z, cx, cy, scale);
-
-      const alpha = 0.45 + 0.5 * Math.sin(this.time * 3 + s.phase);
-      const starSize = s.size * scale * p.factor;
-
-      ctx.save();
-      ctx.translate(p.sx, p.sy);
-      ctx.fillStyle = `rgba(230, 202, 133, ${alpha})`;
-
-      ctx.beginPath();
-      ctx.moveTo(0, -starSize * 2);
-      ctx.quadraticCurveTo(0, 0, starSize * 2, 0);
-      ctx.quadraticCurveTo(0, 0, 0, starSize * 2);
-      ctx.quadraticCurveTo(0, 0, -starSize * 2, 0);
-      ctx.quadraticCurveTo(0, 0, 0, -starSize * 2);
-      ctx.fill();
-      ctx.restore();
-    });
-
-    // Floating Gold Name Plaque
-    const plateP = this.project(0, -0.44, 0, cx, cy, scale);
-    const titleText = this.state.name ? `✦ ${this.state.name.toUpperCase()} ✦` : '✦ BESPOKE PATISSERIE CREATION ✦';
-
-    ctx.save();
-    ctx.font = `600 ${Math.max(10, Math.round(12 * scale))}px Georgia, serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    const textW = ctx.measureText(titleText).width;
-    const padX = 16 * scale;
-    const pillW = textW + padX * 2;
-    const pillH = 26 * scale;
-
-    ctx.fillStyle = 'rgba(28, 12, 7, 0.90)';
-    ctx.strokeStyle = '#D4AF37';
-    ctx.lineWidth = 1.4 * scale;
-    ctx.beginPath();
-    if (ctx.roundRect) {
-      ctx.roundRect(plateP.sx - pillW / 2, plateP.sy - pillH / 2, pillW, pillH, 13 * scale);
-    } else {
-      ctx.rect(plateP.sx - pillW / 2, plateP.sy - pillH / 2, pillW, pillH);
-    }
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#E6CA85';
-    ctx.fillText(titleText, plateP.sx, plateP.sy);
-    ctx.restore();
-  }
-
   dispose() {
     if (this.animationFrameId) {
-      if (typeof cancelAnimationFrame !== 'undefined') {
-        cancelAnimationFrame(this.animationFrameId);
-      }
+      cancelAnimationFrame(this.animationFrameId);
       this.animationFrameId = null;
     }
     if (this.cleanupInteraction) {
       this.cleanupInteraction();
       this.cleanupInteraction = null;
     }
+    if (this.renderer) {
+      this.renderer.dispose();
+      this.renderer = null;
+    }
   }
 }
 
+// ============================================================================
+// BESPOKE DESSERT STUDIO BUILDER CONTROLLER (REAL-TIME NUTRITION TRACKER)
+// ============================================================================
 class DessertBuilder {
   constructor(containerId, onAddToCartCallback) {
     if (typeof window !== 'undefined') {
@@ -2778,12 +4096,12 @@ class DessertBuilder {
     this.is3dAutoRotate = true;
     this.viewer3d = null;
     this.state = {
-      base: 'base-brownie',
-      flavor: 'flavor-chocolate',
-      filling: 'filling-chocolate-ganache',
-      toppings: ['top-strawberries', 'top-almonds'],
-      sauce: 'sauce-dark-chocolate',
-      name: 'My La Desio Creation',
+      base: 'base-ragi-spelt',
+      flavor: 'flavor-forest-honey',
+      filling: 'filling-pulse-praline',
+      toppings: ['top-popped-amaranth', 'top-strawberries'],
+      sauce: 'sauce-date-caramel',
+      name: 'Piccolo Natural Creation',
       specialNote: ''
     };
   }
@@ -2818,7 +4136,7 @@ class DessertBuilder {
     const fillingObj = DESSERT_BUILDER_OPTIONS.fillings.find(f => f.id === this.state.filling);
     if (fillingObj) total += fillingObj.price;
 
-    this.state.toppings.forEach(topId => {
+    (this.state.toppings || []).forEach(topId => {
       const topObj = DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === topId);
       if (topObj) total += topObj.price;
     });
@@ -2829,46 +4147,149 @@ class DessertBuilder {
     return total;
   }
 
+  // Real-Time Dynamic Atomic Layer-by-Layer Nutritional Engine
+  // Zero predefined values: every added component aggregates live!
   calculateNutrition() {
-    let calories = 0, protein = 0, carbs = 0, fats = 0;
+    let calories = 0, protein = 0, carbs = 0, fats = 0, fiber = 0, calcium = 0, iron = 0, naturalSugar = 0;
+    const layerDeltas = [];
+
+    // Layer 1: Base Foundation
     const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(b => b.id === this.state.base);
     if (baseObj?.nutrition) {
-      calories += baseObj.nutrition.calories;
-      protein += baseObj.nutrition.protein;
-      carbs += baseObj.nutrition.carbs;
-      fats += baseObj.nutrition.fats;
+      const n = baseObj.nutrition;
+      calories += n.calories || 0;
+      protein += n.protein || 0;
+      carbs += n.carbs || 0;
+      fats += n.fats || 0;
+      fiber += n.fiber || 0;
+      calcium += n.calcium || 0;
+      iron += n.iron || 0;
+      naturalSugar += n.naturalSugar || 0;
+      layerDeltas.push({
+        layer: 'Base Foundation',
+        name: baseObj.name,
+        calories: n.calories || 0,
+        protein: n.protein || 0,
+        carbs: n.carbs || 0,
+        fats: n.fats || 0,
+        fiber: n.fiber || 0
+      });
     }
+
+    // Layer 2: Flavor Infusion
     const flavorObj = DESSERT_BUILDER_OPTIONS.flavors.find(f => f.id === this.state.flavor);
     if (flavorObj?.nutrition) {
-      calories += flavorObj.nutrition.calories;
-      protein += flavorObj.nutrition.protein;
-      carbs += flavorObj.nutrition.carbs;
-      fats += flavorObj.nutrition.fats;
+      const n = flavorObj.nutrition;
+      calories += n.calories || 0;
+      protein += n.protein || 0;
+      carbs += n.carbs || 0;
+      fats += n.fats || 0;
+      fiber += n.fiber || 0;
+      calcium += n.calcium || 0;
+      iron += n.iron || 0;
+      naturalSugar += n.naturalSugar || 0;
+      layerDeltas.push({
+        layer: 'Flavor Infusion',
+        name: flavorObj.name,
+        calories: n.calories || 0,
+        protein: n.protein || 0,
+        carbs: n.carbs || 0,
+        fats: n.fats || 0,
+        fiber: n.fiber || 0
+      });
     }
+
+    // Layer 3: Silky Filling
     const fillingObj = DESSERT_BUILDER_OPTIONS.fillings.find(f => f.id === this.state.filling);
     if (fillingObj?.nutrition) {
-      calories += fillingObj.nutrition.calories;
-      protein += fillingObj.nutrition.protein;
-      carbs += fillingObj.nutrition.carbs;
-      fats += fillingObj.nutrition.fats;
+      const n = fillingObj.nutrition;
+      calories += n.calories || 0;
+      protein += n.protein || 0;
+      carbs += n.carbs || 0;
+      fats += n.fats || 0;
+      fiber += n.fiber || 0;
+      calcium += n.calcium || 0;
+      iron += n.iron || 0;
+      naturalSugar += n.naturalSugar || 0;
+      layerDeltas.push({
+        layer: 'Silky Filling',
+        name: fillingObj.name,
+        calories: n.calories || 0,
+        protein: n.protein || 0,
+        carbs: n.carbs || 0,
+        fats: n.fats || 0,
+        fiber: n.fiber || 0
+      });
     }
-    this.state.toppings.forEach(topId => {
+
+    // Layer 4: Toppings
+    (this.state.toppings || []).forEach(topId => {
       const topObj = DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === topId);
       if (topObj?.nutrition) {
-        calories += topObj.nutrition.calories;
-        protein += topObj.nutrition.protein;
-        carbs += topObj.nutrition.carbs;
-        fats += topObj.nutrition.fats;
+        const n = topObj.nutrition;
+        calories += n.calories || 0;
+        protein += n.protein || 0;
+        carbs += n.carbs || 0;
+        fats += n.fats || 0;
+        fiber += n.fiber || 0;
+        calcium += n.calcium || 0;
+        iron += n.iron || 0;
+        naturalSugar += n.naturalSugar || 0;
+        layerDeltas.push({
+          layer: 'Artisanal Topping',
+          name: topObj.name,
+          calories: n.calories || 0,
+          protein: n.protein || 0,
+          carbs: n.carbs || 0,
+          fats: n.fats || 0,
+          fiber: n.fiber || 0
+        });
       }
     });
+
+    // Layer 5: Glaze Sauce
     const sauceObj = DESSERT_BUILDER_OPTIONS.sauces.find(s => s.id === this.state.sauce);
     if (sauceObj?.nutrition) {
-      calories += sauceObj.nutrition.calories;
-      protein += sauceObj.nutrition.protein;
-      carbs += sauceObj.nutrition.carbs;
-      fats += sauceObj.nutrition.fats;
+      const n = sauceObj.nutrition;
+      calories += n.calories || 0;
+      protein += n.protein || 0;
+      carbs += n.carbs || 0;
+      fats += n.fats || 0;
+      fiber += n.fiber || 0;
+      calcium += n.calcium || 0;
+      iron += n.iron || 0;
+      naturalSugar += n.naturalSugar || 0;
+      layerDeltas.push({
+        layer: 'Mirror Glaze',
+        name: sauceObj.name,
+        calories: n.calories || 0,
+        protein: n.protein || 0,
+        carbs: n.carbs || 0,
+        fats: n.fats || 0,
+        fiber: n.fiber || 0
+      });
     }
-    return { calories, protein, carbs, fats };
+
+    // Dynamic macro percentages
+    const totalGrams = (carbs + protein + fats) || 1;
+    const carbsPct = Math.round((carbs / totalGrams) * 100);
+    const proteinPct = Math.round((protein / totalGrams) * 100);
+    const fatsPct = Math.round((fats / totalGrams) * 100);
+
+    return {
+      calories,
+      protein,
+      carbs,
+      fats,
+      fiber,
+      calcium,
+      iron: Number(iron.toFixed(1)),
+      naturalSugar,
+      carbsPct,
+      proteinPct,
+      fatsPct,
+      layerDeltas
+    };
   }
 
   renderVisualDessert() {
@@ -2877,30 +4298,14 @@ class DessertBuilder {
     const fillingObj = DESSERT_BUILDER_OPTIONS.fillings.find(f => f.id === this.state.filling) || DESSERT_BUILDER_OPTIONS.fillings[0];
     const sauceObj = DESSERT_BUILDER_OPTIONS.sauces.find(s => s.id === this.state.sauce) || DESSERT_BUILDER_OPTIONS.sauces[0];
 
-    const toppingsList = this.state.toppings.map(id => {
-      const t = DESSERT_BUILDER_OPTIONS.toppings.find(item => item.id === id);
-      return t ? `<span class="inline-flex items-center gap-1 bg-white/90 backdrop-blur text-xs px-2.5 py-1 rounded-full border border-[#B8945B]/40 shadow-sm text-[#3A1F17]">${t.icon} ${t.name.split(' ')[0]}</span>` : '';
-    }).join(' ');
-
     return `
       <div class="relative w-full aspect-square max-w-[340px] mx-auto flex items-center justify-center">
-        <!-- Ambient Gold Glow -->
         <div class="absolute inset-0 bg-[#B8945B]/15 rounded-full blur-2xl"></div>
-
-        <!-- Luxury Ceramic Plate -->
         <div class="relative w-72 h-72 rounded-full bg-gradient-to-br from-[#FFFDF9] via-[#F8F1E7] to-[#E8DCcb] border-[3px] border-[#B8945B] shadow-2xl flex items-center justify-center p-6 transition-all duration-700">
-          
-          <!-- Plate Rim Inner Gold Line -->
           <div class="absolute inset-3 rounded-full border border-[#B8945B]/30 pointer-events-none"></div>
-
-          <!-- Layered Visual Cake Representation -->
           <div class="relative w-48 h-48 flex flex-col items-center justify-center animate-float-slow">
-            
-            <!-- Sauce Drizzle Back Layer -->
             <div class="absolute w-44 h-44 rounded-full opacity-60 filter blur-[2px] transition-all duration-500 scale-105"
                  style="background: radial-gradient(circle, ${sauceObj.color} 30%, transparent 70%);"></div>
-
-            <!-- Base Layer -->
             <div class="w-36 h-20 rounded-2xl shadow-xl flex items-center justify-center border-2 border-[#B8945B]/40 relative overflow-hidden transition-all duration-500 transform hover:scale-105"
                  style="background: ${baseObj.color};">
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/20"></div>
@@ -2908,8 +4313,6 @@ class DessertBuilder {
                 ${baseObj.name}
               </span>
             </div>
-
-            <!-- Silky Filling Layer -->
             <div class="w-32 h-10 -mt-3 rounded-xl shadow-lg border border-[#B8945B]/50 relative overflow-hidden flex items-center justify-center transition-all duration-500"
                  style="background: ${fillingObj.color};">
               <div class="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-black/20"></div>
@@ -2917,35 +4320,22 @@ class DessertBuilder {
                 ${flavorObj.name} Infused
               </span>
             </div>
-
-            <!-- Sauce Glaze / Drip Top Layer -->
             <div class="w-28 h-6 -mt-2 rounded-full shadow-inner flex items-center justify-center border border-white/30 transition-all duration-500"
                  style="background: ${sauceObj.color};">
               <div class="w-16 h-1 rounded-full bg-white/40 blur-[1px]"></div>
             </div>
-
-            <!-- Crown Garnishes / Gold Leaf -->
             <div class="absolute -top-3 flex items-center gap-1">
-              ${this.state.toppings.includes('top-strawberries') ? '<span class="text-2xl drop-shadow filter">🍓</span>' : ''}
-              ${this.state.toppings.includes('top-blueberries') ? '<span class="text-xl drop-shadow filter">🫐</span>' : ''}
-              ${this.state.toppings.includes('top-gold-leaf') ? '<span class="text-xl animate-pulse text-[#E6CA85] filter drop-shadow">✨</span>' : ''}
-              ${this.state.toppings.includes('top-choc-chips') ? '<span class="text-xl drop-shadow">🍫</span>' : ''}
+              ${(this.state.toppings || []).includes('top-strawberries') ? '<span class="text-2xl drop-shadow filter">🍓</span>' : ''}
+              ${(this.state.toppings || []).includes('top-blueberries') ? '<span class="text-xl drop-shadow filter">🫐</span>' : ''}
+              ${(this.state.toppings || []).includes('top-gold-leaf') ? '<span class="text-xl animate-pulse text-[#E6CA85] filter drop-shadow">✨</span>' : ''}
+              ${(this.state.toppings || []).includes('top-choc-chips') ? '<span class="text-xl drop-shadow">🍫</span>' : ''}
             </div>
-
           </div>
-
-          <!-- Live Floating Recipe Tag -->
           <div class="absolute -bottom-2 bg-[#3A1F17] text-[#FFFDF9] px-4 py-1.5 rounded-full border border-[#B8945B] shadow-lg text-xs font-serif tracking-wider uppercase flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-[#B8945B] animate-ping"></span>
             ${this.state.name || 'Bespoke Desio'}
           </div>
-
         </div>
-      </div>
-
-      <!-- Live Toppings summary pill badges -->
-      <div class="mt-4 flex flex-wrap gap-1.5 justify-center max-w-sm mx-auto">
-        ${toppingsList || '<span class="text-xs text-[#6B3E2E]/70 italic">Select custom toppings in Step 04</span>'}
       </div>
     `;
   }
@@ -2956,22 +4346,31 @@ class DessertBuilder {
         return `
           <div class="space-y-4">
             <div class="border-b border-[#B8945B]/20 pb-2">
-              <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 01 of 06</span>
-              <h3 class="font-display text-2xl text-[#3A1F17]">Choose Your Base Foundation</h3>
-              <p class="text-xs text-[#6B3E2E]">Select the artisanal foundation for your custom patisserie creation.</p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 01 of 06</span>
+                <span class="text-[10px] font-mono bg-[#B8945B]/15 text-[#B8945B] px-2 py-0.5 rounded-full font-bold">⚡ UNIQUE 3D BASE MODELS</span>
+              </div>
+              <h3 class="font-display text-2xl text-[#FFFDF9]">Choose Your Base Foundation</h3>
+              <p class="text-xs text-[#D6C2B0]">Each base has a uniquely sculpted 3D shape (Waffle grid, Crumb cheesecake, Skillet cookie, Basque, or Tartlet).</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[360px] overflow-y-auto pr-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[380px] overflow-y-auto pr-1">
               ${DESSERT_BUILDER_OPTIONS.bases.map(base => `
-                <div class="p-3.5 rounded-xl border transition-all cursor-pointer flex items-start gap-3 ${this.state.base === base.id ? 'border-[#B8945B] bg-[#F8F1E7]/80 ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white hover:border-[#B8945B]/50'}"
+                <div class="p-3.5 rounded-xl border transition-all cursor-pointer flex items-start gap-3 ${this.state.base === base.id ? 'border-2 border-[#E6CA85] bg-gradient-to-br from-[#381B10] to-[#241009] ring-2 ring-[#E6CA85]/30 shadow-xl' : 'border border-[#B8945B]/30 bg-[#1C0A05] hover:bg-[#261008] hover:border-[#B8945B]/70'}"
                      onclick="window.dessertStudio.selectBase('${base.id}')">
                   <img src="${base.image}" alt="${base.name}" class="w-14 h-14 rounded-lg object-cover border border-[#B8945B]/30 shrink-0" />
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center justify-between">
-                      <h4 class="font-serif text-base font-bold text-[#3A1F17] truncate">${base.name}</h4>
-                      <span class="text-xs font-semibold text-[#B8945B]">+₹${base.price}</span>
+                      <h4 class="font-serif text-sm font-bold text-[#FFFDF9] truncate">${base.name}</h4>
+                      <span class="text-xs font-semibold text-[#B8945B]">₹${base.price}</span>
                     </div>
-                    <p class="text-[11px] text-[#6B3E2E] line-clamp-2 mt-0.5">${base.description}</p>
-                    <span class="text-[10px] text-gray-500 mt-1 inline-block">${base.calories}</span>
+                    ${base.badge ? `<span class="inline-block mt-0.5 px-2 py-0.5 rounded text-[9px] font-semibold bg-[#B8945B]/30 text-[#E6CA85] border border-[#B8945B]/40">${base.badge}</span>` : ''}
+                    <p class="text-[11px] text-[#D6C2B0] line-clamp-2 mt-1">${base.description}</p>
+                    <div class="mt-1.5 flex items-center gap-2 text-[10px] text-[#D6C2B0] font-medium bg-[#120703] border border-[#B8945B]/25 px-2 py-1 rounded-md">
+                      <span class="font-bold text-[#B8945B]">+${base.nutrition?.calories || 0} kcal</span>
+                      <span>P: ${base.nutrition?.protein || 0}g</span>
+                      <span>C: ${base.nutrition?.carbs || 0}g</span>
+                      <span>F: ${base.nutrition?.fats || 0}g</span>
+                    </div>
                   </div>
                 </div>
               `).join('')}
@@ -2984,18 +4383,19 @@ class DessertBuilder {
           <div class="space-y-4">
             <div class="border-b border-[#B8945B]/20 pb-2">
               <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 02 of 06</span>
-              <h3 class="font-display text-2xl text-[#3A1F17]">Select Your Signature Flavor</h3>
-              <p class="text-xs text-[#6B3E2E]">Infuse your creation with authentic Italian and single-origin notes.</p>
+              <h3 class="font-display text-2xl text-[#FFFDF9]">Select Flavor Infusion Coat</h3>
+              <p class="text-xs text-[#D6C2B0]">Infuses a delicate, translucent flavor soak over your base foundation.</p>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[380px] overflow-y-auto pr-1">
               ${DESSERT_BUILDER_OPTIONS.flavors.map(flavor => `
-                <div class="p-3 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-1.5 ${this.state.flavor === flavor.id ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white hover:border-[#B8945B]/50'}"
+                <div class="p-3 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-1 ${this.state.flavor === flavor.id ? 'border-2 border-[#E6CA85] bg-gradient-to-br from-[#381B10] to-[#241009] ring-2 ring-[#E6CA85]/30 shadow-xl' : 'border border-[#B8945B]/30 bg-[#1C0A05] hover:bg-[#261008] hover:border-[#B8945B]/70'}"
                      onclick="window.dessertStudio.selectFlavor('${flavor.id}')">
                   <span class="text-2xl">${flavor.icon}</span>
-                  <h4 class="font-serif text-sm font-semibold text-[#3A1F17]">${flavor.name}</h4>
-                  <div class="flex items-center gap-1.5 text-[11px]">
-                    <span class="font-medium text-[#B8945B]">+₹${flavor.price}</span>
-                    <span class="text-gray-400 font-mono text-[10px]">(${flavor.nutrition.calories} kcal)</span>
+                  <h4 class="font-serif text-xs font-semibold text-[#FFFDF9] truncate max-w-full">${flavor.name}</h4>
+                  ${flavor.badge ? `<span class="px-1.5 py-0.5 rounded text-[8px] font-bold bg-[#B8945B]/30 text-[#E6CA85] border border-[#B8945B]/40">${flavor.badge}</span>` : ''}
+                  <div class="text-[10px] text-[#B8945B] font-bold">+₹${flavor.price}</div>
+                  <div class="text-[9px] text-[#D6C2B0] font-medium bg-[#120703] border border-[#B8945B]/25 px-1.5 py-0.5 rounded">
+                    +${flavor.nutrition?.calories || 0} kcal | C: ${flavor.nutrition?.carbs || 0}g
                   </div>
                 </div>
               `).join('')}
@@ -3008,21 +4408,26 @@ class DessertBuilder {
           <div class="space-y-4">
             <div class="border-b border-[#B8945B]/20 pb-2">
               <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 03 of 06</span>
-              <h3 class="font-display text-2xl text-[#3A1F17]">Select Silky Filling</h3>
-              <p class="text-xs text-[#6B3E2E]">Choose the rich, whipped center or confection confit.</p>
+              <h3 class="font-display text-2xl text-[#FFFDF9]">Select Silky Filling Layer</h3>
+              <p class="text-xs text-[#D6C2B0]">Adds an elegant thin mousse coat with hand-piped perimeter quenelles.</p>
             </div>
-            <div class="grid grid-cols-1 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
+            <div class="grid grid-cols-1 gap-2.5 max-h-[360px] overflow-y-auto pr-1">
               ${DESSERT_BUILDER_OPTIONS.fillings.map(filling => `
-                <div class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${this.state.filling === filling.id ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white hover:border-[#B8945B]/50'}"
+                <div class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${this.state.filling === filling.id ? 'border-2 border-[#E6CA85] bg-gradient-to-br from-[#381B10] to-[#241009] ring-2 ring-[#E6CA85]/30 shadow-xl' : 'border border-[#B8945B]/30 bg-[#1C0A05] hover:bg-[#261008] hover:border-[#B8945B]/70'}"
                      onclick="window.dessertStudio.selectFilling('${filling.id}')">
                   <div class="flex items-center gap-3">
                     <span class="w-6 h-6 rounded-full border border-black/20 shadow-inner shrink-0" style="background: ${filling.color}"></span>
                     <div>
-                      <span class="font-serif text-sm font-bold text-[#3A1F17] block">${filling.name}</span>
-                      <span class="text-[10px] text-gray-400 font-mono">${filling.nutrition.calories} kcal</span>
+                      <div class="flex items-center gap-2">
+                        <span class="font-serif text-sm font-bold text-[#FFFDF9]">${filling.name}</span>
+                        ${filling.badge ? `<span class="px-2 py-0.5 rounded text-[9px] font-bold bg-[#B8945B]/30 text-[#E6CA85] border border-[#B8945B]/40">${filling.badge}</span>` : ''}
+                      </div>
+                      <span class="text-[10px] text-[#D6C2B0] font-medium block mt-0.5">
+                        +${filling.nutrition?.calories || 0} kcal • P: ${filling.nutrition?.protein || 0}g • C: ${filling.nutrition?.carbs || 0}g • F: ${filling.nutrition?.fats || 0}g
+                      </span>
                     </div>
                   </div>
-                  <span class="text-xs font-semibold text-[#B8945B]">+₹${filling.price}</span>
+                  <span class="text-xs font-semibold text-[#B8945B] shrink-0">+₹${filling.price}</span>
                 </div>
               `).join('')}
             </div>
@@ -3034,25 +4439,26 @@ class DessertBuilder {
           <div class="space-y-4">
             <div class="border-b border-[#B8945B]/20 pb-2">
               <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 04 of 06</span>
-              <h3 class="font-display text-2xl text-[#3A1F17]">Choose Artisanal Toppings</h3>
-              <p class="text-xs text-[#6B3E2E]">Select up to 4 fresh fruits, roasted nuts, and edible garnishes.</p>
+              <h3 class="font-display text-2xl text-[#FFFDF9]">Artisanal Toppings & Garnishes</h3>
+              <p class="text-xs text-[#D6C2B0]">Sliced mountain strawberries, whole blueberries, toasted almond flakes, shaved chocolate curls, and 24k gold leaf.</p>
             </div>
-            <div class="grid grid-cols-2 gap-2.5 max-h-[320px] overflow-y-auto pr-1">
+            <div class="grid grid-cols-2 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
               ${DESSERT_BUILDER_OPTIONS.toppings.map(top => {
-                const isSelected = this.state.toppings.includes(top.id);
+                const isSelected = (this.state.toppings || []).includes(top.id);
                 return `
-                  <div class="p-2.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-sm' : 'border-[#B8945B]/20 bg-white hover:border-[#B8945B]/50'}"
+                  <div class="p-2.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'border-2 border-[#E6CA85] bg-gradient-to-br from-[#381B10] to-[#241009] ring-2 ring-[#E6CA85]/30 shadow-md' : 'border border-[#B8945B]/30 bg-[#1C0A05] hover:bg-[#261008] hover:border-[#B8945B]/70'}"
                        onclick="window.dessertStudio.toggleTopping('${top.id}')">
-                    <div class="flex items-center gap-2">
-                      <span class="text-lg">${top.icon}</span>
-                      <div>
-                        <span class="font-serif text-xs font-semibold text-[#3A1F17] block truncate">${top.name.split(' ')[0]}</span>
-                        <span class="text-[9px] text-gray-400 font-mono">${top.nutrition.calories} kcal</span>
+                    <div class="flex items-center gap-2 min-w-0">
+                      <span class="text-lg shrink-0">${top.icon}</span>
+                      <div class="min-w-0">
+                        <span class="font-serif text-xs font-semibold text-[#FFFDF9] block truncate">${top.name}</span>
+                        ${top.badge ? `<span class="inline-block text-[8px] font-bold text-[#B8945B]">${top.badge} • </span>` : ''}
+                        <span class="text-[9px] text-[#D6C2B0]">+${top.nutrition?.calories || 0} kcal</span>
                       </div>
                     </div>
-                    <div class="flex items-center gap-1.5">
+                    <div class="flex items-center gap-1.5 shrink-0 ml-1">
                       <span class="text-[11px] text-[#B8945B] font-medium">+₹${top.price}</span>
-                      <div class="w-4 h-4 rounded border flex items-center justify-center ${isSelected ? 'bg-[#3A1F17] border-[#3A1F17] text-[#FFFDF9]' : 'border-gray-300'}">
+                      <div class="w-4 h-4 rounded border flex items-center justify-center ${isSelected ? 'bg-[#E6CA85] border-[#E6CA85] text-[#120804] font-bold' : 'border-[#B8945B]/40 bg-[#120703]'}">
                         ${isSelected ? '✓' : ''}
                       </div>
                     </div>
@@ -3068,21 +4474,26 @@ class DessertBuilder {
           <div class="space-y-4">
             <div class="border-b border-[#B8945B]/20 pb-2">
               <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 05 of 06</span>
-              <h3 class="font-display text-2xl text-[#3A1F17]">Select Warm Sauce Drizzle</h3>
-              <p class="text-xs text-[#6B3E2E]">The crowning finish drizzled hot before presentation.</p>
+              <h3 class="font-display text-2xl text-[#FFFDF9]">Mirror Glaze & Sauce Drizzle</h3>
+              <p class="text-xs text-[#D6C2B0]">A high-gloss thin mirror coat with cascading glaze drips down the pastry sides.</p>
             </div>
-            <div class="grid grid-cols-1 gap-2.5">
+            <div class="grid grid-cols-1 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
               ${DESSERT_BUILDER_OPTIONS.sauces.map(sauce => `
-                <div class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${this.state.sauce === sauce.id ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white hover:border-[#B8945B]/50'}"
+                <div class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${this.state.sauce === sauce.id ? 'border-2 border-[#E6CA85] bg-gradient-to-br from-[#381B10] to-[#241009] ring-2 ring-[#E6CA85]/30 shadow-xl' : 'border border-[#B8945B]/30 bg-[#1C0A05] hover:bg-[#261008] hover:border-[#B8945B]/70'}"
                      onclick="window.dessertStudio.selectSauce('${sauce.id}')">
                   <div class="flex items-center gap-3">
                     <span class="w-5 h-5 rounded-full border border-black/20 shadow-inner shrink-0" style="background: ${sauce.color}"></span>
                     <div>
-                      <span class="font-serif text-sm font-semibold text-[#3A1F17] block">${sauce.name}</span>
-                      <span class="text-[10px] text-gray-400 font-mono">${sauce.nutrition.calories} kcal</span>
+                      <div class="flex items-center gap-2">
+                        <span class="font-serif text-sm font-semibold text-[#FFFDF9]">${sauce.name}</span>
+                        ${sauce.badge ? `<span class="px-2 py-0.5 rounded text-[9px] font-bold bg-[#B8945B]/30 text-[#E6CA85] border border-[#B8945B]/40">${sauce.badge}</span>` : ''}
+                      </div>
+                      <span class="text-[10px] text-[#D6C2B0] font-medium block mt-0.5">
+                        +${sauce.nutrition?.calories || 0} kcal • C: ${sauce.nutrition?.carbs || 0}g • P: ${sauce.nutrition?.protein || 0}g
+                      </span>
                     </div>
                   </div>
-                  <span class="text-xs font-semibold text-[#B8945B]">+₹${sauce.price}</span>
+                  <span class="text-xs font-semibold text-[#B8945B] shrink-0">+₹${sauce.price}</span>
                 </div>
               `).join('')}
             </div>
@@ -3091,71 +4502,62 @@ class DessertBuilder {
 
       case 6:
         const totalPrice = this.calculatePrice();
-        const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(b => b.id === this.state.base);
-        const flavorObj = DESSERT_BUILDER_OPTIONS.flavors.find(f => f.id === this.state.flavor);
-        const fillingObj = DESSERT_BUILDER_OPTIONS.fillings.find(f => f.id === this.state.filling);
-        const sauceObj = DESSERT_BUILDER_OPTIONS.sauces.find(s => s.id === this.state.sauce);
+        const n = this.calculateNutrition();
 
         return `
           <div class="space-y-4">
             <div class="border-b border-[#B8945B]/20 pb-2">
               <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Step 06 of 06</span>
-              <h3 class="font-display text-2xl text-[#3A1F17]">Name Your Masterpiece</h3>
-              <p class="text-xs text-[#6B3E2E]">Give your bespoke creation an Italian title and save it to your Privé Atelier.</p>
+              <h3 class="font-display text-2xl text-[#FFFDF9]">Name Your Custom Creation</h3>
+              <p class="text-xs text-[#D6C2B0]">Your nutritional and allergen summary is dynamically finalized below.</p>
             </div>
 
             <div class="space-y-3">
               <div>
-                <label class="block text-xs font-semibold uppercase tracking-wider text-[#3A1F17] mb-1">Creation Name</label>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-[#E6CA85] mb-1">Creation Title</label>
                 <input type="text" id="creationNameInput" value="${this.state.name}"
-                       placeholder="e.g. Berry Noir Royale"
-                       class="w-full px-4 py-2.5 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-sm text-[#3A1F17] font-serif"
+                       class="w-full px-3.5 py-2 rounded-xl bg-[#160703] border border-[#B8945B]/50 text-sm text-[#FFFDF9] focus:outline-none focus:ring-1 focus:ring-[#E6CA85] font-serif"
                        oninput="window.dessertStudio.updateName(this.value)" />
               </div>
 
-              <div>
-                <label class="block text-xs font-semibold uppercase tracking-wider text-[#3A1F17] mb-1">Special Chef Note / Ribbon Dedication (Optional)</label>
-                <input type="text" id="creationNoteInput" value="${this.state.specialNote || ''}"
-                       placeholder="e.g. Extra gold leaf for our celebration, please!"
-                       class="w-full px-4 py-2 rounded-lg border border-[#B8945B]/30 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-xs text-[#3A1F17]"
-                       oninput="window.dessertStudio.updateNote(this.value)" />
-              </div>
-
-              <!-- Recipe Summary Card -->
-              <div class="p-3.5 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 text-xs space-y-2">
-                <div class="font-serif font-bold text-[#3A1F17] flex items-center justify-between">
-                  <span>Recipe Specification:</span>
-                  <span class="text-[#B8945B] font-sans">⏱ 25 Mins Handcrafted</span>
+              <!-- Complete Nutrition Certificate -->
+              <div class="p-3.5 rounded-xl bg-gradient-to-br from-[#241009] to-[#190904] border border-[#B8945B]/40 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-serif font-bold text-xs text-[#FFFDF9] uppercase tracking-wider">Nutritional Breakdown</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#1F0D08] text-[#E6CA85] font-bold">0g Refined Sugar</span>
                 </div>
-                <p class="text-[#6B3E2E] leading-relaxed">
-                  <strong>Base:</strong> ${baseObj?.name} • 
-                  <strong>Flavor:</strong> ${flavorObj?.name} • 
-                  <strong>Filling:</strong> ${fillingObj?.name} • 
-                  <strong>Sauce:</strong> ${sauceObj?.name}
-                </p>
-                <p class="text-[#6B3E2E]">
-                  <strong>Toppings:</strong> ${this.state.toppings.map(id => DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === id)?.name).join(', ') || 'None selected'}
-                </p>
-
-                <!-- Nutrition Breakdown in Step 6 -->
-                ${(() => {
-                  const n = this.calculateNutrition();
-                  return `
-                    <div class="pt-2 border-t border-[#B8945B]/20 flex items-center justify-between text-[11px]">
-                      <span class="font-serif font-bold text-[#3A1F17] flex items-center gap-1">⚡ ${n.calories} kcal</span>
-                      <span class="text-[10px] text-[#6B3E2E] font-medium">P: ${n.protein}g • C: ${n.carbs}g • F: ${n.fats}g</span>
-                    </div>
-                  `;
-                })()}
+                <div class="grid grid-cols-4 gap-2 text-center text-xs pt-1">
+                  <div class="bg-[#120703] p-2 rounded-lg border border-[#B8945B]/25">
+                    <span class="text-[10px] text-[#D6C2B0] block">Calories</span>
+                    <span class="font-bold text-[#B8945B] text-sm">${n.calories}</span>
+                  </div>
+                  <div class="bg-[#120703] p-2 rounded-lg border border-[#B8945B]/25">
+                    <span class="text-[10px] text-[#D6C2B0] block">Protein</span>
+                    <span class="font-bold text-[#FFFDF9] text-sm">${n.protein}g</span>
+                  </div>
+                  <div class="bg-[#120703] p-2 rounded-lg border border-[#B8945B]/25">
+                    <span class="text-[10px] text-[#D6C2B0] block">Carbs</span>
+                    <span class="font-bold text-[#FFFDF9] text-sm">${n.carbs}g</span>
+                  </div>
+                  <div class="bg-[#120703] p-2 rounded-lg border border-[#B8945B]/25">
+                    <span class="text-[10px] text-[#D6C2B0] block">Dietary Fiber</span>
+                    <span class="font-bold text-[#E6CA85] text-sm">${n.fiber}g</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-[#D6C2B0] px-1 pt-1 border-t border-[#B8945B]/20">
+                  <span>🦴 Calcium: <strong>${n.calcium}mg</strong></span>
+                  <span>🩸 Iron: <strong>${n.iron}mg</strong></span>
+                  <span>🌿 Natural Fruit Sugars: <strong>${n.naturalSugar}g</strong></span>
+                </div>
               </div>
 
               <div class="flex items-center gap-2 pt-2">
                 <button type="button" onclick="window.dessertStudio.saveCreationToProfile()"
-                        class="flex-1 py-2.5 px-3 rounded-lg border border-[#B8945B] text-[#3A1F17] hover:bg-[#F8F1E7] font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5">
+                        class="flex-1 py-2.5 px-3 rounded-lg border border-[#B8945B] text-[#E6CA85] bg-[#160703] hover:bg-[#28120B] font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5">
                   <span>💾</span> Save to My Creations
                 </button>
                 <button type="button" onclick="window.dessertStudio.addBespokeToCart()"
-                        class="flex-1 py-2.5 px-3 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5">
+                        class="flex-1 py-2.5 px-3 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-lg">
                   <span>🛒</span> Add to Bag (₹${totalPrice})
                 </button>
               </div>
@@ -3172,19 +4574,20 @@ class DessertBuilder {
     const nutrition = this.calculateNutrition();
     const toppingsList = (this.state.toppings || []).map(id => {
       const t = DESSERT_BUILDER_OPTIONS.toppings.find(item => item.id === id);
-      return t ? `<span class="inline-flex items-center gap-1 bg-white/90 backdrop-blur text-xs px-2.5 py-1 rounded-full border border-[#B8945B]/40 shadow-sm text-[#3A1F17]">${t.icon} ${t.name.split(' ')[0]}</span>` : '';
+      return t ? `<span class="inline-flex items-center gap-1 bg-[#190904] text-xs px-2.5 py-1 rounded-full border border-[#B8945B]/40 shadow-sm text-[#E6CA85]">${t.icon} ${t.name.split(' ')[0]}</span>` : '';
     }).join(' ');
+
     const steps = [
       { num: 1, title: 'Base' },
       { num: 2, title: 'Flavor' },
       { num: 3, title: 'Filling' },
       { num: 4, title: 'Toppings' },
-      { num: 5, title: 'Sauce' },
-      { num: 6, title: 'Name & Order' }
+      { num: 5, title: 'Glaze' },
+      { num: 6, title: 'Finalize' }
     ];
 
     this.container.innerHTML = `
-      <div class="bg-[#FFFDF9] rounded-3xl border border-[#B8945B]/30 shadow-2xl p-6 lg:p-8">
+      <div class="bg-gradient-to-b from-[#1C0A05] via-[#241009] to-[#1C0A05] rounded-3xl border-2 border-[#B8945B]/40 shadow-2xl p-6 lg:p-8 text-[#F8F1E7]">
         
         <!-- Step Progress Bar -->
         <div class="mb-8">
@@ -3192,10 +4595,10 @@ class DessertBuilder {
             ${steps.map(s => `
               <button type="button" onclick="window.dessertStudio.setStep(${s.num})"
                       class="flex flex-col items-center group focus:outline-none">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-serif font-bold transition-all ${this.currentStep === s.num ? 'bg-[#3A1F17] text-[#E6CA85] ring-4 ring-[#B8945B]/20 scale-110 shadow-md' : (this.currentStep > s.num ? 'bg-[#B8945B] text-white' : 'bg-[#F8F1E7] text-[#6B3E2E]')}">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-serif font-bold transition-all ${this.currentStep === s.num ? 'bg-[#E6CA85] text-[#120804] ring-4 ring-[#E6CA85]/30 scale-110 shadow-lg font-bold' : (this.currentStep > s.num ? 'bg-[#B8945B] text-[#120804] font-bold' : 'bg-[#190904] text-[#D6C2B0] border border-[#B8945B]/30')}">
                   ${this.currentStep > s.num ? '✓' : '0' + s.num}
                 </div>
-                <span class="text-[10px] tracking-wider uppercase font-semibold mt-1 hidden sm:block ${this.currentStep === s.num ? 'text-[#3A1F17] font-bold' : 'text-[#6B3E2E]/70'}">
+                <span class="text-[10px] tracking-wider uppercase font-semibold mt-1 hidden sm:block ${this.currentStep === s.num ? 'text-[#E6CA85] font-bold' : 'text-[#D6C2B0]/70'}">
                   ${s.title}
                 </span>
               </button>
@@ -3203,17 +4606,17 @@ class DessertBuilder {
               <div class="flex-1 h-[1px] bg-[#B8945B]/30 mx-1 mb-4 hidden sm:block"></div>
             `)}
           </div>
-          <div class="w-full bg-[#F8F1E7] h-1.5 rounded-full overflow-hidden">
-            <div class="bg-gradient-to-r from-[#B8945B] to-[#3A1F17] h-full transition-all duration-500 rounded-full"
+          <div class="w-full bg-[#140603] border border-[#B8945B]/20 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-[#B8945B] to-[#E6CA85] h-full transition-all duration-500 rounded-full"
                  style="width: ${(this.currentStep / 6) * 100}%"></div>
           </div>
         </div>
 
-        <!-- Main Studio Two-Column Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Main Studio Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <!-- Left/Center: Dynamic Live Visualizer -->
-          <div class="lg:col-span-6 flex flex-col items-center justify-center bg-radial from-[#F8F1E7] to-[#FFFDF9] p-4 sm:p-6 rounded-2xl border border-[#B8945B]/20">
+          <!-- Left: 3D Atelier Canvas & Live Nutritional Metrics -->
+          <div class="lg:col-span-6 flex flex-col items-center justify-center bg-[#180904] p-4 sm:p-6 rounded-2xl border border-[#B8945B]/30 shadow-2xl">
             <!-- Studio Visualizer Header & View Mode Switcher -->
             <div class="w-full flex items-center justify-between mb-3 border-b border-[#B8945B]/20 pb-2">
               <div class="flex items-center gap-2">
@@ -3229,40 +4632,36 @@ class DessertBuilder {
                 </button>
                 <button type="button" onclick="window.dessertStudio.toggleViewMode('classic')"
                         class="px-2.5 py-1 rounded-lg transition-all ${this.viewMode === 'classic' ? 'bg-[#B8945B] text-black font-bold' : 'text-[#D6C2B0] hover:text-white'}">
-                  🍽️ Classic Plate
+                  🍽️ Classic
                 </button>
               </div>
             </div>
 
             ${this.viewMode === '3d' ? `
-              <!-- 3D Studio Canvas Mount (High-Fidelity Patisserie Atelier) -->
-              <div class="relative w-full aspect-square max-w-[440px] md:max-w-[460px] mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-gradient-to-b from-[#140704] via-[#1F0E08] to-[#140704] border-2 border-[#B8945B]/50 shadow-2xl ring-1 ring-[#B8945B]/20">
+              <!-- 3D Studio Canvas Mount -->
+              <div class="relative w-full aspect-square max-w-[440px] mx-auto flex items-center justify-center rounded-3xl overflow-hidden bg-gradient-to-b from-[#140704] via-[#1F0E08] to-[#140704] border-2 border-[#B8945B]/50 shadow-2xl ring-1 ring-[#B8945B]/20">
                 <canvas id="dessert3dCanvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
                 
-                <!-- 3D Camera Controls Overlay -->
+                <!-- 3D Controls Overlay -->
                 <div class="absolute bottom-3 inset-x-3 flex items-center justify-between pointer-events-none gap-1.5">
                   <div class="px-2.5 py-1 rounded-full bg-black/80 backdrop-blur border border-[#B8945B]/40 text-[#E6CA85] text-[10px] font-serif flex items-center gap-1.5 shadow-md pointer-events-auto">
-                    <span>🔄</span> 360°
+                    <span>🔄</span> 360° Drag
                   </div>
                   <div class="flex items-center gap-1.5 pointer-events-auto">
                     <button type="button" onclick="window.dessertStudio.setPresetView('top')"
-                            class="px-2 py-1 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 text-[10px] font-serif transition-colors shadow-md"
-                            title="Top-Down Plating View">
+                            class="px-2 py-1 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 text-[10px] font-serif transition-colors shadow-md">
                       🔝 Top
                     </button>
                     <button type="button" onclick="window.dessertStudio.setPresetView('profile')"
-                            class="px-2 py-1 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 text-[10px] font-serif transition-colors shadow-md"
-                            title="Side Profile Layer View">
+                            class="px-2 py-1 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 text-[10px] font-serif transition-colors shadow-md">
                       👀 Side
                     </button>
                     <button type="button" onclick="window.dessertStudio.toggle3dAutoRotate()" 
-                            class="px-2.5 py-1 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 text-[10px] font-serif transition-colors flex items-center gap-1 shadow-md"
-                            title="Toggle Auto Spin">
+                            class="px-2.5 py-1 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 text-[10px] font-serif transition-colors flex items-center gap-1 shadow-md">
                       <span id="autoRotateLabel">${this.is3dAutoRotate ? '⏸️' : '▶️'}</span>
                     </button>
                     <button type="button" onclick="window.dessertStudio.reset3dCamera()" 
-                            class="w-7 h-7 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 flex items-center justify-center text-xs transition-colors shadow-md"
-                            title="Reset 45° Angle">
+                            class="w-7 h-7 rounded-lg bg-black/80 hover:bg-[#B8945B] text-[#E6CA85] hover:text-black border border-[#B8945B]/40 flex items-center justify-center text-xs transition-colors shadow-md">
                       🎯
                     </button>
                   </div>
@@ -3270,46 +4669,108 @@ class DessertBuilder {
               </div>
             ` : this.renderVisualDessert()}
 
-            <!-- Live Toppings summary pill badges -->
-            <div class="mt-4 flex flex-wrap gap-1.5 justify-center max-w-sm mx-auto">
-              ${toppingsList || '<span class="text-xs text-[#6B3E2E]/70 italic">Select custom toppings in Step 04</span>'}
+            <!-- Live Toppings summary pills -->
+            <div class="mt-3 flex flex-wrap gap-1.5 justify-center max-w-sm mx-auto">
+              ${toppingsList || '<span class="text-xs text-[#D6C2B0]/70 italic">Toppings customize in Step 04</span>'}
             </div>
 
-            <!-- Live Calculated Price & Macros Bar -->
-            <div class="mt-6 w-full max-w-sm space-y-2">
-              <div class="flex items-center justify-between px-4 py-2 bg-white rounded-xl border border-[#B8945B]/30 shadow-sm text-xs">
-                <span class="text-[#6B3E2E]">Calculated Price:</span>
-                <span class="font-display font-bold text-base text-[#3A1F17]">₹${totalPrice}</span>
+            <!-- ========================================== -->
+            <!-- REAL-TIME DYNAMIC CALORIE & MACRO HUB     -->
+            <!-- ========================================== -->
+            <div class="mt-4 w-full max-w-sm space-y-3 bg-[#241009] p-4 rounded-2xl border border-[#B8945B]/40 shadow-2xl">
+              <div class="flex items-center justify-between pb-2 border-b border-[#B8945B]/20">
+                <div>
+                  <span class="text-[10px] font-serif uppercase tracking-wider text-[#D6C2B0] block">Creation Total</span>
+                  <span class="font-display font-bold text-lg text-[#FFFDF9]">₹${totalPrice}</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-serif uppercase tracking-wider text-[#D6C2B0] block">Live Calorie Tracker</span>
+                  <span class="font-serif font-black text-lg text-[#E6CA85] flex items-center justify-end gap-1">
+                    ⚡ ${nutrition.calories} <span class="text-xs font-normal text-[#D6C2B0]">kcal</span>
+                  </span>
+                </div>
               </div>
-              <div class="flex items-center justify-between px-4 py-1.5 bg-[#F8F1E7]/80 rounded-xl border border-[#B8945B]/20 text-[11px]">
-                <span class="font-serif font-bold text-[#3A1F17] flex items-center gap-1">⚡ ${nutrition.calories} kcal</span>
-                <span class="text-[10px] text-[#6B3E2E] font-medium">P: ${nutrition.protein}g • C: ${nutrition.carbs}g • F: ${nutrition.fats}g</span>
+
+              <!-- Dynamic Macro Proportion Bar -->
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-[10px] text-[#D6C2B0] font-medium">
+                  <span>Carbs ${nutrition.carbs}g (${nutrition.carbsPct}%)</span>
+                  <span>Protein ${nutrition.protein}g (${nutrition.proteinPct}%)</span>
+                  <span>Fats ${nutrition.fats}g (${nutrition.fatsPct}%)</span>
+                </div>
+                <div class="w-full h-2 rounded-full overflow-hidden bg-[#140603] border border-[#B8945B]/30 flex">
+                  <div class="bg-[#B8945B] h-full" style="width: ${nutrition.carbsPct}%" title="Carbohydrates"></div>
+                  <div class="bg-[#E6CA85] h-full" style="width: ${nutrition.proteinPct}%" title="Protein"></div>
+                  <div class="bg-[#5A3222] border-l border-[#B8945B]/30 h-full" style="width: ${nutrition.fatsPct}%" title="Healthy Fats"></div>
+                </div>
               </div>
+
+              <!-- Micronutrient & Child Health Highlights -->
+              <div class="grid grid-cols-3 gap-1.5 pt-1 text-center">
+                <div class="p-2 rounded-xl bg-[#190904] border border-[#B8945B]/30 shadow-inner">
+                  <span class="text-[9px] text-[#D6C2B0] block font-medium">Dietary Fiber</span>
+                  <span class="font-bold text-[#E6CA85] text-xs">${nutrition.fiber}g</span>
+                </div>
+                <div class="p-2 rounded-xl bg-[#190904] border border-[#B8945B]/30 shadow-inner">
+                  <span class="text-[9px] text-[#D6C2B0] block font-medium">Bone Calcium</span>
+                  <span class="font-bold text-[#E6CA85] text-xs">${nutrition.calcium}mg</span>
+                </div>
+                <div class="p-2 rounded-xl bg-[#190904] border border-[#B8945B]/30 shadow-inner">
+                  <span class="text-[9px] text-[#D6C2B0] block font-medium">Plant Iron</span>
+                  <span class="font-bold text-[#E6CA85] text-xs">${nutrition.iron}mg</span>
+                </div>
+              </div>
+
+              <!-- Layer-by-Layer Dynamic Contribution Accordion -->
+              <details class="text-[11px] pt-1 group" open>
+                <summary class="cursor-pointer font-serif font-bold text-[#1F0D08] hover:text-[#B8945B] transition-colors flex items-center justify-between py-1 border-t border-[#B8945B]/15 select-none">
+                  <span class="flex items-center gap-1.5">
+                    <span class="text-xs">🔍</span>
+                    <span>Layer-by-Layer Nutritional Deltas</span>
+                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#1F0D08] text-[#E6CA85] font-sans font-semibold">${nutrition.layerDeltas.length}</span>
+                  </span>
+                  <span class="text-[10px] text-[#8F6D35] group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-2 space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                  ${nutrition.layerDeltas.map(d => `
+                    <div class="flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-[#190904] hover:bg-[#200C06] border border-[#B8945B]/30 hover:border-[#B8945B]/60 shadow-xs transition-all">
+                      <div class="flex items-center gap-2 min-w-0">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#B8945B] shrink-0"></span>
+                        <span class="font-medium text-[#FFFDF9] text-[11px] truncate max-w-[155px]">${d.name}</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 shrink-0 text-right">
+                        <span class="px-2 py-0.5 rounded-md bg-[#1F0D08] text-[#E6CA85] font-bold text-[10px] tracking-tight shadow-xs">+${d.calories} kcal</span>
+                        <span class="text-[9px] text-[#D6C2B0] font-medium hidden sm:inline">(P: ${d.protein}g, C: ${d.carbs}g)</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </details>
             </div>
 
-            <!-- Quick Studio Actions: Save & Load Saved Creations -->
+            <!-- Action Buttons -->
             <div class="mt-4 w-full max-w-sm flex items-center gap-2">
               <button type="button" onclick="window.dessertStudio.saveCreationToProfile()"
-                      class="flex-1 py-2 px-3 rounded-xl border border-[#B8945B] bg-[#FFFDF9] hover:bg-[#F8F1E7] text-[#3A1F17] font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                      class="flex-1 py-2 px-3 rounded-xl border border-[#B8945B] bg-[#190904] hover:bg-[#28120B] text-[#E6CA85] font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm">
                 <span>💾</span> Save Creation
               </button>
               <button type="button" onclick="window.dessertStudio.openSavedCreationsModal()"
-                      class="py-2 px-3 rounded-xl border border-[#B8945B]/40 hover:border-[#B8945B] bg-[#FFFDF9] hover:bg-[#F8F1E7] text-[#6B3E2E] hover:text-[#3A1F17] font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1">
+                      class="py-2 px-3 rounded-xl border border-[#B8945B]/40 hover:border-[#B8945B] bg-[#190904] hover:bg-[#28120B] text-[#D6C2B0] hover:text-[#FFFDF9] font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1">
                 <span>📂</span> Saved (${loyaltyStore.getData().creations.length})
               </button>
             </div>
           </div>
 
           <!-- Right: Interactive Step Customization -->
-          <div class="lg:col-span-6 flex flex-col justify-between min-h-[420px]">
+          <div class="lg:col-span-6 flex flex-col justify-between min-h-[440px]">
             <div>
               ${this.renderStepContent()}
             </div>
 
-            <!-- Navigation Controls -->
+            <!-- Step Navigation -->
             <div class="flex items-center justify-between pt-6 border-t border-[#B8945B]/20 mt-6">
               <button type="button" onclick="window.dessertStudio.setStep(${this.currentStep - 1})"
-                      class="px-4 py-2 rounded-lg border border-[#B8945B]/40 text-[#6B3E2E] hover:bg-[#F8F1E7] text-xs font-serif font-semibold tracking-wider transition-all ${this.currentStep === 1 ? 'opacity-30 cursor-not-allowed' : ''}"
+                      class="px-4 py-2 rounded-lg border border-[#B8945B]/40 text-[#D6C2B0] bg-[#190904] hover:bg-[#28120B] hover:text-[#FFFDF9] text-xs font-serif font-semibold tracking-wider transition-all ${this.currentStep === 1 ? 'opacity-30 cursor-not-allowed' : ''}"
                       ${this.currentStep === 1 ? 'disabled' : ''}>
                 ← Previous Step
               </button>
@@ -3351,7 +4812,7 @@ class DessertBuilder {
       } else {
         this.viewer3d.update(this.state, this.currentStep);
       }
-    }, 15);
+    }, 20);
   }
 
   toggleViewMode(mode) {
@@ -3369,7 +4830,7 @@ class DessertBuilder {
       this.viewer3d.isAutoRotating = this.is3dAutoRotate;
     }
     const label = document.getElementById('autoRotateLabel');
-    if (label) label.textContent = this.is3dAutoRotate ? '⏸️ Pause' : '▶️ Spin';
+    if (label) label.textContent = this.is3dAutoRotate ? '⏸️' : '▶️';
   }
 
   reset3dCamera() {
@@ -3384,216 +4845,149 @@ class DessertBuilder {
     }
   }
 
-  // Action handlers
-  selectBase(id) {
-    this.state.base = id;
+  selectBase(baseId) {
+    this.state.base = baseId;
     this.render();
   }
 
-  selectFlavor(id) {
-    this.state.flavor = id;
+  selectFlavor(flavorId) {
+    this.state.flavor = flavorId;
     this.render();
   }
 
-  selectFilling(id) {
-    this.state.filling = id;
+  selectFilling(fillingId) {
+    this.state.filling = fillingId;
     this.render();
   }
 
-  toggleTopping(id) {
-    const idx = this.state.toppings.indexOf(id);
-    if (idx > -1) {
-      this.state.toppings.splice(idx, 1);
+  toggleTopping(toppingId) {
+    if (!Array.isArray(this.state.toppings)) {
+      this.state.toppings = [];
+    }
+    const index = this.state.toppings.indexOf(toppingId);
+    if (index > -1) {
+      this.state.toppings.splice(index, 1);
     } else {
-      if (this.state.toppings.length < 4) {
-        this.state.toppings.push(id);
-      } else {
-        alert('You can select up to 4 signature toppings.');
+      if (this.state.toppings.length >= 4) {
+        if (window.showToast) window.showToast('You can select up to 4 toppings.', 'info');
+        return;
       }
+      this.state.toppings.push(toppingId);
     }
     this.render();
   }
 
-  selectSauce(id) {
-    this.state.sauce = id;
+  selectSauce(sauceId) {
+    this.state.sauce = sauceId;
     this.render();
   }
 
-  updateName(val) {
-    this.state.name = val || 'My La Desio Creation';
-  }
-
-  updateNote(val) {
-    this.state.specialNote = val;
+  updateName(name) {
+    this.state.name = name;
   }
 
   saveCreationToProfile() {
-    const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(i => i.id === this.state.base);
     const creation = {
-      name: this.state.name || 'My La Desio Creation',
-      recipe: this.getRecipeSummary(),
+      id: 'custom-' + Date.now(),
+      name: this.state.name || 'Bespoke Desio Creation',
+      date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
       price: this.calculatePrice(),
-      image: baseObj?.image || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
       nutrition: this.calculateNutrition(),
       config: { ...this.state }
     };
-    loyaltyStore.saveCustomCreation(creation);
+    loyaltyStore.saveCreation(creation);
     if (window.showToast) {
-      window.showToast(`"${creation.name}" saved to your Privé Creations!`, 'success');
-    } else {
-      alert(`"${creation.name}" saved to your Privé Creations!`);
+      window.showToast('Saved to your La Desio Privé Atelier!', 'success');
     }
     this.render();
-  }
-
-  getRecipeSummary() {
-    const b = DESSERT_BUILDER_OPTIONS.bases.find(i => i.id === this.state.base)?.name || 'Custom Base';
-    const f = DESSERT_BUILDER_OPTIONS.flavors.find(i => i.id === this.state.flavor)?.name || 'Custom Flavor';
-    const fil = DESSERT_BUILDER_OPTIONS.fillings.find(i => i.id === this.state.filling)?.name || 'Gourmet Filling';
-    const s = DESSERT_BUILDER_OPTIONS.sauces.find(i => i.id === this.state.sauce)?.name || 'Artisan Sauce';
-    return `${b} + ${f} + ${fil} + ${s}`;
   }
 
   openSavedCreationsModal() {
     const data = loyaltyStore.getData();
     const creations = data.creations || [];
 
-    let modal = document.getElementById('savedCreationsPickerModal');
+    let modal = document.getElementById('savedCreationsModal');
     if (!modal) {
       modal = document.createElement('div');
-      modal.id = 'savedCreationsPickerModal';
+      modal.id = 'savedCreationsModal';
       modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm';
       document.body.appendChild(modal);
     }
 
     modal.innerHTML = `
-      <div class="relative w-full max-w-xl bg-[#241009] rounded-3xl border border-[#B8945B]/40 shadow-2xl p-6 space-y-4 max-h-[85vh] flex flex-col">
-        <div class="flex items-center justify-between border-b border-[#B8945B]/30 pb-3">
-          <div>
-            <h3 class="font-display text-xl text-[#FFFDF9]">My Saved Atelier Recipes</h3>
-            <p class="text-xs text-[#D6C2B0]">Select any saved bespoke creation to load and customize in the Studio.</p>
-          </div>
-          <button onclick="document.getElementById('savedCreationsPickerModal').classList.add('hidden')"
-                  class="text-gray-400 hover:text-[#E6CA85] text-lg font-bold">✕</button>
-        </div>
+      <div class="relative w-full max-w-lg bg-[#241009] rounded-3xl border border-[#B8945B]/40 shadow-2xl p-6 text-[#F8F1E7]">
+        <button onclick="document.getElementById('savedCreationsModal').remove()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white font-bold text-lg">✕</button>
+        <h3 class="font-serif text-xl font-bold text-[#FFFDF9] mb-1">Your Saved Atelier Creations</h3>
+        <p class="text-xs text-[#E6CA85] mb-4">Reload or add your previous bespoke dessert masterpieces.</p>
 
-        <div class="flex-1 overflow-y-auto space-y-3 pr-1">
-          ${creations.length > 0 ? creations.map(c => `
-            <div class="p-3.5 rounded-2xl bg-[#1A0A06] border border-[#B8945B]/30 flex items-center justify-between gap-3 hover:border-[#B8945B] transition-all">
-              <div class="flex items-center gap-3 min-w-0">
-                <img src="${c.image}" alt="${c.name}" class="w-14 h-14 rounded-xl object-cover border border-[#B8945B]/30 shrink-0" />
-                <div class="min-w-0">
-                  <h4 class="font-serif font-bold text-sm text-[#FFFDF9] truncate">${c.name}</h4>
-                  <p class="text-[11px] text-[#D6C2B0] truncate">${c.recipe}</p>
-                  <div class="flex items-center gap-2 mt-1 text-[10px] text-[#E6CA85]">
-                    <span>₹${c.price}</span>
-                    <span>•</span>
-                    <span>${c.createdDate}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-2 shrink-0">
-                <button onclick="window.dessertStudio.loadSavedCreation('${c.id}')"
-                        class="px-3.5 py-1.5 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider">
-                  Load
-                </button>
-                <button onclick="window.loyaltyStore.deleteCreation('${c.id}'); window.dessertStudio.openSavedCreationsModal();"
-                        class="text-gray-400 hover:text-red-400 p-1.5 text-xs" title="Delete">
-                  🗑️
-                </button>
-              </div>
+        <div class="space-y-3 max-h-72 overflow-y-auto pr-1">
+          ${creations.length === 0 ? `
+            <div class="text-center py-8 text-stone-400 text-xs font-serif">
+              No creations saved yet. Build one in the Studio and tap "Save Creation"!
             </div>
-          `).join('') : `
-            <div class="py-12 text-center text-xs text-[#D6C2B0] space-y-2">
-              <p class="text-2xl">✨</p>
-              <p>No saved recipes found yet.</p>
-              <p class="text-[11px] text-stone-400">Click "Save Creation" anytime while experimenting in the studio!</p>
+          ` : creations.map(c => `
+            <div class="p-3 rounded-xl bg-black/40 border border-[#B8945B]/20 flex items-center justify-between gap-3">
+              <div>
+                <h4 class="font-serif font-bold text-sm text-[#FFFDF9]">${c.name}</h4>
+                <p class="text-[10px] text-[#E6CA85]">${c.date} • ₹${c.price} • ${c.nutrition?.calories || 0} kcal</p>
+              </div>
+              <button onclick="window.dessertStudio.loadConfig(${JSON.stringify(c.config).replace(/"/g, '&quot;')}); document.getElementById('savedCreationsModal').remove();"
+                      class="px-3 py-1.5 rounded-lg btn-gold-luxury text-[10px] font-serif font-semibold">
+                Load
+              </button>
             </div>
-          `}
-        </div>
-
-        <div class="border-t border-[#B8945B]/30 pt-3 flex justify-between items-center text-xs">
-          <a href="#account" onclick="document.getElementById('savedCreationsPickerModal').classList.add('hidden')"
-             class="text-[#E6CA85] hover:underline font-serif">
-            Go to Privé Dashboard →
-          </a>
-          <button onclick="document.getElementById('savedCreationsPickerModal').classList.add('hidden')"
-                  class="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-serif">
-            Close
-          </button>
+          `).join('')}
         </div>
       </div>
     `;
-
-    modal.classList.remove('hidden');
-  }
-
-  loadSavedCreation(creationId) {
-    const data = loyaltyStore.getData();
-    const creation = (data.creations || []).find(c => c.id === creationId);
-    if (!creation) return;
-
-    if (creation.config) {
-      this.loadConfig(creation.config);
-    }
-    if (creation.name) {
-      this.state.name = creation.name;
-    }
-
-    const picker = document.getElementById('savedCreationsPickerModal');
-    if (picker) picker.classList.add('hidden');
-
-    if (window.showToast) {
-      window.showToast(`Loaded "${creation.name}" into Studio!`, 'success');
-    }
-    this.render();
   }
 
   addBespokeToCart() {
-    const price = this.calculatePrice();
-    const recipeString = this.getRecipeSummary();
-    const configKey = JSON.stringify(this.state);
-    const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(i => i.id === this.state.base);
-    const image = baseObj?.image || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80';
+    const nutrition = this.calculateNutrition();
+    const baseObj = DESSERT_BUILDER_OPTIONS.bases.find(b => b.id === this.state.base);
+    const flavorObj = DESSERT_BUILDER_OPTIONS.flavors.find(f => f.id === this.state.flavor);
+    const fillingObj = DESSERT_BUILDER_OPTIONS.fillings.find(f => f.id === this.state.filling);
+    const sauceObj = DESSERT_BUILDER_OPTIONS.sauces.find(s => s.id === this.state.sauce);
+    const toppingsList = (this.state.toppings || []).map(id => DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === id)?.name).filter(Boolean);
 
-    // Auto-save this creation into loyaltyStore so it is preserved forever
-    loyaltyStore.saveCustomCreation({
-      name: this.state.name || 'Bespoke Desio Creation',
-      recipe: recipeString,
-      price: price,
-      image: image,
-      nutrition: this.calculateNutrition(),
-      config: { ...this.state }
-    });
-
-    const item = {
-      id: 'custom_creation_' + Date.now(),
-      name: this.state.name || 'Bespoke Desio Creation',
-      subtitle: recipeString,
-      isCustom: true,
-      customConfigKey: configKey,
-      price: price,
-      image: image,
-      options: {
-        note: this.state.specialNote,
-        toppings: this.state.toppings.map(id => DESSERT_BUILDER_OPTIONS.toppings.find(t => t.id === id)?.name)
+    const bespokeItem = {
+      id: 'bespoke-' + Date.now(),
+      name: this.state.name || 'Bespoke La Desio Creation',
+      price: this.calculatePrice(),
+      image: baseObj?.image || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
+      description: `Custom layered with ${baseObj?.name}, ${flavorObj?.name} infusion, ${fillingObj?.name}, and ${sauceObj?.name}.`,
+      category: 'signature',
+      isBespoke: true,
+      nutrition: {
+        calories: nutrition.calories,
+        protein: `${nutrition.protein}g`,
+        carbs: `${nutrition.carbs}g`,
+        fats: `${nutrition.fats}g`,
+        fiber: `${nutrition.fiber}g`,
+        calcium: `${nutrition.calcium}mg`,
+        iron: `${nutrition.iron}mg`,
+        naturalSugar: `${nutrition.naturalSugar}g`
+      },
+      bespokeConfig: {
+        base: baseObj?.name,
+        flavor: flavorObj?.name,
+        filling: fillingObj?.name,
+        sauce: sauceObj?.name,
+        toppings: toppingsList
       }
     };
 
-    cartStore.addItem(item);
-    if (this.onAddToCart) this.onAddToCart(item);
-
+    cartStore.addItem(bespokeItem, 1);
     if (window.showToast) {
-      window.showToast(`"${item.name}" saved & added to your bag!`, 'success');
+      window.showToast(`Added "${bespokeItem.name}" (₹${bespokeItem.price}) to your bag!`, 'success');
     }
-
-    this.render();
   }
 }
 
 
-// LA DESIO - Multi-Step Luxury Checkout Flow (INR Edition)
+// --- checkout.js ---
+// LA DESIO - Multi-Step Luxury Checkout Flow with Dynamic Distance, Delivery ETA & Shop-to-Customer Map
 
 
 class CheckoutManager {
@@ -3604,30 +4998,97 @@ class CheckoutManager {
     this.container = document.getElementById(containerId);
     this.onOrderCompleted = onOrderCompleted;
     this.currentStep = 1;
+    
+    // Load active profile data if available
+    const activeProfile = (typeof loyaltyStore !== 'undefined' && loyaltyStore.getData) ? loyaltyStore.getData().profile : null;
+    const defaultAddr = (activeProfile && activeProfile.savedAddresses && activeProfile.savedAddresses[0]) ? activeProfile.savedAddresses[0] : null;
+
     this.state = {
       address: {
-        fullName: 'Roody Cruz',
-        email: 'theroodyy@gmail.com',
-        phone: '+91 93453 96700',
-        street: 'No.60/A Gnanamani St,West Jafferkhanpet',
-        city: 'Chennai',
-        postal: '6000 83',
+        fullName: activeProfile?.name || 'Roody Cruz',
+        email: activeProfile?.email || 'theroodyy@gmail.com',
+        phone: activeProfile?.phone || '+91 93453 96700',
+        street: defaultAddr?.address || 'No.60/A Gnanamani St, West Jafferkhanpet',
+        city: defaultAddr?.city || activeProfile?.city || 'Chennai',
+        postal: defaultAddr?.postal || '6000 83',
         country: 'India',
         instructions: 'Please call on arrival. Temperature insulated delivery.'
       },
       deliveryMethod: 'express', // express, scheduled, temperature
       scheduledSlot: 'Today Evening (6:00 PM - 8:00 PM)',
-      paymentMethod: 'upi', // upi, card, netbanking, applepay
+      paymentMethod: 'upi', // upi, card, netbanking
       cardDetails: {
         number: '•••• •••• •••• 2005',
-        name: 'Roody Cruz',
+        name: activeProfile?.name || 'Roody Cruz',
         expiry: '08/28',
         cvv: '•••'
       },
-      upiId: 'theroodyy@okaxis',
+      upiId: (activeProfile?.email ? activeProfile.email.split('@')[0] + '@okaxis' : 'theroodyy@okaxis'),
       orderNotes: '',
       isGift: false,
-      giftMessage: ''
+      giftMessage: '',
+      activeMapMode: 'vector' // 'leaflet' or 'vector'
+    };
+  }
+
+  // Dynamic Distance & Delivery ETA calculation based on destination
+  calculateDistanceAndETA() {
+    const street = (this.state.address.street || '').toLowerCase();
+    const city = (this.state.address.city || 'Chennai').toLowerCase();
+
+    let distanceKm = 3.5;
+    let shopName = 'LA DESIO Flagship Atelier (Jafferkhanpet Hub)';
+
+    if (city.includes('chennai')) {
+      if (street.includes('jafferkhanpet') || street.includes('gnanamani')) {
+        distanceKm = 1.4;
+      } else if (street.includes('kk nagar') || street.includes('rajan')) {
+        distanceKm = 2.2;
+      } else if (street.includes('ashok nagar')) {
+        distanceKm = 2.8;
+      } else if (street.includes('t nagar') || street.includes('t.nagar') || street.includes('panagal') || street.includes('pond')) {
+        distanceKm = 4.2;
+      } else if (street.includes('alwarpet') || street.includes('boat club') || street.includes('poes')) {
+        distanceKm = 5.6;
+      } else if (street.includes('guindy') || street.includes('ekkatuthangal')) {
+        distanceKm = 3.2;
+      } else if (street.includes('adyar') || street.includes('besant')) {
+        distanceKm = 8.4;
+      } else if (street.includes('anna nagar')) {
+        distanceKm = 9.8;
+      } else if (street.includes('velachery')) {
+        distanceKm = 7.6;
+      } else if (street.includes('omr') || street.includes('sholinganallur') || street.includes('thoraipakkam')) {
+        distanceKm = 14.5;
+      } else {
+        distanceKm = 4.0;
+      }
+    } else if (city.includes('bengaluru') || city.includes('bangalore')) {
+      shopName = 'LA DESIO Atelier Lavelle (Bengaluru)';
+      distanceKm = street.includes('lavelle') || street.includes('indiranagar') ? 3.8 : 7.2;
+    } else if (city.includes('trichy')) {
+      shopName = 'LA DESIO Atelier Thillai (Trichy Hub)';
+      distanceKm = 2.9;
+    } else if (city.includes('mumbai')) {
+      shopName = 'LA DESIO Atelier Bandra (Mumbai)';
+      distanceKm = 5.4;
+    } else {
+      shopName = 'LA DESIO National Express Dispatch';
+      distanceKm = 8.5;
+    }
+
+    // Minutes calculation: base dispatch buffer (7 mins) + 2.8 mins per km
+    const estimatedMinutes = Math.max(12, Math.round(distanceKm * 2.8 + 7));
+
+    return {
+      distanceKm: parseFloat(distanceKm.toFixed(1)),
+      estimatedMinutes,
+      shopName,
+      shopCoords: { lat: 13.0335, lng: 80.2185 }, // Jafferkhanpet flagship hub
+      destCoords: { 
+        lat: 13.0335 + (distanceKm * 0.007), 
+        lng: 80.2185 + (distanceKm * 0.006) 
+      }
     };
   }
 
@@ -3642,6 +5103,9 @@ class CheckoutManager {
   setStep(step) {
     this.currentStep = Math.max(1, Math.min(4, step));
     this.render();
+    if (this.currentStep === 3) {
+      setTimeout(() => this.initPaymentRouteMap(), 80);
+    }
   }
 
   render() {
@@ -3651,12 +5115,12 @@ class CheckoutManager {
     if (summary.items.length === 0 && this.currentStep !== 4) {
       this.container.innerHTML = `
         <div class="max-w-md mx-auto text-center py-16 px-4">
-          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-[#F8F1E7] border border-[#B8945B]/30 flex items-center justify-center text-3xl">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-[#1A0905] border border-[#B8945B]/40 flex items-center justify-center text-3xl shadow-xl">
             🛍️
           </div>
-          <h3 class="font-display text-2xl text-[#3A1F17] mb-2">Your Bag is Empty</h3>
-          <p class="text-xs text-[#6B3E2E] mb-6">Discover our signature creations or craft your bespoke dessert to proceed with checkout.</p>
-          <a href="#menu" class="inline-block px-8 py-3 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider">
+          <h3 class="font-display text-2xl text-[#FFFDF9] mb-2 font-bold">Your Bag is Empty</h3>
+          <p class="text-xs text-[#D6C2B0] mb-6">Discover our signature creations or craft your bespoke dessert to proceed with checkout.</p>
+          <a href="#menu" class="inline-block px-8 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-lg">
             Explore The Menu
           </a>
         </div>
@@ -3667,33 +5131,35 @@ class CheckoutManager {
     const steps = [
       { num: 1, label: 'Delivery Address' },
       { num: 2, label: 'Delivery Method' },
-      { num: 3, label: 'Payment' },
+      { num: 3, label: 'Payment & Route' },
       { num: 4, label: 'Confirmation' }
     ];
 
+    const etaInfo = this.calculateDistanceAndETA();
+
     this.container.innerHTML = `
-      <div class="max-w-4xl mx-auto px-4 py-8">
+      <div class="max-w-5xl mx-auto px-4 py-8">
         
-        <!-- Header -->
+        <!-- Luxury Brand Header -->
         <div class="text-center mb-8">
-          <span class="text-xs tracking-widest uppercase text-[#B8945B] font-semibold">La Desio Concierge</span>
-          <h2 class="font-display text-3xl md:text-4xl text-[#3A1F17] mt-1">Artisanal Checkout</h2>
-          <div class="w-16 h-[1px] bg-[#B8945B] mx-auto mt-3"></div>
+          <span class="text-xs tracking-widest uppercase text-[#E6CA85] font-serif font-bold">La Desio Concierge</span>
+          <h2 class="font-display text-3xl md:text-4xl text-[#FFFDF9] font-bold mt-1">Artisanal Checkout</h2>
+          <div class="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#B8945B] to-transparent mx-auto mt-3"></div>
         </div>
 
         <!-- Checkout Steps Ribbon -->
-        <div class="flex items-center justify-between max-w-xl mx-auto mb-8">
+        <div class="flex items-center justify-between max-w-2xl mx-auto mb-8 bg-[#1A0905] p-3.5 rounded-2xl border border-[#B8945B]/30 shadow-lg">
           ${steps.map(s => `
             <div class="flex flex-col items-center">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-serif font-bold transition-all ${this.currentStep === s.num ? 'bg-[#3A1F17] text-[#E6CA85] ring-4 ring-[#B8945B]/20 scale-110' : (this.currentStep > s.num ? 'bg-[#B8945B] text-white' : 'bg-[#F8F1E7] text-[#6B3E2E]')}">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-xs font-serif font-bold transition-all ${this.currentStep === s.num ? 'bg-gradient-to-br from-[#B8945B] to-[#E6CA85] text-black ring-4 ring-[#B8945B]/30 scale-105 shadow-md' : (this.currentStep > s.num ? 'bg-[#B8945B] text-black font-bold' : 'bg-black/50 text-[#D6C2B0] border border-[#B8945B]/20')}">
                 ${this.currentStep > s.num ? '✓' : '0' + s.num}
               </div>
-              <span class="text-[10px] tracking-wider uppercase font-semibold mt-1 hidden sm:block ${this.currentStep === s.num ? 'text-[#3A1F17] font-bold' : 'text-[#6B3E2E]/70'}">
+              <span class="text-[10px] font-serif tracking-wider uppercase font-semibold mt-1.5 hidden sm:block ${this.currentStep === s.num ? 'text-[#E6CA85] font-bold' : 'text-[#D6C2B0]/70'}">
                 ${s.label}
               </span>
             </div>
           `).join(`
-            <div class="flex-1 h-[1px] bg-[#B8945B]/30 mx-2 mb-4 hidden sm:block"></div>
+            <div class="flex-1 h-[1px] bg-[#B8945B]/30 mx-2 hidden sm:block"></div>
           `)}
         </div>
 
@@ -3701,60 +5167,74 @@ class CheckoutManager {
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           <!-- Left Main Form Area -->
-          <div class="lg:col-span-8 bg-[#FFFDF9] rounded-2xl border border-[#B8945B]/30 p-6 shadow-xl">
-            ${this.renderCurrentStep(summary)}
+          <div class="lg:col-span-8 bg-[#241009] rounded-3xl border border-[#B8945B]/40 p-6 md:p-8 shadow-2xl text-[#FFFDF9]">
+            ${this.renderCurrentStep(summary, etaInfo)}
           </div>
 
           <!-- Right Sticky Order Summary -->
-          <div class="lg:col-span-4 bg-[#FFFDF9] rounded-2xl border border-[#B8945B]/30 p-6 shadow-xl sticky top-24">
-            <h4 class="font-serif text-lg text-[#3A1F17] font-bold border-b border-[#B8945B]/20 pb-3 mb-4">
-              Order Summary (${summary.itemCount} ${summary.itemCount === 1 ? 'creation' : 'creations'})
-            </h4>
+          <div class="lg:col-span-4 bg-[#241009] rounded-3xl border border-[#B8945B]/40 p-6 shadow-2xl sticky top-24 text-[#FFFDF9] space-y-4">
+            <div class="border-b border-[#B8945B]/30 pb-3 flex items-center justify-between">
+              <h4 class="font-serif text-base text-[#FFFDF9] font-bold">
+                Order Summary
+              </h4>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-bold font-mono">
+                ${summary.itemCount} ${summary.itemCount === 1 ? 'item' : 'items'}
+              </span>
+            </div>
 
-            <!-- Compact Item List -->
-            <div class="space-y-3 max-h-56 overflow-y-auto pr-1 mb-4">
+            <!-- Live Distance & ETA Pill in Sidebar -->
+            <div class="p-3 rounded-2xl bg-[#1A0905] border border-[#B8945B]/35 text-xs space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-[#E6CA85] font-serif font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#E6CA85] animate-ping"></span>
+                  Estimated Arrival:
+                </span>
+                <strong class="text-gold-gradient font-bold font-mono text-sm">nearly ${etaInfo.estimatedMinutes} mins</strong>
+              </div>
+              <p class="text-[11px] text-[#D6C2B0]">
+                📍 ${etaInfo.distanceKm} km from ${etaInfo.shopName.split('(')[0]}
+              </p>
+            </div>
+
+            <!-- Item List -->
+            <div class="max-h-60 overflow-y-auto space-y-3 pr-1">
               ${summary.items.map(item => `
-                <div class="flex items-center gap-3 text-xs">
-                  <img src="${item.image}" alt="${item.name}" class="w-10 h-10 rounded-lg object-cover border border-[#B8945B]/30 shrink-0" />
+                <div class="flex items-center gap-3 p-2 rounded-xl bg-[#1A0905]/70 border border-[#B8945B]/20">
+                  <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-lg object-cover border border-[#B8945B]/30 shrink-0" />
                   <div class="flex-1 min-w-0">
-                    <p class="font-serif font-bold text-[#3A1F17] truncate">${item.name}</p>
-                    <p class="text-[11px] text-[#6B3E2E]">Qty: ${item.quantity} × ₹${item.price}</p>
+                    <p class="text-xs font-bold text-white truncate">${item.name}</p>
+                    <p class="text-[10px] text-[#D6C2B0] truncate">${item.subtitle || 'Artisanal Creation'}</p>
+                    <p class="text-[11px] text-[#E6CA85] font-mono">Qty: ${item.quantity} × ₹${item.price}</p>
                   </div>
-                  <span class="font-semibold text-[#3A1F17]">₹${(item.price * item.quantity)}</span>
                 </div>
               `).join('')}
             </div>
 
-            <!-- Price Breakdown -->
-            <div class="space-y-2 border-t border-[#B8945B]/20 pt-3 text-xs">
-              <div class="flex justify-between text-[#6B3E2E]">
-                <span>Subtotal</span>
-                <span>₹${summary.subtotal}</span>
+            <!-- Calculation Rows -->
+            <div class="border-t border-[#B8945B]/20 pt-3 space-y-2 text-xs">
+              <div class="flex justify-between text-[#D6C2B0]">
+                <span>Creations Subtotal:</span>
+                <span class="font-mono text-white">₹${summary.subtotal.toFixed(2)}</span>
               </div>
-
+              <div class="flex justify-between text-[#D6C2B0]">
+                <span>Artisanal Chilled Dispatch:</span>
+                <span class="font-mono text-[#E6CA85]">${summary.delivery === 0 ? 'COMPLIMENTARY' : '₹' + summary.delivery.toFixed(2)}</span>
+              </div>
               ${summary.discount > 0 ? `
-                <div class="flex justify-between text-[#B8945B] font-medium">
-                  <span>Courtesy Discount</span>
-                  <span>-₹${summary.discount.toFixed(2)}</span>
+                <div class="flex justify-between text-emerald-400">
+                  <span>Privé Privilege Savings:</span>
+                  <span class="font-mono">-₹${summary.discount.toFixed(2)}</span>
                 </div>
               ` : ''}
-
-              <div class="flex justify-between text-[#6B3E2E]">
-                <span>Artisanal Temperature Delivery</span>
-                <span>${summary.delivery === 0 ? '<span class="text-emerald-700 font-semibold">FREE</span>' : '₹' + summary.delivery}</span>
-              </div>
-
-              <div class="flex justify-between text-[#3A1F17] font-display font-bold text-base border-t border-[#B8945B]/30 pt-2">
-                <span>Total Amount</span>
-                <span class="text-gold-gradient">₹${summary.total.toFixed(2)}</span>
+              <div class="flex justify-between items-center border-t border-[#B8945B]/30 pt-3 font-display text-base font-bold">
+                <span class="text-white">Total Amount:</span>
+                <span class="text-gold-gradient text-lg">₹${summary.total.toFixed(2)}</span>
               </div>
             </div>
 
-            <div class="mt-4 p-3 bg-[#F8F1E7] rounded-xl border border-[#B8945B]/30 text-[11px] text-[#6B3E2E] flex items-center gap-2">
-              <span class="text-base">👑</span>
-              <span>Earn <strong>${Math.round(summary.total / 10)} Privé Points</strong> on this order.</span>
+            <div class="p-2.5 rounded-xl bg-black/40 border border-[#B8945B]/20 text-[10px] text-[#D6C2B0] text-center">
+              🔒 256-Bit Encrypted Luxury Checkout • Artisanal Freshness Guaranteed
             </div>
-
           </div>
 
         </div>
@@ -3763,92 +5243,111 @@ class CheckoutManager {
     `;
   }
 
-  renderCurrentStep(summary) {
+  renderCurrentStep(summary, etaInfo) {
     switch (this.currentStep) {
       case 1:
         return `
           <div>
-            <h3 class="font-display text-xl text-[#3A1F17] mb-1">01. Delivery Address & Contact</h3>
-            <p class="text-xs text-[#6B3E2E] mb-6">Where should our concierge deliver your handcrafted desserts?</p>
+            <div class="flex items-center justify-between mb-4 border-b border-[#B8945B]/20 pb-3">
+              <div>
+                <h3 class="font-display text-2xl text-white font-bold">01. Destination & Delivery Address</h3>
+                <p class="text-xs text-[#D6C2B0] mt-0.5">Where shall our courier rush your freshly chilled desserts?</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-serif font-bold">
+                Step 1 of 4
+              </span>
+            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              <div>
-                <label class="block font-semibold text-[#3A1F17] mb-1">Full Name</label>
-                <input type="text" id="chkName" value="${this.state.address.fullName}"
-                       class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]" />
-              </div>
-              <div>
-                <label class="block font-semibold text-[#3A1F17] mb-1">Email for Receipt</label>
-                <input type="email" id="chkEmail" value="${this.state.address.email}"
-                       class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]" />
-              </div>
-              <div>
-                <label class="block font-semibold text-[#3A1F17] mb-1">Phone Number</label>
-                <input type="tel" id="chkPhone" value="${this.state.address.phone}"
-                       class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]" />
-              </div>
-              <div>
-                <label class="block font-semibold text-[#3A1F17] mb-1">City / Delivery Destination</label>
-                <div class="relative">
-                  <input type="text"
-                         id="chkCity"
-                         list="citySuggestions"
-                         value="${this.state.address.city || 'Chennai'}"
-                         placeholder="Type or select city (e.g. Chennai)"
-                         class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17] font-medium" />
-                  <datalist id="citySuggestions">
-                    <option value="Chennai">Chennai (Flagship Salon & Express Dispatch)</option>
-                    <option value="Bengaluru">Bengaluru (Lavelle Road Atelier)</option>
-                    <option value="Mumbai">Mumbai (Bandra Atelier & Downtown)</option>
-                    <option value="Delhi">Delhi NCR (DLF Emporio Dispatch)</option>
-                    <option value="Hyderabad">Hyderabad (Jubilee Hills Atelier)</option>
-                    <option value="Coimbatore">Coimbatore (Express Courier)</option>
-                    <option value="Kochi">Kochi (Marine Drive Dispatch)</option>
-                    <option value="Madurai">Madurai (Express Courier)</option>
-                    <option value="Pune">Pune (Koregaon Park Delivery)</option>
-                    <option value="Kolkata">Kolkata (Park Street Delivery)</option>
-                    <option value="Ahmedabad">Ahmedabad (Bodakdev Dispatch)</option>
-                    <option value="Milan">Milan (Via Montenapoleone)</option>
-                    <option value="London">London (Mayfair Boutique)</option>
-                    <option value="Dubai">Dubai (Downtown Courier)</option>
-                  </datalist>
+            <!-- Dynamic Distance & ETA Highlight Banner -->
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#1A0905] to-[#2B130B] border border-[#B8945B]/50 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#B8945B]/20 border border-[#B8945B] flex items-center justify-center text-xl shrink-0">
+                  ⚡
                 </div>
-                <span class="text-[10px] text-[#8C6838] mt-1 block">📍 Default: <strong>Chennai</strong>. You can manually type any city or pick from the list.</span>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs uppercase font-serif tracking-wider text-[#E6CA85] font-bold">Live Atelier Transit Estimation</span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  </div>
+                  <p class="text-sm text-white font-serif font-bold">
+                    Will take <span class="text-[#E6CA85] font-mono">nearly ${etaInfo.estimatedMinutes} minutes</span> based upon your distance (${etaInfo.distanceKm} km).
+                  </p>
+                </div>
+              </div>
+              <span class="text-[11px] text-[#D6C2B0] font-mono shrink-0 bg-black/40 px-3 py-1.5 rounded-lg border border-[#B8945B]/30">
+                ${etaInfo.shopName.split('(')[0]}
+              </span>
+            </div>
+
+            <!-- Saved Address Quick Selector if profile has multiple -->
+            ${this.renderSavedAddressesSelector()}
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-serif">
+              <div>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Full Name</label>
+                <input type="text" id="chkName" value="${this.state.address.fullName}"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white" />
+              </div>
+              <div>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Phone Number (For Delivery Handover)</label>
+                <input type="text" id="chkPhone" value="${this.state.address.phone}"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white font-mono" />
+              </div>
+              <div>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Email Address</label>
+                <input type="email" id="chkEmail" value="${this.state.address.email}"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white" />
+              </div>
+              <div>
+                <label class="block font-semibold text-[#E6CA85] mb-1">City / Region</label>
+                <input type="text" id="chkCity" list="citySuggestions" value="${this.state.address.city || 'Chennai'}"
+                       onchange="window.checkoutManager.updateAddressCity(this.value)"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white font-semibold" />
+                <datalist id="citySuggestions">
+                  <option value="Chennai">Chennai (Flagship Salon Hub)</option>
+                  <option value="Bengaluru">Bengaluru (Lavelle Road Atelier)</option>
+                  <option value="Mumbai">Mumbai (Bandra Atelier)</option>
+                  <option value="Trichy">Trichy (Thillai Nagar Hub)</option>
+                  <option value="Hyderabad">Hyderabad (Jubilee Hills)</option>
+                  <option value="Coimbatore">Coimbatore (Express Courier)</option>
+                </datalist>
               </div>
               <div class="sm:col-span-2">
-                <label class="block font-semibold text-[#3A1F17] mb-1">Street Address, Apartment / Villa</label>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Street Address, Door No., Landmark</label>
                 <input type="text" id="chkStreet" value="${this.state.address.street}"
-                       class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]" />
+                       oninput="window.checkoutManager.updateAddressStreet(this.value)"
+                       placeholder="e.g. No.60/A Gnanamani St, West Jafferkhanpet"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white" />
               </div>
               <div class="sm:col-span-2">
-                <label class="block font-semibold text-[#3A1F17] mb-1">Special Delivery Note</label>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Special Delivery Instructions</label>
                 <input type="text" id="chkInstructions" value="${this.state.address.instructions}"
-                       placeholder="e.g. Ring doorbell, fragile packaging"
-                       class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-[#3A1F17]" />
+                       placeholder="e.g. Ring bell, handle with care, temperature-insulated packaging"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white" />
               </div>
             </div>
 
             <!-- Gifting Checkbox -->
-            <div class="mt-6 p-4 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 space-y-3">
-              <label class="flex items-center gap-2 cursor-pointer">
+            <div class="mt-6 p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/30 space-y-3">
+              <label class="flex items-center gap-3 cursor-pointer">
                 <input type="checkbox" id="chkIsGift" ${this.state.isGift ? 'checked' : ''}
                        onchange="window.checkoutManager.toggleGift(this.checked)"
-                       class="w-4 h-4 text-[#3A1F17] rounded border-[#B8945B]" />
-                <span class="text-xs font-serif font-bold text-[#3A1F17]">🎁 This order is a special gift for someone</span>
+                       class="w-4 h-4 accent-[#B8945B] rounded" />
+                <span class="text-xs font-serif font-bold text-[#E6CA85]">🎁 This order is a special gift for someone</span>
               </label>
               ${this.state.isGift ? `
                 <div class="mt-2">
-                  <label class="block text-[11px] font-semibold text-[#6B3E2E] mb-1">Complimentary Handwritten Calligraphy Message</label>
-                  <textarea id="chkGiftMessage" rows="2" placeholder="Write your heartfelt message here..."
-                            class="w-full p-2.5 rounded-lg border border-[#B8945B]/40 bg-white text-xs text-[#3A1F17] font-serif"></textarea>
+                  <label class="block text-[11px] font-semibold text-[#D6C2B0] mb-1">Complimentary Calligraphy Gift Note</label>
+                  <textarea id="chkGiftMessage" rows="2" placeholder="Write your warm personalized message here..."
+                            class="w-full p-2.5 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-xs text-white font-serif"></textarea>
                 </div>
               ` : ''}
             </div>
 
             <div class="mt-8 flex justify-end">
               <button type="button" onclick="window.checkoutManager.saveStep1AndContinue()"
-                      class="px-8 py-3 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2">
-                <span>Continue to Delivery Method</span> →
+                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2 shadow-xl">
+                <span>Continue to Delivery Experience</span> →
               </button>
             </div>
           </div>
@@ -3857,30 +5356,50 @@ class CheckoutManager {
       case 2:
         return `
           <div>
-            <h3 class="font-display text-xl text-[#3A1F17] mb-1">02. Choose Delivery Experience</h3>
-            <p class="text-xs text-[#6B3E2E] mb-6">Select how and when you wish to receive your fresh patisserie.</p>
+            <div class="flex items-center justify-between mb-4 border-b border-[#B8945B]/20 pb-3">
+              <div>
+                <h3 class="font-display text-2xl text-white font-bold">02. Choose Delivery Experience</h3>
+                <p class="text-xs text-[#D6C2B0] mt-0.5">Select your preferred cold-chain transit mode.</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-serif font-bold">
+                Step 2 of 4
+              </span>
+            </div>
 
-            <div class="space-y-3">
-              <label class="p-4 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'express' ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white'}">
-                <div class="flex items-start gap-3">
+            <!-- ETA Confirmation Box -->
+            <div class="p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 mb-6 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold">Targeted Arrival</span>
+                <p class="text-sm font-serif text-white font-bold">
+                  Nearly ${etaInfo.estimatedMinutes} Minutes (${etaInfo.distanceKm} km from ${etaInfo.shopName.split('(')[0]})
+                </p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-[#B8945B]/20 text-[#E6CA85] text-xs font-bold border border-[#B8945B]">
+                ⚡ Express Dispatch
+              </span>
+            </div>
+
+            <div class="space-y-4">
+              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'express' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50'}">
+                <div class="flex items-start gap-3.5">
                   <input type="radio" name="deliveryMethod" value="express" ${this.state.deliveryMethod === 'express' ? 'checked' : ''}
-                         onchange="window.checkoutManager.setDeliveryMethod('express')" class="mt-1 text-[#3A1F17]" />
+                         onchange="window.checkoutManager.setDeliveryMethod('express')" class="mt-1 accent-[#B8945B]" />
                   <div>
-                    <h4 class="font-serif text-sm font-bold text-[#3A1F17]">Express Artisanal Delivery (Within 45 Mins)</h4>
-                    <p class="text-xs text-[#6B3E2E]">Freshly prepared in our nearest atelier and rushed via insulated courier.</p>
+                    <h4 class="font-serif text-sm font-bold text-white">⚡ Express Artisanal Rush (Nearly ${etaInfo.estimatedMinutes} Mins)</h4>
+                    <p class="text-xs text-[#D6C2B0]">Direct handover in temperature-locked insulated carrier (+4°C optimal).</p>
                   </div>
                 </div>
-                <span class="text-xs font-bold text-[#B8945B]">₹99</span>
+                <span class="text-xs font-bold text-[#E6CA85] font-mono">₹99</span>
               </label>
 
-              <label class="p-4 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'scheduled' ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white'}">
-                <div class="flex items-start gap-3">
+              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'scheduled' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50'}">
+                <div class="flex items-start gap-3.5">
                   <input type="radio" name="deliveryMethod" value="scheduled" ${this.state.deliveryMethod === 'scheduled' ? 'checked' : ''}
-                         onchange="window.checkoutManager.setDeliveryMethod('scheduled')" class="mt-1 text-[#3A1F17]" />
+                         onchange="window.checkoutManager.setDeliveryMethod('scheduled')" class="mt-1 accent-[#B8945B]" />
                   <div>
-                    <h4 class="font-serif text-sm font-bold text-[#3A1F17]">Scheduled Evening Slot (Guaranteed Window)</h4>
-                    <p class="text-xs text-[#6B3E2E]">Perfect for dinner parties or evening romantic celebrations.</p>
-                    <select id="scheduledTimeSelect" class="mt-2 text-xs p-1.5 rounded border border-[#B8945B]/40 bg-white text-[#3A1F17]">
+                    <h4 class="font-serif text-sm font-bold text-white">🕒 Scheduled Evening Reserve Window</h4>
+                    <p class="text-xs text-[#D6C2B0]">Guaranteed delivery window for evening dessert course.</p>
+                    <select id="scheduledTimeSelect" class="mt-2 text-xs p-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white">
                       <option>Today: 6:00 PM – 8:00 PM</option>
                       <option>Today: 8:00 PM – 10:00 PM</option>
                       <option>Tomorrow: 2:00 PM – 4:00 PM</option>
@@ -3888,30 +5407,30 @@ class CheckoutManager {
                     </select>
                   </div>
                 </div>
-                <span class="text-xs font-bold text-[#B8945B]">₹99</span>
+                <span class="text-xs font-bold text-[#E6CA85] font-mono">₹99</span>
               </label>
 
-              <label class="p-4 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'temperature' ? 'border-[#B8945B] bg-[#F8F1E7] ring-2 ring-[#B8945B]/30 shadow-md' : 'border-[#B8945B]/20 bg-white'}">
-                <div class="flex items-start gap-3">
+              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'temperature' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50'}">
+                <div class="flex items-start gap-3.5">
                   <input type="radio" name="deliveryMethod" value="temperature" ${this.state.deliveryMethod === 'temperature' ? 'checked' : ''}
-                         onchange="window.checkoutManager.setDeliveryMethod('temperature')" class="mt-1 text-[#3A1F17]" />
+                         onchange="window.checkoutManager.setDeliveryMethod('temperature')" class="mt-1 accent-[#B8945B]" />
                   <div>
-                    <h4 class="font-serif text-sm font-bold text-[#3A1F17]">VIP Velvet Hamper Packaging & Eco-Chilled Protection</h4>
-                    <p class="text-xs text-[#6B3E2E]">Includes branded wooden keepsake box, satin ribbon, and temperature logger.</p>
+                    <h4 class="font-serif text-sm font-bold text-white">👑 Privé Chilled Vault & Wooden Keepsake Hamper</h4>
+                    <p class="text-xs text-[#D6C2B0]">Branded gold-embossed wooden box, satin ribbons & temperature logger.</p>
                   </div>
                 </div>
-                <span class="text-xs font-bold text-[#B8945B]">+₹199</span>
+                <span class="text-xs font-bold text-[#E6CA85] font-mono">+₹199</span>
               </label>
             </div>
 
             <div class="mt-8 flex justify-between">
               <button type="button" onclick="window.checkoutManager.setStep(1)"
-                      class="px-6 py-2.5 rounded-lg border border-[#B8945B]/40 text-[#6B3E2E] hover:bg-[#F8F1E7] font-serif text-xs font-semibold">
-                ← Back
+                      class="px-6 py-2.5 rounded-xl border border-[#B8945B]/40 text-[#D6C2B0] hover:text-white font-serif text-xs font-semibold">
+                ← Back to Address
               </button>
               <button type="button" onclick="window.checkoutManager.setStep(3)"
-                      class="px-8 py-3 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2">
-                <span>Continue to Payment</span> →
+                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2 shadow-xl">
+                <span>Continue to Payment & Route Map</span> →
               </button>
             </div>
           </div>
@@ -3920,108 +5439,174 @@ class CheckoutManager {
       case 3:
         return `
           <div>
-            <h3 class="font-display text-xl text-[#3A1F17] mb-1">03. Secure Payment</h3>
-            <p class="text-xs text-[#6B3E2E] mb-6">Select your preferred encrypted luxury transaction gateway.</p>
-
-            <!-- Payment Tabs -->
-            <div class="grid grid-cols-3 gap-2 mb-6">
-              <button type="button" onclick="window.checkoutManager.setPaymentMethod('upi')"
-                      class="p-3 rounded-xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'upi' ? 'border-[#B8945B] bg-[#3A1F17] text-[#E6CA85] shadow-md' : 'border-[#B8945B]/30 bg-white text-[#3A1F17]'}">
-                📱 UPI / QR
-              </button>
-              <button type="button" onclick="window.checkoutManager.setPaymentMethod('card')"
-                      class="p-3 rounded-xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'card' ? 'border-[#B8945B] bg-[#3A1F17] text-[#E6CA85] shadow-md' : 'border-[#B8945B]/30 bg-white text-[#3A1F17]'}">
-                💳 Card / EMI
-              </button>
-              <button type="button" onclick="window.checkoutManager.setPaymentMethod('netbanking')"
-                      class="p-3 rounded-xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'netbanking' ? 'border-[#B8945B] bg-[#3A1F17] text-[#E6CA85] shadow-md' : 'border-[#B8945B]/30 bg-white text-[#3A1F17]'}">
-                🏦 Net Banking
-              </button>
+            <div class="flex items-center justify-between mb-4 border-b border-[#B8945B]/20 pb-3">
+              <div>
+                <h3 class="font-display text-2xl text-white font-bold">03. Route Map & Secure Payment</h3>
+                <p class="text-xs text-[#D6C2B0] mt-0.5">Live shop-to-doorstep route preview and encrypted payment gateway.</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-serif font-bold">
+                Step 3 of 4
+              </span>
             </div>
 
-            <!-- Dynamic Payment Form -->
-            ${this.state.paymentMethod === 'upi' ? `
-              <div class="p-6 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 text-center space-y-4">
-                <div class="w-36 h-36 mx-auto bg-white p-2.5 rounded-xl border-2 border-[#B8945B] shadow-inner flex flex-col items-center justify-center">
-                  <div class="w-full h-full bg-neutral-900 rounded p-1 flex items-center justify-center text-white text-[10px] font-mono leading-tight">
-                    [QR: PAY ₹${summary.total.toFixed(2)}<br/>LA DESIO ATELIER]
+            <!-- ========================================== -->
+            <!-- SHOP TO CUSTOMER LIVE ROUTE & GOOGLE MAPS   -->
+            <!-- ========================================== -->
+            <div class="mb-6 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 p-4 shadow-xl space-y-3">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#B8945B]/20 pb-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-lg">🗺️</span>
+                  <div>
+                    <h4 class="font-serif text-xs uppercase tracking-wider text-[#E6CA85] font-bold">Live Atelier-to-Doorstep Dispatch Route</h4>
+                    <p class="text-[11px] text-[#D6C2B0]">From <strong>${etaInfo.shopName}</strong> → To <strong>${this.state.address.street}, ${this.state.address.city}</strong></p>
                   </div>
                 </div>
-                <div>
-                  <p class="text-xs font-semibold text-[#3A1F17]">Scan with any UPI App (GPay, PhonePe, Paytm, CRED)</p>
-                  <p class="text-[11px] text-[#6B3E2E] mt-0.5">Or enter your VPA / UPI ID below:</p>
-                </div>
-                <div class="max-w-xs mx-auto">
-                  <input type="text" value="${this.state.upiId}"
-                         class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white text-xs text-center text-[#3A1F17] font-mono" />
+                <div class="flex items-center gap-2 shrink-0">
+                  <span class="px-2.5 py-1 rounded-full bg-[#B8945B]/20 border border-[#B8945B] text-[#E6CA85] text-[11px] font-mono font-bold">
+                    ${etaInfo.distanceKm} km • Nearly ${etaInfo.estimatedMinutes} Mins
+                  </span>
                 </div>
               </div>
-            ` : ''}
 
-            ${this.state.paymentMethod === 'card' ? `
-              <div class="space-y-4">
-                <div class="p-4 rounded-xl bg-gradient-to-br from-[#3A1F17] via-[#23120C] to-[#150A06] text-[#FFFDF9] border border-[#B8945B] shadow-xl max-w-sm mx-auto space-y-4">
-                  <div class="flex justify-between items-center">
-                    <span class="font-serif italic text-xs tracking-widest text-[#E6CA85]">LA DESIO PRIVÉ</span>
-                    <span class="text-lg">💳</span>
-                  </div>
-                  <div class="font-mono text-base tracking-widest text-center py-2">
-                    •••• •••• •••• 4242
-                  </div>
-                  <div class="flex justify-between items-end text-[10px] uppercase text-[#E6CA85]">
-                    <div>
-                      <span class="block text-white/60">Cardholder</span>
-                      <span class="font-bold tracking-wider">${this.state.address.fullName}</span>
-                    </div>
-                    <div>
-                      <span class="block text-white/60">Expires</span>
-                      <span class="font-bold tracking-wider">08/28</span>
-                    </div>
-                  </div>
+              <!-- Map View Tabs: Google Maps vs Dark Atelier Route -->
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5 bg-black/50 p-1 rounded-xl border border-[#B8945B]/30 text-xs font-serif">
+                  <button type="button" onclick="window.checkoutManager.setMapMode('google')"
+                          class="px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 ${(this.state.activeMapMode !== 'vector') ? 'bg-[#4285F4] text-white font-bold shadow' : 'text-[#D6C2B0] hover:text-white'}">
+                    <span>📍</span> Google Maps (Live Traffic)
+                  </button>
+                  <button type="button" onclick="window.checkoutManager.setMapMode('vector')"
+                          class="px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 ${(this.state.activeMapMode === 'vector') ? 'bg-[#B8945B] text-black font-bold shadow' : 'text-[#D6C2B0] hover:text-white'}">
+                    <span>👑</span> Atelier Chilled Route
+                  </button>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3 text-xs">
-                  <div class="col-span-2">
-                    <label class="block font-semibold text-[#3A1F17] mb-1">Card Number</label>
-                    <input type="text" placeholder="4242 •••• •••• ••••" value="4242 8819 9021 4242"
-                           class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white text-[#3A1F17] font-mono" />
+                <a href="https://www.google.com/maps/dir/?api=1&origin=LA+DESIO+Flagship+Atelier+West+Jafferkhanpet+Chennai&destination=${encodeURIComponent(this.state.address.street + ', ' + this.state.address.city)}&travelmode=driving"
+                   target="_blank" rel="noopener"
+                   class="hidden sm:inline-flex items-center gap-1 text-[11px] font-serif text-[#E6CA85] hover:text-white hover:underline">
+                  <span>Open in Google Maps App</span> ↗
+                </a>
+              </div>
+
+              <!-- Route Container -->
+              <div id="checkoutRouteMapContainer" class="relative w-full h-60 sm:h-72 rounded-xl overflow-hidden border border-[#B8945B]/30 bg-[#120603]">
+                ${this.state.activeMapMode === 'vector' ? this.renderVectorRouteMap(etaInfo) : this.renderGoogleMapsEmbed(etaInfo)}
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between text-[11px] text-[#D6C2B0] pt-1">
+                <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Transit Status: Optimal Arterial Route via Jafferkhanpet & 100 Feet Rd
+                </span>
+                <span class="text-stone-400 font-mono">Chilled Vault Temp: 3.8°C</span>
+              </div>
+            </div>
+
+            <!-- Payment Gateways -->
+            <div class="space-y-4">
+              <span class="block text-xs uppercase font-serif tracking-widest text-[#E6CA85] font-bold mb-2">Select Payment Method</span>
+              
+              <div class="grid grid-cols-3 gap-2.5">
+                <button type="button" onclick="window.checkoutManager.setPaymentMethod('upi')"
+                        class="p-3 rounded-2xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'upi' ? 'border-[#B8945B] bg-[#1A0905] text-[#E6CA85] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/25 bg-black/40 text-[#D6C2B0]'}">
+                  📱 UPI / QR Code
+                </button>
+                <button type="button" onclick="window.checkoutManager.setPaymentMethod('card')"
+                        class="p-3 rounded-2xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'card' ? 'border-[#B8945B] bg-[#1A0905] text-[#E6CA85] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/25 bg-black/40 text-[#D6C2B0]'}">
+                  💳 Debit / Credit Card
+                </button>
+                <button type="button" onclick="window.checkoutManager.setPaymentMethod('netbanking')"
+                        class="p-3 rounded-2xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'netbanking' ? 'border-[#B8945B] bg-[#1A0905] text-[#E6CA85] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/25 bg-black/40 text-[#D6C2B0]'}">
+                  🏦 Net Banking
+                </button>
+              </div>
+
+              <!-- Payment Form Details -->
+              ${this.state.paymentMethod === 'upi' ? `
+                <div class="p-5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 text-center space-y-3">
+                  <div class="w-36 h-36 mx-auto bg-white p-2 rounded-xl border-2 border-[#B8945B] shadow-2xl flex flex-col items-center justify-center">
+                    <div class="w-full h-full bg-[#180A06] rounded p-1 flex flex-col items-center justify-center text-[#E6CA85] text-[10px] font-mono leading-tight">
+                      <span>👑 LA DESIO ATELIER</span>
+                      <span class="text-white font-bold mt-1">₹${summary.total.toFixed(2)}</span>
+                      <span class="text-[8px] text-stone-400 mt-1">[SCAN WITH ANY UPI APP]</span>
+                    </div>
                   </div>
                   <div>
-                    <label class="block font-semibold text-[#3A1F17] mb-1">Valid Thru</label>
-                    <input type="text" placeholder="MM/YY" value="08/28"
-                           class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white text-[#3A1F17] font-mono" />
+                    <p class="text-xs font-semibold text-white font-serif">Scan with GPay, PhonePe, Paytm, or CRED</p>
+                    <p class="text-[11px] text-[#D6C2B0] mt-0.5">Or enter your VPA / UPI ID:</p>
                   </div>
-                  <div>
-                    <label class="block font-semibold text-[#3A1F17] mb-1">Security Code (CVV)</label>
-                    <input type="password" placeholder="•••" value="842"
-                           class="w-full px-3 py-2 rounded-lg border border-[#B8945B]/40 bg-white text-[#3A1F17] font-mono" />
+                  <div class="max-w-xs mx-auto">
+                    <input type="text" value="${this.state.upiId}"
+                           class="w-full px-3.5 py-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-xs text-center text-[#E6CA85] font-mono" />
                   </div>
                 </div>
-              </div>
-            ` : ''}
+              ` : ''}
 
-            ${this.state.paymentMethod === 'netbanking' ? `
-              <div class="p-6 rounded-xl bg-[#F8F1E7] border border-[#B8945B]/30 space-y-3 text-xs">
-                <label class="block font-semibold text-[#3A1F17]">Select Indian / International Banking Portal</label>
-                <select class="w-full px-3 py-2.5 rounded-lg border border-[#B8945B]/40 bg-white text-[#3A1F17]">
-                  <option>HDFC Bank</option>
-                  <option>ICICI Bank</option>
-                  <option>State Bank of India (SBI)</option>
-                  <option>Axis Bank</option>
-                  <option>Kotak Mahindra Bank</option>
-                  <option>Intesa Sanpaolo / International</option>
-                </select>
-                <p class="text-[11px] text-[#6B3E2E]">You will be safely redirected to your banking institution to authorize ₹${summary.total.toFixed(2)}.</p>
-              </div>
-            ` : ''}
+              ${this.state.paymentMethod === 'card' ? `
+                <div class="space-y-4">
+                  <div class="p-5 rounded-2xl bg-gradient-to-br from-[#1A0905] via-[#2B130B] to-[#120603] text-white border border-[#B8945B] shadow-2xl max-w-sm mx-auto space-y-4">
+                    <div class="flex justify-between items-center">
+                      <span class="font-serif italic text-xs tracking-widest text-[#E6CA85]">LA DESIO PRIVÉ VAULT</span>
+                      <span class="text-lg">💳</span>
+                    </div>
+                    <div class="font-mono text-base tracking-widest text-center py-2 text-[#E6CA85]">
+                      •••• •••• •••• 4242
+                    </div>
+                    <div class="flex justify-between items-end text-[10px] uppercase text-[#D6C2B0]">
+                      <div>
+                        <span class="block text-stone-400">Cardholder</span>
+                        <span class="font-bold tracking-wider text-white">${this.state.address.fullName}</span>
+                      </div>
+                      <div>
+                        <span class="block text-stone-400">Expires</span>
+                        <span class="font-bold tracking-wider text-white">08/28</span>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="mt-8 flex justify-between">
+                  <div class="grid grid-cols-2 gap-3 text-xs font-serif">
+                    <div class="col-span-2">
+                      <label class="block font-semibold text-[#E6CA85] mb-1">Card Number</label>
+                      <input type="text" placeholder="4242 •••• •••• ••••" value="4242 8819 9021 4242"
+                             class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] text-white font-mono" />
+                    </div>
+                    <div>
+                      <label class="block font-semibold text-[#E6CA85] mb-1">Valid Thru</label>
+                      <input type="text" placeholder="MM/YY" value="08/28"
+                             class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] text-white font-mono" />
+                    </div>
+                    <div>
+                      <label class="block font-semibold text-[#E6CA85] mb-1">CVV Security Code</label>
+                      <input type="password" placeholder="•••" value="842"
+                             class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] text-white font-mono" />
+                    </div>
+                  </div>
+                </div>
+              ` : ''}
+
+              ${this.state.paymentMethod === 'netbanking' ? `
+                <div class="p-5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 space-y-3 text-xs font-serif">
+                  <label class="block font-semibold text-[#E6CA85]">Select Banking Portal</label>
+                  <select class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white">
+                    <option>HDFC Bank Concierge</option>
+                    <option>ICICI Bank Privé</option>
+                    <option>State Bank of India (SBI)</option>
+                    <option>Axis Bank Burgundy</option>
+                    <option>Kotak Mahindra Bank Privé</option>
+                  </select>
+                  <p class="text-[11px] text-[#D6C2B0]">You will be safely redirected to your banking institution to authorize ₹${summary.total.toFixed(2)}.</p>
+                </div>
+              ` : ''}
+
+            </div>
+
+            <div class="mt-8 flex justify-between items-center">
               <button type="button" onclick="window.checkoutManager.setStep(2)"
-                      class="px-6 py-2.5 rounded-lg border border-[#B8945B]/40 text-[#6B3E2E] hover:bg-[#F8F1E7] font-serif text-xs font-semibold">
+                      class="px-6 py-2.5 rounded-xl border border-[#B8945B]/40 text-[#D6C2B0] hover:text-white font-serif text-xs font-semibold">
                 ← Back
               </button>
               <button type="button" onclick="window.checkoutManager.placeOrder()"
-                      class="px-8 py-3.5 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider shadow-xl flex items-center gap-2">
+                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shadow-2xl flex items-center gap-2">
                 <span>Authorize & Place Order (₹${summary.total.toFixed(2)})</span> 👑
               </button>
             </div>
@@ -4029,95 +5614,271 @@ class CheckoutManager {
         `;
 
       case 4:
-        return this.renderOrderConfirmation();
+        return this.renderOrderConfirmation(etaInfo);
     }
   }
 
-  renderOrderConfirmation() {
+  setMapMode(mode) {
+    this.state.activeMapMode = mode;
+    this.render();
+  }
+
+  renderGoogleMapsEmbed(etaInfo) {
+    const origin = encodeURIComponent('LA DESIO Flagship Atelier, West Jafferkhanpet, Chennai');
+    const destination = encodeURIComponent(`${this.state.address.street || 'West Jafferkhanpet'}, ${this.state.address.city || 'Chennai'}`);
+    const embedUrl = `https://maps.google.com/maps?saddr=${origin}&daddr=${destination}&t=m&z=14&output=embed`;
+
+    return `
+      <div class="w-full h-full relative">
+        <iframe
+          src="${embedUrl}"
+          class="w-full h-full border-0"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Google Maps Route">
+        </iframe>
+        <div class="absolute bottom-2 right-2 bg-black/80 backdrop-blur-md px-3 py-1 rounded-lg border border-[#B8945B]/40 text-[10px] text-[#E6CA85] font-mono z-10 flex items-center gap-2">
+          <span>⚡ Live Google Route</span>
+          <span>•</span>
+          <span>nearly ${etaInfo.estimatedMinutes} mins</span>
+        </div>
+      </div>
+    `;
+  }
+
+  // Vector luxury route map renderer (ultra-fast, works 100% offline & on file://)
+  renderVectorRouteMap(etaInfo) {
+    return `
+      <div class="w-full h-full relative overflow-hidden flex items-center justify-center p-4">
+        <!-- Map Grid Lines Background -->
+        <svg class="absolute inset-0 w-full h-full opacity-15" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#B8945B" stroke-width="0.7"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+
+        <!-- Simulated Road Network Lines -->
+        <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10%" y1="75%" x2="90%" y2="75%" stroke="#3A1F17" stroke-width="6" stroke-linecap="round" />
+          <line x1="25%" y1="15%" x2="25%" y2="85%" stroke="#3A1F17" stroke-width="5" stroke-linecap="round" />
+          <line x1="75%" y1="20%" x2="75%" y2="90%" stroke="#3A1F17" stroke-width="5" stroke-linecap="round" />
+          <line x1="20%" y1="35%" x2="85%" y2="45%" stroke="#3A1F17" stroke-width="4" stroke-dasharray="4 4" />
+
+          <!-- Golden Glowing Active Delivery Route Spline -->
+          <path d="M 18% 65% Q 38% 30%, 55% 50% T 82% 35%" 
+                fill="none" 
+                stroke="#B8945B" 
+                stroke-width="5" 
+                stroke-linecap="round"
+                class="filter drop-shadow-[0_0_8px_rgba(230,202,133,0.8)]" />
+          
+          <path d="M 18% 65% Q 38% 30%, 55% 50% T 82% 35%" 
+                fill="none" 
+                stroke="#FFFDF9" 
+                stroke-width="2" 
+                stroke-dasharray="8 6" 
+                class="animate-pulse" />
+        </svg>
+
+        <!-- Origin Pin: LA DESIO Atelier -->
+        <div class="absolute left-[16%] top-[60%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
+          <div class="w-10 h-10 rounded-full bg-[#B8945B] border-2 border-white shadow-2xl flex items-center justify-center text-lg animate-bounce">
+            🏛️
+          </div>
+          <div class="mt-1 px-2.5 py-0.5 rounded-full bg-black/85 border border-[#B8945B] text-[9px] font-serif text-[#E6CA85] whitespace-nowrap shadow font-bold">
+            LA DESIO Atelier
+          </div>
+        </div>
+
+        <!-- Moving Courier Vehicle on Route -->
+        <div class="absolute left-[48%] top-[38%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 animate-pulse">
+          <div class="w-8 h-8 rounded-full bg-black border border-[#E6CA85] shadow-2xl flex items-center justify-center text-sm">
+            🛵
+          </div>
+          <span class="px-2 py-0.5 rounded bg-black/90 text-[#E6CA85] text-[8px] font-mono whitespace-nowrap mt-0.5 border border-[#B8945B]/40">
+            Courier in Transit
+          </span>
+        </div>
+
+        <!-- Destination Pin: Customer Location -->
+        <div class="absolute left-[82%] top-[32%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
+          <div class="w-10 h-10 rounded-full bg-emerald-600 border-2 border-white shadow-2xl flex items-center justify-center text-lg">
+            📍
+          </div>
+          <div class="mt-1 px-2.5 py-0.5 rounded-full bg-black/85 border border-emerald-400 text-[9px] font-serif text-white whitespace-nowrap shadow font-bold">
+            ${this.state.address.fullName || 'Doorstep'}
+          </div>
+        </div>
+
+        <!-- Map Info Overlay Badge -->
+        <div class="absolute bottom-2.5 right-2.5 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#B8945B]/30 text-[10px] text-[#E6CA85] font-mono z-10 flex items-center gap-2">
+          <span>⚡ Distance: ${etaInfo.distanceKm} km</span>
+          <span>•</span>
+          <span>ETA: nearly ${etaInfo.estimatedMinutes} mins</span>
+        </div>
+      </div>
+    `;
+  }
+
+  // Hook for Leaflet initialization if library is available
+  initPaymentRouteMap() {
+    if (typeof L !== 'undefined' && document.getElementById('checkoutRouteMapContainer')) {
+      // Leaflet can enrich the map if desired, fallback vector is already active
+    }
+  }
+
+  renderOrderConfirmation(etaInfo) {
     const order = this.lastPlacedOrder || {
       id: 'DESIO-9142',
       total: 1040,
-      deliverySlot: 'Express Artisanal — Within 45 Mins',
-      trackingNumber: 'IN-EXP-9142-DESIO'
+      deliverySlot: `Express Artisanal — Within ${etaInfo.estimatedMinutes} Mins`,
+      trackingNumber: 'IN-EXP-9142-DESIO',
+      distanceKm: etaInfo.distanceKm,
+      estimatedMinutes: etaInfo.estimatedMinutes
     };
 
     return `
       <div class="text-center py-8 space-y-6">
         
         <!-- Animated Crown Badge -->
-        <div class="w-20 h-20 mx-auto rounded-full bg-[#3A1F17] border-2 border-[#B8945B] flex items-center justify-center text-4xl shadow-2xl animate-bounce">
+        <div class="w-20 h-20 mx-auto rounded-full bg-[#1A0905] border-2 border-[#B8945B] flex items-center justify-center text-4xl shadow-2xl animate-bounce">
           👑
         </div>
 
         <div>
-          <span class="text-xs uppercase tracking-widest text-[#B8945B] font-semibold">Order Successfully Confirmed</span>
-          <h2 class="font-display text-3xl md:text-4xl text-[#3A1F17] mt-1">"YOUR DESIO IS ON ITS WAY."</h2>
-          <p class="text-xs text-[#6B3E2E] max-w-md mx-auto mt-2">
+          <span class="text-xs uppercase tracking-widest text-[#E6CA85] font-serif font-bold">Order Successfully Placed</span>
+          <h2 class="font-display text-3xl md:text-4xl text-white font-bold mt-1">"YOUR DESIO IS ON ITS WAY."</h2>
+          <p class="text-xs text-[#D6C2B0] max-w-md mx-auto mt-2">
             Our master pastry chefs have commenced handcrafting your desserts with exquisite care.
           </p>
         </div>
 
+        <!-- ETA Highlight Banner -->
+        <div class="max-w-md mx-auto p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 flex items-center justify-between shadow-xl">
+          <div class="text-left">
+            <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">Estimated Arrival</span>
+            <span class="font-serif text-lg font-bold text-white">Nearly ${order.estimatedMinutes || etaInfo.estimatedMinutes} Minutes</span>
+          </div>
+          <div class="text-right font-mono text-xs text-[#D6C2B0]">
+            <span>${order.distanceKm || etaInfo.distanceKm} km away</span>
+            <span class="block text-emerald-400 font-bold">● Active Dispatch</span>
+          </div>
+        </div>
+
         <!-- Order Metadata Receipt Badge -->
-        <div class="max-w-md mx-auto p-5 rounded-2xl bg-[#F8F1E7] border border-[#B8945B]/40 text-left text-xs space-y-3 shadow-sm">
+        <div class="max-w-md mx-auto p-5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 text-left text-xs space-y-3 shadow-lg">
           <div class="flex justify-between items-center border-b border-[#B8945B]/30 pb-2">
-            <span class="font-serif font-bold text-[#3A1F17]">Order Reference:</span>
-            <span class="font-mono font-bold text-[#B8945B]">${order.id}</span>
+            <span class="font-serif font-bold text-white">Order Reference:</span>
+            <span class="font-mono font-bold text-[#E6CA85]">${order.id}</span>
           </div>
 
           <div class="flex justify-between items-center">
-            <span class="text-[#6B3E2E]">Estimated Delivery:</span>
-            <span class="font-semibold text-[#3A1F17]">${order.deliverySlot}</span>
+            <span class="text-[#D6C2B0]">Delivery Destination:</span>
+            <span class="font-semibold text-white truncate max-w-[240px]">${this.state.address.street}, ${this.state.address.city}</span>
           </div>
 
           <div class="flex justify-between items-center">
-            <span class="text-[#6B3E2E]">Consignment Tracking:</span>
-            <span class="font-mono text-[11px] text-[#3A1F17]">${order.trackingNumber}</span>
+            <span class="text-[#D6C2B0]">Consignment Tracking:</span>
+            <span class="font-mono text-[11px] text-[#E6CA85]">${order.trackingNumber}</span>
           </div>
 
-          <div class="flex justify-between items-center border-t border-[#B8945B]/30 pt-2 font-display font-bold text-sm text-[#3A1F17]">
+          <div class="flex justify-between items-center border-t border-[#B8945B]/30 pt-2 font-display font-bold text-sm text-white">
             <span>Paid Total:</span>
-            <span class="text-gold-gradient">₹${order.total.toFixed(2)}</span>
+            <span class="text-gold-gradient text-base font-mono">₹${order.total.toFixed(2)}</span>
           </div>
         </div>
 
         <!-- Real-Time Delivery Tracker Timeline -->
         <div class="max-w-md mx-auto pt-2">
-          <h5 class="text-xs font-serif font-bold uppercase tracking-wider text-[#3A1F17] mb-3">Live Atelier Progress</h5>
-          <div class="flex items-center justify-between text-[10px] text-[#6B3E2E]">
+          <h5 class="text-xs font-serif font-bold uppercase tracking-wider text-[#E6CA85] mb-3">Live Atelier Progress</h5>
+          <div class="flex items-center justify-between text-[10px] text-[#D6C2B0]">
             <div class="flex flex-col items-center">
-              <span class="w-6 h-6 rounded-full bg-[#3A1F17] text-[#E6CA85] flex items-center justify-center font-bold">1</span>
-              <span class="mt-1 font-semibold text-[#3A1F17]">Crafting</span>
+              <span class="w-7 h-7 rounded-full bg-[#B8945B] text-black flex items-center justify-center font-bold shadow">1</span>
+              <span class="mt-1 font-semibold text-white">Crafting</span>
             </div>
             <div class="flex-1 h-0.5 bg-[#B8945B]"></div>
             <div class="flex flex-col items-center">
-              <span class="w-6 h-6 rounded-full bg-[#B8945B] text-white flex items-center justify-center font-bold animate-pulse">2</span>
-              <span class="mt-1 font-semibold text-[#B8945B]">Chamber Chilling</span>
+              <span class="w-7 h-7 rounded-full bg-[#E6CA85] text-black flex items-center justify-center font-bold animate-pulse shadow">2</span>
+              <span class="mt-1 font-semibold text-[#E6CA85]">Chamber Chilling</span>
             </div>
             <div class="flex-1 h-0.5 bg-[#B8945B]/30"></div>
             <div class="flex flex-col items-center">
-              <span class="w-6 h-6 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">3</span>
-              <span class="mt-1 text-gray-400">Courier Dispatch</span>
+              <span class="w-7 h-7 rounded-full bg-stone-800 text-stone-400 flex items-center justify-center font-bold">3</span>
+              <span class="mt-1 text-stone-500">Insulated Courier</span>
             </div>
           </div>
         </div>
 
         <!-- Action CTAs -->
         <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
-          <a href="#account" onclick="if(window.ladesioApp && window.ladesioApp.setActiveAccountTab) window.ladesioApp.setActiveAccountTab('orders');"
-             class="px-6 py-2.5 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-md">
-            <span>📦</span> View in Order History
-          </a>
           <button type="button" onclick="if(window.ladesioApp && window.ladesioApp.openOrderTracker) window.ladesioApp.openOrderTracker('${order.id}');"
-                  class="px-6 py-2.5 rounded-lg border border-[#B8945B] text-[#3A1F17] hover:bg-[#F8F1E7] font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-sm">
-            <span>🚚</span> Track Live Dispatch
+                  class="px-7 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2 shadow-2xl">
+            <span>🚚</span> Track Live Dispatch & Traffic Updates
           </button>
-          <a href="#menu" class="px-6 py-2.5 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider">
+          <a href="#account" onclick="if(window.ladesioApp && window.ladesioApp.setActiveAccountTab) window.ladesioApp.setActiveAccountTab('orders');"
+             class="px-6 py-3 rounded-xl border border-[#B8945B]/40 hover:border-[#B8945B] text-white font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-md">
+            <span>📦</span> View Order History
+          </a>
+          <a href="#menu" class="px-6 py-3 rounded-xl border border-white/20 text-[#D6C2B0] hover:text-white font-serif text-xs font-semibold tracking-wider">
             Continue Exploring
           </a>
         </div>
 
       </div>
     `;
+  }
+
+  renderSavedAddressesSelector() {
+    const data = (typeof loyaltyStore !== 'undefined' && loyaltyStore.getData) ? loyaltyStore.getData() : null;
+    const addresses = data?.profile?.savedAddresses || [];
+    if (addresses.length <= 1) return '';
+
+    return `
+      <div class="mb-5 p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/30">
+        <label class="block text-[11px] font-semibold text-[#E6CA85] uppercase tracking-wider mb-2">
+          📍 Choose from your Saved Privé Addresses:
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          ${addresses.map(addr => `
+            <button type="button" onclick="window.checkoutManager.selectSavedAddress('${addr.id}')"
+                    class="text-left p-2.5 rounded-xl border transition-all text-xs ${(this.state.address.street === addr.address) ? 'border-[#B8945B] bg-[#241009] text-white ring-1 ring-[#B8945B]' : 'border-[#B8945B]/20 bg-black/30 text-[#D6C2B0] hover:text-white'}">
+              <div class="font-bold text-[#E6CA85] flex items-center justify-between">
+                <span>${addr.name}</span>
+                ${addr.isDefault ? '<span class="text-[9px] px-1.5 py-0.5 rounded bg-[#B8945B] text-black">DEFAULT</span>' : ''}
+              </div>
+              <p class="truncate text-[11px] mt-0.5">${addr.address}, ${addr.city}</p>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  selectSavedAddress(addrId) {
+    const data = loyaltyStore.getData();
+    const addr = data?.profile?.savedAddresses?.find(a => a.id === addrId);
+    if (!addr) return;
+    this.state.address.street = addr.address;
+    this.state.address.city = addr.city;
+    this.state.address.phone = addr.phone || this.state.address.phone;
+    this.render();
+  }
+
+  updateAddressCity(city) {
+    this.state.address.city = city;
+    this.render();
+  }
+
+  updateAddressStreet(street) {
+    this.state.address.street = street;
+    // Debounced or live re-render of ETA badge
+    const eta = this.calculateDistanceAndETA();
+    const etaElements = document.querySelectorAll('.checkout-eta-minutes');
+    etaElements.forEach(el => el.textContent = `nearly ${eta.estimatedMinutes} minutes`);
   }
 
   saveStep1AndContinue() {
@@ -4150,8 +5911,9 @@ class CheckoutManager {
   placeOrder() {
     const summary = cartStore.getSummary();
     const city = this.state.address.city || 'Chennai';
+    const etaInfo = this.calculateDistanceAndETA();
 
-    // Auto-save any custom creations from this order into loyaltyStore
+    // Auto-save any custom creations into loyaltyStore
     summary.items.forEach(item => {
       if (item.isCustom) {
         let config = {};
@@ -4186,9 +5948,11 @@ class CheckoutManager {
       paymentMethod: this.state.paymentMethod === 'card' ? 'Visa / Mastercard' : (this.state.paymentMethod === 'upi' ? 'UPI / Google Pay' : 'Net Banking Portal'),
       address: { ...this.state.address, city },
       deliverySlot: this.state.deliveryMethod === 'express' 
-        ? `Express Artisanal — Within 45 Mins (${city})` 
+        ? `Express Artisanal — Within ${etaInfo.estimatedMinutes} Mins (${city})` 
         : `Scheduled Luxury Slot (${city})`,
-      trackingNumber: 'IN-EXP-' + Math.floor(1000 + Math.random() * 9000) + '-DESIO'
+      trackingNumber: 'IN-EXP-' + Math.floor(1000 + Math.random() * 9000) + '-DESIO',
+      distanceKm: etaInfo.distanceKm,
+      estimatedMinutes: etaInfo.estimatedMinutes
     };
 
     const newOrder = loyaltyStore.addOrder(orderData);
@@ -4206,6 +5970,7 @@ class CheckoutManager {
 }
 
 
+// --- app.js ---
 // LA DESIO - Master Application Controller & Router (INR Edition)
 
 
@@ -4309,6 +6074,7 @@ class LaDesioApp {
     this.activeFilter = {
       priceMax: 3500,
       dietary: 'all',
+      onlyEggless: false,
       sortBy: 'recommended'
     };
 
@@ -4343,6 +6109,313 @@ class LaDesioApp {
     if (this.fullBannerTimer) {
       clearInterval(this.fullBannerTimer);
       this.fullBannerTimer = null;
+    }
+  }
+
+  navigateTo(route) {
+    this.currentRoute = route;
+    window.location.hash = '#' + route;
+    this.renderCurrentView();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  handleHeaderAuthClick(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (loyaltyStore && loyaltyStore.isUserAuthenticated()) {
+      this.navigateTo('account');
+    } else {
+      this.navigateTo('login');
+    }
+  }
+
+  togglePfpDropdown(e) {
+    if (e) {
+      if (e.stopPropagation) e.stopPropagation();
+      if (e.preventDefault) e.preventDefault();
+    }
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.navigateTo('login');
+      return;
+    }
+    const dropdown = document.getElementById('headerPfpDropdown');
+    if (dropdown) {
+      const isHidden = dropdown.classList.contains('hidden');
+      if (isHidden) {
+        this.renderNavigationBadges();
+        dropdown.classList.remove('hidden');
+      } else {
+        dropdown.classList.add('hidden');
+      }
+    }
+  }
+
+  closePfpDropdown() {
+    const dropdown = document.getElementById('headerPfpDropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+  }
+
+  navigateToAccountTab(tab) {
+    this.closePfpDropdown();
+    this.activeAccountTab = tab;
+    this.navigateTo('account/' + tab);
+  }
+
+
+  playObstacleChime() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.25);
+    } catch (e) {}
+  }
+
+
+  // ==========================================
+  // MOBILE SEARCH & ADD FRIEND CONTROLLER
+  // ==========================================
+  handleFriendSearchInput(query) {
+    const mount = document.getElementById('friendSearchResultsMount');
+    if (!mount) return;
+
+    const trimmed = (query || '').trim();
+    if (!trimmed) {
+      mount.classList.add('hidden');
+      mount.innerHTML = '';
+      return;
+    }
+
+    const cleanDigits = loyaltyStore.cleanPhone(trimmed);
+    const results = loyaltyStore.searchUsersByMobile(trimmed);
+
+    mount.classList.remove('hidden');
+
+    let html = '<div class="space-y-2">';
+
+    if (results.length > 0) {
+      html += '<p class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] font-semibold">Registered Privé Members Found:</p>';
+      results.forEach(u => {
+        html += `
+          <div class="p-3.5 rounded-2xl bg-[#1A0A06] border border-[#B8945B]/40 flex items-center justify-between gap-3 shadow-md">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shrink-0 overflow-hidden">
+                <img src="${u.avatar}" alt="${u.name}" class="w-full h-full object-cover rounded-full" onerror="this.outerHTML='<span class=\\'w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center\\'>👑</span>'" />
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <h5 class="font-display text-sm font-bold text-white truncate">${u.name}</h5>
+                  <span class="px-2 py-0.2 rounded-full bg-[#B8945B]/20 text-[#E6CA85] text-[9px] font-serif uppercase font-bold">${u.tier}</span>
+                </div>
+                <p class="text-xs text-[#E6CA85] font-mono">${u.displayPhone} • 📍 ${u.city}</p>
+              </div>
+            </div>
+
+            ${u.isAlreadyFriend ? `
+              <div class="flex items-center gap-2 shrink-0">
+                <span class="px-2.5 py-1 rounded-xl bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 text-[11px] font-serif font-semibold flex items-center gap-1 shadow-sm">
+                  <span>✓</span> In Circle
+                </span>
+                <button type="button" onclick="window.ladesioApp.handleRemoveFriend('${u.friendId || u.id}', '${u.name}')"
+                        class="px-3 py-1 rounded-xl border border-rose-500/40 hover:border-rose-500 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 hover:text-white text-xs font-serif transition-colors flex items-center gap-1 shadow-sm cursor-pointer"
+                        title="Remove ${u.name} from Circle">
+                  <span>🗑️</span> Remove
+                </button>
+              </div>
+            ` : `
+              <button type="button" onclick="window.ladesioApp.handleAddFriendFromSearch('${u.id}')"
+                      class="px-4 py-1.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shrink-0 flex items-center gap-1 shadow-md hover:scale-105 transition-transform">
+                <span>➕</span> Add Friend
+              </button>
+            `}
+          </div>
+        `;
+      });
+    }
+
+    // If clean digits has 10 digits and not found or to allow adding directly
+    if (cleanDigits.length === 10 && !results.some(r => loyaltyStore.cleanPhone(r.phone) === cleanDigits)) {
+      html += `
+        <div class="p-4 rounded-2xl bg-[#1A0A06] border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md mt-2">
+          <div>
+            <p class="text-xs text-stone-200">Mobile number: <strong class="text-[#E6CA85] font-mono">+91 ${cleanDigits}</strong></p>
+            <p class="text-[11px] text-stone-400">Not in default preset users. Would you like to invite and add this mobile number directly?</p>
+          </div>
+          <button type="button" onclick="window.ladesioApp.handleAddFriendDirect('${cleanDigits}')"
+                  class="px-4 py-2 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shrink-0 flex items-center justify-center gap-1.5 shadow-md">
+            <span>➕</span> Add Mobile Friend
+          </button>
+        </div>
+      `;
+    } else if (results.length === 0 && cleanDigits.length < 10) {
+      html += `
+        <div class="p-3 text-center text-xs text-stone-400 font-serif">
+          No members found matching "${query}". Enter a 10-digit mobile number (e.g. 9790496706, 9566783614) or name.
+        </div>
+      `;
+    }
+
+    html += '</div>';
+    mount.innerHTML = html;
+  }
+
+  clearFriendSearch() {
+    const input = document.getElementById('friendMobileSearchInput');
+    if (input) input.value = '';
+    const mount = document.getElementById('friendSearchResultsMount');
+    if (mount) {
+      mount.classList.add('hidden');
+      mount.innerHTML = '';
+    }
+  }
+
+  handleAddFriendFromSearch(userId) {
+    const user = loyaltyStore.users.find(u => u.id === userId);
+    if (!user) return;
+
+    const res = loyaltyStore.addFriendByMobile(user.phone, user.name, user.city);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.clearFriendSearch();
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  handleAddFriendDirect(phone, name = '') {
+    const res = loyaltyStore.addFriendByMobile(phone, name);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.clearFriendSearch();
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  handleRemoveFriend(friendId, friendName = '') {
+    const displayName = friendName || 'this friend';
+    const confirmed = (typeof window.confirm === 'function') 
+      ? window.confirm(`Are you sure you want to remove ${displayName} from your Atelier Circle?`)
+      : true;
+    if (!confirmed) return;
+
+    const res = loyaltyStore.removeFriend(friendId);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'info');
+      if (this.selectedFriendId === friendId) {
+        this.selectedFriendId = null;
+      }
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+      // Also update search results if search is active
+      const searchInput = document.getElementById('friendMobileSearchInput');
+      if (searchInput && searchInput.value.trim()) {
+        this.handleFriendSearchInput(searchInput.value);
+      }
+    } else {
+      if (window.showToast) window.showToast(res.message || 'Could not remove friend.', 'warning');
+    }
+  }
+
+  openAddFriendModal() {
+    let modal = document.getElementById('addFriendModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'addFriendModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300';
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-[#1F0D08] to-[#140603] border-2 border-[#B8945B]/50 shadow-2xl p-6 sm:p-7 space-y-5 text-[#FFFDF9]">
+        <!-- Close Button -->
+        <button onclick="window.ladesioApp.closeAddFriendModal()" 
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors">
+          ✕
+        </button>
+
+        <!-- Header -->
+        <div class="border-b border-[#B8945B]/30 pb-3">
+          <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold">Atelier Circle</span>
+          <h3 class="font-display text-xl sm:text-2xl text-white font-bold mt-0.5">Add Friend by Mobile Number</h3>
+          <p class="text-xs text-[#D6C2B0] mt-0.5">Connect with fellow dessert lovers to share recipes and order creations.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); window.ladesioApp.submitAddFriendModal();" class="space-y-4">
+          <!-- Mobile Number Input -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Friend's 10-Digit Mobile Number *</label>
+            <div class="flex items-center rounded-xl border border-[#B8945B]/40 bg-[#120502] focus-within:border-[#E6CA85] overflow-hidden shadow-inner">
+              <span class="px-3.5 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-black/40">
+                🇮🇳 +91
+              </span>
+              <input type="tel" id="modalAddFriendPhone" required maxlength="10"
+                     placeholder="97904 96706"
+                     class="w-full px-3.5 py-3 bg-transparent text-white text-xs font-mono outline-none" />
+            </div>
+            <span class="text-[10px] text-stone-400">Enter a 10-digit Indian mobile number.</span>
+          </div>
+
+          <!-- Friend's Name -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Friend's Name (Optional)</label>
+            <input type="text" id="modalAddFriendName"
+                   placeholder="e.g. Vinoth Kumar, Sneha Patel"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#120502] border border-[#B8945B]/40 text-xs text-white placeholder-stone-500 outline-none" />
+          </div>
+
+          <!-- City / Location -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">City / Location (Optional)</label>
+            <input type="text" id="modalAddFriendCity"
+                   placeholder="e.g. Chennai, Bengaluru, Mumbai"
+                   value="Chennai"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#120502] border border-[#B8945B]/40 text-xs text-white placeholder-stone-500 outline-none" />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" 
+                  class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 mt-2">
+            <span>Connect & Add to Circle</span> ✨
+          </button>
+        </form>
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+  }
+
+  closeAddFriendModal() {
+    const modal = document.getElementById('addFriendModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  submitAddFriendModal() {
+    const phoneInput = document.getElementById('modalAddFriendPhone')?.value;
+    const nameInput = document.getElementById('modalAddFriendName')?.value;
+    const cityInput = document.getElementById('modalAddFriendCity')?.value || 'Chennai';
+
+    const res = loyaltyStore.addFriendByMobile(phoneInput, nameInput, cityInput);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.closeAddFriendModal();
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
     }
   }
 
@@ -4434,6 +6507,88 @@ class LaDesioApp {
       activeTitleElem.textContent = routeTitles[this.currentRoute] || 'HAUTE PATISSERIE';
     }
 
+    const headerSignInLink = document.getElementById('headerSignInLink');
+    const headerProfileBtn = document.getElementById('headerProfileBtn');
+    const pfpDropdown = document.getElementById('headerPfpDropdown');
+    const isAuth = loyaltyStore && loyaltyStore.isUserAuthenticated() && loyaltyStore.profile;
+
+    if (isAuth) {
+      const prof = loyaltyStore.profile;
+      const firstName = (prof.name || 'Privé').split(' ')[0];
+      const initials = (prof.name || 'Member').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+
+      // In authenticated state: HIDE "Sign In" link, SHOW PFP Avatar button
+      if (headerSignInLink) {
+        headerSignInLink.classList.add('hidden');
+        headerSignInLink.classList.remove('inline-flex');
+      }
+
+      if (headerProfileBtn) {
+        headerProfileBtn.classList.remove('hidden');
+        headerProfileBtn.classList.add('flex');
+      }
+
+      const headerPfpAvatar = document.getElementById('headerPfpAvatar');
+      const headerPfpInitials = document.getElementById('headerPfpInitials');
+      const dropdownPfpName = document.getElementById('dropdownPfpName');
+      const dropdownPfpEmail = document.getElementById('dropdownPfpEmail');
+      const dropdownPfpTier = document.getElementById('dropdownPfpTier');
+      const dropdownPfpInitials = document.getElementById('dropdownPfpInitials');
+      const dropdownAvatarContainer = document.getElementById('dropdownPfpAvatar');
+
+      if (headerPfpInitials) headerPfpInitials.textContent = initials;
+      if (dropdownPfpInitials) dropdownPfpInitials.textContent = initials;
+      if (dropdownPfpName) dropdownPfpName.textContent = prof.name;
+      if (dropdownPfpEmail) dropdownPfpEmail.textContent = prof.email || prof.displayPhone || prof.phone || '';
+      if (dropdownPfpTier) dropdownPfpTier.textContent = `✨ ${prof.tier || 'Privé'} Member • ${prof.points || 0} Pts`;
+
+      if (prof.avatar) {
+        if (headerPfpAvatar) {
+          headerPfpAvatar.innerHTML = `<img src="${prof.avatar}" alt="${prof.name}" class="w-full h-full object-cover rounded-full" onerror="this.outerHTML='<span class=\\'w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center\\'>${initials}</span>'" />`;
+        }
+        if (dropdownAvatarContainer) {
+          dropdownAvatarContainer.innerHTML = `<img src="${prof.avatar}" alt="${prof.name}" class="w-full h-full object-cover rounded-full" onerror="this.outerHTML='<span class=\\'w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center\\'>${initials}</span>'" />`;
+        }
+      } else {
+        if (headerPfpAvatar) {
+          headerPfpAvatar.innerHTML = `<span id="headerPfpInitials" class="w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center">${initials}</span>`;
+        }
+        if (dropdownAvatarContainer) {
+          dropdownAvatarContainer.innerHTML = `<div id="dropdownPfpInitials" class="w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] font-serif font-bold text-sm flex items-center justify-center">${initials}</div>`;
+        }
+      }
+    } else {
+      // In unauthenticated guest state: SHOW "Sign In" link, HIDE PFP Avatar button
+      if (headerSignInLink) {
+        headerSignInLink.classList.remove('hidden');
+        headerSignInLink.classList.add('inline-flex');
+        headerSignInLink.setAttribute('href', '#login');
+        headerSignInLink.setAttribute('title', 'Sign In or Register Profile');
+      }
+
+      if (headerProfileBtn) {
+        headerProfileBtn.classList.add('hidden');
+        headerProfileBtn.classList.remove('flex');
+      }
+
+      if (pfpDropdown) {
+        pfpDropdown.classList.add('hidden');
+      }
+
+      // Reset dropdown fields so no cached profile is ever visible
+      const dropdownPfpName = document.getElementById('dropdownPfpName');
+      const dropdownPfpEmail = document.getElementById('dropdownPfpEmail');
+      const dropdownPfpTier = document.getElementById('dropdownPfpTier');
+      const dropdownPfpInitials = document.getElementById('dropdownPfpInitials');
+      const headerPfpInitials = document.getElementById('headerPfpInitials');
+
+      if (dropdownPfpName) dropdownPfpName.textContent = 'Privé Member';
+      if (dropdownPfpEmail) dropdownPfpEmail.textContent = '';
+      if (dropdownPfpTier) dropdownPfpTier.textContent = '✨ Privé Club';
+      if (dropdownPfpInitials) dropdownPfpInitials.textContent = '👑';
+      if (headerPfpInitials) headerPfpInitials.textContent = '👑';
+    }
+
     // Update active nav links desktop
     document.querySelectorAll('.nav-link, a[data-nav]').forEach(link => {
       const navTarget = link.getAttribute('data-nav') || link.getAttribute('href')?.replace('#', '');
@@ -4486,6 +6641,12 @@ class LaDesioApp {
         break;
       case 'account':
         this.renderAccountView(mainContainer);
+        break;
+      case 'login':
+        this.renderLoginView(mainContainer, 'signin');
+        break;
+      case 'register':
+        this.renderLoginView(mainContainer, 'register');
         break;
       case 'checkout':
         this.renderCheckoutView(mainContainer);
@@ -5200,8 +7361,14 @@ class LaDesioApp {
         }
       }
 
+      // Eggless Toggle Filter
+      if (this.activeFilter.onlyEggless && !p.isEggless) {
+        return false;
+      }
+
       // Dietary filter
       if (this.activeFilter.dietary !== 'all') {
+        if (this.activeFilter.dietary === 'eggless' && !p.isEggless) return false;
         if (!p.dietary.some(d => d.toLowerCase().includes(this.activeFilter.dietary.toLowerCase()))) {
           return false;
         }
@@ -5236,14 +7403,25 @@ class LaDesioApp {
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
-        <!-- Category Tabs -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          ${CATEGORIES.map(cat => `
-            <button onclick="window.ladesioApp.setMenuCategory('${cat.id}')"
-                    class="px-4 py-2 rounded-xl text-xs font-serif font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${this.selectedCategory === cat.id ? 'bg-[#B8945B] text-[#140602] font-bold shadow-lg ring-2 ring-[#E6CA85]/50' : 'bg-[#1F0C06] text-[#E6CA85] border border-[#B8945B]/30 hover:border-[#E6CA85]/60 hover:text-white'}">
-              <span>${cat.name}</span>
-            </button>
-          `).join('')}
+        <!-- Category Tabs & Eggless Quick Filter -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+            ${CATEGORIES.map(cat => `
+              <button onclick="window.ladesioApp.setMenuCategory('${cat.id}')"
+                      class="px-4 py-2 rounded-xl text-xs font-serif font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${this.selectedCategory === cat.id ? 'bg-[#B8945B] text-[#140602] font-bold shadow-lg ring-2 ring-[#E6CA85]/50' : 'bg-[#1F0C06] text-[#E6CA85] border border-[#B8945B]/30 hover:border-[#E6CA85]/60 hover:text-white'}">
+                <span>${cat.name}</span>
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Prominent 100% Eggless Toggle Button -->
+          <button type="button"
+                  onclick="window.ladesioApp.toggleEgglessFilter()"
+                  class="px-4 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-md cursor-pointer shrink-0 ${this.activeFilter.onlyEggless ? 'bg-emerald-600 text-white ring-2 ring-emerald-300 shadow-emerald-900/50' : 'bg-[#140602] text-emerald-400 border border-emerald-500/50 hover:bg-emerald-950/40'}">
+            <span class="w-2.5 h-2.5 rounded-full ${this.activeFilter.onlyEggless ? 'bg-white' : 'bg-emerald-500'} ring-2 ring-emerald-400/40"></span>
+            <span>🟢 100% Eggless Only</span>
+            ${this.activeFilter.onlyEggless ? '<span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded-full">ACTIVE</span>' : ''}
+          </button>
         </div>
 
         <!-- Filter Bar & Sorting -->
@@ -5680,6 +7858,10 @@ class LaDesioApp {
   // CUSTOMER ACCOUNT & LA DESIO PRIVÉ
   // ==========================================
   renderAccountView(container = document.getElementById('app-main-content')) {
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.renderLoginView(container, 'signin');
+      return;
+    }
     if (!this.activeAccountTab) {
       this.activeAccountTab = 'creations';
     }
@@ -5726,6 +7908,7 @@ class LaDesioApp {
                           class="px-3 py-1 rounded-lg border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0A06]/70 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm">
                     <span>✏️</span> Edit Profile & Bio
                   </button>
+                  
                 </div>
                 <p class="text-xs text-[#D6C2B0]">${profile.email} • Client since ${profile.joinedDate}</p>
                 ${profile.bio ? `
@@ -5788,6 +7971,8 @@ class LaDesioApp {
                     class="pb-3 px-3 sm:px-4 font-serif text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2 border-b-2 whitespace-nowrap ${this.activeAccountTab === 'loyalty' ? 'border-[#E6CA85] text-[#E6CA85] font-bold' : 'border-transparent text-[#D6C2B0] hover:text-white'}">
               <span>👑 Privé Tier & Addresses</span>
             </button>
+
+            
           </div>
         </div>
       </div>
@@ -6114,6 +8299,11 @@ class LaDesioApp {
                                   class="px-2.5 py-1 rounded-lg border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0A06]/80 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm">
                             <span>✏️</span> Edit Name & Photo
                           </button>
+                          <button onclick="window.ladesioApp.handleRemoveFriend('${friend.id}', '${friend.name}')"
+                                  class="px-2.5 py-1 rounded-lg border border-rose-500/40 hover:border-rose-500 text-rose-300 hover:text-white bg-rose-950/40 hover:bg-rose-900/60 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
+                                  title="Remove ${friend.name} from Circle">
+                            <span>🗑️</span> Remove Friend
+                          </button>
                         </div>
                         <p class="text-xs text-[#E6CA85] font-mono">${friend.handle} • 📍 ${friend.location}</p>
                         <p class="text-xs text-[#D6C2B0] leading-relaxed max-w-2xl bg-black/25 p-3.5 rounded-xl border-l-2 border-[#B8945B]">
@@ -6204,14 +8394,56 @@ class LaDesioApp {
             } else {
               return `
                 <div class="space-y-6">
-                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#B8945B]/20 pb-4">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#B8945B]/20 pb-4">
                     <div>
                       <h3 class="font-display text-2xl text-[#FFFDF9]">Atelier Friends Circle</h3>
                       <p class="text-xs text-[#D6C2B0] mt-0.5">Explore handcrafted bespoke recipes from fellow patisserie connoisseurs. Tap any friend to discover & order their signature creations.</p>
                     </div>
-                    <span class="text-xs font-serif text-[#E6CA85] bg-[#180A06] px-3.5 py-1.5 rounded-full border border-[#B8945B]/30 w-fit">
-                      🌟 ${friends.length} Featured Profiles
-                    </span>
+                    <div class="flex items-center gap-3">
+                      <span class="text-xs font-serif text-[#E6CA85] bg-[#180A06] px-3.5 py-1.5 rounded-full border border-[#B8945B]/30 shrink-0">
+                        🌟 ${friends.length} Circle Friends
+                      </span>
+                      <button type="button" onclick="window.ladesioApp.openAddFriendModal()"
+                              class="px-4 py-2 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-md shrink-0 cursor-pointer">
+                        <span>➕ Add Friend</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- PROMINENT SEARCH BAR TO SEARCH & ADD FRIENDS BY MOBILE NUMBER -->
+                  <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#220B06] to-[#140603] border-2 border-[#B8945B]/60 shadow-2xl space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div>
+                        <h4 class="font-display text-lg text-white font-bold flex items-center gap-2">
+                          <span>🔍</span> Search Friends by Mobile Number
+                        </h4>
+                        <p class="text-xs text-[#D6C2B0]">Search any member's 10-digit mobile number (or name) to find, connect, and view their creations.</p>
+                      </div>
+                    </div>
+
+                    <!-- Search Input Bar with Country Flag -->
+                    <div class="relative flex items-center rounded-2xl bg-black/70 border border-[#B8945B]/50 focus-within:border-[#E6CA85] overflow-hidden shadow-inner">
+                      <div class="px-4 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-[#1A0804] flex items-center gap-1.5 shrink-0">
+                        <span>🇮🇳 +91</span>
+                      </div>
+                      <input type="text"
+                             id="friendMobileSearchInput"
+                             oninput="window.ladesioApp.handleFriendSearchInput(this.value)"
+                             placeholder="Search by 10-digit mobile number (e.g. 97904 96706, 95667 83614, 96774 07374) or name..."
+                             class="w-full px-4 py-3 bg-transparent text-white text-xs font-mono placeholder-stone-500 focus:outline-none" />
+                      <button type="button" 
+                              onclick="window.ladesioApp.clearFriendSearch()"
+                              class="px-4 py-3 text-stone-400 hover:text-white text-xs font-bold transition-colors cursor-pointer">
+                        ✕
+                      </button>
+                    </div>
+
+                    <!-- Live Real-Time Search Results Mount -->
+                    <div id="friendSearchResultsMount" class="hidden space-y-3 pt-2"></div>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-1">
+                    <h4 class="font-display text-xl text-[#FFFDF9]">Active Circle Friends (${friends.length})</h4>
                   </div>
 
                   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -6235,11 +8467,18 @@ class LaDesioApp {
                                 <p class="text-[11px] text-[#D6C2B0]">${f.handle} • 📍 ${f.location}</p>
                               </div>
                             </div>
-                            <button onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
-                                    class="p-2 rounded-xl bg-[#180A06] hover:bg-[#3A1F17] border border-[#B8945B]/30 hover:border-[#B8945B] text-[#E6CA85] hover:text-white text-xs transition-colors shrink-0"
-                                    title="Edit Friend Name, Bio & Photo">
-                              ✏️
-                            </button>
+                            <div class="flex items-center gap-1.5 shrink-0">
+                              <button onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
+                                      class="p-2 rounded-xl bg-[#180A06] hover:bg-[#3A1F17] border border-[#B8945B]/30 hover:border-[#B8945B] text-[#E6CA85] hover:text-white text-xs transition-colors shrink-0"
+                                      title="Edit Friend Name, Bio & Photo">
+                                ✏️
+                              </button>
+                              <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
+                                      class="p-2 rounded-xl bg-[#180A06] hover:bg-rose-950/70 border border-rose-500/30 hover:border-rose-500 text-rose-300 hover:text-white text-xs transition-colors shrink-0"
+                                      title="Remove ${f.name} from Circle">
+                                🗑️
+                              </button>
+                            </div>
                           </div>
 
                           <!-- Bio -->
@@ -6262,12 +8501,19 @@ class LaDesioApp {
                           </div>
                         </div>
 
-                        <!-- Button to open profile -->
-                        <button onclick="window.ladesioApp.viewFriendProfile('${f.id}')"
-                                class="mt-6 w-full py-2.5 px-4 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-2 shadow-md">
-                          <span>View ${f.name.split(' ')[0]}'s Creations (${f.creations.length})</span>
-                          <span>→</span>
-                        </button>
+                        <!-- Actions: View creations & Remove -->
+                        <div class="mt-6 flex items-center gap-2">
+                          <button onclick="window.ladesioApp.viewFriendProfile('${f.id}')"
+                                  class="flex-1 py-2.5 px-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-md">
+                            <span>View ${f.name.split(' ')[0]}'s Profile</span>
+                            <span>→</span>
+                          </button>
+                          <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
+                                  class="py-2.5 px-3 rounded-xl border border-rose-500/40 hover:border-rose-500 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 hover:text-white text-xs font-serif transition-colors flex items-center justify-center gap-1 shadow-sm shrink-0 cursor-pointer"
+                                  title="Remove ${f.name} from Circle">
+                            <span>🗑️</span> Remove
+                          </button>
+                        </div>
                       </div>
                     `).join('')}
                   </div>
@@ -6285,6 +8531,14 @@ class LaDesioApp {
   // CHECKOUT PAGE VIEW
   // ==========================================
   renderCheckoutView(container) {
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.pendingRedirectRoute = 'checkout';
+      this.renderLoginView(container, 'signin');
+      if (window.showToast) {
+        window.showToast('Please sign in or create an account to proceed with your order.', 'info');
+      }
+      return;
+    }
     container.innerHTML = `<div id="checkoutFlowMount"></div>`;
     window.checkoutManager = new CheckoutManager('checkoutFlowMount', () => {
       this.renderNavigationBadges();
@@ -6312,10 +8566,17 @@ class LaDesioApp {
             </span>
           </div>
 
-          <!-- Badge -->
-          <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#180804] text-[#E6CA85] border border-[#B8945B]/60 backdrop-blur-md text-[10px] font-serif uppercase tracking-wider shadow-md font-semibold">
-            ${product.badge}
-          </span>
+          <!-- Badge & Official FSSAI Dietary Mark -->
+          <div class="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+            <span class="px-2.5 py-1 rounded-full bg-[#180804]/90 text-[#E6CA85] border border-[#B8945B]/60 backdrop-blur-md text-[10px] font-serif uppercase tracking-wider shadow-md font-semibold">
+              ${product.badge}
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md border ${product.isEggless ? 'border-emerald-500/80 text-emerald-300' : 'border-rose-600/80 text-rose-300'} flex items-center gap-1 text-[10px] font-serif font-bold shadow-md"
+                  title="${product.isEggless ? '100% Eggless Pure Vegetarian' : 'Contains Egg'}">
+              <span class="w-2 h-2 rounded-full ${product.isEggless ? 'bg-emerald-400 ring-2 ring-emerald-500/30' : 'bg-rose-500 ring-2 ring-rose-600/30'}"></span>
+              <span>${product.isEggless ? 'Eggless' : 'Contains Egg'}</span>
+            </span>
+          </div>
 
           <!-- Wishlist Heart Button -->
           <button onclick="event.stopPropagation(); window.ladesioApp.toggleWishlist('${product.id}')"
@@ -6329,12 +8590,14 @@ class LaDesioApp {
         <div class="p-5 flex-1 flex flex-col justify-between space-y-3 bg-gradient-to-b from-[#583324] to-[#3E2014]">
           <div>
             <div class="flex items-center justify-between text-xs text-[#E6CA85] font-medium mb-1.5">
-              <span class="flex items-center gap-1 font-serif">
-                <span class="text-[#E6CA85]">★</span>
+              <span class="flex items-center gap-1.5 font-serif cursor-pointer hover:underline"
+                    onclick="window.ladesioApp.openProductModal('${product.id}')"
+                    title="Click to view verified customer reviews">
+                <span class="text-amber-400 font-bold">★</span>
                 <strong class="text-[#FFFDF9]">${product.rating.toFixed(2)}</strong>
-                <span class="text-[#E8D7C7]/70">(${product.reviewsCount})</span>
+                <span class="text-[#E8D7C7]/70 font-sans text-[11px]">(${product.reviewsCount} reviews)</span>
               </span>
-              <span class="text-[#E8D7C7]/80 font-sans text-[11px]">${product.prepTime.split(' ')[0]} mins</span>
+              <span class="text-[#E8D7C7]/80 font-sans text-[11px]">⏱️ ${product.prepTime.split(' ')[0]} mins</span>
             </div>
 
             <h3 class="card-title font-display text-xl text-[#FFFDF9] group-hover:text-[#E6CA85] transition-colors leading-snug">
@@ -6349,8 +8612,12 @@ class LaDesioApp {
               ${product.description}
             </p>
 
-            <!-- Dietary Tag Chips -->
+            <!-- Dietary Tag Chips with Eggless Indicator -->
             <div class="flex flex-wrap gap-1.5 mt-3">
+              <span class="px-2.5 py-0.5 rounded-full ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} border text-[10px] font-serif flex items-center gap-1 font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
+                <span>${product.isEggless ? '100% Eggless' : 'Contains Egg'}</span>
+              </span>
               ${product.dietary.slice(0, 2).map(d => `
                 <span class="px-2.5 py-0.5 rounded-full bg-[#240F06] text-[10px] text-[#E6CA85] border border-[#B8945B]/30 font-serif">
                   ${d}
@@ -6460,7 +8727,14 @@ class LaDesioApp {
         <div class="md:col-span-6 space-y-4">
           <div>
             <div class="flex items-center justify-between text-xs text-[#E6CA85] mb-1">
-              <span>★ ${product.rating.toFixed(2)} (${product.reviewsCount} verified reviews)</span>
+              <span class="flex items-center gap-2">
+                <span class="text-amber-400">★ ${product.rating.toFixed(2)}</span>
+                <span class="text-[#D6C2B0]/70">(${product.reviewsCount} reviews)</span>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold border ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
+                  <span>${product.isEggless ? '100% Eggless' : 'Contains Egg'}</span>
+                </span>
+              </span>
               <span class="text-[#D6C2B0]/70 font-mono">${product.servingSize}</span>
             </div>
             <h2 class="font-display text-2xl sm:text-3xl text-[#FFFDF9]">${product.name}</h2>
@@ -6556,8 +8830,8 @@ class LaDesioApp {
                 <span class="text-[#E6CA85] text-xs">▼</span>
               </summary>
               <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">
-                Allergens: ${product.allergens.join(', ') || 'None'}<br/>
-                Dietary: ${product.dietary.join(', ')}
+                Dietary: ${product.isEggless ? '🟢 100% Eggless Pure Vegetarian' : '🔴 Contains Egg'}<br/>
+                Allergens: ${product.allergens.join(', ') || 'None'}
               </p>
             </details>
 
@@ -6568,6 +8842,36 @@ class LaDesioApp {
               </summary>
               <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">${product.storageInfo}</p>
             </details>
+          </div>
+
+          <!-- Verified Customer Reviews Module -->
+          <div class="p-3.5 rounded-xl bg-[#180804] border border-[#B8945B]/35 space-y-2.5 text-xs">
+            <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-400 font-bold">★</span>
+                <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.rating.toFixed(2)}</span>
+                <span class="text-[#D6C2B0]/70 text-[11px]">(${product.reviewsCount} customer reviews)</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 text-[10px] font-serif">
+                ✓ Verified Atelier Buyers
+              </span>
+            </div>
+
+            <div class="space-y-2 max-h-40 overflow-y-auto pr-1">
+              ${(product.reviews || [
+                { author: 'Atelier Patron', city: 'Chennai', rating: 5, date: 'Recent', title: 'Exceptional Balance', comment: 'Every layer of this dessert was executed with culinary precision.' }
+              ]).map(r => `
+                <div class="p-2.5 rounded-lg bg-[#241109] border border-[#B8945B]/20 space-y-1 text-left">
+                  <div class="flex items-center justify-between">
+                    <span class="font-serif font-bold text-[#E6CA85] text-[11px]">${r.author} <span class="text-stone-400 font-normal">(${r.city || 'Chennai'})</span></span>
+                    <span class="text-amber-400 text-[10px]">${'★'.repeat(r.rating || 5)}</span>
+                  </div>
+                  <p class="font-serif font-semibold text-[#FFFDF9] text-[11px]">${r.title}</p>
+                  <p class="text-[11px] text-[#D6C2B0] italic leading-relaxed">"${r.comment}"</p>
+                  <span class="text-[9px] text-stone-400 block pt-0.5">${r.date} • Verified Purchase</span>
+                </div>
+              `).join('')}
+            </div>
           </div>
 
           <!-- Quantity & Add to Cart -->
@@ -6883,9 +9187,9 @@ class LaDesioApp {
       </div>
 
       <!-- Checkout Button -->
-      <button onclick="window.ladesioApp.closeCartDrawer(); window.location.hash='#checkout'"
+      <button onclick="window.ladesioApp.handleProceedToCheckout()"
               class="w-full mt-4 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center justify-center gap-2 shadow-xl">
-        <span>Proceed to Checkout</span> 👑
+        <span>Proceed to Checkout</span> 💳
       </button>
     `;
   }
@@ -7017,6 +9321,11 @@ class LaDesioApp {
     window.showToast(res.message, res.success ? 'success' : 'info');
   }
 
+  toggleEgglessFilter() {
+    this.activeFilter.onlyEggless = !this.activeFilter.onlyEggless;
+    this.renderMenuView(document.getElementById('app-main-content'));
+  }
+
   setMenuCategory(catId) {
     this.selectedCategory = catId;
     this.renderMenuView(document.getElementById('app-main-content'));
@@ -7039,7 +9348,7 @@ class LaDesioApp {
 
   resetFilters() {
     this.selectedCategory = 'all';
-    this.activeFilter = { priceMax: 3500, dietary: 'all', sortBy: 'recommended' };
+    this.activeFilter = { priceMax: 3500, dietary: 'all', onlyEggless: false, sortBy: 'recommended' };
     this.renderMenuView(document.getElementById('app-main-content'));
   }
 
@@ -7516,10 +9825,16 @@ class LaDesioApp {
 
           <!-- Action Buttons -->
           <div class="flex items-center justify-between pt-4 border-t border-[#B8945B]/20">
-            <button type="button" onclick="window.ladesioApp.resetFriendProfile('${friend.id}')"
-                    class="text-[11px] font-serif text-stone-400 hover:text-white underline">
-              Reset Default
-            </button>
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="window.ladesioApp.resetFriendProfile('${friend.id}')"
+                      class="text-[11px] font-serif text-stone-400 hover:text-white underline">
+                Reset Default
+              </button>
+              <button type="button" onclick="window.ladesioApp.closeEditFriendProfileModal(); window.ladesioApp.handleRemoveFriend('${friend.id}', '${friend.name}')"
+                      class="text-[11px] font-serif text-rose-400 hover:text-rose-200 flex items-center gap-1 hover:underline cursor-pointer">
+                <span>🗑️</span> Remove Friend
+              </button>
+            </div>
             <div class="flex items-center gap-2">
               <button type="button" onclick="window.ladesioApp.closeEditFriendProfileModal()"
                       class="px-3.5 py-2 rounded-xl border border-stone-700 hover:border-stone-500 text-stone-300 text-xs font-serif transition-colors">
@@ -7638,6 +9953,890 @@ class LaDesioApp {
 
   resetFriendPhoto(friendId) {
     this.resetFriendProfile(friendId);
+  }
+
+  handleProceedToCheckout() {
+    this.closeCartDrawer();
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.pendingRedirectRoute = 'checkout';
+      window.location.hash = '#login';
+      if (window.showToast) {
+        window.showToast('Please sign in or create an account to proceed with your order.', 'info');
+      }
+    } else {
+      window.location.hash = '#checkout';
+    }
+  }
+
+
+
+
+// ==========================================
+  // LUXURY E-COMMERCE LOGIN & REGISTRATION PORTAL
+  // ==========================================
+  renderAccountLockScreen() {
+    const container = document.getElementById('app-main-content');
+    if (container) {
+      this.renderLoginView(container, 'signin');
+      return container.innerHTML;
+    }
+    return `<div id="loginPortalContainer"></div>`;
+  }
+
+  renderLoginView(container = document.getElementById('app-main-content'), initialTab = 'signin', authMethod = 'email') {
+    if (!container) return;
+    this.activeAuthTab = initialTab;
+    this.activeAuthMethod = authMethod;
+    if (!this.mobileAuthStep) this.mobileAuthStep = 'phone';
+
+    container.innerHTML = `
+      <div class="min-h-[82vh] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center">
+        <!-- Breadcrumb & Brand Subhead -->
+        <div class="mb-6 sm:mb-8 text-center sm:text-left">
+          <div class="flex items-center justify-center sm:justify-start gap-2 text-xs font-serif tracking-wider uppercase text-stone-400">
+            <a href="#home" class="hover:text-[#E6CA85] transition-colors">Home Salon</a>
+            <span class="text-[#B8945B]/60">/</span>
+            <span class="text-[#E6CA85] font-semibold">La Desio Privé Club</span>
+            <span class="text-[#B8945B]/60">/</span>
+            <span class="text-stone-300" id="authBreadcrumbAction">${initialTab === 'signin' ? 'Sign In' : 'Privé Registration'}</span>
+          </div>
+        </div>
+
+        <!-- Split-Screen Editorial Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- LEFT COLUMN: EDITORIAL BRAND SHOWCASE (Desktop Luxury Editorial) -->
+          <div class="hidden lg:flex lg:col-span-5 relative rounded-3xl overflow-hidden border border-[#B8945B]/40 shadow-2xl flex-col justify-between p-8 xl:p-10 bg-cover bg-center"
+               style="background-image: linear-gradient(180deg, rgba(18, 7, 4, 0.84) 0%, rgba(26, 9, 5, 0.94) 75%, rgba(18, 7, 4, 0.98) 100%), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85');">
+            
+            <!-- Top Crest & Heritage -->
+            <div class="space-y-6">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D140C] to-[#140804] border border-[#B8945B]/60 flex items-center justify-center shadow-lg p-2">
+                  <img src="Assets/Logo/emblem_transparent.png" alt="La Desio Emblem" class="w-full h-full object-contain" onerror="this.outerHTML='<span class=\'text-2xl\'>👑</span>'" />
+                </div>
+                <div>
+                  <h3 class="font-serif text-base tracking-[0.2em] uppercase text-[#E6CA85] font-bold">La Desio Privé</h3>
+                  <p class="text-[11px] text-stone-300 font-sans tracking-wide">Italian Patisserie Connoisseurs</p>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <span class="text-[10px] uppercase font-serif tracking-[0.3em] text-[#B8945B] font-bold block">Exclusive Member Sanctuary</span>
+                <h2 class="font-display text-3xl xl:text-4xl font-bold text-[#FFFDF9] leading-tight">
+                  Where Cravings Become Creations.
+                </h2>
+                <p class="text-xs text-[#D6C2B0] font-serif leading-relaxed pt-1">
+                  Step inside our private digital salon. Unlock reservations for limited-batch seasonal patisserie, personalized recipe storage, and white-glove delivery across our Indian flagship ateliers.
+                </p>
+              </div>
+
+              <!-- Privé Benefits Checklist -->
+              <div class="space-y-3.5 pt-4 border-t border-[#B8945B]/25">
+                <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-bold block">Privé Member Privileges:</span>
+                
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">👑</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">Tier Status Elevation</h4>
+                    <p class="text-[11px] text-stone-300">Advance from Amore to Élite and Royale for bespoke tasting invites & masterclasses.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">✨</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">+250 Welcome Points</h4>
+                    <p class="text-[11px] text-stone-300">Complimentary reward balance credited instantly upon joining your Privé profile.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">🎂</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">Annual Birthday Patisserie</h4>
+                    <p class="text-[11px] text-stone-300">A handcrafted dessert gift presented by our master chef during your birthday week.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">🧪</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">Private 3D Recipe Vault</h4>
+                    <p class="text-[11px] text-stone-300">Save bespoke creations from the Studio and reorder with your unique recipe code.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust & Atelier Stamp -->
+            <div class="pt-6 border-t border-[#B8945B]/30 flex items-center justify-between text-[11px] text-stone-400">
+              <span class="flex items-center gap-1.5"><span class="text-emerald-400">🔒</span> 256-Bit SSL Encrypted</span>
+              <span>Ateliers: Chennai • Bengaluru • Kochi</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: INTERACTIVE LUXURY AUTHENTICATION CARD -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <div class="auth-glass-panel rounded-3xl p-6 sm:p-10 text-[#FFFDF9] space-y-6 relative overflow-hidden">
+              
+              <!-- Subtle top gold highlight line -->
+              <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E6CA85] to-transparent"></div>
+
+              <!-- Header with Brand Emblem -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">Client Portal</span>
+                  <h1 class="font-display text-2xl sm:text-3xl font-bold text-white mt-0.5" id="authMainTitle">
+                    ${initialTab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership'}
+                  </h1>
+                  <p class="text-xs text-[#D6C2B0] mt-1 font-serif" id="authSubTitle">
+                    ${initialTab === 'signin' ? 'Welcome back. Please enter your credentials to access your account.' : 'Join our exclusive patisserie circle and receive 250 complimentary welcome points.'}
+                  </p>
+                </div>
+                <div class="w-11 h-11 rounded-2xl bg-[#140804] border border-[#B8945B]/40 flex items-center justify-center shadow-lg text-xl shrink-0 ml-3">
+                  👑
+                </div>
+              </div>
+
+              <!-- Primary Segment Switcher (Sign In vs Create Account) -->
+              <div class="grid grid-cols-2 p-1 rounded-2xl bg-[#140804] border border-[#B8945B]/30 text-xs font-serif font-semibold">
+                <button type="button" onclick="window.ladesioApp.switchAuthTab('signin')" 
+                        class="py-2.5 rounded-xl transition-all text-center ${initialTab === 'signin' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+                  <span>Sign In</span>
+                </button>
+                <button type="button" onclick="window.ladesioApp.switchAuthTab('register')" 
+                        class="py-2.5 rounded-xl transition-all text-center relative ${initialTab === 'register' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+                  <span>Create Account</span>
+                  <span class="hidden sm:inline-block ml-1 px-1.5 py-0.5 text-[9px] rounded-full bg-[#B8945B] text-[#120502] font-bold">+250 Pts</span>
+                </button>
+              </div>
+
+              <!-- DYNAMIC CONTENT CONTAINER (Sign In or Register) -->
+              <div id="authDynamicFormArea">
+                ${this.renderAuthFormContent(initialTab, authMethod)}
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `;
+  }
+
+  // Generate the internal form HTML (Sign In vs Register and Email vs Mobile)
+  renderAuthFormContent(tab = 'signin', method = 'email', isModal = false) {
+    if (tab === 'signin') {
+      return `
+        <div class="space-y-5">
+          <!-- Auth Method Sub-Tabs (Email vs Mobile) -->
+          <div class="flex items-center border-b border-[#B8945B]/30 pb-2 gap-6 text-xs font-serif">
+            <button type="button" onclick="window.ladesioApp.switchAuthMethod('email', ${isModal})"
+                    class="auth-tab-btn pb-1 ${method === 'email' ? 'active' : ''}">
+              ✉️ Email & Password
+            </button>
+            <button type="button" onclick="window.ladesioApp.switchAuthMethod('mobile', ${isModal})"
+                    class="auth-tab-btn pb-1 ${method === 'mobile' ? 'active' : ''}">
+              📱 Mobile & OTP
+            </button>
+          </div>
+
+          ${method === 'email' ? `
+            <!-- EMAIL & PASSWORD FORM -->
+            <form onsubmit="window.ladesioApp.handleEmailPasswordLogin(event, ${isModal})" class="space-y-4">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Email Address or Connoisseur ID</label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3.5 text-stone-400 text-sm">✉️</span>
+                  <input type="email" id="${isModal ? 'modalLoginEmailInput' : 'loginEmailInput'}" required
+                         value="theroodyy@gmail.com"
+                         placeholder="e.g. connoisseur@ladesio.com"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Password</label>
+                  <button type="button" onclick="window.ladesioApp.openForgotPasswordModal()"
+                          class="text-[11px] font-serif text-[#E6CA85] hover:text-white underline">
+                    Forgot password?
+                  </button>
+                </div>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3.5 text-stone-400 text-sm">🔒</span>
+                  <input type="password" id="${isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput'}" required
+                         value="desio123"
+                         placeholder="••••••••"
+                         class="w-full pl-10 pr-11 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                  <button type="button" onclick="window.ladesioApp.togglePasswordVisibility('${isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput'}', '${isModal ? 'modalLoginEyeIcon' : 'loginEyeIcon'}')"
+                          class="absolute right-3.5 text-stone-400 hover:text-[#E6CA85] transition-colors p-1"
+                          title="Show/Hide password">
+                    <span id="${isModal ? 'modalLoginEyeIcon' : 'loginEyeIcon'}">👁️</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="${isModal ? 'modalRememberMe' : 'rememberMe'}" checked 
+                         class="w-4 h-4 rounded border-[#B8945B]/50 bg-[#120502] text-[#B8945B] focus:ring-0 focus:ring-offset-0 cursor-pointer" />
+                  <span>Remember me on this device</span>
+                </label>
+              </div>
+
+              <button type="submit" 
+                      class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99]">
+                <span>Sign In to Privé</span> 🔑
+              </button>
+
+              <!-- Social / Express Auth Options -->
+              <div class="relative my-4 text-center">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#B8945B]/20"></div></div>
+                <span class="relative px-3 bg-[#241009] text-[10px] font-serif tracking-widest uppercase text-stone-400 font-semibold">Or Continue With</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" onclick="window.ladesioApp.handleSocialLogin('Google', ${isModal})"
+                        class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24">
+                    <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/>
+                    <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"/>
+                    <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/>
+                    <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/>
+                  </svg>
+                  <span>Google</span>
+                </button>
+
+                <button type="button" onclick="window.ladesioApp.handleSocialLogin('Apple', ${isModal})"
+                        class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 170 170">
+                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.34-6.3-9.57-11.1-20.2-14.4-31.9-3.3-11.7-4.96-22.78-4.96-33.24 0-14.58 3.75-26.69 11.25-36.33 7.5-9.64 16.9-14.53 28.2-14.67 4.58 0 9.8 1.13 15.65 3.38 5.86 2.26 9.8 3.42 11.83 3.48 1.63 0 5.76-1.25 12.39-3.75 6.63-2.5 12.06-3.63 16.29-3.39 12.83.67 23.24 5.34 31.23 14 -11.2 6.8-16.69 16.3-16.48 28.51.21 9.89 4.02 18.06 11.45 24.51 7.42 6.45 16.14 10.04 26.15 10.78-2.6 7.82-5.75 15.53-9.44 23.13zM119.22 31.85c0-7.39 2.65-14.28 7.95-20.67 5.3-6.39 11.88-10.45 19.74-12.18.22 1.09.33 2.17.33 3.26 0 7.39-2.72 14.38-8.15 20.97-5.43 6.59-12.06 10.65-19.87 12.18z"/>
+                  </svg>
+                  <span>Apple ID</span>
+                </button>
+              </div>
+            </form>
+          ` : `
+            <!-- MOBILE & OTP FORM -->
+            ${this.mobileAuthStep === 'phone' ? `
+              <form onsubmit="window.ladesioApp.handleSendMobileOtp(event)" class="space-y-4">
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter Your 10-Digit Mobile Number</label>
+                  <div class="flex items-center rounded-xl border border-[#B8945B]/40 bg-[#120502] focus-within:border-[#E6CA85] overflow-hidden">
+                    <span class="px-3.5 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-black/40">
+                      🇮🇳 +91
+                    </span>
+                    <input type="tel" id="mobileAuthPhoneInput" required maxlength="10"
+                           value="${this.mobileAuthPhone || '9345396700'}"
+                           placeholder="93453 96700"
+                           class="w-full px-3.5 py-3 bg-transparent text-white text-xs font-mono outline-none" />
+                  </div>
+                  <span class="text-[11px] text-stone-400">A 6-digit authentication code will be dispatched to this number.</span>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
+                  <span>Generate & Send OTP</span> 📲
+                </button>
+              </form>
+            ` : `
+              <form onsubmit="window.ladesioApp.handleVerifyMobileOtp(event)" class="space-y-4">
+                <!-- Sleek SMS Simulated Banner -->
+                <div class="p-3 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 shadow-xl space-y-1 text-left">
+                  <div class="flex items-center justify-between text-[11px] text-[#E6CA85] font-bold">
+                    <span>📲 SMS VERIFICATION SENT TO +91 ${this.mobileAuthPhone}</span>
+                    <span class="text-[10px] text-stone-400">Delivered</span>
+                  </div>
+                  <p class="text-xs text-white font-mono">
+                    Security Code: <strong class="text-[#E6CA85] font-bold text-sm tracking-wider">${this.mobileAuthOtp || '645123'}</strong>
+                  </p>
+                  <button type="button" onclick="document.getElementById('mobileAuthOtpInput').value = '${this.mobileAuthOtp}';"
+                          class="mt-1 text-[11px] font-serif text-[#E6CA85] hover:text-white underline font-bold">
+                    ⚡ Click to Auto-Fill OTP (${this.mobileAuthOtp})
+                  </button>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter 6-Digit Verification Code (OTP)</label>
+                  <input type="text" id="mobileAuthOtpInput" required maxlength="6"
+                         value="${this.mobileAuthOtp || ''}"
+                         placeholder="••••••"
+                         class="w-full px-4 py-3 rounded-xl border border-[#B8945B]/50 bg-[#120502] text-white text-base font-mono text-center tracking-[0.35em] outline-none focus:border-[#E6CA85]" />
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
+                  <span>Verify & Enter Salon</span> 👑
+                </button>
+
+                <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
+                  <button type="button" onclick="window.ladesioApp.openMobileAuthModal('phone', '${this.mobileAuthPhone}')" class="hover:text-white">
+                    ← Change Phone
+                  </button>
+                  <button type="button" onclick="window.ladesioApp.handleSendMobileOtp(null, '${this.mobileAuthPhone}')" class="text-[#E6CA85] font-bold hover:underline">
+                    Resend Code
+                  </button>
+                </div>
+              </form>
+            `}
+          `}
+        </div>
+      `;
+    }
+
+    // REGISTRATION FORM
+    return `
+      <form onsubmit="window.ladesioApp.handleEmailPasswordRegister(event, ${isModal})" class="space-y-3.5 pt-1">
+        <div class="p-2.5 rounded-xl bg-gradient-to-r from-[#2A130B] to-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs flex items-center gap-2.5">
+          <span class="text-base">🎁</span>
+          <span><strong>Welcome Courtesy:</strong> 250 Privé Points will be automatically credited to your new profile.</span>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Full Name *</label>
+          <input type="text" id="${isModal ? 'modalRegName' : 'regName'}" required placeholder="e.g. Arjun Sundaram"
+                 class="w-full px-3.5 py-2.5 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Email Address *</label>
+            <input type="email" id="${isModal ? 'modalRegEmail' : 'regEmail'}" required placeholder="arjun@ladesio.in"
+                   class="w-full px-3.5 py-2.5 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Mobile Number *</label>
+            <div class="flex items-center rounded-xl border border-[#B8945B]/35 bg-[#120502] overflow-hidden">
+              <span class="px-2.5 py-2 text-xs font-mono text-[#E6CA85] border-r border-[#B8945B]/25 bg-black/40">🇮🇳 +91</span>
+              <input type="tel" id="${isModal ? 'modalRegPhone' : 'regPhone'}" required maxlength="10" placeholder="98401 23456"
+                     class="w-full px-2.5 py-2 bg-transparent text-white text-xs font-mono outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Preferred Atelier City *</label>
+            <select id="${isModal ? 'modalRegCity' : 'regCity'}"
+                    class="w-full px-3 py-2.5 rounded-xl auth-input text-xs font-sans bg-[#120502] text-white">
+              <option value="Chennai">Chennai Flagship (Alwarpet)</option>
+              <option value="Bengaluru">Bengaluru Atelier (Indiranagar)</option>
+              <option value="Kochi">Kochi Salon (Panampilly Nagar)</option>
+              <option value="Trichy">Trichy Boutique</option>
+              <option value="Mumbai">Mumbai Privé Lounge</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Create Secure Password *</label>
+            <div class="relative flex items-center">
+              <input type="password" id="${isModal ? 'modalRegPassword' : 'regPassword'}" required minlength="6"
+                     placeholder="At least 6 characters"
+                     oninput="window.ladesioApp.updatePasswordStrength(this.value, '${isModal ? 'modalStrengthBar' : 'strengthBar'}', '${isModal ? 'modalStrengthText' : 'strengthText'}')"
+                     class="w-full px-3 py-2.5 pr-9 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+              <button type="button" onclick="window.ladesioApp.togglePasswordVisibility('${isModal ? 'modalRegPassword' : 'regPassword'}', '${isModal ? 'modalRegEye' : 'regEye'}')"
+                      class="absolute right-2.5 text-stone-400 hover:text-white p-1">
+                <span id="${isModal ? 'modalRegEye' : 'regEye'}">👁️</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Password Strength Meter -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between text-[10px] text-stone-400">
+            <span>Password Security:</span>
+            <span id="${isModal ? 'modalStrengthText' : 'strengthText'}" class="text-[#B8945B] font-semibold">Enter password</span>
+          </div>
+          <div class="h-1.5 w-full bg-[#120502] rounded-full overflow-hidden border border-[#B8945B]/20">
+            <div id="${isModal ? 'modalStrengthBar' : 'strengthBar'}" class="h-full w-0 bg-stone-500 transition-all duration-300"></div>
+          </div>
+        </div>
+
+        <div class="pt-1">
+          <label class="flex items-start gap-2 text-[11px] text-stone-300 cursor-pointer">
+            <input type="checkbox" required checked class="mt-0.5 rounded border-[#B8945B]/50 bg-[#120502] text-[#B8945B] focus:ring-0 cursor-pointer" />
+            <span>I accept the La Desio Privé Charter, complimentary concierge privileges, and confidential data privacy.</span>
+          </label>
+        </div>
+
+        <button type="submit" 
+                class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 mt-2 transition-transform active:scale-[0.99]">
+          <span>Create Privé Account & Claim 250 Points</span> ✨
+        </button>
+      </form>
+    `;
+  }
+
+  // Switch between Sign In and Register tabs
+  switchAuthTab(tab, isModal = false) {
+    this.activeAuthTab = tab;
+    if (isModal) {
+      const area = document.getElementById('modalAuthDynamicArea');
+      if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'email', true);
+      const title = document.getElementById('modalAuthTitle');
+      if (title) title.textContent = tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership';
+      return;
+    }
+
+    const area = document.getElementById('authDynamicFormArea');
+    if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'email', false);
+
+    const title = document.getElementById('authMainTitle');
+    const subTitle = document.getElementById('authSubTitle');
+    const breadcrumbAction = document.getElementById('authBreadcrumbAction');
+
+    if (title) title.textContent = tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership';
+    if (subTitle) {
+      subTitle.textContent = tab === 'signin' 
+        ? 'Welcome back. Please enter your credentials to access your account.' 
+        : 'Join our exclusive patisserie circle and receive 250 complimentary welcome points.';
+    }
+    if (breadcrumbAction) breadcrumbAction.textContent = tab === 'signin' ? 'Sign In' : 'Privé Registration';
+
+    // Update segment buttons
+    const container = document.getElementById('app-main-content');
+    if (container) {
+      const btns = container.querySelectorAll('.grid.grid-cols-2 button');
+      if (btns && btns.length === 2) {
+        if (tab === 'signin') {
+          btns[0].className = 'py-2.5 rounded-xl transition-all text-center bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold';
+          btns[1].className = 'py-2.5 rounded-xl transition-all text-center relative text-stone-400 hover:text-white';
+        } else {
+          btns[0].className = 'py-2.5 rounded-xl transition-all text-center text-stone-400 hover:text-white';
+          btns[1].className = 'py-2.5 rounded-xl transition-all text-center relative bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold';
+        }
+      }
+    }
+  }
+
+  // Switch between Email and Mobile auth sub-methods
+  switchAuthMethod(method, isModal = false) {
+    this.activeAuthMethod = method;
+    this.mobileAuthStep = 'phone';
+    if (isModal) {
+      const area = document.getElementById('modalAuthDynamicArea');
+      if (area) area.innerHTML = this.renderAuthFormContent('signin', method, true);
+      return;
+    }
+    const area = document.getElementById('authDynamicFormArea');
+    if (area) area.innerHTML = this.renderAuthFormContent('signin', method, false);
+  }
+
+  // Toggle Password Show/Hide
+  togglePasswordVisibility(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (!input) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (icon) icon.textContent = '🙈';
+    } else {
+      input.type = 'password';
+      if (icon) icon.textContent = '👁️';
+    }
+  }
+
+  // Live Password Strength Indicator
+  updatePasswordStrength(val, barId = 'strengthBar', textId = 'strengthText') {
+    const bar = document.getElementById(barId);
+    const text = document.getElementById(textId);
+    if (!bar || !text) return;
+
+    if (!val) {
+      bar.style.width = '0%';
+      bar.className = 'h-full bg-stone-500 transition-all duration-300';
+      text.textContent = 'Enter password';
+      text.className = 'text-stone-400 font-semibold';
+      return;
+    }
+
+    let score = 0;
+    if (val.length >= 6) score += 1;
+    if (val.length >= 9) score += 1;
+    if (/[A-Z]/.test(val)) score += 1;
+    if (/[0-9]/.test(val)) score += 1;
+    if (/[^A-Za-z0-9]/.test(val)) score += 1;
+
+    if (score <= 1) {
+      bar.style.width = '25%';
+      bar.className = 'h-full bg-rose-500 transition-all duration-300';
+      text.textContent = 'Weak';
+      text.className = 'text-rose-400 font-semibold';
+    } else if (score <= 3) {
+      bar.style.width = '60%';
+      bar.className = 'h-full bg-amber-500 transition-all duration-300';
+      text.textContent = 'Moderate';
+      text.className = 'text-amber-400 font-semibold';
+    } else {
+      bar.style.width = '100%';
+      bar.className = 'h-full bg-emerald-500 transition-all duration-300';
+      text.textContent = 'Strong Privé Password';
+      text.className = 'text-emerald-400 font-semibold';
+    }
+  }
+
+  // Collapsible Connoisseur Persona Drawer
+  toggleDemoDrawer() {
+    const content = document.getElementById('demoDrawerContent');
+    const chevron = document.getElementById('demoDrawerChevron');
+    if (!content) return;
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      if (chevron) chevron.textContent = '▲';
+    } else {
+      content.classList.add('hidden');
+      if (chevron) chevron.textContent = '▼';
+    }
+  }
+
+  // Email + Password Sign In Handler
+  handleEmailPasswordLogin(e, isModal = false) {
+    if (e && e.preventDefault) e.preventDefault();
+    const emailElem = document.getElementById(isModal ? 'modalLoginEmailInput' : 'loginEmailInput');
+    const passElem = document.getElementById(isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput');
+    const email = emailElem ? emailElem.value.trim() : '';
+    const password = passElem ? passElem.value : '';
+
+    if (!email) {
+      if (window.showToast) window.showToast('Please enter your email address.', 'warning');
+      return;
+    }
+
+    const res = loyaltyStore.loginByEmail(email, password);
+    if (res && res.success) {
+      this.playObstacleChime();
+      if (isModal) this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message || 'Welcome to La Desio Privé!', 'success');
+      }
+      
+      const redirect = sessionStorage.getItem('ladesio_auth_redirect');
+      if (redirect === 'checkout') {
+        sessionStorage.removeItem('ladesio_auth_redirect');
+        this.navigateTo('checkout');
+      } else {
+        this.navigateTo('account');
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast((res && res.message) || 'Unable to sign in. Please check credentials.', 'warning');
+      }
+    }
+  }
+
+  // Email + Password + Mobile Registration Handler
+  handleEmailPasswordRegister(e, isModal = false) {
+    if (e && e.preventDefault) e.preventDefault();
+    const name = document.getElementById(isModal ? 'modalRegName' : 'regName')?.value;
+    const email = document.getElementById(isModal ? 'modalRegEmail' : 'regEmail')?.value;
+    const phone = document.getElementById(isModal ? 'modalRegPhone' : 'regPhone')?.value;
+    const city = document.getElementById(isModal ? 'modalRegCity' : 'regCity')?.value;
+    const password = document.getElementById(isModal ? 'modalRegPassword' : 'regPassword')?.value;
+
+    const res = loyaltyStore.registerWithEmailAndPassword({
+      name,
+      email,
+      phone,
+      city,
+      password
+    });
+
+    if (res.success) {
+      this.playObstacleChime();
+      if (isModal) this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message, 'success');
+      }
+      window.location.hash = '#account';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  // Social / One-Tap Auth Simulation
+  handleSocialLogin(provider, isModal = false) {
+    if (window.showToast) {
+      window.showToast(`Connecting securely via ${provider}...`, 'info');
+    }
+    setTimeout(() => {
+      // Default to Roody for social simulation
+      const res = loyaltyStore.loginByPhone('9345396700');
+      if (res.success) {
+        this.playObstacleChime();
+        if (isModal) this.closeAuthModal();
+        this.renderNavigationBadges();
+        if (window.showToast) {
+          window.showToast(`Authenticated via ${provider}! Welcome back, ${res.user.name}.`, 'success');
+        }
+        window.location.hash = '#account';
+        this.renderAccountView();
+      }
+    }, 600);
+  }
+
+  // 1-Click Connoisseur Preset Unlock
+  demoQuickUnlock(phoneOrId) {
+    const res = loyaltyStore.loginByPhone(phoneOrId);
+    if (res.success) {
+      this.playObstacleChime();
+      this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(`👑 Connoisseur profile active: ${res.user.name} (${res.user.tier} Tier)`, 'success');
+      }
+      window.location.hash = '#account';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  // ==========================================
+  // FORGOT PASSWORD RECOVERY MODAL
+  // ==========================================
+  openForgotPasswordModal() {
+    let modal = document.getElementById('forgotPasswordModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'forgotPasswordModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md';
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-md auth-glass-panel rounded-3xl p-6 sm:p-8 space-y-5 text-[#FFFDF9] animate-float-slow">
+        <button onclick="window.ladesioApp.closeForgotPasswordModal()"
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors">
+          ✕
+        </button>
+
+        <div class="text-center space-y-1.5">
+          <div class="w-12 h-12 mx-auto rounded-full bg-[#1A0905] border border-[#B8945B]/50 flex items-center justify-center text-xl shadow-lg">
+            🔑
+          </div>
+          <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">La Desio Privé Security</span>
+          <h3 class="font-display text-2xl font-bold text-white">Reset Privé Password</h3>
+          <p class="text-xs text-[#D6C2B0]">Enter your registered email address to receive a secure recovery key.</p>
+        </div>
+
+        <form onsubmit="window.ladesioApp.handleForgotPasswordSubmit(event)" class="space-y-4 pt-1">
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Registered Email</label>
+            <input type="email" id="forgotEmailInput" required value="theroodyy@gmail.com" placeholder="connoisseur@ladesio.com"
+                   class="w-full px-3.5 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+          </div>
+
+          <button type="submit" 
+                  class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
+            <span>Send Recovery Instructions</span> ✉️
+          </button>
+        </form>
+      </div>
+    `;
+    modal.classList.remove('hidden');
+  }
+
+  closeForgotPasswordModal() {
+    const modal = document.getElementById('forgotPasswordModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  handleForgotPasswordSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const email = document.getElementById('forgotEmailInput')?.value;
+    const res = loyaltyStore.requestPasswordReset(email);
+    this.closeForgotPasswordModal();
+    if (window.showToast) {
+      window.showToast(res.message, 'success');
+    }
+  }
+
+  // ==========================================
+  // SYNCHRONIZED LUXURY MODAL AUTHENTICATION
+  // ==========================================
+  openAuthModal(tab = 'signin') {
+    let modal = document.getElementById('authModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'authModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto';
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-lg auth-glass-panel rounded-3xl p-6 sm:p-8 space-y-5 text-[#FFFDF9] my-8 animate-float-slow">
+        <!-- Close Button -->
+        <button onclick="window.ladesioApp.closeAuthModal()"
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors z-10">
+          ✕
+        </button>
+
+        <!-- Header -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-[#140804] border border-[#B8945B]/50 flex items-center justify-center shadow-lg text-lg">
+            👑
+          </div>
+          <div>
+            <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">La Desio Privé Club</span>
+            <h3 class="font-display text-xl font-bold text-white" id="modalAuthTitle">
+              ${tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership'}
+            </h3>
+          </div>
+        </div>
+
+        <!-- Mode Switcher in Modal -->
+        <div class="grid grid-cols-2 p-1 rounded-2xl bg-[#140804] border border-[#B8945B]/30 text-xs font-serif font-semibold">
+          <button type="button" onclick="window.ladesioApp.switchAuthTab('signin', true)" 
+                  class="py-2 rounded-xl transition-all text-center ${tab === 'signin' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+            <span>Sign In</span>
+          </button>
+          <button type="button" onclick="window.ladesioApp.switchAuthTab('register', true)" 
+                  class="py-2 rounded-xl transition-all text-center relative ${tab === 'register' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+            <span>Create Account</span>
+            <span class="hidden sm:inline-block ml-1 px-1.5 py-0.2 text-[9px] rounded-full bg-[#B8945B] text-[#120502] font-bold">+250 Pts</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Form Container inside Modal -->
+        <div id="modalAuthDynamicArea">
+          ${this.renderAuthFormContent(tab, 'email', true)}
+        </div>
+
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+  }
+
+  openMobileAuthModal(step = 'phone', phone = '', currentOtp = '') {
+    this.mobileAuthStep = step;
+    this.mobileAuthPhone = phone;
+    this.mobileAuthOtp = currentOtp;
+    this.openAuthModal('signin');
+    this.switchAuthMethod('mobile', true);
+  }
+
+  closeAuthModal() {
+    const modal = document.getElementById('authModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  handleSendMobileOtp(e, overridePhone) {
+    if (e && e.preventDefault) e.preventDefault();
+    const phone = overridePhone || document.getElementById('mobileAuthPhoneInput')?.value;
+    const res = loyaltyStore.generateOtp(phone);
+
+    if (res.success) {
+      this.mobileAuthStep = 'otp';
+      this.mobileAuthPhone = res.phone;
+      this.mobileAuthOtp = res.otp;
+      this.playObstacleChime();
+      if (window.showToast) {
+        window.showToast(`📲 SMS Delivered to ${res.formattedPhone}: OTP is ${res.otp}`, 'warning');
+      }
+      // Re-render auth area with OTP step
+      const isModal = !document.getElementById('authDynamicFormArea');
+      if (isModal) {
+        this.openAuthModal('signin');
+        this.switchAuthMethod('mobile', true);
+      } else {
+        const area = document.getElementById('authDynamicFormArea');
+        if (area) area.innerHTML = this.renderAuthFormContent('signin', 'mobile', false);
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  handleVerifyMobileOtp(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const otp = document.getElementById('mobileAuthOtpInput')?.value;
+    const res = loyaltyStore.verifyOtp(this.mobileAuthPhone, otp);
+
+    if (res.success) {
+      if (res.isNewUser) {
+        this.switchAuthTab('register');
+        if (window.showToast) window.showToast(res.message, 'info');
+      } else {
+        this.closeAuthModal();
+        this.renderNavigationBadges();
+        if (window.showToast) {
+          window.showToast(res.message, 'success');
+        }
+        window.location.hash = '#account';
+        this.renderAccountView();
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  handleRegisterNewMobileUser(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const name = document.getElementById('regNewMobileName')?.value;
+    const city = document.getElementById('regNewMobileCity')?.value || 'Chennai';
+    const address = document.getElementById('regNewMobileAddress')?.value || '';
+
+    const res = loyaltyStore.registerWithMobile({
+      phone: this.mobileAuthPhone,
+      name,
+      city,
+      address
+    });
+
+    if (res.success) {
+      this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message, 'success');
+      }
+      window.location.hash = '#account';
+      this.renderAccountView();
+    }
+  }
+
+  handleLogout() {
+    this.closePfpDropdown();
+    loyaltyStore.logout();
+    this.pendingRedirectRoute = null;
+    try {
+      sessionStorage.removeItem('ladesio_auth_redirect');
+      localStorage.removeItem('ladesio_auth_session_phone_v4');
+      localStorage.removeItem('ladesio_active_user_id_v4');
+      localStorage.removeItem('ladesio_profile_v2');
+    } catch (e) {}
+    
+    // Update navigation immediately
+    this.renderNavigationBadges();
+    
+    // Navigate to home and FORCE re-render
+    this.currentRoute = 'home';
+    window.location.hash = '#home';
+    const mainContainer = document.getElementById('app-main-content');
+    if (mainContainer) {
+      this.renderHomeView(mainContainer);
+    }
+    
+    if (window.showToast) {
+      window.showToast('You have signed out successfully.', 'info');
+    }
   }
 }
 

@@ -102,6 +102,7 @@ class LaDesioApp {
     this.activeFilter = {
       priceMax: 3500,
       dietary: 'all',
+      onlyEggless: false,
       sortBy: 'recommended'
     };
 
@@ -136,6 +137,313 @@ class LaDesioApp {
     if (this.fullBannerTimer) {
       clearInterval(this.fullBannerTimer);
       this.fullBannerTimer = null;
+    }
+  }
+
+  navigateTo(route) {
+    this.currentRoute = route;
+    window.location.hash = '#' + route;
+    this.renderCurrentView();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  handleHeaderAuthClick(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (loyaltyStore && loyaltyStore.isUserAuthenticated()) {
+      this.navigateTo('account');
+    } else {
+      this.navigateTo('login');
+    }
+  }
+
+  togglePfpDropdown(e) {
+    if (e) {
+      if (e.stopPropagation) e.stopPropagation();
+      if (e.preventDefault) e.preventDefault();
+    }
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.navigateTo('login');
+      return;
+    }
+    const dropdown = document.getElementById('headerPfpDropdown');
+    if (dropdown) {
+      const isHidden = dropdown.classList.contains('hidden');
+      if (isHidden) {
+        this.renderNavigationBadges();
+        dropdown.classList.remove('hidden');
+      } else {
+        dropdown.classList.add('hidden');
+      }
+    }
+  }
+
+  closePfpDropdown() {
+    const dropdown = document.getElementById('headerPfpDropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+  }
+
+  navigateToAccountTab(tab) {
+    this.closePfpDropdown();
+    this.activeAccountTab = tab;
+    this.navigateTo('account/' + tab);
+  }
+
+
+  playObstacleChime() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.25);
+    } catch (e) {}
+  }
+
+
+  // ==========================================
+  // MOBILE SEARCH & ADD FRIEND CONTROLLER
+  // ==========================================
+  handleFriendSearchInput(query) {
+    const mount = document.getElementById('friendSearchResultsMount');
+    if (!mount) return;
+
+    const trimmed = (query || '').trim();
+    if (!trimmed) {
+      mount.classList.add('hidden');
+      mount.innerHTML = '';
+      return;
+    }
+
+    const cleanDigits = loyaltyStore.cleanPhone(trimmed);
+    const results = loyaltyStore.searchUsersByMobile(trimmed);
+
+    mount.classList.remove('hidden');
+
+    let html = '<div class="space-y-2">';
+
+    if (results.length > 0) {
+      html += '<p class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] font-semibold">Registered Privé Members Found:</p>';
+      results.forEach(u => {
+        html += `
+          <div class="p-3.5 rounded-2xl bg-[#1A0A06] border border-[#B8945B]/40 flex items-center justify-between gap-3 shadow-md">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shrink-0 overflow-hidden">
+                <img src="${u.avatar}" alt="${u.name}" class="w-full h-full object-cover rounded-full" onerror="this.outerHTML='<span class=\\'w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center\\'>👑</span>'" />
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <h5 class="font-display text-sm font-bold text-white truncate">${u.name}</h5>
+                  <span class="px-2 py-0.2 rounded-full bg-[#B8945B]/20 text-[#E6CA85] text-[9px] font-serif uppercase font-bold">${u.tier}</span>
+                </div>
+                <p class="text-xs text-[#E6CA85] font-mono">${u.displayPhone} • 📍 ${u.city}</p>
+              </div>
+            </div>
+
+            ${u.isAlreadyFriend ? `
+              <div class="flex items-center gap-2 shrink-0">
+                <span class="px-2.5 py-1 rounded-xl bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 text-[11px] font-serif font-semibold flex items-center gap-1 shadow-sm">
+                  <span>✓</span> In Circle
+                </span>
+                <button type="button" onclick="window.ladesioApp.handleRemoveFriend('${u.friendId || u.id}', '${u.name}')"
+                        class="px-3 py-1 rounded-xl border border-rose-500/40 hover:border-rose-500 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 hover:text-white text-xs font-serif transition-colors flex items-center gap-1 shadow-sm cursor-pointer"
+                        title="Remove ${u.name} from Circle">
+                  <span>🗑️</span> Remove
+                </button>
+              </div>
+            ` : `
+              <button type="button" onclick="window.ladesioApp.handleAddFriendFromSearch('${u.id}')"
+                      class="px-4 py-1.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shrink-0 flex items-center gap-1 shadow-md hover:scale-105 transition-transform">
+                <span>➕</span> Add Friend
+              </button>
+            `}
+          </div>
+        `;
+      });
+    }
+
+    // If clean digits has 10 digits and not found or to allow adding directly
+    if (cleanDigits.length === 10 && !results.some(r => loyaltyStore.cleanPhone(r.phone) === cleanDigits)) {
+      html += `
+        <div class="p-4 rounded-2xl bg-[#1A0A06] border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md mt-2">
+          <div>
+            <p class="text-xs text-stone-200">Mobile number: <strong class="text-[#E6CA85] font-mono">+91 ${cleanDigits}</strong></p>
+            <p class="text-[11px] text-stone-400">Not in default preset users. Would you like to invite and add this mobile number directly?</p>
+          </div>
+          <button type="button" onclick="window.ladesioApp.handleAddFriendDirect('${cleanDigits}')"
+                  class="px-4 py-2 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shrink-0 flex items-center justify-center gap-1.5 shadow-md">
+            <span>➕</span> Add Mobile Friend
+          </button>
+        </div>
+      `;
+    } else if (results.length === 0 && cleanDigits.length < 10) {
+      html += `
+        <div class="p-3 text-center text-xs text-stone-400 font-serif">
+          No members found matching "${query}". Enter a 10-digit mobile number (e.g. 9790496706, 9566783614) or name.
+        </div>
+      `;
+    }
+
+    html += '</div>';
+    mount.innerHTML = html;
+  }
+
+  clearFriendSearch() {
+    const input = document.getElementById('friendMobileSearchInput');
+    if (input) input.value = '';
+    const mount = document.getElementById('friendSearchResultsMount');
+    if (mount) {
+      mount.classList.add('hidden');
+      mount.innerHTML = '';
+    }
+  }
+
+  handleAddFriendFromSearch(userId) {
+    const user = loyaltyStore.users.find(u => u.id === userId);
+    if (!user) return;
+
+    const res = loyaltyStore.addFriendByMobile(user.phone, user.name, user.city);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.clearFriendSearch();
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  handleAddFriendDirect(phone, name = '') {
+    const res = loyaltyStore.addFriendByMobile(phone, name);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.clearFriendSearch();
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  handleRemoveFriend(friendId, friendName = '') {
+    const displayName = friendName || 'this friend';
+    const confirmed = (typeof window.confirm === 'function') 
+      ? window.confirm(`Are you sure you want to remove ${displayName} from your Atelier Circle?`)
+      : true;
+    if (!confirmed) return;
+
+    const res = loyaltyStore.removeFriend(friendId);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'info');
+      if (this.selectedFriendId === friendId) {
+        this.selectedFriendId = null;
+      }
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+      // Also update search results if search is active
+      const searchInput = document.getElementById('friendMobileSearchInput');
+      if (searchInput && searchInput.value.trim()) {
+        this.handleFriendSearchInput(searchInput.value);
+      }
+    } else {
+      if (window.showToast) window.showToast(res.message || 'Could not remove friend.', 'warning');
+    }
+  }
+
+  openAddFriendModal() {
+    let modal = document.getElementById('addFriendModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'addFriendModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300';
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-[#1F0D08] to-[#140603] border-2 border-[#B8945B]/50 shadow-2xl p-6 sm:p-7 space-y-5 text-[#FFFDF9]">
+        <!-- Close Button -->
+        <button onclick="window.ladesioApp.closeAddFriendModal()" 
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors">
+          ✕
+        </button>
+
+        <!-- Header -->
+        <div class="border-b border-[#B8945B]/30 pb-3">
+          <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold">Atelier Circle</span>
+          <h3 class="font-display text-xl sm:text-2xl text-white font-bold mt-0.5">Add Friend by Mobile Number</h3>
+          <p class="text-xs text-[#D6C2B0] mt-0.5">Connect with fellow dessert lovers to share recipes and order creations.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); window.ladesioApp.submitAddFriendModal();" class="space-y-4">
+          <!-- Mobile Number Input -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Friend's 10-Digit Mobile Number *</label>
+            <div class="flex items-center rounded-xl border border-[#B8945B]/40 bg-[#120502] focus-within:border-[#E6CA85] overflow-hidden shadow-inner">
+              <span class="px-3.5 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-black/40">
+                🇮🇳 +91
+              </span>
+              <input type="tel" id="modalAddFriendPhone" required maxlength="10"
+                     placeholder="97904 96706"
+                     class="w-full px-3.5 py-3 bg-transparent text-white text-xs font-mono outline-none" />
+            </div>
+            <span class="text-[10px] text-stone-400">Enter a 10-digit Indian mobile number.</span>
+          </div>
+
+          <!-- Friend's Name -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Friend's Name (Optional)</label>
+            <input type="text" id="modalAddFriendName"
+                   placeholder="e.g. Vinoth Kumar, Sneha Patel"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#120502] border border-[#B8945B]/40 text-xs text-white placeholder-stone-500 outline-none" />
+          </div>
+
+          <!-- City / Location -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">City / Location (Optional)</label>
+            <input type="text" id="modalAddFriendCity"
+                   placeholder="e.g. Chennai, Bengaluru, Mumbai"
+                   value="Chennai"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#120502] border border-[#B8945B]/40 text-xs text-white placeholder-stone-500 outline-none" />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" 
+                  class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 mt-2">
+            <span>Connect & Add to Circle</span> ✨
+          </button>
+        </form>
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+  }
+
+  closeAddFriendModal() {
+    const modal = document.getElementById('addFriendModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  submitAddFriendModal() {
+    const phoneInput = document.getElementById('modalAddFriendPhone')?.value;
+    const nameInput = document.getElementById('modalAddFriendName')?.value;
+    const cityInput = document.getElementById('modalAddFriendCity')?.value || 'Chennai';
+
+    const res = loyaltyStore.addFriendByMobile(phoneInput, nameInput, cityInput);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.closeAddFriendModal();
+      this.activeAccountTab = 'friends';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
     }
   }
 
@@ -227,6 +535,88 @@ class LaDesioApp {
       activeTitleElem.textContent = routeTitles[this.currentRoute] || 'HAUTE PATISSERIE';
     }
 
+    const headerSignInLink = document.getElementById('headerSignInLink');
+    const headerProfileBtn = document.getElementById('headerProfileBtn');
+    const pfpDropdown = document.getElementById('headerPfpDropdown');
+    const isAuth = loyaltyStore && loyaltyStore.isUserAuthenticated() && loyaltyStore.profile;
+
+    if (isAuth) {
+      const prof = loyaltyStore.profile;
+      const firstName = (prof.name || 'Privé').split(' ')[0];
+      const initials = (prof.name || 'Member').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+
+      // In authenticated state: HIDE "Sign In" link, SHOW PFP Avatar button
+      if (headerSignInLink) {
+        headerSignInLink.classList.add('hidden');
+        headerSignInLink.classList.remove('inline-flex');
+      }
+
+      if (headerProfileBtn) {
+        headerProfileBtn.classList.remove('hidden');
+        headerProfileBtn.classList.add('flex');
+      }
+
+      const headerPfpAvatar = document.getElementById('headerPfpAvatar');
+      const headerPfpInitials = document.getElementById('headerPfpInitials');
+      const dropdownPfpName = document.getElementById('dropdownPfpName');
+      const dropdownPfpEmail = document.getElementById('dropdownPfpEmail');
+      const dropdownPfpTier = document.getElementById('dropdownPfpTier');
+      const dropdownPfpInitials = document.getElementById('dropdownPfpInitials');
+      const dropdownAvatarContainer = document.getElementById('dropdownPfpAvatar');
+
+      if (headerPfpInitials) headerPfpInitials.textContent = initials;
+      if (dropdownPfpInitials) dropdownPfpInitials.textContent = initials;
+      if (dropdownPfpName) dropdownPfpName.textContent = prof.name;
+      if (dropdownPfpEmail) dropdownPfpEmail.textContent = prof.email || prof.displayPhone || prof.phone || '';
+      if (dropdownPfpTier) dropdownPfpTier.textContent = `✨ ${prof.tier || 'Privé'} Member • ${prof.points || 0} Pts`;
+
+      if (prof.avatar) {
+        if (headerPfpAvatar) {
+          headerPfpAvatar.innerHTML = `<img src="${prof.avatar}" alt="${prof.name}" class="w-full h-full object-cover rounded-full" onerror="this.outerHTML='<span class=\\'w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center\\'>${initials}</span>'" />`;
+        }
+        if (dropdownAvatarContainer) {
+          dropdownAvatarContainer.innerHTML = `<img src="${prof.avatar}" alt="${prof.name}" class="w-full h-full object-cover rounded-full" onerror="this.outerHTML='<span class=\\'w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center\\'>${initials}</span>'" />`;
+        }
+      } else {
+        if (headerPfpAvatar) {
+          headerPfpAvatar.innerHTML = `<span id="headerPfpInitials" class="w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] text-xs font-serif font-bold flex items-center justify-center">${initials}</span>`;
+        }
+        if (dropdownAvatarContainer) {
+          dropdownAvatarContainer.innerHTML = `<div id="dropdownPfpInitials" class="w-full h-full rounded-full bg-[#180A06] text-[#E6CA85] font-serif font-bold text-sm flex items-center justify-center">${initials}</div>`;
+        }
+      }
+    } else {
+      // In unauthenticated guest state: SHOW "Sign In" link, HIDE PFP Avatar button
+      if (headerSignInLink) {
+        headerSignInLink.classList.remove('hidden');
+        headerSignInLink.classList.add('inline-flex');
+        headerSignInLink.setAttribute('href', '#login');
+        headerSignInLink.setAttribute('title', 'Sign In or Register Profile');
+      }
+
+      if (headerProfileBtn) {
+        headerProfileBtn.classList.add('hidden');
+        headerProfileBtn.classList.remove('flex');
+      }
+
+      if (pfpDropdown) {
+        pfpDropdown.classList.add('hidden');
+      }
+
+      // Reset dropdown fields so no cached profile is ever visible
+      const dropdownPfpName = document.getElementById('dropdownPfpName');
+      const dropdownPfpEmail = document.getElementById('dropdownPfpEmail');
+      const dropdownPfpTier = document.getElementById('dropdownPfpTier');
+      const dropdownPfpInitials = document.getElementById('dropdownPfpInitials');
+      const headerPfpInitials = document.getElementById('headerPfpInitials');
+
+      if (dropdownPfpName) dropdownPfpName.textContent = 'Privé Member';
+      if (dropdownPfpEmail) dropdownPfpEmail.textContent = '';
+      if (dropdownPfpTier) dropdownPfpTier.textContent = '✨ Privé Club';
+      if (dropdownPfpInitials) dropdownPfpInitials.textContent = '👑';
+      if (headerPfpInitials) headerPfpInitials.textContent = '👑';
+    }
+
     // Update active nav links desktop
     document.querySelectorAll('.nav-link, a[data-nav]').forEach(link => {
       const navTarget = link.getAttribute('data-nav') || link.getAttribute('href')?.replace('#', '');
@@ -279,6 +669,12 @@ class LaDesioApp {
         break;
       case 'account':
         this.renderAccountView(mainContainer);
+        break;
+      case 'login':
+        this.renderLoginView(mainContainer, 'signin');
+        break;
+      case 'register':
+        this.renderLoginView(mainContainer, 'register');
         break;
       case 'checkout':
         this.renderCheckoutView(mainContainer);
@@ -993,8 +1389,14 @@ class LaDesioApp {
         }
       }
 
+      // Eggless Toggle Filter
+      if (this.activeFilter.onlyEggless && !p.isEggless) {
+        return false;
+      }
+
       // Dietary filter
       if (this.activeFilter.dietary !== 'all') {
+        if (this.activeFilter.dietary === 'eggless' && !p.isEggless) return false;
         if (!p.dietary.some(d => d.toLowerCase().includes(this.activeFilter.dietary.toLowerCase()))) {
           return false;
         }
@@ -1029,14 +1431,25 @@ class LaDesioApp {
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
-        <!-- Category Tabs -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          ${CATEGORIES.map(cat => `
-            <button onclick="window.ladesioApp.setMenuCategory('${cat.id}')"
-                    class="px-4 py-2 rounded-xl text-xs font-serif font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${this.selectedCategory === cat.id ? 'bg-[#B8945B] text-[#140602] font-bold shadow-lg ring-2 ring-[#E6CA85]/50' : 'bg-[#1F0C06] text-[#E6CA85] border border-[#B8945B]/30 hover:border-[#E6CA85]/60 hover:text-white'}">
-              <span>${cat.name}</span>
-            </button>
-          `).join('')}
+        <!-- Category Tabs & Eggless Quick Filter -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+            ${CATEGORIES.map(cat => `
+              <button onclick="window.ladesioApp.setMenuCategory('${cat.id}')"
+                      class="px-4 py-2 rounded-xl text-xs font-serif font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${this.selectedCategory === cat.id ? 'bg-[#B8945B] text-[#140602] font-bold shadow-lg ring-2 ring-[#E6CA85]/50' : 'bg-[#1F0C06] text-[#E6CA85] border border-[#B8945B]/30 hover:border-[#E6CA85]/60 hover:text-white'}">
+                <span>${cat.name}</span>
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Prominent 100% Eggless Toggle Button -->
+          <button type="button"
+                  onclick="window.ladesioApp.toggleEgglessFilter()"
+                  class="px-4 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-md cursor-pointer shrink-0 ${this.activeFilter.onlyEggless ? 'bg-emerald-600 text-white ring-2 ring-emerald-300 shadow-emerald-900/50' : 'bg-[#140602] text-emerald-400 border border-emerald-500/50 hover:bg-emerald-950/40'}">
+            <span class="w-2.5 h-2.5 rounded-full ${this.activeFilter.onlyEggless ? 'bg-white' : 'bg-emerald-500'} ring-2 ring-emerald-400/40"></span>
+            <span>🟢 100% Eggless Only</span>
+            ${this.activeFilter.onlyEggless ? '<span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded-full">ACTIVE</span>' : ''}
+          </button>
         </div>
 
         <!-- Filter Bar & Sorting -->
@@ -1473,6 +1886,10 @@ class LaDesioApp {
   // CUSTOMER ACCOUNT & LA DESIO PRIVÉ
   // ==========================================
   renderAccountView(container = document.getElementById('app-main-content')) {
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.renderLoginView(container, 'signin');
+      return;
+    }
     if (!this.activeAccountTab) {
       this.activeAccountTab = 'creations';
     }
@@ -1519,6 +1936,7 @@ class LaDesioApp {
                           class="px-3 py-1 rounded-lg border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0A06]/70 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm">
                     <span>✏️</span> Edit Profile & Bio
                   </button>
+                  
                 </div>
                 <p class="text-xs text-[#D6C2B0]">${profile.email} • Client since ${profile.joinedDate}</p>
                 ${profile.bio ? `
@@ -1581,6 +1999,8 @@ class LaDesioApp {
                     class="pb-3 px-3 sm:px-4 font-serif text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2 border-b-2 whitespace-nowrap ${this.activeAccountTab === 'loyalty' ? 'border-[#E6CA85] text-[#E6CA85] font-bold' : 'border-transparent text-[#D6C2B0] hover:text-white'}">
               <span>👑 Privé Tier & Addresses</span>
             </button>
+
+            
           </div>
         </div>
       </div>
@@ -1907,6 +2327,11 @@ class LaDesioApp {
                                   class="px-2.5 py-1 rounded-lg border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0A06]/80 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm">
                             <span>✏️</span> Edit Name & Photo
                           </button>
+                          <button onclick="window.ladesioApp.handleRemoveFriend('${friend.id}', '${friend.name}')"
+                                  class="px-2.5 py-1 rounded-lg border border-rose-500/40 hover:border-rose-500 text-rose-300 hover:text-white bg-rose-950/40 hover:bg-rose-900/60 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
+                                  title="Remove ${friend.name} from Circle">
+                            <span>🗑️</span> Remove Friend
+                          </button>
                         </div>
                         <p class="text-xs text-[#E6CA85] font-mono">${friend.handle} • 📍 ${friend.location}</p>
                         <p class="text-xs text-[#D6C2B0] leading-relaxed max-w-2xl bg-black/25 p-3.5 rounded-xl border-l-2 border-[#B8945B]">
@@ -1997,14 +2422,56 @@ class LaDesioApp {
             } else {
               return `
                 <div class="space-y-6">
-                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#B8945B]/20 pb-4">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#B8945B]/20 pb-4">
                     <div>
                       <h3 class="font-display text-2xl text-[#FFFDF9]">Atelier Friends Circle</h3>
                       <p class="text-xs text-[#D6C2B0] mt-0.5">Explore handcrafted bespoke recipes from fellow patisserie connoisseurs. Tap any friend to discover & order their signature creations.</p>
                     </div>
-                    <span class="text-xs font-serif text-[#E6CA85] bg-[#180A06] px-3.5 py-1.5 rounded-full border border-[#B8945B]/30 w-fit">
-                      🌟 ${friends.length} Featured Profiles
-                    </span>
+                    <div class="flex items-center gap-3">
+                      <span class="text-xs font-serif text-[#E6CA85] bg-[#180A06] px-3.5 py-1.5 rounded-full border border-[#B8945B]/30 shrink-0">
+                        🌟 ${friends.length} Circle Friends
+                      </span>
+                      <button type="button" onclick="window.ladesioApp.openAddFriendModal()"
+                              class="px-4 py-2 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-md shrink-0 cursor-pointer">
+                        <span>➕ Add Friend</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- PROMINENT SEARCH BAR TO SEARCH & ADD FRIENDS BY MOBILE NUMBER -->
+                  <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#220B06] to-[#140603] border-2 border-[#B8945B]/60 shadow-2xl space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div>
+                        <h4 class="font-display text-lg text-white font-bold flex items-center gap-2">
+                          <span>🔍</span> Search Friends by Mobile Number
+                        </h4>
+                        <p class="text-xs text-[#D6C2B0]">Search any member's 10-digit mobile number (or name) to find, connect, and view their creations.</p>
+                      </div>
+                    </div>
+
+                    <!-- Search Input Bar with Country Flag -->
+                    <div class="relative flex items-center rounded-2xl bg-black/70 border border-[#B8945B]/50 focus-within:border-[#E6CA85] overflow-hidden shadow-inner">
+                      <div class="px-4 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-[#1A0804] flex items-center gap-1.5 shrink-0">
+                        <span>🇮🇳 +91</span>
+                      </div>
+                      <input type="text"
+                             id="friendMobileSearchInput"
+                             oninput="window.ladesioApp.handleFriendSearchInput(this.value)"
+                             placeholder="Search by 10-digit mobile number (e.g. 97904 96706, 95667 83614, 96774 07374) or name..."
+                             class="w-full px-4 py-3 bg-transparent text-white text-xs font-mono placeholder-stone-500 focus:outline-none" />
+                      <button type="button" 
+                              onclick="window.ladesioApp.clearFriendSearch()"
+                              class="px-4 py-3 text-stone-400 hover:text-white text-xs font-bold transition-colors cursor-pointer">
+                        ✕
+                      </button>
+                    </div>
+
+                    <!-- Live Real-Time Search Results Mount -->
+                    <div id="friendSearchResultsMount" class="hidden space-y-3 pt-2"></div>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-1">
+                    <h4 class="font-display text-xl text-[#FFFDF9]">Active Circle Friends (${friends.length})</h4>
                   </div>
 
                   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -2028,11 +2495,18 @@ class LaDesioApp {
                                 <p class="text-[11px] text-[#D6C2B0]">${f.handle} • 📍 ${f.location}</p>
                               </div>
                             </div>
-                            <button onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
-                                    class="p-2 rounded-xl bg-[#180A06] hover:bg-[#3A1F17] border border-[#B8945B]/30 hover:border-[#B8945B] text-[#E6CA85] hover:text-white text-xs transition-colors shrink-0"
-                                    title="Edit Friend Name, Bio & Photo">
-                              ✏️
-                            </button>
+                            <div class="flex items-center gap-1.5 shrink-0">
+                              <button onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
+                                      class="p-2 rounded-xl bg-[#180A06] hover:bg-[#3A1F17] border border-[#B8945B]/30 hover:border-[#B8945B] text-[#E6CA85] hover:text-white text-xs transition-colors shrink-0"
+                                      title="Edit Friend Name, Bio & Photo">
+                                ✏️
+                              </button>
+                              <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
+                                      class="p-2 rounded-xl bg-[#180A06] hover:bg-rose-950/70 border border-rose-500/30 hover:border-rose-500 text-rose-300 hover:text-white text-xs transition-colors shrink-0"
+                                      title="Remove ${f.name} from Circle">
+                                🗑️
+                              </button>
+                            </div>
                           </div>
 
                           <!-- Bio -->
@@ -2055,12 +2529,19 @@ class LaDesioApp {
                           </div>
                         </div>
 
-                        <!-- Button to open profile -->
-                        <button onclick="window.ladesioApp.viewFriendProfile('${f.id}')"
-                                class="mt-6 w-full py-2.5 px-4 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-2 shadow-md">
-                          <span>View ${f.name.split(' ')[0]}'s Creations (${f.creations.length})</span>
-                          <span>→</span>
-                        </button>
+                        <!-- Actions: View creations & Remove -->
+                        <div class="mt-6 flex items-center gap-2">
+                          <button onclick="window.ladesioApp.viewFriendProfile('${f.id}')"
+                                  class="flex-1 py-2.5 px-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-md">
+                            <span>View ${f.name.split(' ')[0]}'s Profile</span>
+                            <span>→</span>
+                          </button>
+                          <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
+                                  class="py-2.5 px-3 rounded-xl border border-rose-500/40 hover:border-rose-500 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 hover:text-white text-xs font-serif transition-colors flex items-center justify-center gap-1 shadow-sm shrink-0 cursor-pointer"
+                                  title="Remove ${f.name} from Circle">
+                            <span>🗑️</span> Remove
+                          </button>
+                        </div>
                       </div>
                     `).join('')}
                   </div>
@@ -2078,6 +2559,14 @@ class LaDesioApp {
   // CHECKOUT PAGE VIEW
   // ==========================================
   renderCheckoutView(container) {
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.pendingRedirectRoute = 'checkout';
+      this.renderLoginView(container, 'signin');
+      if (window.showToast) {
+        window.showToast('Please sign in or create an account to proceed with your order.', 'info');
+      }
+      return;
+    }
     container.innerHTML = `<div id="checkoutFlowMount"></div>`;
     window.checkoutManager = new CheckoutManager('checkoutFlowMount', () => {
       this.renderNavigationBadges();
@@ -2105,10 +2594,17 @@ class LaDesioApp {
             </span>
           </div>
 
-          <!-- Badge -->
-          <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#180804] text-[#E6CA85] border border-[#B8945B]/60 backdrop-blur-md text-[10px] font-serif uppercase tracking-wider shadow-md font-semibold">
-            ${product.badge}
-          </span>
+          <!-- Badge & Official FSSAI Dietary Mark -->
+          <div class="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+            <span class="px-2.5 py-1 rounded-full bg-[#180804]/90 text-[#E6CA85] border border-[#B8945B]/60 backdrop-blur-md text-[10px] font-serif uppercase tracking-wider shadow-md font-semibold">
+              ${product.badge}
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md border ${product.isEggless ? 'border-emerald-500/80 text-emerald-300' : 'border-rose-600/80 text-rose-300'} flex items-center gap-1 text-[10px] font-serif font-bold shadow-md"
+                  title="${product.isEggless ? '100% Eggless Pure Vegetarian' : 'Contains Egg'}">
+              <span class="w-2 h-2 rounded-full ${product.isEggless ? 'bg-emerald-400 ring-2 ring-emerald-500/30' : 'bg-rose-500 ring-2 ring-rose-600/30'}"></span>
+              <span>${product.isEggless ? 'Eggless' : 'Contains Egg'}</span>
+            </span>
+          </div>
 
           <!-- Wishlist Heart Button -->
           <button onclick="event.stopPropagation(); window.ladesioApp.toggleWishlist('${product.id}')"
@@ -2122,12 +2618,14 @@ class LaDesioApp {
         <div class="p-5 flex-1 flex flex-col justify-between space-y-3 bg-gradient-to-b from-[#583324] to-[#3E2014]">
           <div>
             <div class="flex items-center justify-between text-xs text-[#E6CA85] font-medium mb-1.5">
-              <span class="flex items-center gap-1 font-serif">
-                <span class="text-[#E6CA85]">★</span>
+              <span class="flex items-center gap-1.5 font-serif cursor-pointer hover:underline"
+                    onclick="window.ladesioApp.openProductModal('${product.id}')"
+                    title="Click to view verified customer reviews">
+                <span class="text-amber-400 font-bold">★</span>
                 <strong class="text-[#FFFDF9]">${product.rating.toFixed(2)}</strong>
-                <span class="text-[#E8D7C7]/70">(${product.reviewsCount})</span>
+                <span class="text-[#E8D7C7]/70 font-sans text-[11px]">(${product.reviewsCount} reviews)</span>
               </span>
-              <span class="text-[#E8D7C7]/80 font-sans text-[11px]">${product.prepTime.split(' ')[0]} mins</span>
+              <span class="text-[#E8D7C7]/80 font-sans text-[11px]">⏱️ ${product.prepTime.split(' ')[0]} mins</span>
             </div>
 
             <h3 class="card-title font-display text-xl text-[#FFFDF9] group-hover:text-[#E6CA85] transition-colors leading-snug">
@@ -2142,8 +2640,12 @@ class LaDesioApp {
               ${product.description}
             </p>
 
-            <!-- Dietary Tag Chips -->
+            <!-- Dietary Tag Chips with Eggless Indicator -->
             <div class="flex flex-wrap gap-1.5 mt-3">
+              <span class="px-2.5 py-0.5 rounded-full ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} border text-[10px] font-serif flex items-center gap-1 font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
+                <span>${product.isEggless ? '100% Eggless' : 'Contains Egg'}</span>
+              </span>
               ${product.dietary.slice(0, 2).map(d => `
                 <span class="px-2.5 py-0.5 rounded-full bg-[#240F06] text-[10px] text-[#E6CA85] border border-[#B8945B]/30 font-serif">
                   ${d}
@@ -2253,7 +2755,14 @@ class LaDesioApp {
         <div class="md:col-span-6 space-y-4">
           <div>
             <div class="flex items-center justify-between text-xs text-[#E6CA85] mb-1">
-              <span>★ ${product.rating.toFixed(2)} (${product.reviewsCount} verified reviews)</span>
+              <span class="flex items-center gap-2">
+                <span class="text-amber-400">★ ${product.rating.toFixed(2)}</span>
+                <span class="text-[#D6C2B0]/70">(${product.reviewsCount} reviews)</span>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold border ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
+                  <span>${product.isEggless ? '100% Eggless' : 'Contains Egg'}</span>
+                </span>
+              </span>
               <span class="text-[#D6C2B0]/70 font-mono">${product.servingSize}</span>
             </div>
             <h2 class="font-display text-2xl sm:text-3xl text-[#FFFDF9]">${product.name}</h2>
@@ -2349,8 +2858,8 @@ class LaDesioApp {
                 <span class="text-[#E6CA85] text-xs">▼</span>
               </summary>
               <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">
-                Allergens: ${product.allergens.join(', ') || 'None'}<br/>
-                Dietary: ${product.dietary.join(', ')}
+                Dietary: ${product.isEggless ? '🟢 100% Eggless Pure Vegetarian' : '🔴 Contains Egg'}<br/>
+                Allergens: ${product.allergens.join(', ') || 'None'}
               </p>
             </details>
 
@@ -2361,6 +2870,36 @@ class LaDesioApp {
               </summary>
               <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">${product.storageInfo}</p>
             </details>
+          </div>
+
+          <!-- Verified Customer Reviews Module -->
+          <div class="p-3.5 rounded-xl bg-[#180804] border border-[#B8945B]/35 space-y-2.5 text-xs">
+            <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-400 font-bold">★</span>
+                <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.rating.toFixed(2)}</span>
+                <span class="text-[#D6C2B0]/70 text-[11px]">(${product.reviewsCount} customer reviews)</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 text-[10px] font-serif">
+                ✓ Verified Atelier Buyers
+              </span>
+            </div>
+
+            <div class="space-y-2 max-h-40 overflow-y-auto pr-1">
+              ${(product.reviews || [
+                { author: 'Atelier Patron', city: 'Chennai', rating: 5, date: 'Recent', title: 'Exceptional Balance', comment: 'Every layer of this dessert was executed with culinary precision.' }
+              ]).map(r => `
+                <div class="p-2.5 rounded-lg bg-[#241109] border border-[#B8945B]/20 space-y-1 text-left">
+                  <div class="flex items-center justify-between">
+                    <span class="font-serif font-bold text-[#E6CA85] text-[11px]">${r.author} <span class="text-stone-400 font-normal">(${r.city || 'Chennai'})</span></span>
+                    <span class="text-amber-400 text-[10px]">${'★'.repeat(r.rating || 5)}</span>
+                  </div>
+                  <p class="font-serif font-semibold text-[#FFFDF9] text-[11px]">${r.title}</p>
+                  <p class="text-[11px] text-[#D6C2B0] italic leading-relaxed">"${r.comment}"</p>
+                  <span class="text-[9px] text-stone-400 block pt-0.5">${r.date} • Verified Purchase</span>
+                </div>
+              `).join('')}
+            </div>
           </div>
 
           <!-- Quantity & Add to Cart -->
@@ -2676,9 +3215,9 @@ class LaDesioApp {
       </div>
 
       <!-- Checkout Button -->
-      <button onclick="window.ladesioApp.closeCartDrawer(); window.location.hash='#checkout'"
+      <button onclick="window.ladesioApp.handleProceedToCheckout()"
               class="w-full mt-4 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center justify-center gap-2 shadow-xl">
-        <span>Proceed to Checkout</span> 👑
+        <span>Proceed to Checkout</span> 💳
       </button>
     `;
   }
@@ -2810,6 +3349,11 @@ class LaDesioApp {
     window.showToast(res.message, res.success ? 'success' : 'info');
   }
 
+  toggleEgglessFilter() {
+    this.activeFilter.onlyEggless = !this.activeFilter.onlyEggless;
+    this.renderMenuView(document.getElementById('app-main-content'));
+  }
+
   setMenuCategory(catId) {
     this.selectedCategory = catId;
     this.renderMenuView(document.getElementById('app-main-content'));
@@ -2832,7 +3376,7 @@ class LaDesioApp {
 
   resetFilters() {
     this.selectedCategory = 'all';
-    this.activeFilter = { priceMax: 3500, dietary: 'all', sortBy: 'recommended' };
+    this.activeFilter = { priceMax: 3500, dietary: 'all', onlyEggless: false, sortBy: 'recommended' };
     this.renderMenuView(document.getElementById('app-main-content'));
   }
 
@@ -3309,10 +3853,16 @@ class LaDesioApp {
 
           <!-- Action Buttons -->
           <div class="flex items-center justify-between pt-4 border-t border-[#B8945B]/20">
-            <button type="button" onclick="window.ladesioApp.resetFriendProfile('${friend.id}')"
-                    class="text-[11px] font-serif text-stone-400 hover:text-white underline">
-              Reset Default
-            </button>
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="window.ladesioApp.resetFriendProfile('${friend.id}')"
+                      class="text-[11px] font-serif text-stone-400 hover:text-white underline">
+                Reset Default
+              </button>
+              <button type="button" onclick="window.ladesioApp.closeEditFriendProfileModal(); window.ladesioApp.handleRemoveFriend('${friend.id}', '${friend.name}')"
+                      class="text-[11px] font-serif text-rose-400 hover:text-rose-200 flex items-center gap-1 hover:underline cursor-pointer">
+                <span>🗑️</span> Remove Friend
+              </button>
+            </div>
             <div class="flex items-center gap-2">
               <button type="button" onclick="window.ladesioApp.closeEditFriendProfileModal()"
                       class="px-3.5 py-2 rounded-xl border border-stone-700 hover:border-stone-500 text-stone-300 text-xs font-serif transition-colors">
@@ -3431,6 +3981,890 @@ class LaDesioApp {
 
   resetFriendPhoto(friendId) {
     this.resetFriendProfile(friendId);
+  }
+
+  handleProceedToCheckout() {
+    this.closeCartDrawer();
+    if (!loyaltyStore.isUserAuthenticated()) {
+      this.pendingRedirectRoute = 'checkout';
+      window.location.hash = '#login';
+      if (window.showToast) {
+        window.showToast('Please sign in or create an account to proceed with your order.', 'info');
+      }
+    } else {
+      window.location.hash = '#checkout';
+    }
+  }
+
+
+
+
+// ==========================================
+  // LUXURY E-COMMERCE LOGIN & REGISTRATION PORTAL
+  // ==========================================
+  renderAccountLockScreen() {
+    const container = document.getElementById('app-main-content');
+    if (container) {
+      this.renderLoginView(container, 'signin');
+      return container.innerHTML;
+    }
+    return `<div id="loginPortalContainer"></div>`;
+  }
+
+  renderLoginView(container = document.getElementById('app-main-content'), initialTab = 'signin', authMethod = 'email') {
+    if (!container) return;
+    this.activeAuthTab = initialTab;
+    this.activeAuthMethod = authMethod;
+    if (!this.mobileAuthStep) this.mobileAuthStep = 'phone';
+
+    container.innerHTML = `
+      <div class="min-h-[82vh] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center">
+        <!-- Breadcrumb & Brand Subhead -->
+        <div class="mb-6 sm:mb-8 text-center sm:text-left">
+          <div class="flex items-center justify-center sm:justify-start gap-2 text-xs font-serif tracking-wider uppercase text-stone-400">
+            <a href="#home" class="hover:text-[#E6CA85] transition-colors">Home Salon</a>
+            <span class="text-[#B8945B]/60">/</span>
+            <span class="text-[#E6CA85] font-semibold">La Desio Privé Club</span>
+            <span class="text-[#B8945B]/60">/</span>
+            <span class="text-stone-300" id="authBreadcrumbAction">${initialTab === 'signin' ? 'Sign In' : 'Privé Registration'}</span>
+          </div>
+        </div>
+
+        <!-- Split-Screen Editorial Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- LEFT COLUMN: EDITORIAL BRAND SHOWCASE (Desktop Luxury Editorial) -->
+          <div class="hidden lg:flex lg:col-span-5 relative rounded-3xl overflow-hidden border border-[#B8945B]/40 shadow-2xl flex-col justify-between p-8 xl:p-10 bg-cover bg-center"
+               style="background-image: linear-gradient(180deg, rgba(18, 7, 4, 0.84) 0%, rgba(26, 9, 5, 0.94) 75%, rgba(18, 7, 4, 0.98) 100%), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85');">
+            
+            <!-- Top Crest & Heritage -->
+            <div class="space-y-6">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D140C] to-[#140804] border border-[#B8945B]/60 flex items-center justify-center shadow-lg p-2">
+                  <img src="Assets/Logo/emblem_transparent.png" alt="La Desio Emblem" class="w-full h-full object-contain" onerror="this.outerHTML='<span class=\'text-2xl\'>👑</span>'" />
+                </div>
+                <div>
+                  <h3 class="font-serif text-base tracking-[0.2em] uppercase text-[#E6CA85] font-bold">La Desio Privé</h3>
+                  <p class="text-[11px] text-stone-300 font-sans tracking-wide">Italian Patisserie Connoisseurs</p>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <span class="text-[10px] uppercase font-serif tracking-[0.3em] text-[#B8945B] font-bold block">Exclusive Member Sanctuary</span>
+                <h2 class="font-display text-3xl xl:text-4xl font-bold text-[#FFFDF9] leading-tight">
+                  Where Cravings Become Creations.
+                </h2>
+                <p class="text-xs text-[#D6C2B0] font-serif leading-relaxed pt-1">
+                  Step inside our private digital salon. Unlock reservations for limited-batch seasonal patisserie, personalized recipe storage, and white-glove delivery across our Indian flagship ateliers.
+                </p>
+              </div>
+
+              <!-- Privé Benefits Checklist -->
+              <div class="space-y-3.5 pt-4 border-t border-[#B8945B]/25">
+                <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-bold block">Privé Member Privileges:</span>
+                
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">👑</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">Tier Status Elevation</h4>
+                    <p class="text-[11px] text-stone-300">Advance from Amore to Élite and Royale for bespoke tasting invites & masterclasses.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">✨</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">+250 Welcome Points</h4>
+                    <p class="text-[11px] text-stone-300">Complimentary reward balance credited instantly upon joining your Privé profile.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">🎂</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">Annual Birthday Patisserie</h4>
+                    <p class="text-[11px] text-stone-300">A handcrafted dessert gift presented by our master chef during your birthday week.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">🧪</div>
+                  <div>
+                    <h4 class="text-xs font-serif font-bold text-white">Private 3D Recipe Vault</h4>
+                    <p class="text-[11px] text-stone-300">Save bespoke creations from the Studio and reorder with your unique recipe code.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust & Atelier Stamp -->
+            <div class="pt-6 border-t border-[#B8945B]/30 flex items-center justify-between text-[11px] text-stone-400">
+              <span class="flex items-center gap-1.5"><span class="text-emerald-400">🔒</span> 256-Bit SSL Encrypted</span>
+              <span>Ateliers: Chennai • Bengaluru • Kochi</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: INTERACTIVE LUXURY AUTHENTICATION CARD -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <div class="auth-glass-panel rounded-3xl p-6 sm:p-10 text-[#FFFDF9] space-y-6 relative overflow-hidden">
+              
+              <!-- Subtle top gold highlight line -->
+              <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E6CA85] to-transparent"></div>
+
+              <!-- Header with Brand Emblem -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">Client Portal</span>
+                  <h1 class="font-display text-2xl sm:text-3xl font-bold text-white mt-0.5" id="authMainTitle">
+                    ${initialTab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership'}
+                  </h1>
+                  <p class="text-xs text-[#D6C2B0] mt-1 font-serif" id="authSubTitle">
+                    ${initialTab === 'signin' ? 'Welcome back. Please enter your credentials to access your account.' : 'Join our exclusive patisserie circle and receive 250 complimentary welcome points.'}
+                  </p>
+                </div>
+                <div class="w-11 h-11 rounded-2xl bg-[#140804] border border-[#B8945B]/40 flex items-center justify-center shadow-lg text-xl shrink-0 ml-3">
+                  👑
+                </div>
+              </div>
+
+              <!-- Primary Segment Switcher (Sign In vs Create Account) -->
+              <div class="grid grid-cols-2 p-1 rounded-2xl bg-[#140804] border border-[#B8945B]/30 text-xs font-serif font-semibold">
+                <button type="button" onclick="window.ladesioApp.switchAuthTab('signin')" 
+                        class="py-2.5 rounded-xl transition-all text-center ${initialTab === 'signin' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+                  <span>Sign In</span>
+                </button>
+                <button type="button" onclick="window.ladesioApp.switchAuthTab('register')" 
+                        class="py-2.5 rounded-xl transition-all text-center relative ${initialTab === 'register' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+                  <span>Create Account</span>
+                  <span class="hidden sm:inline-block ml-1 px-1.5 py-0.5 text-[9px] rounded-full bg-[#B8945B] text-[#120502] font-bold">+250 Pts</span>
+                </button>
+              </div>
+
+              <!-- DYNAMIC CONTENT CONTAINER (Sign In or Register) -->
+              <div id="authDynamicFormArea">
+                ${this.renderAuthFormContent(initialTab, authMethod)}
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `;
+  }
+
+  // Generate the internal form HTML (Sign In vs Register and Email vs Mobile)
+  renderAuthFormContent(tab = 'signin', method = 'email', isModal = false) {
+    if (tab === 'signin') {
+      return `
+        <div class="space-y-5">
+          <!-- Auth Method Sub-Tabs (Email vs Mobile) -->
+          <div class="flex items-center border-b border-[#B8945B]/30 pb-2 gap-6 text-xs font-serif">
+            <button type="button" onclick="window.ladesioApp.switchAuthMethod('email', ${isModal})"
+                    class="auth-tab-btn pb-1 ${method === 'email' ? 'active' : ''}">
+              ✉️ Email & Password
+            </button>
+            <button type="button" onclick="window.ladesioApp.switchAuthMethod('mobile', ${isModal})"
+                    class="auth-tab-btn pb-1 ${method === 'mobile' ? 'active' : ''}">
+              📱 Mobile & OTP
+            </button>
+          </div>
+
+          ${method === 'email' ? `
+            <!-- EMAIL & PASSWORD FORM -->
+            <form onsubmit="window.ladesioApp.handleEmailPasswordLogin(event, ${isModal})" class="space-y-4">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Email Address or Connoisseur ID</label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3.5 text-stone-400 text-sm">✉️</span>
+                  <input type="email" id="${isModal ? 'modalLoginEmailInput' : 'loginEmailInput'}" required
+                         value="theroodyy@gmail.com"
+                         placeholder="e.g. connoisseur@ladesio.com"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Password</label>
+                  <button type="button" onclick="window.ladesioApp.openForgotPasswordModal()"
+                          class="text-[11px] font-serif text-[#E6CA85] hover:text-white underline">
+                    Forgot password?
+                  </button>
+                </div>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3.5 text-stone-400 text-sm">🔒</span>
+                  <input type="password" id="${isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput'}" required
+                         value="desio123"
+                         placeholder="••••••••"
+                         class="w-full pl-10 pr-11 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                  <button type="button" onclick="window.ladesioApp.togglePasswordVisibility('${isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput'}', '${isModal ? 'modalLoginEyeIcon' : 'loginEyeIcon'}')"
+                          class="absolute right-3.5 text-stone-400 hover:text-[#E6CA85] transition-colors p-1"
+                          title="Show/Hide password">
+                    <span id="${isModal ? 'modalLoginEyeIcon' : 'loginEyeIcon'}">👁️</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="${isModal ? 'modalRememberMe' : 'rememberMe'}" checked 
+                         class="w-4 h-4 rounded border-[#B8945B]/50 bg-[#120502] text-[#B8945B] focus:ring-0 focus:ring-offset-0 cursor-pointer" />
+                  <span>Remember me on this device</span>
+                </label>
+              </div>
+
+              <button type="submit" 
+                      class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99]">
+                <span>Sign In to Privé</span> 🔑
+              </button>
+
+              <!-- Social / Express Auth Options -->
+              <div class="relative my-4 text-center">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#B8945B]/20"></div></div>
+                <span class="relative px-3 bg-[#241009] text-[10px] font-serif tracking-widest uppercase text-stone-400 font-semibold">Or Continue With</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" onclick="window.ladesioApp.handleSocialLogin('Google', ${isModal})"
+                        class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24">
+                    <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/>
+                    <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"/>
+                    <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/>
+                    <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/>
+                  </svg>
+                  <span>Google</span>
+                </button>
+
+                <button type="button" onclick="window.ladesioApp.handleSocialLogin('Apple', ${isModal})"
+                        class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 170 170">
+                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.34-6.3-9.57-11.1-20.2-14.4-31.9-3.3-11.7-4.96-22.78-4.96-33.24 0-14.58 3.75-26.69 11.25-36.33 7.5-9.64 16.9-14.53 28.2-14.67 4.58 0 9.8 1.13 15.65 3.38 5.86 2.26 9.8 3.42 11.83 3.48 1.63 0 5.76-1.25 12.39-3.75 6.63-2.5 12.06-3.63 16.29-3.39 12.83.67 23.24 5.34 31.23 14 -11.2 6.8-16.69 16.3-16.48 28.51.21 9.89 4.02 18.06 11.45 24.51 7.42 6.45 16.14 10.04 26.15 10.78-2.6 7.82-5.75 15.53-9.44 23.13zM119.22 31.85c0-7.39 2.65-14.28 7.95-20.67 5.3-6.39 11.88-10.45 19.74-12.18.22 1.09.33 2.17.33 3.26 0 7.39-2.72 14.38-8.15 20.97-5.43 6.59-12.06 10.65-19.87 12.18z"/>
+                  </svg>
+                  <span>Apple ID</span>
+                </button>
+              </div>
+            </form>
+          ` : `
+            <!-- MOBILE & OTP FORM -->
+            ${this.mobileAuthStep === 'phone' ? `
+              <form onsubmit="window.ladesioApp.handleSendMobileOtp(event)" class="space-y-4">
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter Your 10-Digit Mobile Number</label>
+                  <div class="flex items-center rounded-xl border border-[#B8945B]/40 bg-[#120502] focus-within:border-[#E6CA85] overflow-hidden">
+                    <span class="px-3.5 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-black/40">
+                      🇮🇳 +91
+                    </span>
+                    <input type="tel" id="mobileAuthPhoneInput" required maxlength="10"
+                           value="${this.mobileAuthPhone || '9345396700'}"
+                           placeholder="93453 96700"
+                           class="w-full px-3.5 py-3 bg-transparent text-white text-xs font-mono outline-none" />
+                  </div>
+                  <span class="text-[11px] text-stone-400">A 6-digit authentication code will be dispatched to this number.</span>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
+                  <span>Generate & Send OTP</span> 📲
+                </button>
+              </form>
+            ` : `
+              <form onsubmit="window.ladesioApp.handleVerifyMobileOtp(event)" class="space-y-4">
+                <!-- Sleek SMS Simulated Banner -->
+                <div class="p-3 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 shadow-xl space-y-1 text-left">
+                  <div class="flex items-center justify-between text-[11px] text-[#E6CA85] font-bold">
+                    <span>📲 SMS VERIFICATION SENT TO +91 ${this.mobileAuthPhone}</span>
+                    <span class="text-[10px] text-stone-400">Delivered</span>
+                  </div>
+                  <p class="text-xs text-white font-mono">
+                    Security Code: <strong class="text-[#E6CA85] font-bold text-sm tracking-wider">${this.mobileAuthOtp || '645123'}</strong>
+                  </p>
+                  <button type="button" onclick="document.getElementById('mobileAuthOtpInput').value = '${this.mobileAuthOtp}';"
+                          class="mt-1 text-[11px] font-serif text-[#E6CA85] hover:text-white underline font-bold">
+                    ⚡ Click to Auto-Fill OTP (${this.mobileAuthOtp})
+                  </button>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter 6-Digit Verification Code (OTP)</label>
+                  <input type="text" id="mobileAuthOtpInput" required maxlength="6"
+                         value="${this.mobileAuthOtp || ''}"
+                         placeholder="••••••"
+                         class="w-full px-4 py-3 rounded-xl border border-[#B8945B]/50 bg-[#120502] text-white text-base font-mono text-center tracking-[0.35em] outline-none focus:border-[#E6CA85]" />
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
+                  <span>Verify & Enter Salon</span> 👑
+                </button>
+
+                <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
+                  <button type="button" onclick="window.ladesioApp.openMobileAuthModal('phone', '${this.mobileAuthPhone}')" class="hover:text-white">
+                    ← Change Phone
+                  </button>
+                  <button type="button" onclick="window.ladesioApp.handleSendMobileOtp(null, '${this.mobileAuthPhone}')" class="text-[#E6CA85] font-bold hover:underline">
+                    Resend Code
+                  </button>
+                </div>
+              </form>
+            `}
+          `}
+        </div>
+      `;
+    }
+
+    // REGISTRATION FORM
+    return `
+      <form onsubmit="window.ladesioApp.handleEmailPasswordRegister(event, ${isModal})" class="space-y-3.5 pt-1">
+        <div class="p-2.5 rounded-xl bg-gradient-to-r from-[#2A130B] to-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs flex items-center gap-2.5">
+          <span class="text-base">🎁</span>
+          <span><strong>Welcome Courtesy:</strong> 250 Privé Points will be automatically credited to your new profile.</span>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Full Name *</label>
+          <input type="text" id="${isModal ? 'modalRegName' : 'regName'}" required placeholder="e.g. Arjun Sundaram"
+                 class="w-full px-3.5 py-2.5 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Email Address *</label>
+            <input type="email" id="${isModal ? 'modalRegEmail' : 'regEmail'}" required placeholder="arjun@ladesio.in"
+                   class="w-full px-3.5 py-2.5 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Mobile Number *</label>
+            <div class="flex items-center rounded-xl border border-[#B8945B]/35 bg-[#120502] overflow-hidden">
+              <span class="px-2.5 py-2 text-xs font-mono text-[#E6CA85] border-r border-[#B8945B]/25 bg-black/40">🇮🇳 +91</span>
+              <input type="tel" id="${isModal ? 'modalRegPhone' : 'regPhone'}" required maxlength="10" placeholder="98401 23456"
+                     class="w-full px-2.5 py-2 bg-transparent text-white text-xs font-mono outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Preferred Atelier City *</label>
+            <select id="${isModal ? 'modalRegCity' : 'regCity'}"
+                    class="w-full px-3 py-2.5 rounded-xl auth-input text-xs font-sans bg-[#120502] text-white">
+              <option value="Chennai">Chennai Flagship (Alwarpet)</option>
+              <option value="Bengaluru">Bengaluru Atelier (Indiranagar)</option>
+              <option value="Kochi">Kochi Salon (Panampilly Nagar)</option>
+              <option value="Trichy">Trichy Boutique</option>
+              <option value="Mumbai">Mumbai Privé Lounge</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Create Secure Password *</label>
+            <div class="relative flex items-center">
+              <input type="password" id="${isModal ? 'modalRegPassword' : 'regPassword'}" required minlength="6"
+                     placeholder="At least 6 characters"
+                     oninput="window.ladesioApp.updatePasswordStrength(this.value, '${isModal ? 'modalStrengthBar' : 'strengthBar'}', '${isModal ? 'modalStrengthText' : 'strengthText'}')"
+                     class="w-full px-3 py-2.5 pr-9 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+              <button type="button" onclick="window.ladesioApp.togglePasswordVisibility('${isModal ? 'modalRegPassword' : 'regPassword'}', '${isModal ? 'modalRegEye' : 'regEye'}')"
+                      class="absolute right-2.5 text-stone-400 hover:text-white p-1">
+                <span id="${isModal ? 'modalRegEye' : 'regEye'}">👁️</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Password Strength Meter -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between text-[10px] text-stone-400">
+            <span>Password Security:</span>
+            <span id="${isModal ? 'modalStrengthText' : 'strengthText'}" class="text-[#B8945B] font-semibold">Enter password</span>
+          </div>
+          <div class="h-1.5 w-full bg-[#120502] rounded-full overflow-hidden border border-[#B8945B]/20">
+            <div id="${isModal ? 'modalStrengthBar' : 'strengthBar'}" class="h-full w-0 bg-stone-500 transition-all duration-300"></div>
+          </div>
+        </div>
+
+        <div class="pt-1">
+          <label class="flex items-start gap-2 text-[11px] text-stone-300 cursor-pointer">
+            <input type="checkbox" required checked class="mt-0.5 rounded border-[#B8945B]/50 bg-[#120502] text-[#B8945B] focus:ring-0 cursor-pointer" />
+            <span>I accept the La Desio Privé Charter, complimentary concierge privileges, and confidential data privacy.</span>
+          </label>
+        </div>
+
+        <button type="submit" 
+                class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 mt-2 transition-transform active:scale-[0.99]">
+          <span>Create Privé Account & Claim 250 Points</span> ✨
+        </button>
+      </form>
+    `;
+  }
+
+  // Switch between Sign In and Register tabs
+  switchAuthTab(tab, isModal = false) {
+    this.activeAuthTab = tab;
+    if (isModal) {
+      const area = document.getElementById('modalAuthDynamicArea');
+      if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'email', true);
+      const title = document.getElementById('modalAuthTitle');
+      if (title) title.textContent = tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership';
+      return;
+    }
+
+    const area = document.getElementById('authDynamicFormArea');
+    if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'email', false);
+
+    const title = document.getElementById('authMainTitle');
+    const subTitle = document.getElementById('authSubTitle');
+    const breadcrumbAction = document.getElementById('authBreadcrumbAction');
+
+    if (title) title.textContent = tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership';
+    if (subTitle) {
+      subTitle.textContent = tab === 'signin' 
+        ? 'Welcome back. Please enter your credentials to access your account.' 
+        : 'Join our exclusive patisserie circle and receive 250 complimentary welcome points.';
+    }
+    if (breadcrumbAction) breadcrumbAction.textContent = tab === 'signin' ? 'Sign In' : 'Privé Registration';
+
+    // Update segment buttons
+    const container = document.getElementById('app-main-content');
+    if (container) {
+      const btns = container.querySelectorAll('.grid.grid-cols-2 button');
+      if (btns && btns.length === 2) {
+        if (tab === 'signin') {
+          btns[0].className = 'py-2.5 rounded-xl transition-all text-center bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold';
+          btns[1].className = 'py-2.5 rounded-xl transition-all text-center relative text-stone-400 hover:text-white';
+        } else {
+          btns[0].className = 'py-2.5 rounded-xl transition-all text-center text-stone-400 hover:text-white';
+          btns[1].className = 'py-2.5 rounded-xl transition-all text-center relative bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold';
+        }
+      }
+    }
+  }
+
+  // Switch between Email and Mobile auth sub-methods
+  switchAuthMethod(method, isModal = false) {
+    this.activeAuthMethod = method;
+    this.mobileAuthStep = 'phone';
+    if (isModal) {
+      const area = document.getElementById('modalAuthDynamicArea');
+      if (area) area.innerHTML = this.renderAuthFormContent('signin', method, true);
+      return;
+    }
+    const area = document.getElementById('authDynamicFormArea');
+    if (area) area.innerHTML = this.renderAuthFormContent('signin', method, false);
+  }
+
+  // Toggle Password Show/Hide
+  togglePasswordVisibility(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (!input) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (icon) icon.textContent = '🙈';
+    } else {
+      input.type = 'password';
+      if (icon) icon.textContent = '👁️';
+    }
+  }
+
+  // Live Password Strength Indicator
+  updatePasswordStrength(val, barId = 'strengthBar', textId = 'strengthText') {
+    const bar = document.getElementById(barId);
+    const text = document.getElementById(textId);
+    if (!bar || !text) return;
+
+    if (!val) {
+      bar.style.width = '0%';
+      bar.className = 'h-full bg-stone-500 transition-all duration-300';
+      text.textContent = 'Enter password';
+      text.className = 'text-stone-400 font-semibold';
+      return;
+    }
+
+    let score = 0;
+    if (val.length >= 6) score += 1;
+    if (val.length >= 9) score += 1;
+    if (/[A-Z]/.test(val)) score += 1;
+    if (/[0-9]/.test(val)) score += 1;
+    if (/[^A-Za-z0-9]/.test(val)) score += 1;
+
+    if (score <= 1) {
+      bar.style.width = '25%';
+      bar.className = 'h-full bg-rose-500 transition-all duration-300';
+      text.textContent = 'Weak';
+      text.className = 'text-rose-400 font-semibold';
+    } else if (score <= 3) {
+      bar.style.width = '60%';
+      bar.className = 'h-full bg-amber-500 transition-all duration-300';
+      text.textContent = 'Moderate';
+      text.className = 'text-amber-400 font-semibold';
+    } else {
+      bar.style.width = '100%';
+      bar.className = 'h-full bg-emerald-500 transition-all duration-300';
+      text.textContent = 'Strong Privé Password';
+      text.className = 'text-emerald-400 font-semibold';
+    }
+  }
+
+  // Collapsible Connoisseur Persona Drawer
+  toggleDemoDrawer() {
+    const content = document.getElementById('demoDrawerContent');
+    const chevron = document.getElementById('demoDrawerChevron');
+    if (!content) return;
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      if (chevron) chevron.textContent = '▲';
+    } else {
+      content.classList.add('hidden');
+      if (chevron) chevron.textContent = '▼';
+    }
+  }
+
+  // Email + Password Sign In Handler
+  handleEmailPasswordLogin(e, isModal = false) {
+    if (e && e.preventDefault) e.preventDefault();
+    const emailElem = document.getElementById(isModal ? 'modalLoginEmailInput' : 'loginEmailInput');
+    const passElem = document.getElementById(isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput');
+    const email = emailElem ? emailElem.value.trim() : '';
+    const password = passElem ? passElem.value : '';
+
+    if (!email) {
+      if (window.showToast) window.showToast('Please enter your email address.', 'warning');
+      return;
+    }
+
+    const res = loyaltyStore.loginByEmail(email, password);
+    if (res && res.success) {
+      this.playObstacleChime();
+      if (isModal) this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message || 'Welcome to La Desio Privé!', 'success');
+      }
+      
+      const redirect = sessionStorage.getItem('ladesio_auth_redirect');
+      if (redirect === 'checkout') {
+        sessionStorage.removeItem('ladesio_auth_redirect');
+        this.navigateTo('checkout');
+      } else {
+        this.navigateTo('account');
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast((res && res.message) || 'Unable to sign in. Please check credentials.', 'warning');
+      }
+    }
+  }
+
+  // Email + Password + Mobile Registration Handler
+  handleEmailPasswordRegister(e, isModal = false) {
+    if (e && e.preventDefault) e.preventDefault();
+    const name = document.getElementById(isModal ? 'modalRegName' : 'regName')?.value;
+    const email = document.getElementById(isModal ? 'modalRegEmail' : 'regEmail')?.value;
+    const phone = document.getElementById(isModal ? 'modalRegPhone' : 'regPhone')?.value;
+    const city = document.getElementById(isModal ? 'modalRegCity' : 'regCity')?.value;
+    const password = document.getElementById(isModal ? 'modalRegPassword' : 'regPassword')?.value;
+
+    const res = loyaltyStore.registerWithEmailAndPassword({
+      name,
+      email,
+      phone,
+      city,
+      password
+    });
+
+    if (res.success) {
+      this.playObstacleChime();
+      if (isModal) this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message, 'success');
+      }
+      window.location.hash = '#account';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  // Social / One-Tap Auth Simulation
+  handleSocialLogin(provider, isModal = false) {
+    if (window.showToast) {
+      window.showToast(`Connecting securely via ${provider}...`, 'info');
+    }
+    setTimeout(() => {
+      // Default to Roody for social simulation
+      const res = loyaltyStore.loginByPhone('9345396700');
+      if (res.success) {
+        this.playObstacleChime();
+        if (isModal) this.closeAuthModal();
+        this.renderNavigationBadges();
+        if (window.showToast) {
+          window.showToast(`Authenticated via ${provider}! Welcome back, ${res.user.name}.`, 'success');
+        }
+        window.location.hash = '#account';
+        this.renderAccountView();
+      }
+    }, 600);
+  }
+
+  // 1-Click Connoisseur Preset Unlock
+  demoQuickUnlock(phoneOrId) {
+    const res = loyaltyStore.loginByPhone(phoneOrId);
+    if (res.success) {
+      this.playObstacleChime();
+      this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(`👑 Connoisseur profile active: ${res.user.name} (${res.user.tier} Tier)`, 'success');
+      }
+      window.location.hash = '#account';
+      this.renderAccountView();
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  // ==========================================
+  // FORGOT PASSWORD RECOVERY MODAL
+  // ==========================================
+  openForgotPasswordModal() {
+    let modal = document.getElementById('forgotPasswordModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'forgotPasswordModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md';
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-md auth-glass-panel rounded-3xl p-6 sm:p-8 space-y-5 text-[#FFFDF9] animate-float-slow">
+        <button onclick="window.ladesioApp.closeForgotPasswordModal()"
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors">
+          ✕
+        </button>
+
+        <div class="text-center space-y-1.5">
+          <div class="w-12 h-12 mx-auto rounded-full bg-[#1A0905] border border-[#B8945B]/50 flex items-center justify-center text-xl shadow-lg">
+            🔑
+          </div>
+          <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">La Desio Privé Security</span>
+          <h3 class="font-display text-2xl font-bold text-white">Reset Privé Password</h3>
+          <p class="text-xs text-[#D6C2B0]">Enter your registered email address to receive a secure recovery key.</p>
+        </div>
+
+        <form onsubmit="window.ladesioApp.handleForgotPasswordSubmit(event)" class="space-y-4 pt-1">
+          <div class="space-y-1.5">
+            <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Registered Email</label>
+            <input type="email" id="forgotEmailInput" required value="theroodyy@gmail.com" placeholder="connoisseur@ladesio.com"
+                   class="w-full px-3.5 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+          </div>
+
+          <button type="submit" 
+                  class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
+            <span>Send Recovery Instructions</span> ✉️
+          </button>
+        </form>
+      </div>
+    `;
+    modal.classList.remove('hidden');
+  }
+
+  closeForgotPasswordModal() {
+    const modal = document.getElementById('forgotPasswordModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  handleForgotPasswordSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const email = document.getElementById('forgotEmailInput')?.value;
+    const res = loyaltyStore.requestPasswordReset(email);
+    this.closeForgotPasswordModal();
+    if (window.showToast) {
+      window.showToast(res.message, 'success');
+    }
+  }
+
+  // ==========================================
+  // SYNCHRONIZED LUXURY MODAL AUTHENTICATION
+  // ==========================================
+  openAuthModal(tab = 'signin') {
+    let modal = document.getElementById('authModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'authModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto';
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-lg auth-glass-panel rounded-3xl p-6 sm:p-8 space-y-5 text-[#FFFDF9] my-8 animate-float-slow">
+        <!-- Close Button -->
+        <button onclick="window.ladesioApp.closeAuthModal()"
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors z-10">
+          ✕
+        </button>
+
+        <!-- Header -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-[#140804] border border-[#B8945B]/50 flex items-center justify-center shadow-lg text-lg">
+            👑
+          </div>
+          <div>
+            <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">La Desio Privé Club</span>
+            <h3 class="font-display text-xl font-bold text-white" id="modalAuthTitle">
+              ${tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership'}
+            </h3>
+          </div>
+        </div>
+
+        <!-- Mode Switcher in Modal -->
+        <div class="grid grid-cols-2 p-1 rounded-2xl bg-[#140804] border border-[#B8945B]/30 text-xs font-serif font-semibold">
+          <button type="button" onclick="window.ladesioApp.switchAuthTab('signin', true)" 
+                  class="py-2 rounded-xl transition-all text-center ${tab === 'signin' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+            <span>Sign In</span>
+          </button>
+          <button type="button" onclick="window.ladesioApp.switchAuthTab('register', true)" 
+                  class="py-2 rounded-xl transition-all text-center relative ${tab === 'register' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
+            <span>Create Account</span>
+            <span class="hidden sm:inline-block ml-1 px-1.5 py-0.2 text-[9px] rounded-full bg-[#B8945B] text-[#120502] font-bold">+250 Pts</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Form Container inside Modal -->
+        <div id="modalAuthDynamicArea">
+          ${this.renderAuthFormContent(tab, 'email', true)}
+        </div>
+
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+  }
+
+  openMobileAuthModal(step = 'phone', phone = '', currentOtp = '') {
+    this.mobileAuthStep = step;
+    this.mobileAuthPhone = phone;
+    this.mobileAuthOtp = currentOtp;
+    this.openAuthModal('signin');
+    this.switchAuthMethod('mobile', true);
+  }
+
+  closeAuthModal() {
+    const modal = document.getElementById('authModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  handleSendMobileOtp(e, overridePhone) {
+    if (e && e.preventDefault) e.preventDefault();
+    const phone = overridePhone || document.getElementById('mobileAuthPhoneInput')?.value;
+    const res = loyaltyStore.generateOtp(phone);
+
+    if (res.success) {
+      this.mobileAuthStep = 'otp';
+      this.mobileAuthPhone = res.phone;
+      this.mobileAuthOtp = res.otp;
+      this.playObstacleChime();
+      if (window.showToast) {
+        window.showToast(`📲 SMS Delivered to ${res.formattedPhone}: OTP is ${res.otp}`, 'warning');
+      }
+      // Re-render auth area with OTP step
+      const isModal = !document.getElementById('authDynamicFormArea');
+      if (isModal) {
+        this.openAuthModal('signin');
+        this.switchAuthMethod('mobile', true);
+      } else {
+        const area = document.getElementById('authDynamicFormArea');
+        if (area) area.innerHTML = this.renderAuthFormContent('signin', 'mobile', false);
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  handleVerifyMobileOtp(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const otp = document.getElementById('mobileAuthOtpInput')?.value;
+    const res = loyaltyStore.verifyOtp(this.mobileAuthPhone, otp);
+
+    if (res.success) {
+      if (res.isNewUser) {
+        this.switchAuthTab('register');
+        if (window.showToast) window.showToast(res.message, 'info');
+      } else {
+        this.closeAuthModal();
+        this.renderNavigationBadges();
+        if (window.showToast) {
+          window.showToast(res.message, 'success');
+        }
+        window.location.hash = '#account';
+        this.renderAccountView();
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  handleRegisterNewMobileUser(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const name = document.getElementById('regNewMobileName')?.value;
+    const city = document.getElementById('regNewMobileCity')?.value || 'Chennai';
+    const address = document.getElementById('regNewMobileAddress')?.value || '';
+
+    const res = loyaltyStore.registerWithMobile({
+      phone: this.mobileAuthPhone,
+      name,
+      city,
+      address
+    });
+
+    if (res.success) {
+      this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message, 'success');
+      }
+      window.location.hash = '#account';
+      this.renderAccountView();
+    }
+  }
+
+  handleLogout() {
+    this.closePfpDropdown();
+    loyaltyStore.logout();
+    this.pendingRedirectRoute = null;
+    try {
+      sessionStorage.removeItem('ladesio_auth_redirect');
+      localStorage.removeItem('ladesio_auth_session_phone_v4');
+      localStorage.removeItem('ladesio_active_user_id_v4');
+      localStorage.removeItem('ladesio_profile_v2');
+    } catch (e) {}
+    
+    // Update navigation immediately
+    this.renderNavigationBadges();
+    
+    // Navigate to home and FORCE re-render
+    this.currentRoute = 'home';
+    window.location.hash = '#home';
+    const mainContainer = document.getElementById('app-main-content');
+    if (mainContainer) {
+      this.renderHomeView(mainContainer);
+    }
+    
+    if (window.showToast) {
+      window.showToast('You have signed out successfully.', 'info');
+    }
   }
 }
 
