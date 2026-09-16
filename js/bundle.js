@@ -1889,6 +1889,7 @@ const USERS_KEY = 'ladesio_users_v5';
 const ACTIVE_USER_ID_KEY = 'ladesio_active_user_id_v4';
 const AUTH_SESSION_KEY = 'ladesio_auth_session_phone_v4';
 const OTP_STORE_KEY = 'ladesio_otp_store_v1';
+const EMAIL_OTP_STORE_KEY = 'ladesio_email_otp_store_v1';
 const PROFILE_KEY = 'ladesio_profile_v2';
 const CREATIONS_KEY = 'ladesio_creations_v1';
 const ORDERS_KEY = 'ladesio_orders_v1';
@@ -2174,6 +2175,7 @@ class LoyaltyManager {
     this.orders = this.loadOrders();
     this.friends = this.loadFriends();
     this.pendingOtp = null;
+    this.pendingEmailOtp = null;
     this.listeners = [];
   }
 
@@ -2383,6 +2385,144 @@ class LoyaltyManager {
         isNewUser: true,
         phone,
         message: 'Mobile number verified! Please complete your name and city to create your Privé profile.'
+      };
+    }
+  }
+
+  // ==========================================
+  // GMAIL / EMAIL OTP GENERATOR & DISPATCH
+  // ==========================================
+  generateEmailOtp(emailInput) {
+    const email = String(emailInput || '').trim().toLowerCase();
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      return { success: false, message: 'Please enter a valid email address (e.g. connoisseur@gmail.com).' };
+    }
+
+    // Generate random 6-digit verification code
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    const expiresAt = Date.now() + 5 * 60 * 1000; // 5 mins
+
+    this.pendingEmailOtp = {
+      email,
+      otp,
+      expiresAt
+    };
+
+    try {
+      localStorage.setItem(EMAIL_OTP_STORE_KEY, JSON.stringify(this.pendingEmailOtp));
+    } catch (e) {}
+
+    const existingUser = this.users.find(u => (u.email || '').toLowerCase() === email);
+
+    // If EmailJS is loaded in window, dispatch the real email asynchronously
+    if (typeof window !== 'undefined' && window.emailjs && window.ladesioEmailJsConfig) {
+      try {
+        window.emailjs.send(
+          window.ladesioEmailJsConfig.serviceId,
+          window.ladesioEmailJsConfig.templateId,
+          {
+            to_email: email,
+            otp_code: otp,
+            name: existingUser ? existingUser.name : 'Atelier Patron'
+          }
+        ).then(() => {
+          console.log('✉️ [EmailJS]: Verification email delivered to Gmail:', email);
+        }).catch(err => {
+          console.warn('✉️ [EmailJS]: Error sending email:', err);
+        });
+      } catch (err) {}
+    }
+
+    return {
+      success: true,
+      email,
+      otp,
+      isExisting: !!existingUser,
+      userName: existingUser ? existingUser.name : null,
+      message: `OTP security code dispatched to ${email}. Valid for 5 minutes.`
+    };
+  }
+
+  // Verify entered Email OTP
+  verifyEmailOtp(emailInput, enteredOtp) {
+    const email = String(emailInput || '').trim().toLowerCase();
+    const trimmedOtp = String(enteredOtp || '').trim();
+
+    if (!trimmedOtp || trimmedOtp.length !== 6) {
+      return { success: false, message: 'Please enter the full 6-digit verification code.' };
+    }
+
+    // Check memory or localStorage
+    let stored = this.pendingEmailOtp;
+    if (!stored) {
+      try {
+        const saved = localStorage.getItem(EMAIL_OTP_STORE_KEY);
+        if (saved) stored = JSON.parse(saved);
+      } catch (e) {}
+    }
+
+    if (!stored || (stored.email || '').toLowerCase() !== email) {
+      return { success: false, message: 'No active OTP found for this email address. Please request a new code.' };
+    }
+
+    if (Date.now() > stored.expiresAt) {
+      return { success: false, message: 'This OTP has expired. Please request a fresh OTP.' };
+    }
+
+    if (stored.otp !== trimmedOtp) {
+      return { success: false, message: 'Incorrect OTP entered. Please check your verification code.' };
+    }
+
+    // Clear pending OTP
+    this.pendingEmailOtp = null;
+    try {
+      localStorage.removeItem(EMAIL_OTP_STORE_KEY);
+    } catch (e) {}
+
+    // Check if user already exists
+    const existing = this.users.find(u => (u.email || '').toLowerCase() === email);
+    if (existing) {
+      this.activeUserId = existing.id;
+      this.profile = existing;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, email);
+      } catch (e) {}
+      this.saveUsers();
+      return {
+        success: true,
+        isNewUser: false,
+        user: this.profile,
+        message: `Verification successful! Welcome back, ${this.profile.name}.`
+      };
+    } else {
+      // Create new user automatically with 250 welcome points
+      const nameFromEmail = email.split('@')[0].replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      const newUser = {
+        id: 'usr_' + Date.now(),
+        name: nameFromEmail || 'Atelier Connoisseur',
+        avatar: '',
+        bio: 'Haute patisserie enthusiast & La Desio Privé member.',
+        email: email,
+        phone: '98401' + Math.floor(10000 + Math.random() * 90000),
+        city: 'Chennai',
+        tier: 'Connoisseur',
+        points: 250,
+        nextTierPoints: 1000,
+        joinedDate: 'September 2026',
+        savedAddresses: []
+      };
+      this.users.push(newUser);
+      this.activeUserId = newUser.id;
+      this.profile = newUser;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, email);
+      } catch (e) {}
+      this.saveUsers();
+      return {
+        success: true,
+        isNewUser: true,
+        user: newUser,
+        message: `Welcome to La Desio Privé, ${newUser.name}! +250 Welcome Points credited.`
       };
     }
   }
@@ -5998,6 +6138,13 @@ class LaDesioApp {
       onlyEggless: false,
       sortBy: 'recommended'
     };
+
+    this.emailAuthStep = 'email';
+    this.emailAuthEmail = '';
+    this.emailAuthOtp = '';
+    this.mobileAuthStep = 'phone';
+    this.mobileAuthPhone = '';
+    this.mobileAuthOtp = '';
 
     this.init();
   }
@@ -10456,20 +10603,113 @@ class LaDesioApp {
   renderAuthFormContent(tab = 'signin', method = 'email', isModal = false) {
     if (tab === 'signin') {
       return `
-        <div class="space-y-5">
-          <!-- Auth Method Sub-Tabs (Email vs Mobile) -->
-          <div class="flex items-center border-b border-[#B8945B]/30 pb-2 gap-6 text-xs font-serif">
+          <!-- Auth Method Sub-Tabs (Gmail OTP vs Mobile OTP vs Password) -->
+          <div class="flex items-center border-b border-[#B8945B]/30 pb-2 gap-4 sm:gap-6 text-xs font-serif overflow-x-auto">
             <button type="button" onclick="window.ladesioApp.switchAuthMethod('email', ${isModal})"
-                    class="auth-tab-btn pb-1 ${method === 'email' ? 'active' : ''}">
-              ✉️ Email & Password
+                    class="auth-tab-btn pb-1 whitespace-nowrap ${method === 'email' ? 'active font-bold' : ''}">
+              ✉️ Gmail OTP
             </button>
             <button type="button" onclick="window.ladesioApp.switchAuthMethod('mobile', ${isModal})"
-                    class="auth-tab-btn pb-1 ${method === 'mobile' ? 'active' : ''}">
-              📱 Mobile & OTP
+                    class="auth-tab-btn pb-1 whitespace-nowrap ${method === 'mobile' ? 'active font-bold' : ''}">
+              📱 Mobile OTP
+            </button>
+            <button type="button" onclick="window.ladesioApp.switchAuthMethod('password', ${isModal})"
+                    class="auth-tab-btn pb-1 whitespace-nowrap ${method === 'password' ? 'active font-bold' : ''}">
+              🔑 Password
             </button>
           </div>
 
           ${method === 'email' ? `
+            <!-- GMAIL & EMAIL OTP FLOW -->
+            ${this.emailAuthStep === 'otp' ? `
+              <form onsubmit="window.ladesioApp.handleVerifyEmailOtp(event, ${isModal})" class="space-y-4">
+                <!-- Sleek Gmail Notification Banner -->
+                <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 shadow-xl space-y-1.5 text-left">
+                  <div class="flex items-center justify-between text-[11px] text-[#E6CA85] font-bold">
+                    <span class="flex items-center gap-1.5">
+                      <span class="text-rose-400">✉️</span> GMAIL VERIFICATION SENT TO:
+                    </span>
+                    <span class="text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/40">Dispatched</span>
+                  </div>
+                  <p class="text-xs text-white font-mono truncate">
+                    ${this.emailAuthEmail || 'user@gmail.com'}
+                  </p>
+                  <p class="text-xs text-white font-mono pt-1">
+                    Security Code: <strong class="text-[#E6CA85] font-bold text-base tracking-wider bg-black/50 px-2 py-0.5 rounded-lg border border-[#B8945B]/40">${this.emailAuthOtp || '582194'}</strong>
+                  </p>
+                  <button type="button" onclick="const inp = document.getElementById('${isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput'}'); if (inp) inp.value = '${this.emailAuthOtp}';"
+                          class="mt-1 text-[11px] font-serif text-[#E6CA85] hover:text-white underline font-bold cursor-pointer">
+                    ⚡ Click to Auto-Fill OTP (${this.emailAuthOtp})
+                  </button>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter 6-Digit Gmail Verification Code (OTP)</label>
+                  <input type="text" id="${isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput'}" required maxlength="6"
+                         value="${this.emailAuthOtp || ''}"
+                         placeholder="••••••"
+                         class="w-full px-4 py-3 rounded-xl border border-[#B8945B]/50 bg-[#120502] text-white text-base font-mono text-center tracking-[0.35em] outline-none focus:border-[#E6CA85]" />
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 cursor-pointer">
+                  <span>Verify & Sign In</span> 👑
+                </button>
+
+                <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
+                  <button type="button" onclick="window.ladesioApp.resetEmailAuthStep(${isModal})" class="hover:text-white cursor-pointer">
+                    ← Change Email
+                  </button>
+                  <button type="button" onclick="window.ladesioApp.handleSendEmailOtp(null, '${this.emailAuthEmail}', ${isModal})" class="text-[#E6CA85] font-bold hover:underline cursor-pointer">
+                    Resend Code to Gmail
+                  </button>
+                </div>
+              </form>
+            ` : `
+              <form onsubmit="window.ladesioApp.handleSendEmailOtp(event, null, ${isModal})" class="space-y-4">
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter Your Gmail / Email Address</label>
+                  <div class="relative flex items-center">
+                    <span class="absolute left-3.5 text-stone-400 text-sm">✉️</span>
+                    <input type="email" id="${isModal ? 'modalEmailAuthInput' : 'emailAuthInput'}" required
+                           value="${this.emailAuthEmail || 'theroodyy@gmail.com'}"
+                           placeholder="e.g. yourname@gmail.com"
+                           class="w-full pl-10 pr-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                  </div>
+                  <span class="text-[11px] text-stone-400">A 6-digit verification security code will be sent to your Gmail inbox.</span>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer">
+                  <span>Send OTP to Gmail</span> ✉️
+                </button>
+
+                <!-- Social / Express Auth Options -->
+                <div class="relative my-4 text-center">
+                  <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#B8945B]/20"></div></div>
+                  <span class="relative px-3 bg-[#241009] text-[10px] font-serif tracking-widest uppercase text-stone-400 font-semibold">Or 1-Tap Login</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <button type="button" onclick="window.ladesioApp.handleSocialLogin('Google', ${isModal})"
+                          class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white cursor-pointer">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24">
+                      <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/>
+                      <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"/>
+                      <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/>
+                      <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/>
+                    </svg>
+                    <span>Google 1-Tap</span>
+                  </button>
+
+                  <button type="button" onclick="window.ladesioApp.switchAuthMethod('password', ${isModal})"
+                          class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white cursor-pointer">
+                    <span>🔑 Password</span>
+                  </button>
+                </div>
+              </form>
+            `}
+          ` : method === 'password' ? `
             <!-- EMAIL & PASSWORD FORM -->
             <form onsubmit="window.ladesioApp.handleEmailPasswordLogin(event, ${isModal})" class="space-y-4">
               <div class="space-y-1.5">
@@ -10487,7 +10727,7 @@ class LaDesioApp {
                 <div class="flex items-center justify-between">
                   <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Password</label>
                   <button type="button" onclick="window.ladesioApp.openForgotPasswordModal()"
-                          class="text-[11px] font-serif text-[#E6CA85] hover:text-white underline">
+                          class="text-[11px] font-serif text-[#E6CA85] hover:text-white underline cursor-pointer">
                     Forgot password?
                   </button>
                 </div>
@@ -10514,36 +10754,9 @@ class LaDesioApp {
               </div>
 
               <button type="submit" 
-                      class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99]">
-                <span>Sign In to Privé</span> 🔑
+                      class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer">
+                <span>Sign In with Password</span> 🔑
               </button>
-
-              <!-- Social / Express Auth Options -->
-              <div class="relative my-4 text-center">
-                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#B8945B]/20"></div></div>
-                <span class="relative px-3 bg-[#241009] text-[10px] font-serif tracking-widest uppercase text-stone-400 font-semibold">Or Continue With</span>
-              </div>
-
-              <div class="grid grid-cols-2 gap-3">
-                <button type="button" onclick="window.ladesioApp.handleSocialLogin('Google', ${isModal})"
-                        class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24">
-                    <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/>
-                    <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"/>
-                    <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/>
-                    <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/>
-                  </svg>
-                  <span>Google</span>
-                </button>
-
-                <button type="button" onclick="window.ladesioApp.handleSocialLogin('Apple', ${isModal})"
-                        class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 170 170">
-                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.34-6.3-9.57-11.1-20.2-14.4-31.9-3.3-11.7-4.96-22.78-4.96-33.24 0-14.58 3.75-26.69 11.25-36.33 7.5-9.64 16.9-14.53 28.2-14.67 4.58 0 9.8 1.13 15.65 3.38 5.86 2.26 9.8 3.42 11.83 3.48 1.63 0 5.76-1.25 12.39-3.75 6.63-2.5 12.06-3.63 16.29-3.39 12.83.67 23.24 5.34 31.23 14 -11.2 6.8-16.69 16.3-16.48 28.51.21 9.89 4.02 18.06 11.45 24.51 7.42 6.45 16.14 10.04 26.15 10.78-2.6 7.82-5.75 15.53-9.44 23.13zM119.22 31.85c0-7.39 2.65-14.28 7.95-20.67 5.3-6.39 11.88-10.45 19.74-12.18.22 1.09.33 2.17.33 3.26 0 7.39-2.72 14.38-8.15 20.97-5.43 6.59-12.06 10.65-19.87 12.18z"/>
-                  </svg>
-                  <span>Apple ID</span>
-                </button>
-              </div>
             </form>
           ` : `
             <!-- MOBILE & OTP FORM -->
@@ -10742,6 +10955,7 @@ class LaDesioApp {
   switchAuthMethod(method, isModal = false) {
     this.activeAuthMethod = method;
     this.mobileAuthStep = 'phone';
+    this.emailAuthStep = 'email';
     if (isModal) {
       const area = document.getElementById('modalAuthDynamicArea');
       if (area) area.innerHTML = this.renderAuthFormContent('signin', method, true);
@@ -11055,6 +11269,81 @@ class LaDesioApp {
   closeAuthModal() {
     const modal = document.getElementById('authModal');
     if (modal) modal.classList.add('hidden');
+  }
+
+  // ==========================================
+  // GMAIL / EMAIL OTP CONTROLLERS
+  // ==========================================
+  handleSendEmailOtp(e, overrideEmail, isModal = false) {
+    if (e && e.preventDefault) e.preventDefault();
+    const inputId = isModal ? 'modalEmailAuthInput' : 'emailAuthInput';
+    const email = overrideEmail || document.getElementById(inputId)?.value;
+    const res = loyaltyStore.generateEmailOtp(email);
+
+    if (res.success) {
+      this.emailAuthStep = 'otp';
+      this.emailAuthEmail = res.email;
+      this.emailAuthOtp = res.otp;
+      this.playObstacleChime();
+      if (window.showToast) {
+        window.showToast(`✉️ Security code sent to ${res.email}: OTP is ${res.otp}`, 'success');
+      }
+      // Re-render auth area
+      if (isModal) {
+        const area = document.getElementById('modalAuthDynamicArea');
+        if (area) area.innerHTML = this.renderAuthFormContent('signin', 'email', true);
+      } else {
+        const area = document.getElementById('authDynamicFormArea');
+        if (area) area.innerHTML = this.renderAuthFormContent('signin', 'email', false);
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  handleVerifyEmailOtp(e, isModal = false) {
+    if (e && e.preventDefault) e.preventDefault();
+    const inputId = isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput';
+    const otp = document.getElementById(inputId)?.value;
+    const res = loyaltyStore.verifyEmailOtp(this.emailAuthEmail, otp);
+
+    if (res.success) {
+      this.playObstacleChime();
+      if (isModal) this.closeAuthModal();
+      this.renderNavigationBadges();
+      if (window.showToast) {
+        window.showToast(res.message, 'success');
+      }
+      const redirect = sessionStorage.getItem('ladesio_auth_redirect');
+      if (redirect === 'checkout') {
+        sessionStorage.removeItem('ladesio_auth_redirect');
+        this.navigateTo('checkout');
+      } else {
+        window.location.hash = '#account';
+        this.renderAccountView();
+      }
+    } else {
+      if (window.showToast) {
+        window.showToast(res.message, 'warning');
+      } else {
+        alert(res.message);
+      }
+    }
+  }
+
+  resetEmailAuthStep(isModal = false) {
+    this.emailAuthStep = 'email';
+    if (isModal) {
+      const area = document.getElementById('modalAuthDynamicArea');
+      if (area) area.innerHTML = this.renderAuthFormContent('signin', 'email', true);
+    } else {
+      const area = document.getElementById('authDynamicFormArea');
+      if (area) area.innerHTML = this.renderAuthFormContent('signin', 'email', false);
+    }
   }
 
   handleSendMobileOtp(e, overridePhone) {

@@ -4,6 +4,7 @@ const USERS_KEY = 'ladesio_users_v5';
 const ACTIVE_USER_ID_KEY = 'ladesio_active_user_id_v4';
 const AUTH_SESSION_KEY = 'ladesio_auth_session_phone_v4';
 const OTP_STORE_KEY = 'ladesio_otp_store_v1';
+const EMAIL_OTP_STORE_KEY = 'ladesio_email_otp_store_v1';
 const PROFILE_KEY = 'ladesio_profile_v2';
 const CREATIONS_KEY = 'ladesio_creations_v1';
 const ORDERS_KEY = 'ladesio_orders_v1';
@@ -289,6 +290,7 @@ export class LoyaltyManager {
     this.orders = this.loadOrders();
     this.friends = this.loadFriends();
     this.pendingOtp = null;
+    this.pendingEmailOtp = null;
     this.listeners = [];
   }
 
@@ -498,6 +500,144 @@ export class LoyaltyManager {
         isNewUser: true,
         phone,
         message: 'Mobile number verified! Please complete your name and city to create your Privé profile.'
+      };
+    }
+  }
+
+  // ==========================================
+  // GMAIL / EMAIL OTP GENERATOR & DISPATCH
+  // ==========================================
+  generateEmailOtp(emailInput) {
+    const email = String(emailInput || '').trim().toLowerCase();
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      return { success: false, message: 'Please enter a valid email address (e.g. connoisseur@gmail.com).' };
+    }
+
+    // Generate random 6-digit verification code
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    const expiresAt = Date.now() + 5 * 60 * 1000; // 5 mins
+
+    this.pendingEmailOtp = {
+      email,
+      otp,
+      expiresAt
+    };
+
+    try {
+      localStorage.setItem(EMAIL_OTP_STORE_KEY, JSON.stringify(this.pendingEmailOtp));
+    } catch (e) {}
+
+    const existingUser = this.users.find(u => (u.email || '').toLowerCase() === email);
+
+    // If EmailJS is loaded in window, dispatch the real email asynchronously
+    if (typeof window !== 'undefined' && window.emailjs && window.ladesioEmailJsConfig) {
+      try {
+        window.emailjs.send(
+          window.ladesioEmailJsConfig.serviceId,
+          window.ladesioEmailJsConfig.templateId,
+          {
+            to_email: email,
+            otp_code: otp,
+            name: existingUser ? existingUser.name : 'Atelier Patron'
+          }
+        ).then(() => {
+          console.log('✉️ [EmailJS]: Verification email delivered to Gmail:', email);
+        }).catch(err => {
+          console.warn('✉️ [EmailJS]: Error sending email:', err);
+        });
+      } catch (err) {}
+    }
+
+    return {
+      success: true,
+      email,
+      otp,
+      isExisting: !!existingUser,
+      userName: existingUser ? existingUser.name : null,
+      message: `OTP security code dispatched to ${email}. Valid for 5 minutes.`
+    };
+  }
+
+  // Verify entered Email OTP
+  verifyEmailOtp(emailInput, enteredOtp) {
+    const email = String(emailInput || '').trim().toLowerCase();
+    const trimmedOtp = String(enteredOtp || '').trim();
+
+    if (!trimmedOtp || trimmedOtp.length !== 6) {
+      return { success: false, message: 'Please enter the full 6-digit verification code.' };
+    }
+
+    // Check memory or localStorage
+    let stored = this.pendingEmailOtp;
+    if (!stored) {
+      try {
+        const saved = localStorage.getItem(EMAIL_OTP_STORE_KEY);
+        if (saved) stored = JSON.parse(saved);
+      } catch (e) {}
+    }
+
+    if (!stored || (stored.email || '').toLowerCase() !== email) {
+      return { success: false, message: 'No active OTP found for this email address. Please request a new code.' };
+    }
+
+    if (Date.now() > stored.expiresAt) {
+      return { success: false, message: 'This OTP has expired. Please request a fresh OTP.' };
+    }
+
+    if (stored.otp !== trimmedOtp) {
+      return { success: false, message: 'Incorrect OTP entered. Please check your verification code.' };
+    }
+
+    // Clear pending OTP
+    this.pendingEmailOtp = null;
+    try {
+      localStorage.removeItem(EMAIL_OTP_STORE_KEY);
+    } catch (e) {}
+
+    // Check if user already exists
+    const existing = this.users.find(u => (u.email || '').toLowerCase() === email);
+    if (existing) {
+      this.activeUserId = existing.id;
+      this.profile = existing;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, email);
+      } catch (e) {}
+      this.saveUsers();
+      return {
+        success: true,
+        isNewUser: false,
+        user: this.profile,
+        message: `Verification successful! Welcome back, ${this.profile.name}.`
+      };
+    } else {
+      // Create new user automatically with 250 welcome points
+      const nameFromEmail = email.split('@')[0].replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      const newUser = {
+        id: 'usr_' + Date.now(),
+        name: nameFromEmail || 'Atelier Connoisseur',
+        avatar: '',
+        bio: 'Haute patisserie enthusiast & La Desio Privé member.',
+        email: email,
+        phone: '98401' + Math.floor(10000 + Math.random() * 90000),
+        city: 'Chennai',
+        tier: 'Connoisseur',
+        points: 250,
+        nextTierPoints: 1000,
+        joinedDate: 'September 2026',
+        savedAddresses: []
+      };
+      this.users.push(newUser);
+      this.activeUserId = newUser.id;
+      this.profile = newUser;
+      try {
+        localStorage.setItem(AUTH_SESSION_KEY, email);
+      } catch (e) {}
+      this.saveUsers();
+      return {
+        success: true,
+        isNewUser: true,
+        user: newUser,
+        message: `Welcome to La Desio Privé, ${newUser.name}! +250 Welcome Points credited.`
       };
     }
   }

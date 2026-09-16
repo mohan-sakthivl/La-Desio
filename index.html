@@ -469,9 +469,24 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 
+  <!-- Official EmailJS Client SDK (For Real Gmail OTP Delivery) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Configure EmailJS credentials here to send live emails to any customer Gmail
+    // Free setup at https://www.emailjs.com/ (200 free emails/month)
+    window.ladesioEmailJsConfig = window.ladesioEmailJsConfig || {
+      publicKey: localStorage.getItem('ladesio_emailjs_public_key') || '',
+      serviceId: localStorage.getItem('ladesio_emailjs_service_id') || 'service_ladesio',
+      templateId: localStorage.getItem('ladesio_emailjs_template_id') || 'template_otp'
+    };
+    if (window.emailjs && window.ladesioEmailJsConfig.publicKey) {
+      window.emailjs.init(window.ladesioEmailJsConfig.publicKey);
+    }
+  </script>
+
   <!-- Atmospheric Soundscapes & Pre-Loader Engine -->
   <script src="js/soundscape.js"></script>
   <!-- Universal Standalone Application Bundle (100% Client & LocalStorage) -->
-  <script src="js/bundle.js?v=3.3.0"></script>
+  <script src="js/bundle.js?v=3.4.0"></script>
 </body>
 </html>
