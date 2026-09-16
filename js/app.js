@@ -455,6 +455,13 @@ class LaDesioApp {
         this.openWishlistDrawer();
         return;
       }
+      if (route === 'account' && (!loyaltyStore || !loyaltyStore.isUserAuthenticated())) {
+        this.currentRoute = 'login';
+        window.location.hash = '#login';
+        this.renderCurrentView();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       this.currentRoute = route;
       this.routeParam = param;
       this.renderCurrentView();
@@ -1447,7 +1454,7 @@ class LaDesioApp {
                   onclick="window.ladesioApp.toggleEgglessFilter()"
                   class="px-4 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-md cursor-pointer shrink-0 ${this.activeFilter.onlyEggless ? 'bg-emerald-600 text-white ring-2 ring-emerald-300 shadow-emerald-900/50' : 'bg-[#140602] text-emerald-400 border border-emerald-500/50 hover:bg-emerald-950/40'}">
             <span class="w-2.5 h-2.5 rounded-full ${this.activeFilter.onlyEggless ? 'bg-white' : 'bg-emerald-500'} ring-2 ring-emerald-400/40"></span>
-            <span>🟢 100% Eggless Only</span>
+            <span class="w-2 h-2 rounded-full ${this.activeFilter.onlyEggless ? 'bg-white' : 'bg-emerald-400'} ring-2 ring-emerald-400/40"></span><span class="font-cinzel tracking-wider text-[11px]">100% EGGLESS ONLY</span>
             ${this.activeFilter.onlyEggless ? '<span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded-full">ACTIVE</span>' : ''}
           </button>
         </div>
@@ -1887,6 +1894,8 @@ class LaDesioApp {
   // ==========================================
   renderAccountView(container = document.getElementById('app-main-content')) {
     if (!loyaltyStore.isUserAuthenticated()) {
+      this.currentRoute = 'login';
+      window.location.hash = '#login';
       this.renderLoginView(container, 'signin');
       return;
     }
@@ -1898,10 +1907,14 @@ class LaDesioApp {
 
     container.innerHTML = `
       <!-- Privé Account Hero Header -->
-      <div class="bg-gradient-to-b from-[#180A06] to-[#241009] text-[#FFFDF9] py-10 border-b border-[#B8945B]/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+      <div class="bg-gradient-to-b from-[#180A06] to-[#241009] text-[#FFFDF9] pt-10 pb-4 border-b border-[#B8945B]/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          
+          <!-- TOP ROW: Member Details (Left) + Balanced Metrics Dual Cards (Right) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            
+            <!-- Left: Member Identity & Bio (7 cols) -->
+            <div class="lg:col-span-7 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
               <!-- Avatar with Camera Badge & Edit Trigger -->
               <div class="relative group cursor-pointer shrink-0" onclick="window.ladesioApp.openEditProfileModal()" title="Click to edit profile & photo">
                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-1 shadow-2xl overflow-hidden relative">
@@ -1924,19 +1937,26 @@ class LaDesioApp {
                 </button>
               </div>
 
-              <div class="space-y-1.5">
+              <div class="space-y-1.5 flex-1 min-w-0">
                 <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                   <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-serif font-bold">La Desio Privé Member</span>
                   <span class="text-stone-500 text-xs">•</span>
                   <span class="text-[11px] text-[#D6C2B0] font-serif">📍 ${profile.city || 'Chennai'}</span>
                 </div>
-                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
                   <h2 class="font-display text-2xl sm:text-3xl text-white font-bold">${profile.name}</h2>
                   <button onclick="window.ladesioApp.openEditProfileModal()" 
-                          class="px-3 py-1 rounded-lg border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0A06]/70 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm">
+                          class="px-3 py-1 rounded-lg border border-[#B8945B]/40 hover:border-[#B8945B] text-[#E6CA85] hover:text-white bg-[#1A0A06]/70 text-xs font-serif transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
                     <span>✏️</span> Edit Profile & Bio
                   </button>
-                  
+                  <!-- Minimal Music Icon Button -->
+                  <button type="button"
+                          onclick="window.ladesioSoundscape.toggleSoundscape()" 
+                          class="soundscape-toggle-btn w-8 h-8 rounded-full border border-[#B8945B]/50 hover:border-[#E6CA85] text-[#E6CA85] hover:text-white bg-[#1A0A06]/80 flex items-center justify-center shadow-sm cursor-pointer transition-all relative"
+                          title="Parisian Salon Music (Click to Toggle)">
+                    <span class="music-icon text-sm leading-none">♫</span>
+                    <span class="soundscape-pulse-dot absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 hidden animate-pulse border border-[#180A06]"></span>
+                  </button>
                 </div>
                 <p class="text-xs text-[#D6C2B0]">${profile.email} • Client since ${profile.joinedDate}</p>
                 ${profile.bio ? `
@@ -1947,36 +1967,41 @@ class LaDesioApp {
               </div>
             </div>
 
-            <!-- Tier Status & Quick Metric Pills -->
-            <div class="flex flex-wrap items-center justify-center gap-3">
-              <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 text-center min-w-[170px] shadow-lg">
-                <span class="text-[9px] text-[#E6CA85] uppercase tracking-widest font-semibold block">Privé Status</span>
-                <span class="font-display text-lg text-gold-gradient font-bold">✨ ${profile.tier} Member</span>
-                <div class="w-full bg-black/50 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <!-- Right: Balanced Metrics Dual Cards (5 cols) -->
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
+              <!-- Card 1: Privé Status Card -->
+              <div class="p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 text-center shadow-lg flex flex-col justify-between">
+                <div>
+                  <span class="text-[9px] text-[#E6CA85] uppercase tracking-widest font-semibold block">Privé Tier Status</span>
+                  <span class="font-display text-base sm:text-lg text-gold-gradient font-bold">✨ ${profile.tier}</span>
+                </div>
+                <div class="w-full bg-black/50 h-1.5 rounded-full my-2.5 overflow-hidden">
                   <div class="bg-gradient-to-r from-[#B8945B] to-[#E6CA85] h-full" style="width: ${(profile.points / profile.nextTierPoints) * 100}%"></div>
                 </div>
-                <span class="text-[9px] text-[#D6C2B0] block mt-1">${profile.points} / ${profile.nextTierPoints} Points to Royale</span>
+                <span class="text-[10px] text-[#D6C2B0] font-mono">${profile.points} / ${profile.nextTierPoints} Pts to Royale</span>
               </div>
 
-              <div class="flex flex-col gap-1.5">
-                <div class="px-3.5 py-1.5 rounded-xl bg-[#1A0905] border border-[#B8945B]/30 text-xs flex items-center justify-between gap-3">
+              <!-- Card 2: Quick Metrics Summary Card -->
+              <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 shadow-lg flex flex-col justify-between text-xs space-y-1.5">
+                <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-1">
                   <span class="text-[#D6C2B0]">Saved Recipes:</span>
-                  <strong class="text-[#E6CA85] font-mono">${creations.length}</strong>
+                  <strong class="text-[#E6CA85] font-mono font-bold">${creations.length}</strong>
                 </div>
-                <div class="px-3.5 py-1.5 rounded-xl bg-[#1A0905] border border-[#B8945B]/30 text-xs flex items-center justify-between gap-3">
+                <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-1">
                   <span class="text-[#D6C2B0]">Total Orders:</span>
-                  <strong class="text-[#E6CA85] font-mono">${orders.length}</strong>
+                  <strong class="text-[#E6CA85] font-mono font-bold">${orders.length}</strong>
                 </div>
-                <div class="px-3.5 py-1.5 rounded-xl bg-[#1A0905] border border-[#B8945B]/30 text-xs flex items-center justify-between gap-3">
+                <div class="flex items-center justify-between">
                   <span class="text-[#D6C2B0]">Friends Circle:</span>
-                  <strong class="text-[#E6CA85] font-mono">${friends.length}</strong>
+                  <strong class="text-[#E6CA85] font-mono font-bold">${friends.length}</strong>
                 </div>
               </div>
             </div>
+
           </div>
 
-          <!-- Interactive Luxury Navigation Tabs -->
-          <div class="flex items-center gap-2 sm:gap-4 mt-8 border-b border-[#B8945B]/20 pb-0 overflow-x-auto">
+          <!-- BOTTOM ROW: Interactive Luxury Navigation Tabs -->
+          <div class="flex items-center gap-2 sm:gap-4 pt-1 border-b border-[#B8945B]/20 pb-0 overflow-x-auto">
             <button onclick="window.ladesioApp.setActiveAccountTab('creations')"
                     class="pb-3 px-3 sm:px-4 font-serif text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2 border-b-2 whitespace-nowrap ${this.activeAccountTab === 'creations' ? 'border-[#E6CA85] text-[#E6CA85] font-bold' : 'border-transparent text-[#D6C2B0] hover:text-white'}">
               <span>✨ My Saved Creations</span>
@@ -1999,9 +2024,8 @@ class LaDesioApp {
                     class="pb-3 px-3 sm:px-4 font-serif text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-2 border-b-2 whitespace-nowrap ${this.activeAccountTab === 'loyalty' ? 'border-[#E6CA85] text-[#E6CA85] font-bold' : 'border-transparent text-[#D6C2B0] hover:text-white'}">
               <span>👑 Privé Tier & Addresses</span>
             </button>
-
-            
           </div>
+
         </div>
       </div>
 
@@ -2553,6 +2577,10 @@ class LaDesioApp {
 
       </div>
     `;
+
+    if (window.ladesioSoundscape) {
+      window.ladesioSoundscape.updateSoundUI();
+    }
   }
 
   // ==========================================
@@ -2575,123 +2603,160 @@ class LaDesioApp {
   }
 
   // ==========================================
-  // REUSABLE PRODUCT CARD COMPONENT (INR)
+  // REUSABLE BESPOKE ATELIER CARD COMPONENT (INR)
   // ==========================================
   renderProductCard(product, isNatural = false) {
     const inWishlist = cartStore.isInWishlist(product.id);
+    
+    // Find index or generate catalog opus number
+    let productIndex = 1;
+    if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
+      const idx = PRODUCTS.findIndex(p => p.id === product.id);
+      if (idx !== -1) productIndex = idx + 1;
+    }
+    const opusNumber = `OPUS N° ${String(productIndex).padStart(2, '0')}`;
 
     return `
-      <div class="luxury-card rounded-2xl overflow-hidden flex flex-col justify-between group transition-all duration-300 relative shadow-2xl">
+      <div class="atelier-gallery-card flex flex-col justify-between group relative shadow-2xl rounded-sm">
         
-        <!-- Image Container -->
-        <div class="relative h-64 overflow-hidden zoom-container cursor-pointer bg-[#241109]"
-             onclick="window.ladesioApp.openProductModal('${product.id}')">
-          <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" />
-          
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <span class="text-[#E6CA85] text-xs font-serif tracking-wider flex items-center gap-1.5">
-              <span>✦</span> Tap to View Details & Modifiers
-            </span>
-          </div>
+        <!-- Architectural Corner Filigrees -->
+        <div class="atelier-corner-accent atelier-corner-tl"></div>
+        <div class="atelier-corner-accent atelier-corner-br"></div>
 
-          <!-- Badge & Official FSSAI Dietary Mark -->
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 z-10">
-            <span class="px-2.5 py-1 rounded-full bg-[#180804]/90 text-[#E6CA85] border border-[#B8945B]/60 backdrop-blur-md text-[10px] font-serif uppercase tracking-wider shadow-md font-semibold">
-              ${product.badge}
-            </span>
-            <span class="px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md border ${product.isEggless ? 'border-emerald-500/80 text-emerald-300' : 'border-rose-600/80 text-rose-300'} flex items-center gap-1 text-[10px] font-serif font-bold shadow-md"
-                  title="${product.isEggless ? '100% Eggless Pure Vegetarian' : 'Contains Egg'}">
-              <span class="w-2 h-2 rounded-full ${product.isEggless ? 'bg-emerald-400 ring-2 ring-emerald-500/30' : 'bg-rose-500 ring-2 ring-rose-600/30'}"></span>
-              <span>${product.isEggless ? 'Eggless' : 'Contains Egg'}</span>
-            </span>
-          </div>
-
-          <!-- Wishlist Heart Button -->
-          <button onclick="event.stopPropagation(); window.ladesioApp.toggleWishlist('${product.id}')"
-                  class="card-wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-sm transition-all hover:scale-110 shadow-md"
-                  title="Save to Wishlist">
-            <span data-wishlist-icon="${product.id}" class="${inWishlist ? 'text-rose-600 scale-125' : 'text-[#8C6838]'}">♥</span>
-          </button>
-        </div>
-
-        <!-- Card Content (Rich Light Chocolate Shade Surface) -->
-        <div class="p-5 flex-1 flex flex-col justify-between space-y-3 bg-gradient-to-b from-[#583324] to-[#3E2014]">
-          <div>
-            <div class="flex items-center justify-between text-xs text-[#E6CA85] font-medium mb-1.5">
-              <span class="flex items-center gap-1.5 font-serif cursor-pointer hover:underline"
-                    onclick="window.ladesioApp.openProductModal('${product.id}')"
-                    title="Click to view verified customer reviews">
-                <span class="text-amber-400 font-bold">★</span>
-                <strong class="text-[#FFFDF9]">${product.rating.toFixed(2)}</strong>
-                <span class="text-[#E8D7C7]/70 font-sans text-[11px]">(${product.reviewsCount} reviews)</span>
+        <!-- Museum Passe-Partout Framed Artwork -->
+        <div class="p-2.5 pb-0">
+          <div class="relative h-64 overflow-hidden cursor-pointer bg-[#160703] border border-[#B8945B]/25 group/img"
+               onclick="window.ladesioApp.openProductModal('${product.id}')">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+            
+            <!-- Archival Passe-Partout Vignette Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#150703]/95 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-3.5">
+              <span class="text-[#E6CA85] text-[10px] font-cinzel tracking-[0.2em] uppercase flex items-center gap-1.5 drop-shadow-md">
+                <svg class="w-3.5 h-3.5 text-[#E6CA85]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="7" stroke-width="1.6"></circle>
+                  <path d="M21 21l-4.35-4.35" stroke-width="1.6" stroke-linecap="round"></path>
+                </svg>
+                Inspect Tasting Notes
               </span>
-              <span class="text-[#E8D7C7]/80 font-sans text-[11px]">⏱️ ${product.prepTime.split(' ')[0]} mins</span>
+              <span class="text-[9px] font-mono text-[#E6CA85]/80 uppercase tracking-widest">[ OPUS VIEW ]</span>
             </div>
 
-            <h3 class="card-title font-display text-xl text-[#FFFDF9] group-hover:text-[#E6CA85] transition-colors leading-snug">
+            <!-- Top Left: Archival Catalog Number & Gilded Seal -->
+            <div class="absolute top-2.5 left-2.5 flex flex-col items-start gap-1.5 z-10">
+              <span class="archival-opus-badge">
+                <span class="text-[#DFBA73]">❖</span> ${opusNumber} • ${product.badge ? product.badge.toUpperCase() : 'SIGNATURE'}
+              </span>
+              <span class="sigillo-dietary-pure ${product.isEggless ? '' : 'border-rose-500/50 text-rose-300 bg-rose-950/80'}"
+                    title="${product.isEggless ? '100% Eggless Pure Vegetarian' : 'Contains Egg'}">
+                <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-400'}"></span>
+                <span>${product.isEggless ? 'PURO VEGETARIANO' : 'TRADIZIONALE'}</span>
+              </span>
+            </div>
+
+            <!-- Top Right: Delicate Hairline Wishlist Seal -->
+            <button onclick="event.stopPropagation(); window.ladesioApp.toggleWishlist('${product.id}')"
+                    class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-[#160703]/90 border border-[#B8945B]/40 hover:border-[#E6CA85] flex items-center justify-center transition-all hover:scale-110 shadow-lg z-10 group/wish"
+                    title="Save to Bespoke Wishlist">
+              <svg class="w-4 h-4 transition-colors ${inWishlist ? 'fill-rose-500 text-rose-500' : 'text-[#D4AF37] group-hover/wish:text-white'}" fill="${inWishlist ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Content: Italian Haute Editorial Hierarchy -->
+        <div class="p-5 pt-3.5 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <!-- Rating & Preparation Time Row -->
+            <div class="flex items-center justify-between text-xs mb-2 border-b border-[#B8945B]/15 pb-2">
+              <div class="rating-diamond-seal cursor-pointer hover:opacity-85"
+                   onclick="window.ladesioApp.openProductModal('${product.id}')"
+                   title="Verified Connoisseur Reviews">
+                <span class="diamond-glyph">✦</span>
+                <span class="diamond-glyph">✦</span>
+                <span class="diamond-glyph">✦</span>
+                <span class="diamond-glyph">✦</span>
+                <span class="diamond-glyph">✦</span>
+                <strong class="font-cinzel text-xs text-[#FFFDF9] ml-1">${product.rating.toFixed(2)}</strong>
+                <span class="text-[#C4B2A3]/60 text-[10px] font-sans font-light">(${product.reviewsCount})</span>
+              </div>
+
+              <!-- Prep Time with Hairline Vector Clock -->
+              <div class="flex items-center gap-1.5 text-[10px] font-cinzel tracking-widest text-[#E6CA85]/80 uppercase">
+                <svg class="w-3 h-3 text-[#B8945B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" stroke-width="1.5"></circle>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 7v5l3 2"></path>
+                </svg>
+                <span>${product.prepTime ? product.prepTime.split(' ')[0] : '15'} MIN</span>
+              </div>
+            </div>
+
+            <!-- Dessert Name in Monumental Editorial Serif -->
+            <h3 class="font-bodoni text-2xl text-[#FFFDF9] group-hover:text-[#E6CA85] transition-colors leading-tight tracking-tight cursor-pointer"
+                onclick="window.ladesioApp.openProductModal('${product.id}')">
               ${product.name}
             </h3>
 
-            <p class="card-subtitle text-xs text-[#E6CA85] font-serif italic mt-0.5 tracking-wide">
-              ${product.subtitle}
+            <!-- Sommelier Tasting Notes Script -->
+            <p class="sommelier-tasting-notes text-xs mt-1 tracking-wide">
+              “${product.subtitle}”
             </p>
 
-            <p class="card-description text-xs text-[#E8D7C7] mt-2 line-clamp-2 leading-relaxed font-light">
+            <!-- Description -->
+            <p class="text-[11.5px] text-[#D8C6B6] mt-2 line-clamp-2 leading-relaxed font-light">
               ${product.description}
             </p>
 
-            <!-- Dietary Tag Chips with Eggless Indicator -->
+            <!-- Dietary Tags in Fine Italian Small Caps -->
             <div class="flex flex-wrap gap-1.5 mt-3">
-              <span class="px-2.5 py-0.5 rounded-full ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} border text-[10px] font-serif flex items-center gap-1 font-semibold">
-                <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
-                <span>${product.isEggless ? '100% Eggless' : 'Contains Egg'}</span>
-              </span>
               ${product.dietary.slice(0, 2).map(d => `
-                <span class="px-2.5 py-0.5 rounded-full bg-[#240F06] text-[10px] text-[#E6CA85] border border-[#B8945B]/30 font-serif">
+                <span class="px-2 py-0.5 rounded-sm bg-[#1A0A05] text-[9.5px] text-[#E6CA85] border border-[#B8945B]/30 font-cinzel uppercase tracking-widest">
                   ${d}
                 </span>
               `).join('')}
             </div>
 
-            <!-- Calories & Macronutrient Quick Highlights -->
+            <!-- Nutrition Highlights with Minimalist Vector Accents -->
             ${product.nutrition ? `
-              <div class="card-pill mt-3 px-3 py-2 rounded-xl bg-[#240F06] border border-[#B8945B]/30 flex items-center justify-between text-[11px]">
-                <div class="flex items-center gap-1 font-serif font-bold text-[#FFFDF9]">
-                  <span class="text-[#E6CA85]">⚡</span>
-                  <span>${product.nutrition.calories} <span class="text-[9px] font-sans font-normal text-[#E8D7C7]/70">kcal</span></span>
+              <div class="mt-3 px-3 py-1.5 rounded-sm bg-[#160703] border border-[#B8945B]/25 flex items-center justify-between text-[10.5px]">
+                <div class="flex items-center gap-1.5 font-cinzel text-[#FFFDF9]">
+                  <svg class="w-3 h-3 text-[#E6CA85]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"></path>
+                  </svg>
+                  <span>${product.nutrition.calories} <span class="text-[8.5px] font-sans text-[#B8945B] tracking-wider">KCAL</span></span>
                 </div>
-                <div class="flex items-center gap-2 text-[10px] text-[#E6CA85] font-medium">
-                  <span title="Protein" class="${product.proteinRich ? 'px-1.5 py-0.5 rounded bg-[#B8945B]/30 border border-[#B8945B] text-white font-bold shadow-xs' : ''}">P: <strong class="text-[#FFFDF9]">${product.nutrition.protein}</strong></span>
-                  <span class="text-[#B8945B]/40">•</span>
-                  <span title="Carbohydrates">C: <strong class="text-[#FFFDF9]">${product.nutrition.carbs}</strong></span>
-                  <span class="text-[#B8945B]/40">•</span>
-                  <span title="Fats">F: <strong class="text-[#FFFDF9]">${product.nutrition.fats}</strong></span>
+                <div class="flex items-center gap-2 font-mono text-[9.5px] text-[#E6CA85]">
+                  <span>PRO: <strong class="text-[#FFFDF9]">${product.nutrition.protein}</strong></span>
+                  <span class="text-[#B8945B]/30">|</span>
+                  <span>CARB: <strong class="text-[#FFFDF9]">${product.nutrition.carbs}</strong></span>
                 </div>
               </div>
             ` : ''}
           </div>
 
-          <!-- Bottom Action Row -->
-          <div class="pt-4 border-t border-[#B8945B]/25 flex items-center justify-between gap-2">
+          <!-- Bottom Action Row: Prezzo & Haute Buttons -->
+          <div class="pt-3.5 border-t border-[#B8945B]/20 flex items-center justify-between gap-2">
             <div>
-              ${product.originalPrice ? `<span class="text-[11px] text-[#C4B2A3] line-through mr-1 font-mono">₹${product.originalPrice}</span>` : ''}
-              <span class="card-price font-display font-bold text-xl text-[#FFFDF9] tracking-tight">₹${product.price}</span>
+              <span class="text-[8px] uppercase tracking-[0.24em] text-[#B8945B] block font-cinzel font-semibold">PREZZO</span>
+              <div class="flex items-baseline gap-1.5">
+                ${product.originalPrice ? `<span class="text-[11px] text-[#A89280] line-through font-mono">₹${product.originalPrice}</span>` : ''}
+                <span class="font-bodoni font-bold text-2xl text-[#FFFDF9] tracking-tight">₹${product.price}</span>
+              </div>
             </div>
 
             <div class="flex items-center gap-2">
               <button onclick="window.ladesioApp.openProductModal('${product.id}')"
-                      class="card-customize-btn px-3 py-1.5 rounded-lg border border-[#B8945B]/60 text-[#E6CA85] hover:bg-[#B8945B] hover:text-[#1A0904] text-xs font-serif font-semibold transition-all">
-                Customize
+                      class="btn-atelier-inspect rounded-sm shadow-sm" title="Explore Atelier Notes & Customizations">
+                Inspect
               </button>
               <button onclick="window.ladesioApp.quickAddToCart('${product.id}')"
-                      class="px-3.5 py-1.5 rounded-lg btn-gold-luxury text-xs font-serif font-semibold shadow-md">
+                      class="btn-atelier-acquire rounded-sm shadow-md" title="Add to Bespoke Shopping Bag">
                 + Bag
               </button>
             </div>
           </div>
 
         </div>
-
       </div>
     `;
   }
@@ -3298,6 +3363,10 @@ class LaDesioApp {
       quantity: 1
     });
 
+    if (typeof window !== 'undefined' && window.ladesioSoundscape && typeof window.ladesioSoundscape.playCrystalChime === 'function') {
+      window.ladesioSoundscape.playCrystalChime();
+    }
+
     window.showToast(`"${prod.name}" added to bag!`, 'success');
   }
 
@@ -3305,6 +3374,9 @@ class LaDesioApp {
     const added = cartStore.toggleWishlist(productId);
     const prod = PRODUCTS.find(p => p.id === productId);
     if (added) {
+      if (typeof window !== 'undefined' && window.ladesioSoundscape && typeof window.ladesioSoundscape.playCrystalChime === 'function') {
+        window.ladesioSoundscape.playCrystalChime();
+      }
       window.showToast(`"${prod?.name || 'Item'}" added to your Wishlist!`, 'success');
     } else {
       window.showToast(`Removed from Wishlist.`, 'info');
@@ -3418,112 +3490,446 @@ class LaDesioApp {
   openOrderTracker(orderId) {
     const data = loyaltyStore.getData();
     const order = (data.orders || []).find(o => o.id === orderId) || {
-      id: orderId,
-      status: 'Preparing in Atelier',
+      id: orderId || 'DESIO-9142',
+      status: 'Out on Live Dispatch',
       date: 'Today',
-      deliverySlot: 'Express Artisanal — Within 45 Mins (Chennai)',
+      deliverySlot: 'Express Artisanal — Within 14 Mins (Live Traffic)',
       trackingNumber: 'IN-EXP-9142-DESIO',
-      address: { city: 'Chennai', street: 'Salon Concierge' },
-      total: 1040
+      address: { city: 'Chennai', street: 'No.60/A Gnanamani St, West Jafferkhanpet' },
+      total: 1040,
+      distanceKm: 3.8,
+      estimatedMinutes: 14
     };
 
     let modal = document.getElementById('orderTrackerModal');
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'orderTrackerModal';
-      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto';
       document.body.appendChild(modal);
     }
 
     const city = order.address?.city || 'Chennai';
-    const isDelivered = order.status === 'Delivered';
+    const street = order.address?.street || 'Patron Residence';
+    const distanceKm = order.distanceKm || 3.8;
+    const estMinutes = order.estimatedMinutes || 14;
+    const trackingNo = order.trackingNumber || `IN-EXP-${String(order.id).replace('DESIO-', '')}-DESIO`;
+
+    const origin = encodeURIComponent('LA DESIO Flagship Atelier, West Jafferkhanpet, Chennai');
+    const destination = encodeURIComponent(`${street}, ${city}`);
+    const googleEmbedUrl = `https://maps.google.com/maps?saddr=${origin}&daddr=${destination}&t=m&z=14&output=embed`;
 
     modal.innerHTML = `
-      <div class="relative w-full max-w-lg bg-[#241009] rounded-3xl border border-[#B8945B]/40 shadow-2xl p-6 sm:p-8 space-y-6">
-        <div class="flex items-center justify-between border-b border-[#B8945B]/30 pb-4">
+      <div class="relative w-full max-w-4xl bg-[#180A06] rounded-3xl border border-[#B8945B]/40 shadow-2xl overflow-hidden my-auto text-[#FFFDF9] flex flex-col max-h-[92vh]">
+        
+        <!-- Google Maps Top Chrome Bar -->
+        <div class="bg-[#120804] border-b border-[#B8945B]/30 p-4 sm:px-6 flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div class="flex items-center gap-3">
-            <span class="text-2xl text-[#E6CA85]">👑</span>
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#10B981] via-[#047857] to-[#064E3B] border border-emerald-400/40 flex items-center justify-center text-xl shadow-lg">
+              📍
+            </div>
             <div>
-              <span class="text-[10px] tracking-widest uppercase text-[#B8945B] font-semibold block">Artisanal Consignment Tracker</span>
-              <h3 class="font-mono text-base font-bold text-[#FFFDF9]">${order.id}</h3>
-            </div>
-          </div>
-          <button onclick="document.getElementById('orderTrackerModal').classList.add('hidden')"
-                  class="text-gray-400 hover:text-[#E6CA85] text-lg font-bold">✕</button>
-        </div>
-
-        <!-- Real-Time Progress Timeline -->
-        <div class="p-5 rounded-2xl bg-[#1A0A06] border border-[#B8945B]/25 space-y-4">
-          <div class="flex items-center justify-between text-xs">
-            <span class="text-[#D6C2B0]">Status: <strong class="text-[#E6CA85]">${order.status}</strong></span>
-            <span class="font-mono text-[11px] text-stone-400">${order.trackingNumber || 'IN-EXP-DESIO'}</span>
-          </div>
-
-          <!-- 4-Step Progress Track -->
-          <div class="relative pt-2">
-            <div class="grid grid-cols-4 gap-1 text-center text-[9px] font-serif uppercase tracking-wider text-[#D6C2B0]">
-              <div class="flex flex-col items-center">
-                <div class="w-7 h-7 rounded-full bg-[#B8945B] text-black flex items-center justify-center font-bold mb-1 shadow">✓</div>
-                <span>Confirmed</span>
+              <div class="flex items-center gap-2">
+                <span class="font-display font-bold text-sm tracking-wide text-white">Google Maps Live Dispatch</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 font-mono text-[9.5px] font-bold animate-pulse flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  LIVE TRAFFIC ACTIVE
+                </span>
               </div>
-              <div class="flex flex-col items-center">
-                <div class="w-7 h-7 rounded-full ${isDelivered ? 'bg-[#B8945B] text-black' : 'bg-[#E6CA85] text-black ring-4 ring-[#B8945B]/30 animate-pulse'} flex items-center justify-center font-bold mb-1 shadow">2</div>
-                <span>Atelier Prep</span>
-              </div>
-              <div class="flex flex-col items-center">
-                <div class="w-7 h-7 rounded-full ${isDelivered ? 'bg-[#B8945B] text-black' : 'bg-stone-800 text-stone-400 border border-stone-700'} flex items-center justify-center font-bold mb-1">3</div>
-                <span>Chamber Chill</span>
-              </div>
-              <div class="flex flex-col items-center">
-                <div class="w-7 h-7 rounded-full ${isDelivered ? 'bg-[#B8945B] text-black' : 'bg-stone-800 text-stone-400 border border-stone-700'} flex items-center justify-center font-bold mb-1">4</div>
-                <span>Express Dispatch</span>
-              </div>
-            </div>
-            <div class="w-full bg-stone-800 h-1 rounded-full mt-3 overflow-hidden">
-              <div class="bg-gradient-to-r from-[#B8945B] to-[#E6CA85] h-full transition-all duration-700 rounded-full"
-                   style="width: ${isDelivered ? '100%' : '55%'}"></div>
+              <p class="text-[11px] text-[#D6C2B0] font-mono">Consignment ${trackingNo} • ${order.id}</p>
             </div>
           </div>
 
-          <p class="text-xs text-[#F8F1E7]/80 pt-2 leading-relaxed border-t border-[#B8945B]/20">
-            ${isDelivered 
-              ? `Delivered to your destination in <strong>${city}</strong>. We hope you enjoyed every handcrafted bite!` 
-              : `Our master chocolatiers are completing hand finishing and velvet icing. Temperature-controlled courier dispatch ready for <strong>${city}</strong>.`
-            }
-          </p>
-        </div>
-
-        <!-- Destination Details -->
-        <div class="p-4 rounded-xl bg-[#200E08] border border-[#B8945B]/20 space-y-2 text-xs">
-          <div class="flex justify-between items-center text-[#D6C2B0]">
-            <span>Destination:</span>
-            <span class="font-bold text-[#FFFDF9]">${order.address?.street || 'City Destination'}, ${city}</span>
-          </div>
-          <div class="flex justify-between items-center text-[#D6C2B0]">
-            <span>Delivery Schedule:</span>
-            <span class="font-bold text-[#E6CA85]">${order.deliverySlot}</span>
-          </div>
-          <div class="flex justify-between items-center text-[#D6C2B0]">
-            <span>Total Paid:</span>
-            <span class="font-bold text-gold-gradient font-display text-sm">₹${order.total ? order.total.toFixed(2) : '0.00'}</span>
+          <!-- Mode Switcher & Close -->
+          <div class="flex items-center gap-2">
+            <div class="inline-flex rounded-xl bg-black/60 p-1 border border-[#B8945B]/30 text-xs">
+              <button id="trackerRadarBtn" onclick="window.ladesioApp.switchTrackerView('radar')"
+                      class="px-3 py-1 rounded-lg font-serif text-[11px] font-semibold transition-all bg-[#B8945B] text-black shadow cursor-pointer">
+                🚗 Traffic Radar
+              </button>
+              <button id="trackerEmbedBtn" onclick="window.ladesioApp.switchTrackerView('embed')"
+                      class="px-3 py-1 rounded-lg font-serif text-[11px] font-semibold transition-all text-[#D6C2B0] hover:text-white cursor-pointer">
+                🗺️ Satellite Embed
+              </button>
+            </div>
+            <button onclick="window.ladesioApp.closeOrderTracker()"
+                    class="w-9 h-9 rounded-xl bg-black/40 hover:bg-black/80 border border-[#B8945B]/30 hover:border-[#E6CA85] text-stone-300 hover:text-white flex items-center justify-center text-base transition-colors cursor-pointer"
+                    title="Close Tracker">✕</button>
           </div>
         </div>
 
-        <!-- Buttons -->
-        <div class="flex items-center gap-3">
-          <button onclick="window.ladesioApp.reorderOrder('${order.id}'); document.getElementById('orderTrackerModal').classList.add('hidden');"
-                  class="flex-1 py-2.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center justify-center gap-1.5 shadow-lg">
-            <span>🔁</span> Reorder Items
-          </button>
-          <button onclick="document.getElementById('orderTrackerModal').classList.add('hidden')"
-                  class="px-5 py-2.5 rounded-xl border border-white/20 hover:bg-white/10 text-white font-serif text-xs font-semibold">
-            Close
-          </button>
+        <!-- Google Route Navigation Sub-Header Bar -->
+        <div class="bg-[#1A0905] border-b border-[#B8945B]/20 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
+          <div class="flex items-center gap-2 overflow-x-auto py-0.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+            <span class="text-stone-300 truncate max-w-[200px] sm:max-w-xs font-serif">LA DESIO Flagship (Jafferkhanpet)</span>
+            <span class="text-[#E6CA85] font-bold">➔</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#E6CA85] shrink-0"></span>
+            <span class="text-white font-bold truncate max-w-[220px] sm:max-w-xs font-serif">${street}, ${city}</span>
+          </div>
+
+          <!-- Dynamic Live Countdown Pill -->
+          <div class="flex items-center gap-3">
+            <div class="px-3 py-1 rounded-xl bg-black/60 border border-[#B8945B]/40 flex items-center gap-2 font-mono">
+              <span class="text-[#E6CA85] text-[11px]">⏱️ ETA:</span>
+              <strong id="liveTrackerCountdown" class="text-emerald-400 font-bold text-xs">${estMinutes}:00</strong>
+              <span class="text-[10px] text-stone-400">(${distanceKm} km)</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Scrollable Middle Section: Map & Telemetry -->
+        <div class="overflow-y-auto flex-1 p-4 sm:p-6 space-y-5">
+          
+          <!-- MAP CONTAINER -->
+          <div class="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#B8945B]/40 shadow-2xl">
+            
+            <!-- VIEW A: Interactive Traffic Radar View -->
+            <div id="trackerRadarView" class="w-full h-full relative google-map-dark-canvas overflow-hidden select-none">
+              
+              <!-- SVG Road Network & Traffic Lines -->
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 450" preserveAspectRatio="none">
+                <!-- Background Secondary Grid Streets -->
+                <line x1="0" y1="90" x2="800" y2="90" stroke="#1c2333" stroke-width="6" />
+                <line x1="0" y1="180" x2="800" y2="180" stroke="#1c2333" stroke-width="8" />
+                <line x1="0" y1="290" x2="800" y2="290" stroke="#1c2333" stroke-width="6" />
+                <line x1="0" y1="390" x2="800" y2="390" stroke="#1c2333" stroke-width="8" />
+                
+                <line x1="120" y1="0" x2="120" y2="450" stroke="#1c2333" stroke-width="6" />
+                <line x1="260" y1="0" x2="260" y2="450" stroke="#1c2333" stroke-width="8" />
+                <line x1="420" y1="0" x2="420" y2="450" stroke="#1c2333" stroke-width="8" />
+                <line x1="580" y1="0" x2="580" y2="450" stroke="#1c2333" stroke-width="6" />
+                <line x1="710" y1="0" x2="710" y2="450" stroke="#1c2333" stroke-width="8" />
+
+                <!-- Road Labels -->
+                <text x="30" y="80" fill="#4b5563" font-size="10" font-family="sans-serif">Mount-Poonamallee Rd</text>
+                <text x="270" y="30" fill="#4b5563" font-size="10" font-family="sans-serif">100 Feet Inner Ring</text>
+                <text x="430" y="30" fill="#4b5563" font-size="10" font-family="sans-serif">Anna Salai Arterial</text>
+                <text x="590" y="80" fill="#4b5563" font-size="10" font-family="sans-serif">Guindy Flyover Corridor</text>
+
+                <!-- ACTIVE DISPATCH ROUTE: Primary Path with Live Traffic Segments -->
+                <!-- Segment 1: FREE FLOW (Emerald Green) -->
+                <path d="M 120 340 L 260 340 L 260 210 L 380 210" 
+                      stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" class="opacity-90 shadow" />
+                
+                <!-- Segment 2: MODERATE TRAFFIC (Amber/Orange near junction) -->
+                <path d="M 380 210 L 490 210 L 490 140" 
+                      stroke="#F59E0B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" class="opacity-95" />
+                
+                <!-- Segment 3: SLIGHT SLOWDOWN / HEAVY CONGESTION (Crimson red) with Smart Detour Bypass -->
+                <path d="M 490 140 L 560 140" 
+                      stroke="#EF4444" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.4" stroke-dasharray="4 4" />
+                
+                <!-- Smart Detour Path (Cyan/Green flow) -->
+                <path d="M 490 140 L 490 100 L 620 100 L 620 140 L 710 140" 
+                      stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" class="opacity-95" />
+
+                <!-- Animated Direction Arrows on the active route -->
+                <path d="M 120 340 L 260 340 L 260 210 L 490 210 L 490 100 L 620 100 L 620 140 L 710 140"
+                      stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="traffic-dash-flow opacity-80" />
+
+                <!-- Radar Rings around Destination -->
+                <circle cx="710" cy="140" r="30" fill="none" stroke="#E6CA85" stroke-width="1.5" class="radar-ping-ring" opacity="0.6" />
+                <circle cx="710" cy="140" r="50" fill="none" stroke="#E6CA85" stroke-width="1" class="radar-ping-ring" opacity="0.3" />
+              </svg>
+
+              <!-- Origin Marker: LA DESIO Atelier -->
+              <div class="absolute left-[120px] top-[340px] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+                <div class="px-2 py-0.5 rounded-md bg-[#180A06] border border-[#B8945B] text-[9px] font-serif text-[#E6CA85] font-bold shadow-lg whitespace-nowrap mb-1">
+                  🏛️ LA DESIO Hub
+                </div>
+                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shadow-xl flex items-center justify-center text-black text-xs font-bold ring-4 ring-[#B8945B]/30">
+                  🏰
+                </div>
+              </div>
+
+              <!-- Destination Marker: Patron Home -->
+              <div class="absolute left-[710px] top-[140px] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+                <div class="px-2.5 py-1 rounded-md bg-emerald-950/90 border border-emerald-500 text-[10px] font-serif text-white font-bold shadow-2xl whitespace-nowrap mb-1 flex items-center gap-1">
+                  <span>📍 Your Address</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-emerald-500 p-0.5 shadow-2xl flex items-center justify-center text-black text-sm font-bold ring-4 ring-emerald-500/40 animate-bounce">
+                  🏠
+                </div>
+              </div>
+
+              <!-- Live Moving Courier Vehicle Marker (Animated along path) -->
+              <div id="liveCourierVehicle" 
+                   class="absolute z-30 flex flex-col items-center transition-all duration-1000 ease-linear"
+                   style="left: 420px; top: 210px; transform: translate(-50%, -50%);">
+                
+                <!-- Telemetry floating label -->
+                <div class="px-2.5 py-1 rounded-xl bg-black/95 border border-[#E6CA85] text-[10px] text-[#E6CA85] font-mono shadow-2xl flex items-center gap-2 whitespace-nowrap mb-1.5 live-glow-badge">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>Pierre M. (Chauffeur) • 34 km/h</span>
+                </div>
+
+                <!-- Vehicle Icon with Sonar Glow -->
+                <div class="relative flex items-center justify-center">
+                  <div class="absolute w-12 h-12 rounded-full bg-[#E6CA85]/25 radar-ping-ring"></div>
+                  <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#B8945B] via-[#E6CA85] to-[#B8945B] p-1 shadow-2xl flex items-center justify-center text-black text-lg font-bold ring-4 ring-[#B8945B]/40">
+                    🚐
+                  </div>
+                </div>
+              </div>
+
+              <!-- Google Maps Controls & Legend Overlay -->
+              <!-- Top Left Traffic Badge -->
+              <div class="absolute top-3 left-3 z-20 bg-black/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#B8945B]/30 text-[10px] text-stone-300 font-mono flex items-center gap-2 shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>Live Google Traffic Layer (Typical Evening Speed: 32 km/h)</span>
+              </div>
+
+              <!-- Bottom Left: Speed Legend -->
+              <div class="absolute bottom-3 left-3 z-20 bg-black/85 backdrop-blur-md p-2.5 rounded-xl border border-[#B8945B]/30 text-[9.5px] font-mono text-stone-300 space-y-1 shadow-lg">
+                <span class="text-[#E6CA85] font-bold block">Traffic Density:</span>
+                <div class="flex items-center gap-3">
+                  <span class="flex items-center gap-1"><span class="w-3 h-1.5 bg-[#10B981] rounded-full"></span> Fast (>40km/h)</span>
+                  <span class="flex items-center gap-1"><span class="w-3 h-1.5 bg-[#F59E0B] rounded-full"></span> Slow (20-40km/h)</span>
+                  <span class="flex items-center gap-1"><span class="w-3 h-1.5 bg-[#EF4444] rounded-full"></span> Congested (&lt;20km/h)</span>
+                </div>
+              </div>
+
+              <!-- Bottom Right: Map Zoom & Recenter Controls -->
+              <div class="absolute bottom-3 right-3 z-20 flex flex-col gap-1.5">
+                <button type="button" onclick="window.ladesioApp.recenterOnCourier()" 
+                        class="w-8 h-8 rounded-lg bg-black/80 hover:bg-[#B8945B] border border-[#B8945B]/40 text-[#E6CA85] hover:text-black flex items-center justify-center text-sm shadow transition-colors cursor-pointer"
+                        title="Recenter on Courier">
+                  🎯
+                </button>
+                <button type="button" onclick="if(window.showToast) window.showToast('Zoom Level: 14.5x (Atelier Precision)', 'info');" 
+                        class="w-8 h-8 rounded-lg bg-black/80 hover:bg-[#B8945B] border border-[#B8945B]/40 text-[#E6CA85] hover:text-black flex items-center justify-center text-sm shadow transition-colors font-bold cursor-pointer"
+                        title="Zoom In">
+                  +
+                </button>
+                <button type="button" onclick="if(window.showToast) window.showToast('Zoom Level: 12.0x', 'info');" 
+                        class="w-8 h-8 rounded-lg bg-black/80 hover:bg-[#B8945B] border border-[#B8945B]/40 text-[#E6CA85] hover:text-black flex items-center justify-center text-sm shadow transition-colors font-bold cursor-pointer"
+                        title="Zoom Out">
+                  −
+                </button>
+              </div>
+
+            </div>
+
+            <!-- VIEW B: Dynamic Google Maps Embed (iframe) -->
+            <div id="trackerGoogleEmbedView" class="w-full h-full relative hidden">
+              <iframe
+                src="${googleEmbedUrl}"
+                class="w-full h-full border-0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Google Maps Live Directions">
+              </iframe>
+              <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-lg border border-[#B8945B]/40 text-[10px] text-[#E6CA85] font-mono z-10">
+                <span>Google Maps Direct Satellite</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- DISPATCH TELEMETRY & CHAUFFEUR DOSSIER (2 Columns) -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+            
+            <!-- Left: Chauffeur & Vehicle Credentials -->
+            <div class="md:col-span-6 bg-[#200E08] rounded-2xl border border-[#B8945B]/30 p-4 space-y-3 shadow-lg flex flex-col justify-between">
+              <div class="flex items-start gap-3.5">
+                <div class="relative shrink-0">
+                  <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shadow-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+                         alt="Chauffeur Pierre" class="w-full h-full object-cover rounded-full" />
+                  </div>
+                  <span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#200E08]" title="Active Online"></span>
+                </div>
+
+                <div class="space-y-0.5 flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-serif font-bold text-sm text-white">Pierre Moreau</h4>
+                    <span class="px-2 py-0.5 rounded-full bg-[#B8945B]/20 text-[#E6CA85] text-[10px] font-mono font-bold">4.98 ★</span>
+                  </div>
+                  <p class="text-[11px] text-[#E6CA85] font-serif">Senior Atelier Chauffeur • 1,420 Deliveries</p>
+                  <p class="text-[10px] text-[#D6C2B0]">Vehicle: Mercedes Sprinter Cryo-Van (#TN-09-DE-9142)</p>
+                </div>
+              </div>
+
+              <!-- Smart Climate Chamber Telemetry -->
+              <div class="p-2.5 rounded-xl bg-[#140603] border border-[#B8945B]/20 flex items-center justify-between text-[11px] font-mono">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-sky-300">❄️ Casket Sensor:</span>
+                  <strong class="text-white">-4.2°C</strong>
+                </div>
+                <div class="flex items-center gap-1.5 text-emerald-400">
+                  <span>● Nitrogen Shield Active</span>
+                </div>
+              </div>
+
+              <!-- Chauffeur Action Controls -->
+              <div class="flex items-center gap-2 pt-1">
+                <a href="tel:+919345396700" 
+                   class="flex-1 py-2 px-3 rounded-xl bg-[#180A06] border border-[#B8945B]/40 hover:border-[#E6CA85] text-[#E6CA85] hover:text-white font-serif text-xs font-semibold text-center transition-all flex items-center justify-center gap-1.5 shadow cursor-pointer">
+                  <span>📞</span> Call Chauffeur
+                </a>
+                <button type="button" onclick="if(window.showToast) window.showToast('Priority SMS dispatched to Chauffeur Pierre', 'success');"
+                        class="flex-1 py-2 px-3 rounded-xl bg-[#180A06] border border-[#B8945B]/40 hover:border-[#E6CA85] text-[#E6CA85] hover:text-white font-serif text-xs font-semibold text-center transition-all flex items-center justify-center gap-1.5 shadow cursor-pointer">
+                  <span>💬</span> Message Chauffeur
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Real-Time Traffic & Route Intelligence Feed -->
+            <div class="md:col-span-6 bg-[#200E08] rounded-2xl border border-[#B8945B]/30 p-4 space-y-2.5 shadow-lg flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-2 mb-2">
+                  <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold">Live Traffic & Dispatch Log</span>
+                  <span class="text-[10px] text-[#D6C2B0] font-mono">Auto-Refreshing</span>
+                </div>
+
+                <div class="space-y-2 text-[11px] max-h-36 overflow-y-auto pr-1">
+                  <div class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold shrink-0">● 16:15</span>
+                    <p class="text-[#D6C2B0]">Artisanal dessert placed in liquid nitrogen cryo-casket (-4°C locked).</p>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold shrink-0">● 16:21</span>
+                    <p class="text-[#D6C2B0]">Dispatched from LA Desio Flagship Atelier via West Jafferkhanpet.</p>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold shrink-0">● 16:26</span>
+                    <p class="text-stone-300">🚦 Google Traffic Alert: Anna Salai bottleneck detected (+2m). Automatic smart reroute applied via Guindy Inner Ring.</p>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-[#E6CA85] font-bold shrink-0">● Now</span>
+                    <p class="text-white font-semibold">Cruising at 34 km/h along 100ft road corridor. Approximately 1.4 km remaining.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Reference & Total Badge -->
+              <div class="pt-2 border-t border-[#B8945B]/20 flex items-center justify-between text-xs">
+                <span class="text-[#D6C2B0]">Order Ref: <strong class="text-white font-mono">${order.id}</strong></span>
+                <span class="text-gold-gradient font-display font-bold text-sm">Paid: ₹${order.total ? Number(order.total).toFixed(2) : '1,040.00'}</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="bg-[#120804] border-t border-[#B8945B]/30 p-4 sm:px-6 flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div class="flex items-center gap-2 text-xs text-[#D6C2B0]">
+            <span>✨ White-Glove Handover:</span>
+            <strong class="text-[#E6CA85]">Contactless Delivery with Temperature Seal</strong>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="window.ladesioApp.reorderOrder('${order.id}'); window.ladesioApp.closeOrderTracker();"
+                    class="py-2.5 px-5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-1.5 shadow-lg cursor-pointer">
+              <span>🔁</span> Reorder Items
+            </button>
+            <button onclick="window.ladesioApp.closeOrderTracker()"
+                    class="py-2.5 px-5 rounded-xl border border-white/20 hover:border-white text-white font-serif text-xs font-semibold transition-colors cursor-pointer">
+              Close Tracker
+            </button>
+          </div>
+        </div>
+
       </div>
     `;
 
     modal.classList.remove('hidden');
+
+    // Start live vehicle simulation & countdown timer
+    this.startTrackerSimulation(estMinutes);
+  }
+
+  closeOrderTracker() {
+    if (this.trackerInterval) {
+      clearInterval(this.trackerInterval);
+      this.trackerInterval = null;
+    }
+    const modal = document.getElementById('orderTrackerModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  switchTrackerView(mode) {
+    const radar = document.getElementById('trackerRadarView');
+    const embed = document.getElementById('trackerGoogleEmbedView');
+    const radarBtn = document.getElementById('trackerRadarBtn');
+    const embedBtn = document.getElementById('trackerEmbedBtn');
+
+    if (mode === 'embed') {
+      if (radar) radar.classList.add('hidden');
+      if (embed) embed.classList.remove('hidden');
+      if (radarBtn) {
+        radarBtn.className = 'px-3 py-1 rounded-lg font-serif text-[11px] font-semibold transition-all text-[#D6C2B0] hover:text-white cursor-pointer';
+      }
+      if (embedBtn) {
+        embedBtn.className = 'px-3 py-1 rounded-lg font-serif text-[11px] font-semibold transition-all bg-[#B8945B] text-black shadow cursor-pointer';
+      }
+    } else {
+      if (embed) embed.classList.add('hidden');
+      if (radar) radar.classList.remove('hidden');
+      if (embedBtn) {
+        embedBtn.className = 'px-3 py-1 rounded-lg font-serif text-[11px] font-semibold transition-all text-[#D6C2B0] hover:text-white cursor-pointer';
+      }
+      if (radarBtn) {
+        radarBtn.className = 'px-3 py-1 rounded-lg font-serif text-[11px] font-semibold transition-all bg-[#B8945B] text-black shadow cursor-pointer';
+      }
+    }
+  }
+
+  recenterOnCourier() {
+    const courier = document.getElementById('liveCourierVehicle');
+    if (courier) {
+      courier.classList.add('scale-125');
+      setTimeout(() => courier.classList.remove('scale-125'), 600);
+    }
+    if (window.showToast) {
+      window.showToast('🎯 Radar Camera Centered on Courier Van #08', 'info');
+    }
+  }
+
+  startTrackerSimulation(initialMinutes) {
+    if (this.trackerInterval) {
+      clearInterval(this.trackerInterval);
+    }
+    let totalSeconds = Math.max(120, Math.round((initialMinutes || 14) * 60));
+    const countdownEl = document.getElementById('liveTrackerCountdown');
+    const vehicleEl = document.getElementById('liveCourierVehicle');
+
+    const waypoints = [
+      { x: 260, y: 340 },
+      { x: 260, y: 250 },
+      { x: 340, y: 210 },
+      { x: 420, y: 210 },
+      { x: 490, y: 210 },
+      { x: 490, y: 150 },
+      { x: 490, y: 100 },
+      { x: 550, y: 100 },
+      { x: 620, y: 100 },
+      { x: 670, y: 120 },
+      { x: 700, y: 135 }
+    ];
+
+    let currentWaypointIdx = 3;
+
+    this.trackerInterval = setInterval(() => {
+      totalSeconds = Math.max(0, totalSeconds - 1);
+      const mins = Math.floor(totalSeconds / 60);
+      const secs = totalSeconds % 60;
+      if (countdownEl) {
+        countdownEl.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+
+      if (totalSeconds % 4 === 0 && vehicleEl) {
+        currentWaypointIdx = (currentWaypointIdx + 1) % waypoints.length;
+        const pt = waypoints[currentWaypointIdx];
+        vehicleEl.style.left = `${pt.x}px`;
+        vehicleEl.style.top = `${pt.y}px`;
+      }
+    }, 1000);
   }
 
   // ==========================================
@@ -4842,6 +5248,10 @@ class LaDesioApp {
 
   handleLogout() {
     this.closePfpDropdown();
+    this.closeAllModals();
+    this.closeAuthModal();
+    if (typeof this.closeWishlistDrawer === 'function') this.closeWishlistDrawer();
+    if (typeof this.closeCartDrawer === 'function') this.closeCartDrawer();
     loyaltyStore.logout();
     this.pendingRedirectRoute = null;
     try {
@@ -4849,18 +5259,20 @@ class LaDesioApp {
       localStorage.removeItem('ladesio_auth_session_phone_v4');
       localStorage.removeItem('ladesio_active_user_id_v4');
       localStorage.removeItem('ladesio_profile_v2');
+      localStorage.removeItem('pendingAuthEmail');
     } catch (e) {}
     
     // Update navigation immediately
     this.renderNavigationBadges();
     
-    // Navigate to home and FORCE re-render
-    this.currentRoute = 'home';
-    window.location.hash = '#home';
+    // Always navigate to login page and render sign in form
+    this.currentRoute = 'login';
+    window.location.hash = '#login';
     const mainContainer = document.getElementById('app-main-content');
     if (mainContainer) {
-      this.renderHomeView(mainContainer);
+      this.renderLoginView(mainContainer, 'signin');
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     
     if (window.showToast) {
       window.showToast('You have signed out successfully.', 'info');

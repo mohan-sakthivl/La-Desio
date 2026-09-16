@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,10 +29,16 @@
             'desio-sage': '#8A9A86'
           },
           fontFamily: {
+            cinzel: ['"Cinzel"', 'Georgia', 'serif'],
+            bodoni: ['"Bodoni Moda"', 'Didot', 'Georgia', 'serif'],
             display: ['"Playfair Display"', 'Georgia', 'serif'],
             serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
             sans: ['Inter', 'sans-serif'],
             script: ['"Alex Brush"', 'cursive']
+          },
+          letterSpacing: {
+            'haute': '0.22em',
+            'monumental': '0.32em'
           }
         }
       }
@@ -52,6 +58,44 @@
 </head>
 
 <body class="bg-[#160703] text-[#FFFDF9] min-h-screen flex flex-col selection:bg-[#B8945B] selection:text-[#160703]">
+
+  <!-- ========================================== -->
+  <!-- BESPOKE GILDED MONOGRAM PRE-LOADER CURTAIN -->
+  <!-- ========================================== -->
+  <div id="atelierCurtainLoader" class="fixed inset-0 z-[100] bg-[#120502] flex flex-col items-center justify-center transition-all duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]">
+    <!-- Double Gold Archival Inset Line -->
+    <div class="absolute inset-4 sm:inset-8 border border-[#B8945B]/25 pointer-events-none">
+      <div class="absolute inset-1.5 border border-[#B8945B]/15"></div>
+      <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#120502] px-4 text-[9px] font-cinzel tracking-[0.3em] text-[#E6CA85]/80 uppercase">
+        ATELIER D'ITALIA
+      </div>
+    </div>
+
+    <!-- Center Monogram Emblem & Branding -->
+    <div class="relative flex flex-col items-center text-center p-6 z-10">
+      <!-- Breathing Gilded Monogram Ring -->
+      <div class="relative w-24 h-24 sm:w-28 sm:h-28 mb-5 flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full border border-[#B8945B]/40 animate-ping opacity-25"></div>
+        <div class="absolute inset-2 rounded-full border-2 border-[#E6CA85]/60 border-t-transparent animate-spin" style="animation-duration: 3s;"></div>
+        <img src="Assets/Logo/emblem_transparent.png" alt="LA DESIO Monogram" class="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_0_15px_rgba(230,202,133,0.5)] transition-transform duration-700 hover:scale-105" />
+      </div>
+
+      <h1 class="font-cinzel text-2xl sm:text-3xl font-bold tracking-[0.35em] text-[#FFFDF9] mb-1">
+        LA DESIO
+      </h1>
+      <p class="font-bodoni italic text-sm text-[#E6CA85] tracking-widest mb-6">
+        Haute Patisserie & Atelier
+      </p>
+
+      <!-- Filament Loading Bar -->
+      <div class="w-48 h-0.5 bg-[#2A0E06] rounded-full overflow-hidden mb-3 border border-[#B8945B]/30">
+        <div id="curtainProgressBar" class="h-full bg-gradient-to-r from-[#B8945B] via-[#E6CA85] to-[#FFFDF9] w-0 transition-all duration-700 ease-out"></div>
+      </div>
+      <span class="text-[9px] font-mono tracking-[0.25em] text-[#B8945B]/80 uppercase">
+        TEMPO DI PREPARAZIONE
+      </span>
+    </div>
+  </div>
 
 
   <!-- ========================================== -->
@@ -424,9 +468,10 @@
   <!-- Leaflet Interactive Maps Engine -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- Cloud & Local Hybrid API Adapter -->
-  <script src="js/api.js"></script>
-  <!-- Universal Standalone Application Bundle -->
-  <script src="js/bundle.js?v=3.0.1"></script>
+
+  <!-- Atmospheric Soundscapes & Pre-Loader Engine -->
+  <script src="js/soundscape.js"></script>
+  <!-- Universal Standalone Application Bundle (100% Client & LocalStorage) -->
+  <script src="js/bundle.js?v=3.3.0"></script>
 </body>
 </html>

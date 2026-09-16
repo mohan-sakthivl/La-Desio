@@ -123,8 +123,21 @@ export class CheckoutManager {
   render() {
     if (!this.container) return;
     const summary = cartStore.getSummary();
+    const etaInfo = this.calculateDistanceAndETA();
 
-    if (summary.items.length === 0 && this.currentStep !== 4) {
+    // If on Order Confirmation step, render full-width luxury receipt immediately
+    if (this.currentStep === 3 || this.currentStep === 4) {
+      this.container.innerHTML = `
+        <div class="max-w-3xl mx-auto px-4 py-8">
+          <div class="bg-[#241009] rounded-3xl border border-[#B8945B]/40 p-6 md:p-10 shadow-2xl text-[#FFFDF9]">
+            ${this.renderOrderConfirmation(etaInfo)}
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    if (summary.items.length === 0) {
       this.container.innerHTML = `
         <div class="max-w-md mx-auto text-center py-16 px-4">
           <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-[#1A0905] border border-[#B8945B]/40 flex items-center justify-center text-3xl shadow-xl">
@@ -141,13 +154,9 @@ export class CheckoutManager {
     }
 
     const steps = [
-      { num: 1, label: 'Delivery Address' },
-      { num: 2, label: 'Delivery Method' },
-      { num: 3, label: 'Payment & Route' },
-      { num: 4, label: 'Confirmation' }
+      { num: 1, label: 'Delivery Details' },
+      { num: 2, label: 'Payment & Confirm' }
     ];
-
-    const etaInfo = this.calculateDistanceAndETA();
 
     this.container.innerHTML = `
       <div class="max-w-5xl mx-auto px-4 py-8">
@@ -262,36 +271,29 @@ export class CheckoutManager {
           <div>
             <div class="flex items-center justify-between mb-4 border-b border-[#B8945B]/20 pb-3">
               <div>
-                <h3 class="font-display text-2xl text-white font-bold">01. Destination & Delivery Address</h3>
-                <p class="text-xs text-[#D6C2B0] mt-0.5">Where shall our courier rush your freshly chilled desserts?</p>
+                <h3 class="font-display text-2xl text-white font-bold">01. Delivery Destination</h3>
+                <p class="text-xs text-[#D6C2B0] mt-0.5">Enter your address for freshly chilled artisanal delivery.</p>
               </div>
               <span class="px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-serif font-bold">
-                Step 1 of 4
+                Step 1 of 2
               </span>
             </div>
 
-            <!-- Dynamic Distance & ETA Highlight Banner -->
-            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#1A0905] to-[#2B130B] border border-[#B8945B]/50 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-[#B8945B]/20 border border-[#B8945B] flex items-center justify-center text-xl shrink-0">
-                  ⚡
-                </div>
+            <!-- Clean Delivery ETA Pill -->
+            <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 mb-5 flex items-center justify-between shadow-md">
+              <div class="flex items-center gap-2.5">
+                <span class="text-lg">⚡</span>
                 <div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs uppercase font-serif tracking-wider text-[#E6CA85] font-bold">Live Atelier Transit Estimation</span>
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  </div>
-                  <p class="text-sm text-white font-serif font-bold">
-                    Will take <span class="text-[#E6CA85] font-mono">nearly ${etaInfo.estimatedMinutes} minutes</span> based upon your distance (${etaInfo.distanceKm} km).
-                  </p>
+                  <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">Artisanal Express Delivery</span>
+                  <span class="text-xs text-white font-semibold">Arriving in nearly ${etaInfo.estimatedMinutes} Mins (${etaInfo.distanceKm} km)</span>
                 </div>
               </div>
-              <span class="text-[11px] text-[#D6C2B0] font-mono shrink-0 bg-black/40 px-3 py-1.5 rounded-lg border border-[#B8945B]/30">
-                ${etaInfo.shopName.split('(')[0]}
+              <span class="px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold uppercase font-mono">
+                COMPLIMENTARY
               </span>
             </div>
 
-            <!-- Saved Address Quick Selector if profile has multiple -->
+            <!-- Saved Address Quick Selector -->
             ${this.renderSavedAddressesSelector()}
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-serif">
@@ -325,32 +327,31 @@ export class CheckoutManager {
                 </datalist>
               </div>
               <div class="sm:col-span-2">
-                <label class="block font-semibold text-[#E6CA85] mb-1">Street Address, Door No., Landmark</label>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Delivery Street Address</label>
                 <input type="text" id="chkStreet" value="${this.state.address.street}"
                        oninput="window.checkoutManager.updateAddressStreet(this.value)"
-                       placeholder="e.g. No.60/A Gnanamani St, West Jafferkhanpet"
+                       placeholder="Door No., Street Name, Landmark"
                        class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white" />
               </div>
               <div class="sm:col-span-2">
-                <label class="block font-semibold text-[#E6CA85] mb-1">Special Delivery Instructions</label>
+                <label class="block font-semibold text-[#E6CA85] mb-1">Special Delivery Notes (Optional)</label>
                 <input type="text" id="chkInstructions" value="${this.state.address.instructions}"
-                       placeholder="e.g. Ring bell, handle with care, temperature-insulated packaging"
+                       placeholder="e.g. Ring bell, leave with concierge"
                        class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] focus:outline-none focus:ring-2 focus:ring-[#B8945B] text-white" />
               </div>
             </div>
 
             <!-- Gifting Checkbox -->
-            <div class="mt-6 p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/30 space-y-3">
-              <label class="flex items-center gap-3 cursor-pointer">
+            <div class="mt-5 p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/30 space-y-2">
+              <label class="flex items-center gap-2.5 cursor-pointer">
                 <input type="checkbox" id="chkIsGift" ${this.state.isGift ? 'checked' : ''}
                        onchange="window.checkoutManager.toggleGift(this.checked)"
                        class="w-4 h-4 accent-[#B8945B] rounded" />
-                <span class="text-xs font-serif font-bold text-[#E6CA85]">🎁 This order is a special gift for someone</span>
+                <span class="text-xs font-serif font-bold text-[#E6CA85]">🎁 Add Complimentary Calligraphy Gift Note</span>
               </label>
               ${this.state.isGift ? `
                 <div class="mt-2">
-                  <label class="block text-[11px] font-semibold text-[#D6C2B0] mb-1">Complimentary Calligraphy Gift Note</label>
-                  <textarea id="chkGiftMessage" rows="2" placeholder="Write your warm personalized message here..."
+                  <textarea id="chkGiftMessage" rows="2" placeholder="Write your personalized gift message here..."
                             class="w-full p-2.5 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-xs text-white font-serif"></textarea>
                 </div>
               ` : ''}
@@ -358,8 +359,8 @@ export class CheckoutManager {
 
             <div class="mt-8 flex justify-end">
               <button type="button" onclick="window.checkoutManager.saveStep1AndContinue()"
-                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2 shadow-xl">
-                <span>Continue to Delivery Experience</span> →
+                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2 shadow-xl cursor-pointer">
+                <span>Continue to Payment</span> →
               </button>
             </div>
           </div>
@@ -370,261 +371,113 @@ export class CheckoutManager {
           <div>
             <div class="flex items-center justify-between mb-4 border-b border-[#B8945B]/20 pb-3">
               <div>
-                <h3 class="font-display text-2xl text-white font-bold">02. Choose Delivery Experience</h3>
-                <p class="text-xs text-[#D6C2B0] mt-0.5">Select your preferred cold-chain transit mode.</p>
+                <h3 class="font-display text-2xl text-white font-bold">02. Select Payment Method</h3>
+                <p class="text-xs text-[#D6C2B0] mt-0.5">Fast, encrypted and secure checkout.</p>
               </div>
               <span class="px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-serif font-bold">
-                Step 2 of 4
+                Step 2 of 2
               </span>
             </div>
 
-            <!-- ETA Confirmation Box -->
-            <div class="p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 mb-6 flex items-center justify-between">
+            <!-- Delivery Summary Reminder -->
+            <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/30 mb-6 flex items-center justify-between text-xs">
               <div>
-                <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold">Targeted Arrival</span>
-                <p class="text-sm font-serif text-white font-bold">
-                  Nearly ${etaInfo.estimatedMinutes} Minutes (${etaInfo.distanceKm} km from ${etaInfo.shopName.split('(')[0]})
-                </p>
+                <span class="text-[10px] uppercase font-serif tracking-widest text-[#B8945B] font-bold block">Delivering To:</span>
+                <p class="text-white font-serif font-semibold truncate max-w-sm">${this.state.address.fullName} • ${this.state.address.street}, ${this.state.address.city}</p>
               </div>
-              <span class="px-3 py-1 rounded-full bg-[#B8945B]/20 text-[#E6CA85] text-xs font-bold border border-[#B8945B]">
-                ⚡ Express Dispatch
-              </span>
+              <button type="button" onclick="window.checkoutManager.setStep(1)" class="text-[#E6CA85] hover:underline font-serif text-xs">
+                Edit
+              </button>
             </div>
 
-            <div class="space-y-4">
-              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'express' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50'}">
-                <div class="flex items-start gap-3.5">
-                  <input type="radio" name="deliveryMethod" value="express" ${this.state.deliveryMethod === 'express' ? 'checked' : ''}
-                         onchange="window.checkoutManager.setDeliveryMethod('express')" class="mt-1 accent-[#B8945B]" />
+            <!-- 3 Clean Payment Methods -->
+            <div class="space-y-3 mb-6">
+              
+              <!-- 1. UPI (Instant) -->
+              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.paymentMethod === 'upi' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50 hover:border-[#B8945B]/50'}">
+                <div class="flex items-center gap-3.5">
+                  <input type="radio" name="payMethod" value="upi" ${this.state.paymentMethod === 'upi' ? 'checked' : ''}
+                         onchange="window.checkoutManager.setPaymentMethod('upi')" class="accent-[#B8945B]" />
                   <div>
-                    <h4 class="font-serif text-sm font-bold text-white">⚡ Express Artisanal Rush (Nearly ${etaInfo.estimatedMinutes} Mins)</h4>
-                    <p class="text-xs text-[#D6C2B0]">Direct handover in temperature-locked insulated carrier (+4°C optimal).</p>
+                    <h4 class="font-serif text-sm font-bold text-white flex items-center gap-2">
+                      <span>📱 UPI Instant</span>
+                      <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40">Fastest</span>
+                    </h4>
+                    <p class="text-xs text-[#D6C2B0]">Google Pay, PhonePe, Paytm, or any UPI App</p>
                   </div>
                 </div>
-                <span class="text-xs font-bold text-[#E6CA85] font-mono">₹99</span>
+                <span class="text-xs text-[#E6CA85] font-mono font-bold">Recommended</span>
+              </label>
+              ${this.state.paymentMethod === 'upi' ? `
+                <div class="p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 ml-4 space-y-2 text-xs font-serif">
+                  <label class="block font-semibold text-[#E6CA85]">Your UPI ID / Mobile Number</label>
+                  <input type="text" id="chkUpiId" value="${this.state.upiId}"
+                         placeholder="e.g. mobile@upi or username@okaxis"
+                         class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white font-mono" />
+                  <p class="text-[11px] text-[#D6C2B0]">You can also scan our delivery concierge's dynamic QR code on arrival.</p>
+                </div>
+              ` : ''}
+
+              <!-- 2. Cards -->
+              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.paymentMethod === 'card' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50 hover:border-[#B8945B]/50'}">
+                <div class="flex items-center gap-3.5">
+                  <input type="radio" name="payMethod" value="card" ${this.state.paymentMethod === 'card' ? 'checked' : ''}
+                         onchange="window.checkoutManager.setPaymentMethod('card')" class="accent-[#B8945B]" />
+                  <div>
+                    <h4 class="font-serif text-sm font-bold text-white">💳 Credit or Debit Card</h4>
+                    <p class="text-xs text-[#D6C2B0]">Visa, Mastercard, RuPay, Amex</p>
+                  </div>
+                </div>
+              </label>
+              ${this.state.paymentMethod === 'card' ? `
+                <div class="p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 ml-4 grid grid-cols-2 gap-3 text-xs font-serif">
+                  <div class="col-span-2">
+                    <label class="block font-semibold text-[#E6CA85] mb-1">Card Number</label>
+                    <input type="text" value="${this.state.cardDetails.number}"
+                           class="w-full px-3.5 py-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white font-mono" />
+                  </div>
+                  <div>
+                    <label class="block font-semibold text-[#E6CA85] mb-1">Expiry Date</label>
+                    <input type="text" value="${this.state.cardDetails.expiry}"
+                           class="w-full px-3.5 py-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white font-mono" />
+                  </div>
+                  <div>
+                    <label class="block font-semibold text-[#E6CA85] mb-1">CVV</label>
+                    <input type="password" value="${this.state.cardDetails.cvv}" maxlength="4"
+                           class="w-full px-3.5 py-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white font-mono" />
+                  </div>
+                </div>
+              ` : ''}
+
+              <!-- 3. Pay on Delivery -->
+              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.paymentMethod === 'cod' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50 hover:border-[#B8945B]/50'}">
+                <div class="flex items-center gap-3.5">
+                  <input type="radio" name="payMethod" value="cod" ${this.state.paymentMethod === 'cod' ? 'checked' : ''}
+                         onchange="window.checkoutManager.setPaymentMethod('cod')" class="accent-[#B8945B]" />
+                  <div>
+                    <h4 class="font-serif text-sm font-bold text-white">💵 Pay on Delivery</h4>
+                    <p class="text-xs text-[#D6C2B0]">Cash or UPI scan at your doorstep upon handover</p>
+                  </div>
+                </div>
               </label>
 
-              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'scheduled' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50'}">
-                <div class="flex items-start gap-3.5">
-                  <input type="radio" name="deliveryMethod" value="scheduled" ${this.state.deliveryMethod === 'scheduled' ? 'checked' : ''}
-                         onchange="window.checkoutManager.setDeliveryMethod('scheduled')" class="mt-1 accent-[#B8945B]" />
-                  <div>
-                    <h4 class="font-serif text-sm font-bold text-white">🕒 Scheduled Evening Reserve Window</h4>
-                    <p class="text-xs text-[#D6C2B0]">Guaranteed delivery window for evening dessert course.</p>
-                    <select id="scheduledTimeSelect" class="mt-2 text-xs p-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white">
-                      <option>Today: 6:00 PM – 8:00 PM</option>
-                      <option>Today: 8:00 PM – 10:00 PM</option>
-                      <option>Tomorrow: 2:00 PM – 4:00 PM</option>
-                      <option>Tomorrow: 6:00 PM – 8:00 PM</option>
-                    </select>
-                  </div>
-                </div>
-                <span class="text-xs font-bold text-[#E6CA85] font-mono">₹99</span>
-              </label>
-
-              <label class="p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${this.state.deliveryMethod === 'temperature' ? 'border-[#B8945B] bg-[#1A0905] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/20 bg-[#1A0905]/50'}">
-                <div class="flex items-start gap-3.5">
-                  <input type="radio" name="deliveryMethod" value="temperature" ${this.state.deliveryMethod === 'temperature' ? 'checked' : ''}
-                         onchange="window.checkoutManager.setDeliveryMethod('temperature')" class="mt-1 accent-[#B8945B]" />
-                  <div>
-                    <h4 class="font-serif text-sm font-bold text-white">👑 Privé Chilled Vault & Wooden Keepsake Hamper</h4>
-                    <p class="text-xs text-[#D6C2B0]">Branded gold-embossed wooden box, satin ribbons & temperature logger.</p>
-                  </div>
-                </div>
-                <span class="text-xs font-bold text-[#E6CA85] font-mono">+₹199</span>
-              </label>
             </div>
 
-            <div class="mt-8 flex justify-between">
+            <!-- Action Buttons -->
+            <div class="mt-8 flex justify-between items-center">
               <button type="button" onclick="window.checkoutManager.setStep(1)"
                       class="px-6 py-2.5 rounded-xl border border-[#B8945B]/40 text-[#D6C2B0] hover:text-white font-serif text-xs font-semibold">
                 ← Back to Address
               </button>
-              <button type="button" onclick="window.checkoutManager.setStep(3)"
-                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center gap-2 shadow-xl">
-                <span>Continue to Payment & Route Map</span> →
+              <button type="button" onclick="window.checkoutManager.placeOrder()"
+                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-bold tracking-wider shadow-2xl flex items-center gap-2 cursor-pointer">
+                <span>Place Order & Dispatch (₹${summary.total.toFixed(2)})</span> ✨
               </button>
             </div>
           </div>
         `;
 
       case 3:
-        return `
-          <div>
-            <div class="flex items-center justify-between mb-4 border-b border-[#B8945B]/20 pb-3">
-              <div>
-                <h3 class="font-display text-2xl text-white font-bold">03. Route Map & Secure Payment</h3>
-                <p class="text-xs text-[#D6C2B0] mt-0.5">Live shop-to-doorstep route preview and encrypted payment gateway.</p>
-              </div>
-              <span class="px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/40 text-[#E6CA85] text-xs font-serif font-bold">
-                Step 3 of 4
-              </span>
-            </div>
-
-            <!-- ========================================== -->
-            <!-- SHOP TO CUSTOMER LIVE ROUTE & GOOGLE MAPS   -->
-            <!-- ========================================== -->
-            <div class="mb-6 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 p-4 shadow-xl space-y-3">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#B8945B]/20 pb-2.5">
-                <div class="flex items-center gap-2">
-                  <span class="text-lg">🗺️</span>
-                  <div>
-                    <h4 class="font-serif text-xs uppercase tracking-wider text-[#E6CA85] font-bold">Live Atelier-to-Doorstep Dispatch Route</h4>
-                    <p class="text-[11px] text-[#D6C2B0]">From <strong>${etaInfo.shopName}</strong> → To <strong>${this.state.address.street}, ${this.state.address.city}</strong></p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                  <span class="px-2.5 py-1 rounded-full bg-[#B8945B]/20 border border-[#B8945B] text-[#E6CA85] text-[11px] font-mono font-bold">
-                    ${etaInfo.distanceKm} km • Nearly ${etaInfo.estimatedMinutes} Mins
-                  </span>
-                </div>
-              </div>
-
-              <!-- Map View Tabs: Google Maps vs Dark Atelier Route -->
-              <div class="flex items-center justify-between gap-2">
-                <div class="flex items-center gap-1.5 bg-black/50 p-1 rounded-xl border border-[#B8945B]/30 text-xs font-serif">
-                  <button type="button" onclick="window.checkoutManager.setMapMode('google')"
-                          class="px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 ${(this.state.activeMapMode !== 'vector') ? 'bg-[#4285F4] text-white font-bold shadow' : 'text-[#D6C2B0] hover:text-white'}">
-                    <span>📍</span> Google Maps (Live Traffic)
-                  </button>
-                  <button type="button" onclick="window.checkoutManager.setMapMode('vector')"
-                          class="px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 ${(this.state.activeMapMode === 'vector') ? 'bg-[#B8945B] text-black font-bold shadow' : 'text-[#D6C2B0] hover:text-white'}">
-                    <span>👑</span> Atelier Chilled Route
-                  </button>
-                </div>
-
-                <a href="https://www.google.com/maps/dir/?api=1&origin=LA+DESIO+Flagship+Atelier+West+Jafferkhanpet+Chennai&destination=${encodeURIComponent(this.state.address.street + ', ' + this.state.address.city)}&travelmode=driving"
-                   target="_blank" rel="noopener"
-                   class="hidden sm:inline-flex items-center gap-1 text-[11px] font-serif text-[#E6CA85] hover:text-white hover:underline">
-                  <span>Open in Google Maps App</span> ↗
-                </a>
-              </div>
-
-              <!-- Route Container -->
-              <div id="checkoutRouteMapContainer" class="relative w-full h-60 sm:h-72 rounded-xl overflow-hidden border border-[#B8945B]/30 bg-[#120603]">
-                ${this.state.activeMapMode === 'vector' ? this.renderVectorRouteMap(etaInfo) : this.renderGoogleMapsEmbed(etaInfo)}
-              </div>
-
-              <div class="flex flex-wrap items-center justify-between text-[11px] text-[#D6C2B0] pt-1">
-                <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Transit Status: Optimal Arterial Route via Jafferkhanpet & 100 Feet Rd
-                </span>
-                <span class="text-stone-400 font-mono">Chilled Vault Temp: 3.8°C</span>
-              </div>
-            </div>
-
-            <!-- Payment Gateways -->
-            <div class="space-y-4">
-              <span class="block text-xs uppercase font-serif tracking-widest text-[#E6CA85] font-bold mb-2">Select Payment Method</span>
-              
-              <div class="grid grid-cols-3 gap-2.5">
-                <button type="button" onclick="window.checkoutManager.setPaymentMethod('upi')"
-                        class="p-3 rounded-2xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'upi' ? 'border-[#B8945B] bg-[#1A0905] text-[#E6CA85] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/25 bg-black/40 text-[#D6C2B0]'}">
-                  📱 UPI / QR Code
-                </button>
-                <button type="button" onclick="window.checkoutManager.setPaymentMethod('card')"
-                        class="p-3 rounded-2xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'card' ? 'border-[#B8945B] bg-[#1A0905] text-[#E6CA85] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/25 bg-black/40 text-[#D6C2B0]'}">
-                  💳 Debit / Credit Card
-                </button>
-                <button type="button" onclick="window.checkoutManager.setPaymentMethod('netbanking')"
-                        class="p-3 rounded-2xl border text-center font-serif text-xs font-bold transition-all ${this.state.paymentMethod === 'netbanking' ? 'border-[#B8945B] bg-[#1A0905] text-[#E6CA85] ring-2 ring-[#B8945B]/40 shadow-lg' : 'border-[#B8945B]/25 bg-black/40 text-[#D6C2B0]'}">
-                  🏦 Net Banking
-                </button>
-              </div>
-
-              <!-- Payment Form Details -->
-              ${this.state.paymentMethod === 'upi' ? `
-                <div class="p-5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 text-center space-y-3">
-                  <div class="w-36 h-36 mx-auto bg-white p-2 rounded-xl border-2 border-[#B8945B] shadow-2xl flex flex-col items-center justify-center">
-                    <div class="w-full h-full bg-[#180A06] rounded p-1 flex flex-col items-center justify-center text-[#E6CA85] text-[10px] font-mono leading-tight">
-                      <span>👑 LA DESIO ATELIER</span>
-                      <span class="text-white font-bold mt-1">₹${summary.total.toFixed(2)}</span>
-                      <span class="text-[8px] text-stone-400 mt-1">[SCAN WITH ANY UPI APP]</span>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="text-xs font-semibold text-white font-serif">Scan with GPay, PhonePe, Paytm, or CRED</p>
-                    <p class="text-[11px] text-[#D6C2B0] mt-0.5">Or enter your VPA / UPI ID:</p>
-                  </div>
-                  <div class="max-w-xs mx-auto">
-                    <input type="text" value="${this.state.upiId}"
-                           class="w-full px-3.5 py-2 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-xs text-center text-[#E6CA85] font-mono" />
-                  </div>
-                </div>
-              ` : ''}
-
-              ${this.state.paymentMethod === 'card' ? `
-                <div class="space-y-4">
-                  <div class="p-5 rounded-2xl bg-gradient-to-br from-[#1A0905] via-[#2B130B] to-[#120603] text-white border border-[#B8945B] shadow-2xl max-w-sm mx-auto space-y-4">
-                    <div class="flex justify-between items-center">
-                      <span class="font-serif italic text-xs tracking-widest text-[#E6CA85]">LA DESIO PRIVÉ VAULT</span>
-                      <span class="text-lg">💳</span>
-                    </div>
-                    <div class="font-mono text-base tracking-widest text-center py-2 text-[#E6CA85]">
-                      •••• •••• •••• 4242
-                    </div>
-                    <div class="flex justify-between items-end text-[10px] uppercase text-[#D6C2B0]">
-                      <div>
-                        <span class="block text-stone-400">Cardholder</span>
-                        <span class="font-bold tracking-wider text-white">${this.state.address.fullName}</span>
-                      </div>
-                      <div>
-                        <span class="block text-stone-400">Expires</span>
-                        <span class="font-bold tracking-wider text-white">08/28</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="grid grid-cols-2 gap-3 text-xs font-serif">
-                    <div class="col-span-2">
-                      <label class="block font-semibold text-[#E6CA85] mb-1">Card Number</label>
-                      <input type="text" placeholder="4242 •••• •••• ••••" value="4242 8819 9021 4242"
-                             class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] text-white font-mono" />
-                    </div>
-                    <div>
-                      <label class="block font-semibold text-[#E6CA85] mb-1">Valid Thru</label>
-                      <input type="text" placeholder="MM/YY" value="08/28"
-                             class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] text-white font-mono" />
-                    </div>
-                    <div>
-                      <label class="block font-semibold text-[#E6CA85] mb-1">CVV Security Code</label>
-                      <input type="password" placeholder="•••" value="842"
-                             class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#1A0905] text-white font-mono" />
-                    </div>
-                  </div>
-                </div>
-              ` : ''}
-
-              ${this.state.paymentMethod === 'netbanking' ? `
-                <div class="p-5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 space-y-3 text-xs font-serif">
-                  <label class="block font-semibold text-[#E6CA85]">Select Banking Portal</label>
-                  <select class="w-full px-3.5 py-2.5 rounded-xl border border-[#B8945B]/40 bg-[#241009] text-white">
-                    <option>HDFC Bank Concierge</option>
-                    <option>ICICI Bank Privé</option>
-                    <option>State Bank of India (SBI)</option>
-                    <option>Axis Bank Burgundy</option>
-                    <option>Kotak Mahindra Bank Privé</option>
-                  </select>
-                  <p class="text-[11px] text-[#D6C2B0]">You will be safely redirected to your banking institution to authorize ₹${summary.total.toFixed(2)}.</p>
-                </div>
-              ` : ''}
-
-            </div>
-
-            <div class="mt-8 flex justify-between items-center">
-              <button type="button" onclick="window.checkoutManager.setStep(2)"
-                      class="px-6 py-2.5 rounded-xl border border-[#B8945B]/40 text-[#D6C2B0] hover:text-white font-serif text-xs font-semibold">
-                ← Back
-              </button>
-              <button type="button" onclick="window.checkoutManager.placeOrder()"
-                      class="px-8 py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shadow-2xl flex items-center gap-2">
-                <span>Authorize & Place Order (₹${summary.total.toFixed(2)})</span> 👑
-              </button>
-            </div>
-          </div>
-        `;
-
       case 4:
         return this.renderOrderConfirmation(etaInfo);
     }
@@ -744,14 +597,24 @@ export class CheckoutManager {
   }
 
   renderOrderConfirmation(etaInfo) {
+    const fallbackEta = etaInfo || this.calculateDistanceAndETA();
     const order = this.lastPlacedOrder || {
-      id: 'DESIO-9142',
+      id: 'DESIO-' + Math.floor(1000 + Math.random() * 9000),
       total: 1040,
-      deliverySlot: `Express Artisanal — Within ${etaInfo.estimatedMinutes} Mins`,
-      trackingNumber: 'IN-EXP-9142-DESIO',
-      distanceKm: etaInfo.distanceKm,
-      estimatedMinutes: etaInfo.estimatedMinutes
+      deliverySlot: `Express Artisanal — Within ${fallbackEta?.estimatedMinutes || 25} Mins`,
+      trackingNumber: 'IN-EXP-' + Math.floor(1000 + Math.random() * 9000) + '-DESIO',
+      distanceKm: fallbackEta?.distanceKm || 3.5,
+      estimatedMinutes: fallbackEta?.estimatedMinutes || 25
     };
+
+    const orderId = order.id || 'DESIO-9142';
+    const trackingNumber = order.trackingNumber || ('IN-EXP-' + String(orderId).replace('DESIO-', '') + '-DESIO');
+    const totalNum = Number(order.total) || 0;
+    const totalDisplay = totalNum > 0 ? totalNum.toFixed(2) : '1,040.00';
+    const distanceDisplay = order.distanceKm || fallbackEta?.distanceKm || 3.5;
+    const minutesDisplay = order.estimatedMinutes || fallbackEta?.estimatedMinutes || 25;
+    const streetDisplay = (this.state && this.state.address && this.state.address.street) || 'West Jafferkhanpet';
+    const cityDisplay = (this.state && this.state.address && this.state.address.city) || 'Chennai';
 
     return `
       <div class="text-center py-8 space-y-6">
@@ -773,10 +636,10 @@ export class CheckoutManager {
         <div class="max-w-md mx-auto p-4 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 flex items-center justify-between shadow-xl">
           <div class="text-left">
             <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">Estimated Arrival</span>
-            <span class="font-serif text-lg font-bold text-white">Nearly ${order.estimatedMinutes || etaInfo.estimatedMinutes} Minutes</span>
+            <span class="font-serif text-lg font-bold text-white">Nearly ${minutesDisplay} Minutes</span>
           </div>
           <div class="text-right font-mono text-xs text-[#D6C2B0]">
-            <span>${order.distanceKm || etaInfo.distanceKm} km away</span>
+            <span>${distanceDisplay} km away</span>
             <span class="block text-emerald-400 font-bold">● Active Dispatch</span>
           </div>
         </div>
@@ -785,22 +648,22 @@ export class CheckoutManager {
         <div class="max-w-md mx-auto p-5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 text-left text-xs space-y-3 shadow-lg">
           <div class="flex justify-between items-center border-b border-[#B8945B]/30 pb-2">
             <span class="font-serif font-bold text-white">Order Reference:</span>
-            <span class="font-mono font-bold text-[#E6CA85]">${order.id}</span>
+            <span class="font-mono font-bold text-[#E6CA85]">${orderId}</span>
           </div>
 
           <div class="flex justify-between items-center">
             <span class="text-[#D6C2B0]">Delivery Destination:</span>
-            <span class="font-semibold text-white truncate max-w-[240px]">${this.state.address.street}, ${this.state.address.city}</span>
+            <span class="font-semibold text-white truncate max-w-[240px]">${streetDisplay}, ${cityDisplay}</span>
           </div>
 
           <div class="flex justify-between items-center">
             <span class="text-[#D6C2B0]">Consignment Tracking:</span>
-            <span class="font-mono text-[11px] text-[#E6CA85]">${order.trackingNumber}</span>
+            <span class="font-mono text-[11px] text-[#E6CA85]">${trackingNumber}</span>
           </div>
 
           <div class="flex justify-between items-center border-t border-[#B8945B]/30 pt-2 font-display font-bold text-sm text-white">
             <span>Paid Total:</span>
-            <span class="text-gold-gradient text-base font-mono">₹${order.total.toFixed(2)}</span>
+            <span class="text-gold-gradient text-base font-mono">₹${totalDisplay}</span>
           </div>
         </div>
 
@@ -968,15 +831,35 @@ export class CheckoutManager {
     };
 
     const newOrder = loyaltyStore.addOrder(orderData);
-    this.lastPlacedOrder = newOrder;
+    this.lastPlacedOrder = { ...orderData, ...(newOrder || {}) };
 
     // Clear cart
     cartStore.clearCart();
 
-    this.setStep(4);
+    const showReceipt = () => {
+      this.currentStep = 3;
+      this.render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (this.onOrderCompleted) {
+        this.onOrderCompleted(newOrder);
+      }
+    };
 
-    if (this.onOrderCompleted) {
-      this.onOrderCompleted(newOrder);
+    if (typeof window !== 'undefined' && window.ladesioSoundscape) {
+      if (typeof window.ladesioSoundscape.playCrystalChime === 'function') {
+        window.ladesioSoundscape.playCrystalChime();
+      }
+      if (typeof window.ladesioSoundscape.showCurtain === 'function') {
+        window.ladesioSoundscape.showCurtain(
+          'DISPATCHING ORDER',
+          'Crafting Your Bespoke Patisserie Creation...',
+          1100,
+          showReceipt
+        );
+        return;
+      }
     }
+
+    showReceipt();
   }
 }

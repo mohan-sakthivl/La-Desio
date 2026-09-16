@@ -361,14 +361,21 @@ export class LoyaltyManager {
 
   loadActiveUserId() {
     try {
-      const sessionPhone = localStorage.getItem(AUTH_SESSION_KEY);
-      if (sessionPhone) {
-        const match = this.users.find(u => this.cleanPhone(u.phone) === this.cleanPhone(sessionPhone));
-        if (match) return match.id;
+      const sessionKey = localStorage.getItem(AUTH_SESSION_KEY);
+      const savedId = localStorage.getItem(ACTIVE_USER_ID_KEY);
+      if (savedId) {
+        const matchId = this.users.find(u => u.id === savedId);
+        if (matchId) return matchId.id;
       }
-      const saved = localStorage.getItem(ACTIVE_USER_ID_KEY);
-      if (saved && sessionPhone && this.users.find(u => u.id === saved)) {
-        return saved;
+      if (sessionKey) {
+        const cleanDigits = sessionKey.replace(/\D/g, '');
+        const match = this.users.find(u => {
+          const uEmail = (u.email || '').toLowerCase();
+          const uPhone = this.cleanPhone(u.phone);
+          return (sessionKey.includes('@') && uEmail === sessionKey.toLowerCase()) ||
+                 (cleanDigits.length === 10 && uPhone === cleanDigits);
+        });
+        if (match) return match.id;
       }
     } catch (e) {}
     return null;
@@ -387,9 +394,10 @@ export class LoyaltyManager {
   // Check if current user has an active authenticated session
   isUserAuthenticated() {
     try {
-      const sessionPhone = localStorage.getItem(AUTH_SESSION_KEY);
-      if (!sessionPhone || !this.activeUserId) return false;
-      return this.users.some(u => u.id === this.activeUserId);
+      const sessionKey = localStorage.getItem(AUTH_SESSION_KEY);
+      const activeId = this.activeUserId || localStorage.getItem(ACTIVE_USER_ID_KEY);
+      if (!sessionKey && !activeId) return false;
+      return this.users.some(u => u.id === activeId);
     } catch (e) {
       return false;
     }
@@ -587,6 +595,44 @@ export class LoyaltyManager {
         success: false,
         message: 'Incorrect password entered. Please use "desio123" or sign in via OTP.'
       };
+    }
+
+    this.activeUserId = user.id;
+    this.profile = user;
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(user.phone) || user.email);
+      localStorage.setItem(ACTIVE_USER_ID_KEY, user.id);
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(user));
+    } catch (e) {}
+    this.saveUsers();
+
+    return {
+      success: true,
+      user: this.profile,
+      message: `Welcome to La Desio Privé, ${this.profile.name}!`
+    };
+  }
+
+  loginByIdentifier(identifier) {
+    const cleanId = (identifier || '').trim().toLowerCase();
+    const cleanDigits = cleanId.replace(/\D/g, '');
+
+    let user = this.users.find(u => {
+      const uEmail = (u.email || '').toLowerCase();
+      const uPhone = this.cleanPhone(u.phone);
+      return (cleanId.includes('@') && uEmail === cleanId) || (cleanDigits.length === 10 && uPhone === cleanDigits);
+    });
+
+    if (!user) {
+      const isEmail = cleanId.includes('@');
+      const nameParts = isEmail ? cleanId.split('@')[0].split(/[._-]/).filter(Boolean) : ['Connoisseur'];
+      const formattedName = nameParts.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ') || 'Privé Connoisseur';
+      return this.registerWithEmailAndPassword({
+        name: formattedName,
+        email: isEmail ? cleanId : `member_${cleanDigits}@ladesio.com`,
+        password: 'desio123',
+        phone: isEmail ? ('98' + Math.floor(10000000 + Math.random() * 90000000)) : cleanDigits
+      });
     }
 
     this.activeUserId = user.id;
