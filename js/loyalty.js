@@ -9,11 +9,16 @@ const PROFILE_KEY = 'ladesio_profile_v2';
 const CREATIONS_KEY = 'ladesio_creations_v1';
 const ORDERS_KEY = 'ladesio_orders_v1';
 const FRIENDS_KEY = 'ladesio_friends_v4';
+const LOCKED_BIRTHDAY_KEY = 'ladesio_locked_birthday_v1';
+const BIRTHDAY_REGISTRY_KEY = 'ladesio_birthday_registry_v1';
+const OTP_COOLDOWNS_KEY = 'ladesio_otp_cooldowns_v1';
+const OTP_RESEND_COOLDOWN_SECONDS = 60;
 
 export const DEFAULT_PRESET_USERS = [
   {
     id: 'user_roody',
     name: 'Roody Cruz',
+    birthday: '1998-09-17',
     avatar: 'Assets/Profile/roody.jpg',
     bio: 'Haute patisserie enthusiast & dark cacao devotee. Passionate about custom artisanal desserts, authentic Bronte pistachio, and high-protein creations in Chennai.',
     email: 'theroodyy@gmail.com',
@@ -51,6 +56,7 @@ export const DEFAULT_PRESET_USERS = [
   {
     id: 'user_vinoth',
     name: 'Vinoth Kumar',
+    birthday: '1997-09-17',
     avatar: 'Assets/Profile/vinoth.jpeg',
     bio: 'Obsessed with Bronte pistachios, silky mascarpone, and delicate choux pastry.',
     email: 'vinoth@ladesio.com',
@@ -78,6 +84,7 @@ export const DEFAULT_PRESET_USERS = [
   {
     id: 'user_tharun',
     name: 'Tharun R K',
+    birthday: '1999-09-17',
     avatar: 'Assets/Profile/tharun.jpeg',
     bio: 'Sports nutritionist & dessert lover. Formulating 35g+ whey isolate brownies and guilt-free low-carb Basque cheesecakes.',
     email: 'tharun@ladesio.com',
@@ -105,6 +112,7 @@ export const DEFAULT_PRESET_USERS = [
   {
     id: 'user_jeneefar',
     name: 'Jeneefar',
+    birthday: '2000-09-17',
     avatar: 'Assets/Profile/jeneefar.jpeg',
     bio: 'Luxury food stylist & berry devotee. If it doesn\'t have alpine wild strawberries, Champagne cream, and 24k gold leaf, count me out!',
     email: 'jeneefar@ladesio.com',
@@ -147,7 +155,7 @@ export const DUMMY_FRIENDS = [
     creations: [
       {
         id: 'chiara_c1',
-        name: 'Bronte Pistachio Oro Torte',
+        name: 'Bronte Pistachio Gold Cake',
         recipe: 'Cheesecake + Bronte Pistachio + Pistachio Mousse + Hazelnuts + White Chocolate Silk',
         price: 545,
         image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80',
@@ -159,13 +167,13 @@ export const DUMMY_FRIENDS = [
           filling: 'filling-pistachio-mousse',
           toppings: ['top-hazelnuts', 'top-gold-leaf'],
           sauce: 'sauce-white-chocolate',
-          name: 'Bronte Pistachio Oro Torte'
+          name: 'Bronte Pistachio Gold Cake'
         }
       },
       {
         id: 'chiara_c2',
-        name: 'Espresso Amore Mousse',
-        recipe: 'Genoese Sponge + Espresso Arabica + Vanilla Silk + Blueberries + Dark Drizzle',
+        name: 'Espresso Velvet Mousse',
+        recipe: 'Vanilla Sponge + Espresso Arabica + Vanilla Silk + Blueberries + Dark Drizzle',
         price: 465,
         image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80',
         createdDate: '24 Feb 2026',
@@ -176,7 +184,7 @@ export const DUMMY_FRIENDS = [
           filling: 'filling-vanilla-cream',
           toppings: ['top-blueberries', 'top-gold-leaf'],
           sauce: 'sauce-dark-chocolate',
-          name: 'Espresso Amore Mousse'
+          name: 'Espresso Velvet Mousse'
         }
       }
     ]
@@ -245,7 +253,7 @@ export const DUMMY_FRIENDS = [
     creations: [
       {
         id: 'elena_c1',
-        name: 'Wild Fragola Gold Crown Tart',
+        name: 'Wild Strawberry Gold Crown Tart',
         recipe: 'Cheesecake + Wild Strawberry + Berry Compote + Hand-Cut Strawberries + 24k Gold Flourish',
         price: 595,
         image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80',
@@ -257,13 +265,13 @@ export const DUMMY_FRIENDS = [
           filling: 'filling-berry-compote',
           toppings: ['top-strawberries', 'top-gold-leaf'],
           sauce: 'sauce-strawberry',
-          name: 'Wild Fragola Gold Crown Tart'
+          name: 'Wild Strawberry Gold Crown Tart'
         }
       },
       {
         id: 'elena_c2',
-        name: 'Caramello Étoile Brioche Waffle',
-        recipe: 'Belgian Waffle + Salted Caramel + Caramel Confit + Roasted Piedmont Hazelnuts + Fleur de Sel',
+        name: 'Salted Caramel Star Waffle',
+        recipe: 'Belgian Waffle + Salted Caramel + Caramel Confit + Roasted Piedmont Hazelnuts + Sea Salt',
         price: 490,
         image: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80',
         createdDate: '06 Mar 2026',
@@ -272,9 +280,9 @@ export const DUMMY_FRIENDS = [
           base: 'base-waffle',
           flavor: 'flavor-caramel',
           filling: 'filling-caramel-confit',
-          toppings: ['top-hazelnuts', 'top-choc-chips'],
+          toppings: ['top-hazelnuts'],
           sauce: 'sauce-caramel',
-          name: 'Caramello Étoile Brioche Waffle'
+          name: 'Salted Caramel Star Waffle'
         }
       }
     ]
@@ -285,8 +293,17 @@ export class LoyaltyManager {
   constructor() {
     this.users = this.loadUsers();
     this.activeUserId = this.loadActiveUserId();
-    this.profile = this.getActiveUser();
+    const authenticated = this.isUserAuthenticated();
+    if (authenticated) {
+      this.profile = this.getActiveUser();
+    } else {
+      this.profile = null;
+      this.activeUserId = null;
+    }
     this.creations = this.loadCreations();
+    try {
+      localStorage.setItem(CREATIONS_KEY, JSON.stringify(this.creations));
+    } catch (e) {}
     this.orders = this.loadOrders();
     this.friends = this.loadFriends();
     this.pendingOtp = null;
@@ -322,41 +339,140 @@ export class LoyaltyManager {
     this.listeners.forEach(cb => cb(this.getData()));
   }
 
+  getBirthdayRegistry() {
+    try {
+      const saved = localStorage.getItem(BIRTHDAY_REGISTRY_KEY);
+      return saved ? JSON.parse(saved) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  saveBirthdayRegistry(reg) {
+    try {
+      localStorage.setItem(BIRTHDAY_REGISTRY_KEY, JSON.stringify(reg));
+    } catch (e) {}
+  }
+
+  getRememberedBirthday(userId, phone, email) {
+    try {
+      const reg = this.getBirthdayRegistry();
+      if (userId && reg[userId]) return reg[userId];
+      const cleanP = this.cleanPhone(phone);
+      if (cleanP && reg[cleanP]) return reg[cleanP];
+      const cleanE = (email || '').trim().toLowerCase();
+      if (cleanE && reg[cleanE]) return reg[cleanE];
+
+      // If no specific identifier is provided, check global device locked birthday
+      if (!userId && !phone && !email) {
+        const direct = localStorage.getItem(LOCKED_BIRTHDAY_KEY);
+        if (direct && typeof direct === 'string' && direct.includes('-')) return direct;
+        if (reg['__last_registered__']) return reg['__last_registered__'];
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  ensureUserBirthday(user) {
+    if (!user) return null;
+    if (!user.birthday) {
+      const remembered = this.getRememberedBirthday(user.id, user.phone, user.email);
+      if (remembered) {
+        user.birthday = remembered;
+        if (this.users) {
+          const idx = this.users.findIndex(u => u.id === user.id);
+          if (idx !== -1 && !this.users[idx].birthday) {
+            this.users[idx].birthday = remembered;
+          }
+        }
+      }
+    } else {
+      this.storeLockedBirthday(user.birthday, user.id, user.phone, user.email);
+    }
+    return user;
+  }
+
+  storeLockedBirthday(bday, userId, phone, email) {
+    if (!bday) return;
+    try {
+      localStorage.setItem(LOCKED_BIRTHDAY_KEY, String(bday));
+      const reg = this.getBirthdayRegistry();
+      if (userId) reg[userId] = bday;
+      const cleanP = this.cleanPhone(phone);
+      if (cleanP) reg[cleanP] = bday;
+      const cleanE = (email || '').trim().toLowerCase();
+      if (cleanE) reg[cleanE] = bday;
+      reg['__last_registered__'] = bday;
+      this.saveBirthdayRegistry(reg);
+
+      if (this.profile) {
+        this.profile.birthday = bday;
+      }
+
+      if (this.users && this.users.length > 0) {
+        let changed = false;
+        this.users.forEach(u => {
+          const matchUser = (userId && u.id === userId) ||
+            (cleanP && this.cleanPhone(u.phone) === cleanP) ||
+            (cleanE && (u.email || '').trim().toLowerCase() === cleanE);
+          if (matchUser || (this.activeUserId && u.id === this.activeUserId)) {
+            u.birthday = bday;
+            changed = true;
+          }
+        });
+        if (changed) {
+          localStorage.setItem(USERS_KEY, JSON.stringify(this.users));
+        }
+      }
+    } catch (e) {}
+  }
+
   loadUsers() {
+    let usersList = DEFAULT_PRESET_USERS.map(u => ({ ...u }));
     try {
       const saved = localStorage.getItem(USERS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-      // Normalize specific member numbers
-      parsed = parsed.map(u => {
-        const lower = (u.name || '').toLowerCase();
-        if (lower.includes('vinoth')) {
-          u.phone = '9790496706';
-          u.displayPhone = '+91 97904 96706';
-        } else if (lower.includes('tharun')) {
-          u.phone = '9566783614';
-          u.displayPhone = '+91 95667 83614';
-        } else if (lower.includes('jeneefar')) {
-          u.phone = '9677407374';
-          u.displayPhone = '+91 96774 07374';
-        }
-        return u;
-      });
-          return parsed;
+          usersList = parsed;
         }
       }
-      return DEFAULT_PRESET_USERS;
-    } catch (e) {
-      return DEFAULT_PRESET_USERS;
-    }
+    } catch (e) {}
+
+    const globalBday = this.getRememberedBirthday();
+
+    // Normalize specific member numbers and ALWAYS restore remembered birthday
+    usersList = usersList.map((u, idx) => {
+      const lower = (u.name || '').toLowerCase();
+      if (lower.includes('vinoth')) {
+        u.phone = '9790496706';
+        u.displayPhone = '+91 97904 96706';
+      } else if (lower.includes('tharun')) {
+        u.phone = '9566783614';
+        u.displayPhone = '+91 95667 83614';
+      } else if (lower.includes('jeneefar')) {
+        u.phone = '9677407374';
+        u.displayPhone = '+91 96774 07374';
+      }
+
+      const remembered = this.getRememberedBirthday(u.id, u.phone, u.email);
+      u.birthday = remembered || u.birthday || null;
+
+      return u;
+    });
+
+    return usersList;
   }
 
   saveUsers() {
     try {
       localStorage.setItem(USERS_KEY, JSON.stringify(this.users));
-      localStorage.setItem(ACTIVE_USER_ID_KEY, this.activeUserId);
-      localStorage.setItem(PROFILE_KEY, JSON.stringify(this.profile));
+      if (this.activeUserId) {
+        localStorage.setItem(ACTIVE_USER_ID_KEY, this.activeUserId);
+      }
+      if (this.profile) {
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(this.profile));
+      }
     } catch (e) {}
     this.notify();
   }
@@ -384,9 +500,30 @@ export class LoyaltyManager {
   }
 
   getActiveUser() {
-    if (!this.activeUserId) return null;
-    const found = this.users.find(u => u.id === this.activeUserId);
-    return found || null;
+    let user = null;
+    if (this.activeUserId) {
+      user = this.users.find(u => u.id === this.activeUserId);
+    }
+    if (!user) {
+      user = this.profile;
+    }
+    if (!user && !this.isUserAuthenticated()) {
+      return null;
+    }
+    if (!user && this.users && this.users.length > 0) {
+      user = this.users[0];
+    }
+    if (user) {
+      this.ensureUserBirthday(user);
+      const idx = this.users.findIndex(u => u.id === user.id);
+      if (idx !== -1 && user.birthday && !this.users[idx].birthday) {
+        this.users[idx].birthday = user.birthday;
+        try {
+          localStorage.setItem(USERS_KEY, JSON.stringify(this.users));
+        } catch (e) {}
+      }
+    }
+    return user;
   }
 
   getUsers() {
@@ -397,8 +534,9 @@ export class LoyaltyManager {
   isUserAuthenticated() {
     try {
       const sessionKey = localStorage.getItem(AUTH_SESSION_KEY);
+      if (!sessionKey) return false;
       const activeId = this.activeUserId || localStorage.getItem(ACTIVE_USER_ID_KEY);
-      if (!sessionKey && !activeId) return false;
+      if (!activeId) return false;
       return this.users.some(u => u.id === activeId);
     } catch (e) {
       return false;
@@ -408,10 +546,53 @@ export class LoyaltyManager {
   // ==========================================
   // REAL MOBILE NUMBER & OTP GENERATOR
   // ==========================================
+  getCooldownRemaining(type, identifier) {
+    if (!identifier) return 0;
+    const cleanId = type === 'mobile' ? this.cleanPhone(identifier) : String(identifier).trim().toLowerCase();
+    try {
+      const saved = localStorage.getItem(OTP_COOLDOWNS_KEY);
+      if (saved) {
+        const cooldowns = JSON.parse(saved);
+        const expiresAt = cooldowns[cleanId];
+        if (expiresAt && Date.now() < expiresAt) {
+          return Math.ceil((expiresAt - Date.now()) / 1000);
+        }
+      }
+    } catch (e) {}
+    return 0;
+  }
+
+  setCooldown(type, identifier, seconds = OTP_RESEND_COOLDOWN_SECONDS) {
+    if (!identifier) return;
+    const cleanId = type === 'mobile' ? this.cleanPhone(identifier) : String(identifier).trim().toLowerCase();
+    try {
+      let cooldowns = {};
+      const saved = localStorage.getItem(OTP_COOLDOWNS_KEY);
+      if (saved) cooldowns = JSON.parse(saved);
+      cooldowns[cleanId] = Date.now() + (seconds * 1000);
+      localStorage.setItem(OTP_COOLDOWNS_KEY, JSON.stringify(cooldowns));
+    } catch (e) {}
+  }
+
+  setOtpCooldown(type, identifier, seconds = OTP_RESEND_COOLDOWN_SECONDS) {
+    return this.setCooldown(type, identifier, seconds);
+  }
+
   generateOtp(phoneInput) {
     const phone = this.cleanPhone(phoneInput);
     if (!phone || phone.length !== 10) {
       return { success: false, message: 'Please enter a valid 10-digit Indian mobile number.' };
+    }
+
+    // Check Resend Cooldown
+    const cooldownRemaining = this.getCooldownRemaining('mobile', phone);
+    if (cooldownRemaining > 0) {
+      return {
+        success: false,
+        inCooldown: true,
+        secondsRemaining: cooldownRemaining,
+        message: `⏳ Please wait ${cooldownRemaining}s before requesting a new OTP.`
+      };
     }
 
     // Generate random 6-digit verification code
@@ -428,6 +609,9 @@ export class LoyaltyManager {
       localStorage.setItem(OTP_STORE_KEY, JSON.stringify(this.pendingOtp));
     } catch (e) {}
 
+    // Record 60-second cooldown
+    this.setCooldown('mobile', phone, OTP_RESEND_COOLDOWN_SECONDS);
+
     const formatted = this.formatPhone(phone);
     const existingUser = this.users.find(u => this.cleanPhone(u.phone) === phone);
 
@@ -438,7 +622,8 @@ export class LoyaltyManager {
       otp,
       isExisting: !!existingUser,
       userName: existingUser ? existingUser.name : null,
-      message: `OTP generated and sent to ${formatted}. Valid for 5 minutes.`
+      message: `OTP generated and sent to ${formatted}. Valid for 5 minutes.`,
+      cooldownSeconds: OTP_RESEND_COOLDOWN_SECONDS
     };
   }
 
@@ -481,10 +666,15 @@ export class LoyaltyManager {
     // Check if user already exists
     const existing = this.users.find(u => this.cleanPhone(u.phone) === phone);
     if (existing) {
+      this.ensureUserBirthday(existing);
       this.activeUserId = existing.id;
       this.profile = existing;
+      this.friends = this.loadFriends(existing.id);
+      this.creations = this.loadCreations(existing.id);
       try {
         localStorage.setItem(AUTH_SESSION_KEY, phone);
+        localStorage.setItem(ACTIVE_USER_ID_KEY, existing.id);
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(existing));
       } catch (e) {}
       this.saveUsers();
       return {
@@ -513,24 +703,52 @@ export class LoyaltyManager {
       return { success: false, message: 'Please enter a valid email address (e.g. connoisseur@gmail.com).' };
     }
 
-    // Generate random 6-digit verification code
+    // Check Resend Cooldown
+    const cooldownRemaining = this.getCooldownRemaining('email', email);
+    if (cooldownRemaining > 0) {
+      return {
+        success: false,
+        isCooldown: true,
+        cooldownRemaining,
+        message: `Please wait ${cooldownRemaining}s before requesting a new verification code.`
+      };
+    }
+
+    // Set cooldown timer
+    this.setCooldown('email', email, OTP_RESEND_COOLDOWN_SECONDS);
+
+    // Look up registered patron
+    const existingUser = this.users.find(u => (u.email || '').toLowerCase() === email);
+
+    // Generate cryptographic 6-digit numeric OTP
     const otp = String(Math.floor(100000 + Math.random() * 900000));
-    const expiresAt = Date.now() + 5 * 60 * 1000; // 5 mins
+    const expiresAt = Date.now() + 5 * 60 * 1000; // 5 minutes validity
 
-    this.pendingEmailOtp = {
-      email,
-      otp,
-      expiresAt
-    };
-
+    // Store in-memory and in localStorage
+    this.pendingEmailOtp = { email, otp, expiresAt };
     try {
       localStorage.setItem(EMAIL_OTP_STORE_KEY, JSON.stringify(this.pendingEmailOtp));
     } catch (e) {}
 
-    const existingUser = this.users.find(u => (u.email || '').toLowerCase() === email);
+    // 1. Direct Node.js Nodemailer Dispatch (Native Gmail Server)
+    try {
+      const apiUrl = (typeof window !== 'undefined' && window.location.port === '5000')
+        ? '/api/auth/send-otp'
+        : 'http://localhost:5000/api/auth/send-otp';
 
-    // If EmailJS is loaded in window, dispatch the real email asynchronously
-    if (typeof window !== 'undefined' && window.emailjs && window.ladesioEmailJsConfig) {
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp })
+      }).then(res => res.json()).then(data => {
+        if (data && data.success) {
+          console.log('✨ [Nodemailer Server]: Dispatched to Gmail:', email);
+        }
+      }).catch(err => {});
+    } catch (e) {}
+
+    // 2. Send real email via EmailJS
+    if (typeof window !== 'undefined' && window.emailjs && window.ladesioEmailJsConfig && window.ladesioEmailJsConfig.publicKey) {
       try {
         window.emailjs.send(
           window.ladesioEmailJsConfig.serviceId,
@@ -540,11 +758,7 @@ export class LoyaltyManager {
             otp_code: otp,
             name: existingUser ? existingUser.name : 'Atelier Patron'
           }
-        ).then(() => {
-          console.log('✉️ [EmailJS]: Verification email delivered to Gmail:', email);
-        }).catch(err => {
-          console.warn('✉️ [EmailJS]: Error sending email:', err);
-        });
+        ).catch(() => {});
       } catch (err) {}
     }
 
@@ -554,7 +768,8 @@ export class LoyaltyManager {
       otp,
       isExisting: !!existingUser,
       userName: existingUser ? existingUser.name : null,
-      message: `OTP security code dispatched to ${email}. Valid for 5 minutes.`
+      message: `OTP security code dispatched to ${email}. Valid for 5 minutes.`,
+      cooldownSeconds: OTP_RESEND_COOLDOWN_SECONDS
     };
   }
 
@@ -597,10 +812,15 @@ export class LoyaltyManager {
     // Check if user already exists
     const existing = this.users.find(u => (u.email || '').toLowerCase() === email);
     if (existing) {
+      this.ensureUserBirthday(existing);
       this.activeUserId = existing.id;
       this.profile = existing;
+      this.friends = this.loadFriends(existing.id);
+      this.creations = this.loadCreations(existing.id);
       try {
         localStorage.setItem(AUTH_SESSION_KEY, email);
+        localStorage.setItem(ACTIVE_USER_ID_KEY, existing.id);
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(existing));
       } catch (e) {}
       this.saveUsers();
       return {
@@ -626,11 +846,18 @@ export class LoyaltyManager {
         joinedDate: 'September 2026',
         savedAddresses: []
       };
+      this.ensureUserBirthday(newUser);
       this.users.push(newUser);
       this.activeUserId = newUser.id;
       this.profile = newUser;
+      this.friends = [];
+      this.creations = [];
+      this.saveFriends();
+      this.saveCreations();
       try {
         localStorage.setItem(AUTH_SESSION_KEY, email);
+        localStorage.setItem(ACTIVE_USER_ID_KEY, newUser.id);
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(newUser));
       } catch (e) {}
       this.saveUsers();
       return {
@@ -651,6 +878,7 @@ export class LoyaltyManager {
 
     const existing = this.users.find(u => this.cleanPhone(u.phone) === phone);
     if (existing) {
+      this.ensureUserBirthday(existing);
       this.activeUserId = existing.id;
       this.profile = existing;
       try {
@@ -675,26 +903,33 @@ export class LoyaltyManager {
       points: 250, // Welcome bonus points!
       nextTierPoints: 2000,
       joinedDate: new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-      dietary: userData.dietary || ['All Flavors Welcome'],
-      savedAddresses: [
+      dietary: userData.dietary || [],
+      savedAddresses: userData.address ? [
         {
           id: 'addr_' + Date.now(),
           name: `${userData.name || 'Member'} (Primary)`,
-          address: userData.address || 'Flagship Avenue',
+          address: userData.address,
           city: userData.city || 'Chennai',
           postal: userData.postal || '6000 01',
           country: 'India',
           phone: this.formatPhone(phone),
           isDefault: true
         }
-      ]
+      ] : []
     };
 
+    this.ensureUserBirthday(newUser);
     this.users.unshift(newUser);
     this.activeUserId = newUser.id;
     this.profile = newUser;
+    this.friends = [];
+    this.creations = [];
+    this.saveFriends();
+    this.saveCreations();
     try {
       localStorage.setItem(AUTH_SESSION_KEY, phone);
+      localStorage.setItem(ACTIVE_USER_ID_KEY, newUser.id);
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(newUser));
     } catch (e) {}
     this.saveUsers();
 
@@ -737,8 +972,11 @@ export class LoyaltyManager {
       };
     }
 
+    this.ensureUserBirthday(user);
     this.activeUserId = user.id;
     this.profile = user;
+    this.friends = this.loadFriends(user.id);
+    this.creations = this.loadCreations(user.id);
     try {
       localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(user.phone) || user.email);
       localStorage.setItem(ACTIVE_USER_ID_KEY, user.id);
@@ -775,8 +1013,11 @@ export class LoyaltyManager {
       });
     }
 
+    this.ensureUserBirthday(user);
     this.activeUserId = user.id;
     this.profile = user;
+    this.friends = this.loadFriends(user.id);
+    this.creations = this.loadCreations(user.id);
     try {
       localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(user.phone) || user.email);
       localStorage.setItem(ACTIVE_USER_ID_KEY, user.id);
@@ -811,6 +1052,7 @@ export class LoyaltyManager {
     );
 
     if (existing) {
+      this.ensureUserBirthday(existing);
       this.activeUserId = existing.id;
       this.profile = existing;
       try {
@@ -839,27 +1081,34 @@ export class LoyaltyManager {
       points: 250, // Welcome bonus points!
       nextTierPoints: 2000,
       joinedDate: new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-      dietary: userData.dietary || ['All Flavors Welcome'],
+      dietary: userData.dietary || [],
       password: password,
-      savedAddresses: [
+      savedAddresses: userData.address ? [
         {
           id: 'addr_' + Date.now(),
           name: `${name} (Primary)`,
-          address: userData.address || 'Flagship Avenue',
+          address: userData.address,
           city: userData.city || 'Chennai',
           postal: userData.postal || '6000 01',
           country: 'India',
           phone: this.formatPhone(phone || '9876543210'),
           isDefault: true
         }
-      ]
+      ] : []
     };
 
+    this.ensureUserBirthday(newUser);
     this.users.unshift(newUser);
     this.activeUserId = newUser.id;
     this.profile = newUser;
+    this.friends = [];
+    this.creations = [];
+    this.saveFriends();
+    this.saveCreations();
     try {
-      localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(newUser.phone));
+      localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(newUser.phone) || newUser.email);
+      localStorage.setItem(ACTIVE_USER_ID_KEY, newUser.id);
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(newUser));
     } catch (e) {}
     this.saveUsers();
 
@@ -886,6 +1135,7 @@ export class LoyaltyManager {
     if (!user) {
       return { success: false, message: 'No account registered with this mobile number.' };
     }
+    this.ensureUserBirthday(user);
     this.activeUserId = user.id;
     this.profile = user;
     try {
@@ -899,10 +1149,15 @@ export class LoyaltyManager {
   switchProfile(userId) {
     const target = this.users.find(u => u.id === userId);
     if (!target) return null;
+    this.ensureUserBirthday(target);
     this.activeUserId = target.id;
     this.profile = target;
+    this.friends = this.loadFriends(target.id);
+    this.creations = this.loadCreations(target.id);
     try {
       localStorage.setItem(AUTH_SESSION_KEY, this.cleanPhone(target.phone));
+      localStorage.setItem(ACTIVE_USER_ID_KEY, target.id);
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(target));
     } catch (e) {}
     this.saveUsers();
     return this.profile;
@@ -917,24 +1172,250 @@ export class LoyaltyManager {
     } catch (e) {}
     this.activeUserId = null;
     this.profile = null;
+    this.friends = [];
+    this.creations = [];
     this.notify();
     return null;
   }
 
   // Update profile details
   updateProfile(data) {
-    this.profile = { ...this.profile, ...data };
+    const current = this.getActiveUser() || this.profile;
+    const lockedBday = (current && current.birthday) || this.getRememberedBirthday(current?.id, current?.phone, current?.email);
+
+    // Update locked birthday if explicitly passed, otherwise preserve remembered birthday
+    if (data.birthday !== undefined) {
+      this.resetBirthdayWishedState(current);
+      if (data.birthday) {
+        this.storeLockedBirthday(data.birthday, current?.id, current?.phone, current?.email);
+      } else {
+        try {
+          localStorage.removeItem(LOCKED_BIRTHDAY_KEY);
+          const reg = this.getBirthdayRegistry();
+          if (current?.id) delete reg[current.id];
+          if (current?.phone) delete reg[this.cleanPhone(current.phone)];
+          if (current?.email) delete reg[(current.email || '').trim().toLowerCase()];
+          delete reg['__last_registered__'];
+          this.saveBirthdayRegistry(reg);
+        } catch (e) {}
+      }
+    } else if (lockedBday) {
+      data.birthday = lockedBday;
+    }
+
+    this.profile = { ...(this.profile || {}), ...data };
+    if (data.birthday !== undefined) {
+      this.profile.birthday = data.birthday;
+    } else if (lockedBday) {
+      this.profile.birthday = lockedBday;
+    }
     if (data.phone) {
       this.profile.phone = this.cleanPhone(data.phone);
       this.profile.displayPhone = this.formatPhone(this.profile.phone);
+      try {
+        const sessionKey = localStorage.getItem(AUTH_SESSION_KEY);
+        if (sessionKey && !sessionKey.includes('@')) {
+          localStorage.setItem(AUTH_SESSION_KEY, this.profile.phone);
+        }
+      } catch (e) {}
     }
-    const idx = this.users.findIndex(u => u.id === this.activeUserId);
+    if (data.email) {
+      this.profile.email = String(data.email).trim().toLowerCase();
+      try {
+        const sessionKey = localStorage.getItem(AUTH_SESSION_KEY);
+        if (sessionKey && sessionKey.includes('@')) {
+          localStorage.setItem(AUTH_SESSION_KEY, this.profile.email);
+        }
+      } catch (e) {}
+    }
+    const targetId = this.activeUserId || (this.profile && this.profile.id);
+    const idx = this.users.findIndex(u => u.id === targetId);
     if (idx !== -1) {
-      this.users[idx] = this.profile;
+      this.users[idx] = { ...this.users[idx], ...this.profile };
     }
     this.checkTierUpgrade();
     this.saveUsers();
+    this.notify();
     return this.profile;
+  }
+
+  // Set birthday
+  setBirthday(bday) {
+    const user = this.getActiveUser() || this.profile;
+    if (!bday) {
+      return { success: false, message: 'Please select a valid date of birth.' };
+    }
+    this.resetBirthdayWishedState(user);
+    this.storeLockedBirthday(bday, user?.id, user?.phone, user?.email);
+    this.updateProfile({ birthday: bday });
+    return { success: true, message: 'Birthday successfully recorded! You receive 30% OFF on your special day.' };
+  }
+
+  // Check if today matches the patron's birthday
+  isUserBirthdayToday() {
+    const user = this.getActiveUser() || this.profile;
+    if (!user) return false;
+    const bday = (user && user.birthday) || this.getRememberedBirthday(user?.id, user?.phone, user?.email);
+    if (!bday) return false;
+    const parts = String(bday).trim().split('-');
+    if (parts.length < 3) return false;
+    const now = new Date();
+    let bMonth, bDay;
+    if (parts[0].length === 4) {
+      bMonth = parseInt(parts[1], 10);
+      bDay = parseInt(parts[2], 10);
+    } else {
+      bDay = parseInt(parts[0], 10);
+      bMonth = parseInt(parts[1], 10);
+    }
+    if (isNaN(bMonth) || isNaN(bDay)) return false;
+    return (now.getMonth() + 1 === bMonth) && (now.getDate() === bDay);
+  }
+
+  // Check if 30% discount is available on birthday (ONLY 1 time per birthday celebration)
+  isBirthdayDiscountAvailable() {
+    if (!this.isUserBirthdayToday()) return false;
+    const user = this.getActiveUser() || this.profile;
+    if (!user) return false;
+    const currentYear = new Date().getFullYear();
+    const usedYear = user.birthdayDiscountUsedYear 
+      || (user.id && localStorage.getItem('ladesio_bday_used_' + user.id + '_' + currentYear))
+      || (user.phone && localStorage.getItem('ladesio_bday_used_' + this.cleanPhone(user.phone) + '_' + currentYear))
+      || (user.email && localStorage.getItem('ladesio_bday_used_' + (user.email || '').trim().toLowerCase() + '_' + currentYear))
+      || localStorage.getItem('ladesio_bday_used_active_' + currentYear);
+    if (usedYear && (Number(usedYear) === currentYear || usedYear === 'true' || usedYear === String(currentYear))) {
+      return false;
+    }
+    return true;
+  }
+
+  // Mark birthday discount as used for this year's birthday order
+  markBirthdayDiscountUsed() {
+    const user = this.getActiveUser() || this.profile;
+    const currentYear = new Date().getFullYear();
+    try {
+      if (user && user.id) {
+        localStorage.setItem('ladesio_bday_used_' + user.id + '_' + currentYear, String(currentYear));
+      }
+      if (user && user.phone) {
+        localStorage.setItem('ladesio_bday_used_' + this.cleanPhone(user.phone) + '_' + currentYear, String(currentYear));
+      }
+      if (user && user.email) {
+        localStorage.setItem('ladesio_bday_used_' + (user.email || '').trim().toLowerCase() + '_' + currentYear, String(currentYear));
+      }
+      localStorage.setItem('ladesio_bday_used_active_' + currentYear, String(currentYear));
+    } catch (e) {}
+
+    if (user) {
+      user.birthdayDiscountUsedYear = currentYear;
+      if (this.users) {
+        const idx = this.users.findIndex(u => u.id === user.id);
+        if (idx !== -1) {
+          this.users[idx].birthdayDiscountUsedYear = currentYear;
+        }
+      }
+    }
+    this.updateProfile({ birthdayDiscountUsedYear: currentYear });
+    this.saveUsers();
+  }
+
+  // Check if patron has already been wished Happy Birthday this year
+  hasUserBeenWishedThisYear(targetUser = null) {
+    const user = targetUser || this.getActiveUser() || this.profile;
+    if (!user) return true; // Guests / unauthenticated users should never be wished
+    const currentYear = new Date().getFullYear();
+    const cleanEmail = (user.email || '').trim().toLowerCase();
+    const cleanPhone = this.cleanPhone(user.phone);
+
+    // If discount was already used, user was definitely wished
+    if (user.birthdayDiscountUsedYear && (Number(user.birthdayDiscountUsedYear) === currentYear || user.birthdayDiscountUsedYear === String(currentYear))) {
+      return true;
+    }
+
+    const wishedYear = user.birthdayWishedYear
+      || (user.id && localStorage.getItem('ladesio_bday_wished_' + user.id + '_' + currentYear))
+      || (cleanEmail && localStorage.getItem('ladesio_bday_wished_' + cleanEmail + '_' + currentYear))
+      || (cleanPhone && localStorage.getItem('ladesio_bday_wished_' + cleanPhone + '_' + currentYear))
+      || (user.id && localStorage.getItem('ladesio_bday_banner_dismissed_' + user.id + '_' + currentYear))
+      || (cleanEmail && localStorage.getItem('ladesio_bday_banner_dismissed_' + cleanEmail + '_' + currentYear))
+      || localStorage.getItem('ladesio_bday_wished_' + currentYear)
+      || localStorage.getItem('ladesio_bday_wished_global_' + currentYear);
+
+    if (wishedYear && (Number(wishedYear) === currentYear || wishedYear === 'true' || wishedYear === String(currentYear))) {
+      return true;
+    }
+    return false;
+  }
+
+  // Permanently record that patron was wished Happy Birthday this year (Persists across signouts & logins)
+  markUserBirthdayWished(targetUser = null) {
+    const user = targetUser || this.getActiveUser() || this.profile;
+    if (!user) return;
+    const currentYear = new Date().getFullYear();
+    const cleanEmail = (user.email || '').trim().toLowerCase();
+    const cleanPhone = this.cleanPhone(user.phone);
+
+    try {
+      if (user.id) localStorage.setItem('ladesio_bday_wished_' + user.id + '_' + currentYear, String(currentYear));
+      if (cleanEmail) localStorage.setItem('ladesio_bday_wished_' + cleanEmail + '_' + currentYear, String(currentYear));
+      if (cleanPhone) localStorage.setItem('ladesio_bday_wished_' + cleanPhone + '_' + currentYear, String(currentYear));
+      localStorage.setItem('ladesio_bday_wished_' + currentYear, String(currentYear));
+      localStorage.setItem('ladesio_bday_wished_global_' + currentYear, String(currentYear));
+    } catch (e) {}
+
+    user.birthdayWishedYear = currentYear;
+    if (this.users) {
+      const idx = this.users.findIndex(u => u.id === user.id || (cleanEmail && (u.email || '').toLowerCase() === cleanEmail));
+      if (idx !== -1) {
+        this.users[idx].birthdayWishedYear = currentYear;
+      }
+      try {
+        localStorage.setItem(USERS_KEY, JSON.stringify(this.users));
+      } catch (e) {}
+    }
+  }
+
+  // Reset birthday wished state when patron changes or updates their birthday
+  resetBirthdayWishedState(targetUser = null) {
+    const user = targetUser || this.getActiveUser() || this.profile;
+    if (!user) return;
+    const currentYear = new Date().getFullYear();
+    const cleanEmail = (user.email || '').trim().toLowerCase();
+    const cleanPhone = this.cleanPhone(user.phone);
+
+    delete user.birthdayWishedYear;
+    delete user.birthdayDiscountUsedYear;
+
+    if (this.users) {
+      const idx = this.users.findIndex(u => u.id === user.id || (cleanEmail && (u.email || '').toLowerCase() === cleanEmail));
+      if (idx !== -1) {
+        delete this.users[idx].birthdayWishedYear;
+        delete this.users[idx].birthdayDiscountUsedYear;
+      }
+      try {
+        localStorage.setItem(USERS_KEY, JSON.stringify(this.users));
+      } catch (e) {}
+    }
+
+    try {
+      if (user.id) {
+        localStorage.removeItem('ladesio_bday_wished_' + user.id + '_' + currentYear);
+        localStorage.removeItem('ladesio_bday_used_' + user.id + '_' + currentYear);
+        localStorage.removeItem('ladesio_bday_banner_dismissed_' + user.id + '_' + currentYear);
+      }
+      if (cleanEmail) {
+        localStorage.removeItem('ladesio_bday_wished_' + cleanEmail + '_' + currentYear);
+        localStorage.removeItem('ladesio_bday_used_' + cleanEmail + '_' + currentYear);
+        localStorage.removeItem('ladesio_bday_banner_dismissed_' + cleanEmail + '_' + currentYear);
+      }
+      if (cleanPhone) {
+        localStorage.removeItem('ladesio_bday_wished_' + cleanPhone + '_' + currentYear);
+        localStorage.removeItem('ladesio_bday_used_' + cleanPhone + '_' + currentYear);
+      }
+      localStorage.removeItem('ladesio_bday_wished_' + currentYear);
+      localStorage.removeItem('ladesio_bday_wished_global_' + currentYear);
+      localStorage.removeItem('ladesio_bday_used_active_' + currentYear);
+    } catch (e) {}
   }
 
   addSavedAddress(newAddr) {
@@ -1085,16 +1566,48 @@ export class LoyaltyManager {
     };
   }
 
-  loadFriends() {
+  isRoodyUser(userIdOrUser) {
+    if (!userIdOrUser) return false;
+    if (typeof userIdOrUser === 'string') {
+      if (userIdOrUser === 'user_roody') return true;
+      const u = this.users ? this.users.find(usr => usr.id === userIdOrUser) : null;
+      if (u) {
+        const email = (u.email || '').toLowerCase();
+        const phone = this.cleanPhone(u.phone);
+        const name = (u.name || '').toLowerCase();
+        return u.id === 'user_roody' || email === 'theroodyy@gmail.com' || phone === '9345396700' || name === 'roody cruz';
+      }
+      return false;
+    }
+    const u = userIdOrUser;
+    const email = (u.email || '').toLowerCase();
+    const phone = this.cleanPhone(u.phone);
+    const name = (u.name || '').toLowerCase();
+    return u.id === 'user_roody' || email === 'theroodyy@gmail.com' || phone === '9345396700' || name === 'roody cruz';
+  }
+
+  loadFriends(userId = this.activeUserId) {
     try {
-      const saved = localStorage.getItem(FRIENDS_KEY);
+      const isRoody = this.isRoodyUser(userId);
+      if (isRoody) {
+        const saved = localStorage.getItem('ladesio_friends_user_roody') || localStorage.getItem(FRIENDS_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+        return DUMMY_FRIENDS;
+      }
+      // For any newly created profile or other user, start clean & empty!
+      if (!userId) return [];
+      const userKey = `ladesio_friends_${userId}`;
+      const saved = localStorage.getItem(userKey);
       if (saved) {
         const parsed = JSON.parse(saved);
-        return parsed;
+        if (Array.isArray(parsed)) return parsed;
       }
-      return DUMMY_FRIENDS;
+      return [];
     } catch (e) {
-      return DUMMY_FRIENDS;
+      return this.isRoodyUser(userId) ? DUMMY_FRIENDS : [];
     }
   }
 
@@ -1104,7 +1617,13 @@ export class LoyaltyManager {
 
   saveFriends() {
     try {
-      localStorage.setItem(FRIENDS_KEY, JSON.stringify(this.friends));
+      const isRoody = this.isRoodyUser(this.activeUserId);
+      if (isRoody) {
+        localStorage.setItem('ladesio_friends_user_roody', JSON.stringify(this.friends));
+        localStorage.setItem(FRIENDS_KEY, JSON.stringify(this.friends));
+      } else if (this.activeUserId) {
+        localStorage.setItem(`ladesio_friends_${this.activeUserId}`, JSON.stringify(this.friends));
+      }
     } catch (e) {}
     this.notify();
   }
@@ -1153,98 +1672,57 @@ export class LoyaltyManager {
     return null;
   }
 
-  loadCreations() {
-    const defaultCreations = [
-      {
-        id: 'creation_init_1',
-        name: 'Nocturne Pistachio',
-        createdDate: '12 Jan 2025',
-        recipe: 'Fudge Brownie + Bronte Pistachio + Pistachio Mousse + Hazelnuts + Dark Chocolate Drizzle',
-        price: 525,
-        image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80',
-        config: {
-          base: 'base-brownie',
-          flavor: 'flavor-pistachio',
-          filling: 'filling-pistachio-mousse',
-          toppings: ['top-hazelnuts', 'top-gold-leaf'],
-          sauce: 'sauce-dark-chocolate',
-          name: 'Nocturne Pistachio'
-        }
-      },
-      {
-        id: 'creation_init_2',
-        name: 'Wild Fragola Tart',
-        createdDate: '04 Feb 2025',
-        recipe: 'Cheesecake + Wild Strawberry + Berry Compote + Strawberries + Strawberry Purée',
-        price: 515,
-        image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80',
-        config: {
-          base: 'base-cheesecake',
-          flavor: 'flavor-strawberry',
-          filling: 'filling-berry-compote',
-          toppings: ['top-strawberries', 'top-blueberries'],
-          sauce: 'sauce-strawberry',
-          name: 'Wild Fragola Tart'
-        }
-      }
-    ];
-
+  loadCreations(userId = this.activeUserId) {
     try {
-      const saved = localStorage.getItem(CREATIONS_KEY);
-      return saved ? JSON.parse(saved) : defaultCreations;
+      const isRoody = this.isRoodyUser(userId);
+      if (isRoody) {
+        const saved = localStorage.getItem('ladesio_creations_user_roody');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        }
+        const legacy = localStorage.getItem(CREATIONS_KEY);
+        if (legacy) {
+          const parsed = JSON.parse(legacy);
+          if (Array.isArray(parsed)) {
+            return parsed.filter(c => c && c.id && !String(c.id).startsWith('creation_init_') && (!c.userId || this.isRoodyUser(c.userId)));
+          }
+        }
+        return [];
+      }
+      if (!userId) return [];
+      const userKey = `ladesio_creations_${userId}`;
+      const saved = localStorage.getItem(userKey);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) return parsed;
+      }
+      return [];
     } catch (e) {
-      return defaultCreations;
+      return [];
     }
   }
 
   saveCreations() {
     try {
-      localStorage.setItem(CREATIONS_KEY, JSON.stringify(this.creations));
+      const isRoody = this.isRoodyUser(this.activeUserId);
+      if (isRoody) {
+        localStorage.setItem('ladesio_creations_user_roody', JSON.stringify(this.creations));
+        localStorage.setItem(CREATIONS_KEY, JSON.stringify(this.creations));
+      } else if (this.activeUserId) {
+        localStorage.setItem(`ladesio_creations_${this.activeUserId}`, JSON.stringify(this.creations));
+      }
     } catch (e) {}
     this.notify();
   }
+
+  deleteCreation(creationId) {
+    this.creations = this.creations.filter(c => c.id !== creationId);
+    this.saveCreations();
+    return true;
+  }
   loadOrders() {
     const defaultOrders = [
-      {
-        id: 'DESIO-8942',
-        userId: 'user_roody',
-        date: '14 Feb 2025',
-        time: '18:30',
-        status: 'Delivered',
-        statusColor: 'emerald',
-        items: [
-          {
-            name: 'The Desio Royale Hamper',
-            qty: 1,
-            price: 2450,
-            image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
-            subtitle: 'Curated 6-Piece Signature Collection'
-          },
-          {
-            name: 'Velvet Noir',
-            qty: 2,
-            price: 495,
-            image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
-            subtitle: 'Dark Chocolate Mousse & Piedmont Hazelnut'
-          }
-        ],
-        subtotal: 3440,
-        discount: 0,
-        deliveryFee: 0,
-        total: 3440,
-        paymentMethod: 'UPI / Google Pay',
-        address: {
-          fullName: 'Roody Cruz',
-          phone: '+91 93453 96700',
-          street: 'No.60/A Gnanamani St, West Jafferkhanpet',
-          city: 'Chennai',
-          postal: '6000 83'
-        },
-        deliverySlot: 'Express Artisanal — 14 Feb, 6:00 PM (Chennai)',
-        trackingNumber: 'IN-EXP-8942-DESIO',
-        distanceKm: 1.4,
-        estimatedMinutes: 12
-      },
       {
         id: 'DESIO-7182',
         userId: 'user_vinoth',
@@ -1347,16 +1825,39 @@ export class LoyaltyManager {
     ];
 
     try {
+      const roodyOrdersPurged = localStorage.getItem('ladesio_roody_orders_purged_v1');
       const saved = localStorage.getItem(ORDERS_KEY);
+      let ordersList = defaultOrders;
       if (saved) {
-        const parsed = JSON.parse(saved);
-        // Ensure every order has a userId (migrate any old untagged orders to user_roody)
-        return parsed.map(o => ({
-          ...o,
-          userId: o.userId || 'user_roody'
-        }));
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            ordersList = parsed;
+          }
+        } catch (e) {}
       }
-      return defaultOrders;
+
+      if (!roodyOrdersPurged) {
+        // Purge pre-seeded and legacy orders from Roody Cruz so Roody Cruz starts with empty order history
+        ordersList = ordersList.filter(o => {
+          if (!o) return false;
+          if (o.id === 'DESIO-8942') return false;
+          if (this.isRoodyUser(o.userId)) return false;
+          if (o.address && (o.address.fullName === 'Roody Cruz' || o.address.phone === '+91 93453 96700')) return false;
+          return true;
+        });
+        try {
+          localStorage.setItem('ladesio_roody_orders_purged_v1', 'true');
+          localStorage.setItem(ORDERS_KEY, JSON.stringify(ordersList));
+        } catch (e) {}
+      } else {
+        ordersList = ordersList.filter(o => o && o.id !== 'DESIO-8942');
+      }
+
+      return ordersList.map(o => ({
+        ...o,
+        userId: o.userId || 'user_guest'
+      }));
     } catch (e) {
       return defaultOrders;
     }
@@ -1451,19 +1952,28 @@ export class LoyaltyManager {
     }
   }
 
+  saveCreation(creation) {
+    return this.saveCustomCreation(creation);
+  }
+
   saveCustomCreation(creation) {
+    if (!creation) return null;
+    const targetName = (creation.name || '').trim();
     const existingIndex = this.creations.findIndex(c => 
-      c.name.trim().toLowerCase() === (creation.name || '').trim().toLowerCase() &&
-      JSON.stringify(c.config) === JSON.stringify(creation.config)
+      (creation.id && c.id === creation.id) ||
+      (targetName && c.name && c.name.trim().toLowerCase() === targetName.toLowerCase() &&
+      JSON.stringify(c.config || {}) === JSON.stringify(creation.config || {}))
     );
 
     const fullCreation = {
-      name: creation.name || 'My La Desio Creation',
-      createdDate: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+      id: creation.id || ('creation_' + Date.now()),
+      userId: this.activeUserId || (this.profile ? this.profile.id : 'user_roody'),
+      name: targetName || 'My Bespoke La Desio Creation',
+      createdDate: creation.createdDate || creation.date || new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
       recipe: creation.recipe || 'Artisanal Custom Patisserie Recipe',
-      price: creation.price || 495,
+      price: typeof creation.price === 'number' ? creation.price : 495,
       image: creation.image || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
-      nutrition: creation.nutrition || { calories: 340, protein: 5, carbs: 36, fats: 14 },
+      nutrition: creation.nutrition || { calories: 340, protein: '5g', carbs: '36g', fats: '14g' },
       config: creation.config || {}
     };
 
@@ -1476,27 +1986,35 @@ export class LoyaltyManager {
       this.saveCreations();
       return this.creations[existingIndex];
     } else {
-      const newCreation = {
-        id: 'creation_' + Date.now(),
-        ...fullCreation
-      };
-      this.creations.unshift(newCreation);
+      this.creations.unshift(fullCreation);
       this.saveCreations();
-      return newCreation;
+      return fullCreation;
     }
   }
 
   getData() {
-    const userProfile = this.profile || (this.isUserAuthenticated() ? this.getActiveUser() : null);
+    const isAuth = this.isUserAuthenticated();
+    let userProfile = this.profile;
+    if (!userProfile && isAuth) {
+      userProfile = this.getActiveUser();
+    }
+    if (userProfile) {
+      this.ensureUserBirthday(userProfile);
+    }
+    const currentUserId = userProfile ? userProfile.id : this.activeUserId;
+    const currentFriends = this.loadFriends(currentUserId);
+    const currentCreations = this.loadCreations(currentUserId);
+    const currentOrders = this.getUserOrders(currentUserId);
+
     return {
       profile: userProfile || { name: 'Guest Client', tier: 'Connoisseur', points: 0, nextTierPoints: 2000, savedAddresses: [] },
       users: this.users,
-      activeUserId: this.activeUserId,
-      creations: this.creations,
-      orders: this.getUserOrders(),
+      activeUserId: currentUserId,
+      creations: currentCreations,
+      orders: currentOrders,
       allOrders: this.orders,
-      friends: this.friends,
-      isAuthenticated: this.isUserAuthenticated()
+      friends: currentFriends,
+      isAuthenticated: isAuth
     };
   }
 }

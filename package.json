@@ -4,9 +4,14 @@
   "description": "LA Desio Haute Patisserie & Atelier - Pure Standalone Client-Side Web Application",
   "scripts": {
     "bundle": "node -e \"const fs=require('fs'); const files=['data.js','cart.js','loyalty.js','builder.js','checkout.js','app.js']; let bundle='// LA DESIO - UNIVERSAL STANDALONE APPLICATION BUNDLE (Pure Client & LocalStorage Edition)\\n(function() {\\n  \\'use strict\\';\\n\\n'; for (const file of files) { let content = fs.readFileSync('js/' + file, 'utf8'); content = content.replace(/import\\s+.*?;?\\r?\\n/g, '').replace(/export\\s+const\\s+/g, 'const ').replace(/export\\s+class\\s+/g, 'class ').replace(/export\\s+function\\s+/g, 'function ').replace(/export\\s+default\\s+/g, ''); bundle += '\\n// --- ' + file + ' ---\\n' + content.trim() + '\\n\\n'; } bundle += '})();\\n'; fs.writeFileSync('js/bundle.js', bundle, 'utf8'); console.log('Bundle freshly compiled successfully.');\"",
-    "start": "npx -y serve . -p 5000",
-    "preview": "npx -y serve . -p 5000"
+    "start": "node server/server.js",
+    "preview": "node server/server.js"
   },
   "author": "LA Desio Atelier",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.10"
+  }
 }

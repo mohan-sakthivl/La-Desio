@@ -17,3 +17,9 @@ npm-debug.log*
 Thumbs.db
 .idea/
 .vscode/
+
+# Temporary video render artifacts
+Assets/video/test*
+Assets/video/scene*.mp4
+Assets/video/combined_video.mp4
+Assets/video/soundtrack.wav

@@ -7,7 +7,7 @@ export const CATEGORIES = [
   { id: 'ancient-naturals', name: 'Ancient Grains & Pulses (Kids)', icon: 'wheat' },
   { id: 'protein', name: 'High-Protein & Whey', icon: 'dumbbell' },
   { id: 'natural', name: 'Desio Natural', icon: 'leaf' },
-  { id: 'cakes', name: 'Cakes & Tortes', icon: 'cake' },
+  { id: 'cakes', name: 'Cakes & Tarts', icon: 'cake' },
   { id: 'cheesecakes', name: 'Cheesecakes', icon: 'cheese' },
   { id: 'brownies', name: 'Brownies & Fudges', icon: 'square' },
   { id: 'tiramisu', name: 'Tiramisu & Cold Desserts', icon: 'coffee' },
@@ -25,7 +25,6 @@ export const PRODUCTS = [
     category: 'signature',
     secondaryCategory: 'cakes',
     price: 495,
-    originalPrice: 595,
     rating: 4.95,
     reviewsCount: 142,
     reviews: [
@@ -81,7 +80,6 @@ badge: 'Chef Signature',
     category: 'signature',
     secondaryCategory: 'cheesecakes',
     price: 545,
-    originalPrice: 650,
     rating: 4.98,
     reviewsCount: 208,
     reviews: [
@@ -131,7 +129,7 @@ badge: 'Bestseller',
   },
   {
     id: 'desio-berry-elan',
-    name: 'Berry Élan',
+    name: 'Wild Berry Silk Cake',
     subtitle: 'Vanilla Silk Cream & Wild Forest Berry Compote',
     category: 'signature',
     secondaryCategory: 'cakes',
@@ -157,7 +155,7 @@ badge: 'Seasonal Harvest',
       'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85',
       'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1000&q=85'
     ],
-    description: 'Delicate Bourbon vanilla chantilly whipped to perfection, crowned with an artisanal compote of wild raspberries, blueberries, and fragrant alpine strawberries over a light Genoese sponge.',
+    description: 'Delicate Bourbon vanilla cream whipped to perfection, crowned with an artisanal compote of wild raspberries, blueberries, and fragrant alpine strawberries over a light vanilla sponge.',
     ingredients: ['Madagascar Vanilla Bean', 'Fresh Raspberries & Blueberries', 'Wild Strawberry Purée', 'Light Chiffon Sponge', 'Micro Mint'],
     allergens: ['Dairy', 'Gluten', 'Eggs'],
     dietary: ['Vegetarian', 'Natural Sweetness'],
@@ -176,8 +174,8 @@ badge: 'Seasonal Harvest',
   },
   {
     id: 'desio-caramel-etoile',
-    name: 'Caramel Étoile',
-    subtitle: 'Fleur de Sel Caramel & Roasted Pecan Crunch',
+    name: 'Salted Caramel Star Cake',
+    subtitle: 'Salted Butter Caramel & Roasted Pecan Crunch',
     category: 'signature',
     secondaryCategory: 'cakes',
     price: 490,
@@ -190,8 +188,8 @@ badge: 'Seasonal Harvest',
                 "city": "Hyderabad",
                 "rating": 5,
                 "date": "5 days ago",
-                "title": "Fleur de sel caramel is divine",
-                "comment": "Real Guérande sea salt caramel paired with crunchy toasted pecans. Highly recommend warming it slightly before serving."
+                "title": "Salted butter caramel is divine",
+                "comment": "Real sea salt caramel paired with crunchy toasted pecans. Highly recommend warming it slightly before serving."
           }
     ],
         isEggless: true,
@@ -201,8 +199,8 @@ badge: 'Popular',
     gallery: [
       'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000&q=85'
     ],
-    description: 'Slow-simmered artisanal salted butter caramel infused with Guérande fleur de sel, dark chocolate cream, and golden roasted caramelized pecans with warm toffee accents.',
-    ingredients: ['Guérande Fleur de Sel Caramel', 'Single-Origin Dark Ganache', 'Toasted Pecans', 'Butter Shortbread Crust'],
+    description: 'Slow-simmered artisanal salted butter caramel infused with pure sea salt, dark chocolate cream, and golden roasted caramelized pecans with warm toffee accents.',
+    ingredients: ['Salted Butter Caramel', 'Single-Origin Dark Ganache', 'Toasted Pecans', 'Butter Shortbread Crust'],
     allergens: ['Dairy', 'Tree Nuts (Pecans)', 'Gluten'],
     dietary: ['Vegetarian'],
     flavor: 'Caramel',
@@ -220,8 +218,8 @@ badge: 'Popular',
   },
   {
     id: 'desio-tiramisu-classico',
-    name: 'Tiramisu Classico',
-    subtitle: 'Venetian Savoiardi, Espresso Arabica & Mascarpone',
+    name: 'Classic Italian Tiramisu',
+    subtitle: 'Italian Ladyfingers, Espresso Arabica & Mascarpone',
     category: 'signature',
     secondaryCategory: 'tiramisu',
     price: 450,
@@ -447,7 +445,7 @@ badge: 'Desio Natural',
   },
   {
     id: 'desio-banana-cacao-natural',
-    name: 'Banana Cacao Torte',
+    name: 'Banana Dark Chocolate Cake',
     subtitle: 'Caramelised Ripe Bananas & Roasted Hazelnut Ganache',
     category: 'natural',
     secondaryCategory: 'cakes',
@@ -684,7 +682,6 @@ badge: 'Popular',
     category: 'signature',
     secondaryCategory: 'signature',
     price: 2450,
-    originalPrice: 2950,
     rating: 5.00,
     reviewsCount: 88,
     reviews: [
@@ -778,7 +775,6 @@ badge: 'Romantic Gifting',
     category: 'protein',
     secondaryCategory: 'brownies',
     price: 495,
-    originalPrice: 595,
     rating: 4.97,
     reviewsCount: 118,
     reviews: [
@@ -823,7 +819,6 @@ badge: 'Romantic Gifting',
     category: 'protein',
     secondaryCategory: 'cheesecakes',
     price: 565,
-    originalPrice: 650,
     rating: 4.96,
     reviewsCount: 92,
     reviews: [
@@ -868,7 +863,6 @@ badge: 'Romantic Gifting',
     category: 'protein',
     secondaryCategory: 'natural',
     price: 480,
-    originalPrice: 550,
     rating: 4.93,
     reviewsCount: 74,
     reviews: [
@@ -913,7 +907,6 @@ badge: 'Romantic Gifting',
     category: 'protein',
     secondaryCategory: 'tiramisu',
     price: 580,
-    originalPrice: 670,
     rating: 4.99,
     reviewsCount: 136,
     reviews: [
@@ -958,7 +951,6 @@ badge: 'Romantic Gifting',
     category: 'protein',
     secondaryCategory: 'cookies',
     price: 510,
-    originalPrice: 590,
     rating: 4.91,
     reviewsCount: 65,
     reviews: [
@@ -1002,7 +994,6 @@ badge: 'Romantic Gifting',
     category: 'protein',
     secondaryCategory: 'cakes',
     price: 530,
-    originalPrice: 620,
     rating: 4.95,
     reviewsCount: 89,
     reviews: [
@@ -1051,7 +1042,6 @@ badge: 'Romantic Gifting',
     category: 'ancient-naturals',
     secondaryCategory: 'cookies',
     price: 345,
-    originalPrice: 395,
     rating: 4.96,
     reviewsCount: 118,
     reviews: [
@@ -1112,7 +1102,6 @@ badge: 'Kids Favorite • 0 Refined Sugar',
     category: 'ancient-naturals',
     secondaryCategory: 'cookies',
     price: 325,
-    originalPrice: 380,
     rating: 4.93,
     reviewsCount: 94,
     reviews: [
@@ -1161,7 +1150,6 @@ badge: 'Heritage Cereal',
     category: 'ancient-naturals',
     secondaryCategory: 'brownies',
     price: 395,
-    originalPrice: 460,
     rating: 4.97,
     reviewsCount: 135,
     reviews: [
@@ -1209,7 +1197,6 @@ badge: 'High-Fiber Pulse',
     category: 'ancient-naturals',
     secondaryCategory: 'cakes',
     price: 420,
-    originalPrice: 490,
     rating: 4.94,
     reviewsCount: 88,
     reviews: [
@@ -1257,7 +1244,6 @@ badge: 'Gut Health & Calcium',
     category: 'ancient-naturals',
     secondaryCategory: 'cookies',
     price: 295,
-    originalPrice: 350,
     rating: 4.91,
     reviewsCount: 76,
     reviews: [
@@ -1305,7 +1291,6 @@ badge: 'Whole Grain Power',
     category: 'ancient-naturals',
     secondaryCategory: 'cookies',
     price: 310,
-    originalPrice: 360,
     rating: 4.95,
     reviewsCount: 102,
     reviews: [
@@ -1415,8 +1400,8 @@ export const DESSERT_BUILDER_OPTIONS = {
     },
     {
       id: 'base-cake',
-      name: 'Genoese Sponge Cake',
-      description: 'Feather-light Italian vanilla sponge brushed with vanilla syrup',
+      name: 'Soft Italian Sponge Cake (Vanilla)',
+      description: 'Feather-light Italian vanilla sponge cake brushed with vanilla syrup',
       price: 210,
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
       color: '#F9ECD2',
@@ -1449,11 +1434,11 @@ export const DESSERT_BUILDER_OPTIONS = {
 
   flavors: [
     { id: 'flavor-forest-honey', name: 'Raw Forest Honey & Vanilla', color: '#E8BF5A', price: 70, icon: '🍯', badge: 'Natural Sugar', nutrition: { calories: 35, protein: 0, carbs: 9, fats: 0, fiber: 0, calcium: 10, iron: 0.3, naturalSugar: 9 } },
-    { id: 'flavor-mango-date', name: 'Alphonso Mango & Date Coulis', color: '#EAA221', price: 80, icon: '🥭', badge: '100% Fruit', nutrition: { calories: 40, protein: 1, carbs: 10, fats: 0, fiber: 2, calcium: 15, iron: 0.5, naturalSugar: 8 } },
+    { id: 'flavor-mango-date', name: 'Alphonso Mango & Date Fruit Sauce', color: '#EAA221', price: 80, icon: '🥭', badge: '100% Fruit', nutrition: { calories: 40, protein: 1, carbs: 10, fats: 0, fiber: 2, calcium: 15, iron: 0.5, naturalSugar: 8 } },
     { id: 'flavor-chocolate', name: 'Dark Chocolate', color: '#3A1F17', price: 60, icon: '🍫', nutrition: { calories: 40, protein: 1, carbs: 5, fats: 2, fiber: 1, calcium: 12, iron: 0.8, naturalSugar: 3 } },
     { id: 'flavor-pistachio', name: 'Bronte Pistachio', color: '#93A879', price: 90, icon: '🌱', nutrition: { calories: 60, protein: 2, carbs: 4, fats: 4, fiber: 1, calcium: 20, iron: 0.6, naturalSugar: 2 } },
     { id: 'flavor-strawberry', name: 'Wild Strawberry', color: '#C95D63', price: 75, icon: '🍓', nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0, fiber: 1, calcium: 8, iron: 0.2, naturalSugar: 5 } },
-    { id: 'flavor-coffee', name: 'Espresso Arabica', color: '#5B3A29', price: 60, icon: '☕', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0, fiber: 0, calcium: 5, iron: 0.1, naturalSugar: 1 } },
+    { id: 'flavor-coffee', name: 'Italian Roast Arabica Coffee', color: '#5B3A29', price: 60, icon: '☕', nutrition: { calories: 15, protein: 0, carbs: 3, fats: 0, fiber: 0, calcium: 5, iron: 0.1, naturalSugar: 1 } },
     { id: 'flavor-caramel', name: 'Salted Caramel', color: '#B87B42', price: 75, icon: '🍮', nutrition: { calories: 50, protein: 0, carbs: 10, fats: 1, fiber: 0, calcium: 10, iron: 0.1, naturalSugar: 9 } },
     { id: 'flavor-vanilla', name: 'Bourbon Vanilla', color: '#F4ECE1', price: 60, icon: '🍦', nutrition: { calories: 30, protein: 0, carbs: 6, fats: 0, fiber: 0, calcium: 15, iron: 0.2, naturalSugar: 5 } },
     { id: 'flavor-whey-isolate', name: 'Pure CFM Whey Isolate (+15g Protein)', color: '#D4AF37', price: 85, icon: '⚡', badge: '15g Protein', nutrition: { calories: 60, protein: 15, carbs: 1, fats: 0, fiber: 0, calcium: 50, iron: 0.4, naturalSugar: 0 } },
@@ -1466,7 +1451,7 @@ export const DESSERT_BUILDER_OPTIONS = {
     { id: 'filling-chocolate-ganache', name: 'Valrhona Chocolate Ganache', color: '#2B140E', price: 75, nutrition: { calories: 70, protein: 1, carbs: 8, fats: 4, fiber: 1, calcium: 15, iron: 0.9, naturalSugar: 6 } },
     { id: 'filling-vanilla-cream', name: 'Madagascar Vanilla Silk Cream', color: '#FFF8EB', price: 65, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3, fiber: 0, calcium: 25, iron: 0.2, naturalSugar: 5 } },
     { id: 'filling-pistachio-mousse', name: 'Sicilian Pistachio Mousse', color: '#A0B486', price: 95, nutrition: { calories: 80, protein: 2, carbs: 7, fats: 5, fiber: 1, calcium: 30, iron: 0.7, naturalSugar: 4 } },
-    { id: 'filling-caramel-confit', name: 'Fleur de Sel Caramel Confit', color: '#C8833B', price: 75, nutrition: { calories: 65, protein: 0, carbs: 12, fats: 2, fiber: 0, calcium: 10, iron: 0.1, naturalSugar: 10 } },
+    { id: 'filling-caramel-confit', name: 'Salted Butter Caramel Cream', color: '#C8833B', price: 75, nutrition: { calories: 65, protein: 0, carbs: 12, fats: 2, fiber: 0, calcium: 10, iron: 0.1, naturalSugar: 10 } },
     { id: 'filling-berry-compote', name: 'Handmade Forest Berry Compote', color: '#88223B', price: 75, nutrition: { calories: 35, protein: 0, carbs: 8, fats: 0, fiber: 2, calcium: 12, iron: 0.4, naturalSugar: 7 } }
   ],
 
@@ -1491,8 +1476,8 @@ export const DESSERT_BUILDER_OPTIONS = {
     { id: 'sauce-date-caramel', name: '100% Medjool Date Caramel Drizzle', color: '#8B4513', price: 55, badge: 'Zero Refined Sugar', nutrition: { calories: 40, protein: 1, carbs: 9, fats: 0, fiber: 2, calcium: 20, iron: 0.7, naturalSugar: 8 } },
     { id: 'sauce-dark-chocolate', name: 'Warm 70% Dark Chocolate Drizzle', color: '#2B140E', price: 45, nutrition: { calories: 45, protein: 1, carbs: 5, fats: 3, fiber: 1, calcium: 12, iron: 0.8, naturalSugar: 3 } },
     { id: 'sauce-white-chocolate', name: 'Champagne White Chocolate Silk', color: '#FDF7EB', price: 55, nutrition: { calories: 55, protein: 1, carbs: 6, fats: 3, fiber: 0, calcium: 25, iron: 0.1, naturalSugar: 5 } },
-    { id: 'sauce-caramel', name: 'Warm Fleur de Sel Salted Butter Caramel', color: '#BF782F', price: 45, nutrition: { calories: 45, protein: 0, carbs: 8, fats: 2, fiber: 0, calcium: 8, iron: 0.1, naturalSugar: 7 } },
-    { id: 'sauce-strawberry', name: 'Fresh Wild Strawberry Purée Coulis', color: '#BC2841', price: 45, nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0, fiber: 1, calcium: 10, iron: 0.2, naturalSugar: 5 } }
+    { id: 'sauce-caramel', name: 'Warm Salted Butter Caramel Drizzle', color: '#BF782F', price: 45, nutrition: { calories: 45, protein: 0, carbs: 8, fats: 2, fiber: 0, calcium: 8, iron: 0.1, naturalSugar: 7 } },
+    { id: 'sauce-strawberry', name: 'Fresh Wild Strawberry Purée Sauce', color: '#BC2841', price: 45, nutrition: { calories: 25, protein: 0, carbs: 6, fats: 0, fiber: 1, calcium: 10, iron: 0.2, naturalSugar: 5 } }
   ]
 };
 
@@ -1683,3 +1668,11 @@ export const BOUTIQUES = [
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80'
   }
 ];
+
+if (typeof window !== 'undefined') {
+  window.PRODUCTS = PRODUCTS;
+  window.CATEGORIES = CATEGORIES;
+  window.BOUTIQUES = BOUTIQUES;
+  window.FAQS = FAQS;
+  window.DESSERT_BUILDER_OPTIONS = DESSERT_BUILDER_OPTIONS;
+}

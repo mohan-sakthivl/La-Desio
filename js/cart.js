@@ -25,9 +25,36 @@ export class CartManager {
     this.listeners.forEach(cb => cb(this.getSummary()));
   }
 
-  loadCart() {
+  getCurrentUserId() {
     try {
-      const saved = localStorage.getItem(CART_STORAGE_KEY);
+      if (typeof loyaltyStore !== 'undefined' && loyaltyStore && typeof loyaltyStore.getActiveUser === 'function') {
+        const u = loyaltyStore.getActiveUser();
+        if (u && u.id) return u.id;
+      }
+      const savedUid = localStorage.getItem('ladesio_active_user_id_v4');
+      if (savedUid) return savedUid;
+    } catch (e) {}
+    return null;
+  }
+
+  getCartStorageKey(userId) {
+    const uid = userId !== undefined ? userId : this.getCurrentUserId();
+    return uid ? `ladesio_cart_user_${uid}` : 'ladesio_cart_guest';
+  }
+
+  getWishlistStorageKey(userId) {
+    const uid = userId !== undefined ? userId : this.getCurrentUserId();
+    return uid ? `ladesio_wishlist_user_${uid}` : 'ladesio_wishlist_guest';
+  }
+
+  loadCart(userId) {
+    try {
+      const uid = userId !== undefined ? userId : this.getCurrentUserId();
+      const key = this.getCartStorageKey(uid);
+      let saved = localStorage.getItem(key);
+      if (!saved && uid) {
+        saved = localStorage.getItem(CART_STORAGE_KEY);
+      }
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
       console.error('Failed to load cart from storage', e);
@@ -35,27 +62,73 @@ export class CartManager {
     }
   }
 
-  saveCart() {
+  saveCart(userId) {
     try {
-      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(this.cart));
+      const uid = userId !== undefined ? userId : this.getCurrentUserId();
+      const key = this.getCartStorageKey(uid);
+      localStorage.setItem(key, JSON.stringify(this.cart));
+      if (uid) {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(this.cart));
+      }
     } catch (e) {
       console.error('Failed to save cart', e);
     }
     this.notify();
   }
 
-  loadWishlist() {
+  loadWishlist(userId) {
     try {
-      const saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
+      const uid = userId !== undefined ? userId : this.getCurrentUserId();
+      const key = this.getWishlistStorageKey(uid);
+      let saved = localStorage.getItem(key);
+      if (!saved && uid) {
+        saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
+      }
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
       return [];
     }
   }
 
-  saveWishlist() {
+  saveWishlist(userId) {
     try {
-      localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(this.wishlist));
+      const uid = userId !== undefined ? userId : this.getCurrentUserId();
+      const key = this.getWishlistStorageKey(uid);
+      localStorage.setItem(key, JSON.stringify(this.wishlist));
+      if (uid) {
+        localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(this.wishlist));
+      }
+    } catch (e) {}
+    this.notify();
+  }
+
+  onLogin(userId) {
+    if (!userId) return;
+    if (this.currentLoggedInUserId === userId) return;
+    this.currentLoggedInUserId = userId;
+    this.cart = this.loadCart(userId);
+    this.wishlist = this.loadWishlist(userId);
+    this.activePromo = null;
+    this.notify();
+  }
+
+  onLogout(userId) {
+    this.currentLoggedInUserId = null;
+    const uid = userId !== undefined ? userId : this.getCurrentUserId();
+    if (uid) {
+      try {
+        localStorage.setItem(this.getCartStorageKey(uid), JSON.stringify(this.cart));
+        localStorage.setItem(this.getWishlistStorageKey(uid), JSON.stringify(this.wishlist));
+      } catch (e) {}
+    }
+    this.cart = [];
+    this.wishlist = [];
+    this.activePromo = null;
+    try {
+      localStorage.removeItem('ladesio_cart_guest');
+      localStorage.removeItem('ladesio_wishlist_guest');
+      localStorage.removeItem(CART_STORAGE_KEY);
+      localStorage.removeItem(WISHLIST_STORAGE_KEY);
     } catch (e) {}
     this.notify();
   }
@@ -80,6 +153,13 @@ export class CartManager {
       });
     }
 
+    try {
+      localStorage.removeItem('ladesio_last_placed_order');
+    } catch (e) {}
+    if (typeof window !== 'undefined' && window.checkoutManager) {
+      window.checkoutManager.lastPlacedOrder = null;
+      window.checkoutManager.currentStep = 1;
+    }
     this.saveCart();
   }
 
@@ -149,35 +229,77 @@ export class CartManager {
   // Calculations in INR
   getSummary() {
     const itemCount = this.cart.reduce((sum, item) => sum + item.quantity, 0);
-    const subtotal = this.cart.reduce((sum, item) => {
-      const unitPrice = item.price || 0;
-      return sum + (unitPrice * item.quantity);
-    }, 0);
+
+    const isBirthdayActive = (typeof loyaltyStore !== 'undefined' && typeof loyaltyStore.isBirthdayDiscountAvailable === 'function' && loyaltyStore.isBirthdayDiscountAvailable());
+    const isBirthdayOrder = !!isBirthdayActive;
+
+    let regularSubtotal = 0;
+    this.cart.forEach(item => {
+      const regularUnitPrice = Number(item.originalPrice || (item.isBirthdayDiscount ? Math.round(item.price / 0.7) : item.price) || 0);
+      item.originalPrice = regularUnitPrice;
+      item.price = regularUnitPrice;
+      item.isBirthdayDiscount = false;
+      item.birthdayDiscountAmount = 0;
+      regularSubtotal += (regularUnitPrice * item.quantity);
+    });
+
+    let birthdayDiscount = 0;
+    let birthdayDiscountItemName = '';
+
+    // If birthday offer is active, apply 30% discount to ONLY ONE PRODUCT (1 single unit)
+    if (isBirthdayOrder && this.cart.length > 0) {
+      let chosenItem = null;
+      let highestPrice = -1;
+      this.cart.forEach(item => {
+        if (item.originalPrice > highestPrice) {
+          highestPrice = item.originalPrice;
+          chosenItem = item;
+        }
+      });
+
+      if (chosenItem && chosenItem.originalPrice > 0) {
+        const discountAmount = Math.round(chosenItem.originalPrice * 0.30);
+        birthdayDiscount = discountAmount;
+        chosenItem.isBirthdayDiscount = true;
+        chosenItem.birthdayDiscountAmount = discountAmount;
+        birthdayDiscountItemName = chosenItem.name;
+        if (chosenItem.quantity === 1) {
+          chosenItem.price = chosenItem.originalPrice - discountAmount;
+        }
+      }
+    }
+
+    const subtotalAfterBirthday = Math.max(0, regularSubtotal - birthdayDiscount);
 
     const deliveryThreshold = 999.00;
-    let standardDelivery = subtotal > 0 ? (subtotal >= deliveryThreshold ? 0.00 : 99.00) : 0.00;
+    let standardDelivery = regularSubtotal > 0 ? ((regularSubtotal >= deliveryThreshold || subtotalAfterBirthday >= deliveryThreshold) ? 0.00 : 99.00) : 0.00;
 
-    let discount = 0.00;
+    let promoDiscount = 0.00;
     if (this.activePromo) {
       if (this.activePromo.type === 'percent') {
-        discount = (subtotal * this.activePromo.value) / 100;
+        promoDiscount = Math.round((subtotalAfterBirthday * this.activePromo.value) / 100);
       } else if (this.activePromo.type === 'free_delivery') {
         standardDelivery = 0.00;
       }
     }
 
-    const total = Math.max(0, subtotal - discount + standardDelivery);
+    const totalDiscount = birthdayDiscount + promoDiscount;
+    const total = Math.max(0, regularSubtotal - totalDiscount + standardDelivery);
 
     return {
       items: this.cart,
       itemCount,
-      subtotal,
-      discount,
+      subtotal: regularSubtotal,
+      birthdayDiscount,
+      birthdayDiscountItemName,
+      promoDiscount,
+      discount: totalDiscount,
+      isBirthdayOrder,
       delivery: standardDelivery,
       total,
       activePromo: this.activePromo,
       wishlist: this.wishlist,
-      freeDeliveryAway: Math.max(0, deliveryThreshold - subtotal)
+      freeDeliveryAway: Math.max(0, deliveryThreshold - subtotalAfterBirthday)
     };
   }
 }

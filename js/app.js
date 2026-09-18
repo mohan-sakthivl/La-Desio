@@ -22,8 +22,8 @@ export const HERO_SLIDES = [
   },
   {
     badge: 'Authentic Italian',
-    title: 'Pistachio di Bronte Tiramisù',
-    subtitle: 'Sicilian Bronte Pistachio Cream • Espresso Savoiardi • Mascarpone',
+    title: 'Sicilian Pistachio Tiramisu',
+    subtitle: 'Rich Bronte Pistachio Cream • Espresso Ladyfingers • Creamy Mascarpone',
     image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1000&q=85',
     productId: 'desio-pistachio-royale'
   },
@@ -36,10 +36,85 @@ export const HERO_SLIDES = [
   },
   {
     badge: 'Grand Tart',
-    title: 'Fragola & White Chocolate Tart',
-    subtitle: 'Alpine Wild Strawberries • Tahitian Vanilla Ganache • Butter Sablé',
+    title: 'Wild Strawberry & White Chocolate Tart',
+    subtitle: 'Alpine Wild Strawberries • Tahitian Vanilla Ganache • Butter Cookie Crust',
     image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85',
     productId: 'desio-strawberry-rose'
+  }
+];
+
+export const INTRO_VIDEO_CHAPTERS = [
+  {
+    start: 0.0,
+    end: 0.95,
+    badge: 'Signature Reserve',
+    title: 'Velvet Noir Royale',
+    subtitle: '72% Single-Origin Cocoa • Piedmont Hazelnut • 24K Gold Leaf',
+    productId: 'desio-velvet-noir',
+    ctaText: 'Taste Velvet Noir'
+  },
+  {
+    start: 0.95,
+    end: 1.90,
+    badge: 'Classic Italian',
+    title: 'Sicilian Pistachio Royale',
+    subtitle: 'Authentic Bronte Pistachio Cream & Crisp Almond Sablé',
+    productId: 'desio-pistachio-royale',
+    ctaText: 'Taste Pistachio Royale'
+  },
+  {
+    start: 1.90,
+    end: 2.85,
+    badge: 'Seasonal Atelier',
+    title: 'Wild Strawberry Grand Tart',
+    subtitle: 'Alpine Forest Berries & Tahitian Bourbon Vanilla Ganache',
+    productId: 'desio-strawberry-rose',
+    ctaText: 'Taste Strawberry Tart'
+  },
+  {
+    start: 2.85,
+    end: 3.80,
+    badge: 'Chef Selection',
+    title: 'Salted Caramel Étoile',
+    subtitle: 'Slow-Simmered Salted Butter Caramel & Roasted Pecan Crunch',
+    productId: 'desio-caramel-etoile',
+    ctaText: 'Taste Caramel Étoile'
+  },
+  {
+    start: 3.80,
+    end: 4.75,
+    badge: 'Authentic Milanese',
+    title: 'Tiramisu Classico',
+    subtitle: 'Espresso Savoiardi Ladyfingers & Dusted Cocoa Velvet',
+    productId: 'desio-pistachio-royale',
+    ctaText: 'Taste Tiramisu'
+  },
+  {
+    start: 4.75,
+    end: 5.70,
+    badge: 'Artisanal Chocolatier',
+    title: 'Fudge Noir Praline Brownie',
+    subtitle: 'Molten Valrhona Cocoa Ganache & Slow-Roasted Hazelnuts',
+    productId: 'desio-velvet-noir',
+    ctaText: 'Taste Fudge Brownie'
+  },
+  {
+    start: 5.70,
+    end: 6.65,
+    badge: 'Natural Harvest',
+    title: 'Wild Berry Mascarpone',
+    subtitle: 'Fresh Forest Blueberries & Madagascan Bourbon Vanilla',
+    productId: 'desio-berry-bliss-natural',
+    ctaText: 'Taste Wild Berry'
+  },
+  {
+    start: 6.65,
+    end: 10.0,
+    badge: 'House of La Desio',
+    title: 'Where Cravings Become Creations',
+    subtitle: 'Fine Italian Handcrafted Luxury Patisserie & Bespoke 3D Studio',
+    productId: null,
+    ctaText: null
   }
 ];
 
@@ -53,30 +128,30 @@ export const FULL_SIZE_BANNER_IMAGES = [
   },
   {
     image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1920&q=85',
-    title: 'Fragola & White Chocolate Grand Tart',
+    title: 'Wild Strawberry & White Chocolate Grand Tart',
     subtitle: 'Alpine Wild Strawberries & Tahitian Vanilla Ganache',
     badge: 'Seasonal Patisserie',
     productId: 'desio-strawberry-rose'
   },
   {
     image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1920&q=85',
-    title: 'Pistachio di Bronte Tiramisù',
-    subtitle: 'Sicilian Bronte Pistachio Cream & Espresso Savoiardi',
-    badge: 'Authentic Milanese',
+    title: 'Sicilian Pistachio Tiramisu',
+    subtitle: 'Sicilian Bronte Pistachio Cream & Espresso Soaked Ladyfingers',
+    badge: 'Classic Italian',
     productId: 'desio-pistachio-royale'
   },
   {
     image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1920&q=85',
-    title: 'Caramel Étoile Entremet',
-    subtitle: 'Burnt Madagascar Vanilla Caramel & Fleur de Sel Ganache',
-    badge: 'Atelier Selection',
+    title: 'Salted Caramel Layered Mousse Cake',
+    subtitle: 'Burnt Madagascar Vanilla Caramel & Salted Butter Ganache',
+    badge: 'Chef Selection',
     productId: 'desio-caramel-etoile'
   },
   {
     image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1920&q=85',
-    title: 'Artisanal Milan Atelier',
+    title: 'Artisanal Italian Bakery',
     subtitle: 'Handcrafted Daily with Master Italian Craftsmanship',
-    badge: 'Grand Haute Patisserie',
+    badge: 'Master Italian Patisserie',
     productId: 'desio-velvet-noir'
   }
 ];
@@ -98,6 +173,7 @@ class LaDesioApp {
     this.dishesBannerTimer = null;
     this.fullBannerSlideIndex = 0;
     this.fullBannerTimer = null;
+    this.introVideoActiveChapter = 0;
 
     this.activeFilter = {
       priceMax: 3500,
@@ -112,6 +188,7 @@ class LaDesioApp {
     this.mobileAuthStep = 'phone';
     this.mobileAuthPhone = '';
     this.mobileAuthOtp = '';
+    this.otpTimerInterval = null;
 
     this.init();
   }
@@ -123,6 +200,7 @@ class LaDesioApp {
     this.setupLoyaltyListeners();
     this.renderNavigationBadges();
     this.renderCurrentView();
+    this.checkBirthdayGreeting();
 
     // Global references for inline HTML event handlers
     if (typeof window !== 'undefined') {
@@ -148,10 +226,13 @@ class LaDesioApp {
   }
 
   navigateTo(route) {
-    this.currentRoute = route;
-    window.location.hash = '#' + route;
-    this.renderCurrentView();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const targetHash = '#' + route;
+    if (window.location.hash === targetHash) {
+      const [r, p] = route.split('/');
+      this.triggerPageTransition(r, p);
+    } else {
+      window.location.hash = targetHash;
+    }
   }
 
   handleHeaderAuthClick(e) {
@@ -454,7 +535,73 @@ class LaDesioApp {
     }
   }
 
+  triggerPageTransition(route, param, callback) {
+    const routeInfoMap = {
+      'home': { title: 'LA DESIO', sub: 'Luxury Italian Patisserie & Bakery' },
+      'menu': { title: 'THE DESSERT MENU', sub: 'Handcrafted Cakes, Tarts & Tiramisu' },
+      'builder': { title: '3D DESSERT STUDIO', sub: 'Design Your Custom Dessert in 3D' },
+      'natural': { title: 'DESIO NATURAL', sub: 'Healthy, High-Protein & Ancient Grains' },
+      'account': { title: 'VIP MEMBER ACCOUNT', sub: 'Your Saved Creations & Privileges' },
+      'login': { title: 'MEMBER SIGN IN', sub: 'Access Your Profile & Welcome Rewards' },
+      'checkout': { title: 'SECURE CHECKOUT', sub: 'Fast & Fresh Artisanal Delivery' },
+      'tracker': { title: 'ORDER TRACKER', sub: 'Live Fresh Delivery Updates' },
+      'orders': { title: 'ORDER HISTORY', sub: 'Your Past Dessert Orders & Invoices' }
+    };
+
+    const info = routeInfoMap[route] || { title: 'LA DESIO', sub: 'Haute Patisserie & Atelier' };
+
+    const executeViewSwitch = () => {
+      this.currentRoute = route;
+      this.routeParam = param;
+      this.renderNavigationBadges();
+      this.renderCurrentView();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      if (callback) callback();
+    };
+
+    if (window.ladesioSoundscape && typeof window.ladesioSoundscape.showCurtain === 'function') {
+      window.ladesioSoundscape.showCurtain(info.title, info.sub, 380, executeViewSwitch);
+    } else {
+      const curtain = document.getElementById('atelierCurtainLoader');
+      const progress = document.getElementById('curtainProgressBar');
+      const titleElem = curtain ? curtain.querySelector('h1') : null;
+      const subtitleElem = curtain ? curtain.querySelector('p') : null;
+
+      if (!curtain) {
+        executeViewSwitch();
+        return;
+      }
+
+      if (titleElem) titleElem.textContent = info.title;
+      if (subtitleElem) subtitleElem.textContent = info.sub;
+
+      curtain.style.display = 'flex';
+      curtain.classList.remove('curtain-parted');
+
+      if (progress) {
+        progress.style.width = '0%';
+        setTimeout(() => { progress.style.width = '55%'; }, 40);
+        setTimeout(() => { progress.style.width = '100%'; }, 160);
+      }
+
+      setTimeout(() => {
+        executeViewSwitch();
+      }, 200);
+
+      setTimeout(() => {
+        curtain.classList.add('curtain-parted');
+        setTimeout(() => {
+          curtain.style.display = 'none';
+          if (titleElem) titleElem.textContent = 'LA DESIO';
+          if (subtitleElem) subtitleElem.textContent = 'Haute Patisserie & Atelier';
+        }, 420);
+      }, 380);
+    }
+  }
+
   setupRouter() {
+    let isInitialBoot = true;
+
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '') || 'home';
       const [route, param] = hash.split('/');
@@ -463,16 +610,20 @@ class LaDesioApp {
         return;
       }
       if (route === 'account' && (!loyaltyStore || !loyaltyStore.isUserAuthenticated())) {
-        this.currentRoute = 'login';
-        window.location.hash = '#login';
-        this.renderCurrentView();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.navigateTo('login');
         return;
       }
-      this.currentRoute = route;
-      this.routeParam = param;
-      this.renderCurrentView();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (isInitialBoot) {
+        isInitialBoot = false;
+        this.currentRoute = route;
+        this.routeParam = param;
+        this.renderCurrentView();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+
+      this.triggerPageTransition(route, param);
     };
 
     window.addEventListener('hashchange', handleHash);
@@ -503,7 +654,7 @@ class LaDesioApp {
     cartStore.subscribe((summary) => {
       this.renderNavigationBadges();
       this.renderCartDrawerContent(summary);
-      if (this.currentRoute === 'checkout' && window.checkoutManager) {
+      if (this.currentRoute === 'checkout' && window.checkoutManager && window.checkoutManager.currentStep !== 3 && !window.checkoutManager.lastPlacedOrder) {
         window.checkoutManager.render();
       }
     });
@@ -511,13 +662,30 @@ class LaDesioApp {
 
   setupLoyaltyListeners() {
     loyaltyStore.subscribe((data) => {
+      const activeUser = loyaltyStore && typeof loyaltyStore.getActiveUser === 'function' ? loyaltyStore.getActiveUser() : null;
+      if (activeUser && activeUser.id) {
+        if (typeof cartStore !== 'undefined' && cartStore.onLogin) {
+          cartStore.onLogin(activeUser.id);
+        }
+      }
       if (this.currentRoute === 'account') {
         this.renderAccountView();
       }
+      this.renderNavigationBadges();
+      this.checkBirthdayGreeting();
     });
   }
 
   renderNavigationBadges() {
+    const header = document.getElementById('mainHeader') || document.querySelector('header');
+    if (header) {
+      if (this.currentRoute === 'login' || this.currentRoute === 'register') {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+    }
+
     const summary = cartStore.getSummary();
     const cartBadges = document.querySelectorAll('.cart-count-badge');
     cartBadges.forEach(badge => {
@@ -533,20 +701,21 @@ class LaDesioApp {
 
     // Update active page indicator title in header
     const routeTitles = {
-      'home': 'HOME SALON',
+      'home': 'HOME',
       'menu': 'THE DESIO MENU',
       'builder': 'CREATE DESSERT',
       'natural': 'DESIO NATURAL',
       'gifting': 'LUXURY GIFTING',
       'story': 'OUR HERITAGE',
-      'boutiques': 'SALON LOCATIONS',
-      'account': 'PRIVÉ ACCOUNT',
-      'checkout': 'BESPOKE CHECKOUT'
+      'boutiques': 'LOCATIONS',
+      'support': 'SUPPORT & CONCIERGE',
+      'account': 'VIP ACCOUNT',
+      'checkout': 'CHECKOUT'
     };
 
     const activeTitleElem = document.getElementById('activePageTitle');
     if (activeTitleElem) {
-      activeTitleElem.textContent = routeTitles[this.currentRoute] || 'HAUTE PATISSERIE';
+      activeTitleElem.textContent = routeTitles[this.currentRoute] || 'DESSERT ATELIER';
     }
 
     const headerSignInLink = document.getElementById('headerSignInLink');
@@ -657,6 +826,17 @@ class LaDesioApp {
     if (!mainContainer) return;
 
     this.clearTimers();
+
+    // Hide main navigation bar on authentication routes (login / register) for distraction-free luxury portal
+    const header = document.getElementById('mainHeader') || document.querySelector('header');
+    if (header) {
+      if (this.currentRoute === 'login' || this.currentRoute === 'register') {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+    }
+
     this.renderNavigationBadges();
 
     switch (this.currentRoute) {
@@ -680,6 +860,9 @@ class LaDesioApp {
         break;
       case 'boutiques':
         this.renderBoutiquesView(mainContainer);
+        break;
+      case 'support':
+        this.renderSupportView(mainContainer);
         break;
       case 'account':
         this.renderAccountView(mainContainer);
@@ -718,78 +901,60 @@ class LaDesioApp {
 
     container.innerHTML = `
       <!-- ========================================== -->
-      <!-- FULL-WIDTH SLIDING IMAGE HERO CAROUSEL     -->
+      <!-- FULL-WIDTH SEAMLESS CINEMATIC VIDEO BANNER -->
       <!-- ========================================== -->
-      <section id="fullSizeBannerContainer"
-               class="relative w-full h-[400px] sm:h-[500px] md:h-[580px] lg:h-[650px] bg-[#1A0B06] overflow-hidden border-b border-[#B8945B]/30 select-none group">
+      <section id="introVideoBannerContainer"
+               class="relative w-full h-[360px] sm:h-[420px] md:h-[480px] lg:h-[520px] bg-[#060302] overflow-hidden border-b border-[#B8945B]/20 select-none group">
         
-        <!-- Sliding Horizontal Track -->
-        <div id="fullBannerTrack"
-             class="flex w-full h-full transition-transform duration-700 ease-in-out"
-             style="transform: translateX(-${this.fullBannerSlideIndex * 100}%);">
-          ${FULL_SIZE_BANNER_IMAGES.map((slide, idx) => `
-            <div class="w-full h-full shrink-0 relative overflow-hidden">
-              <img src="${slide.image}"
-                   alt="${slide.title}"
-                   class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
-              
-              <!-- Luxury Gradient Overlay & Slide Narrative -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/40 flex flex-col justify-end p-6 sm:p-12 lg:p-16">
-                <div class="max-w-3xl space-y-2.5 text-white">
-                  <div class="flex items-center gap-2">
-                    <span class="inline-block px-3 py-1 rounded-full bg-[#B8945B] text-[#140A06] text-[10px] sm:text-xs font-serif uppercase tracking-widest font-bold shadow-md">
-                      ${slide.badge}
-                    </span>
-                    <span class="text-xs font-serif text-[#E6CA85] tracking-wider uppercase hidden sm:inline">Collection No. 0${idx + 1}</span>
-                  </div>
+        <!-- Background Video Element -->
+        <video id="desioIntroVideo"
+               class="w-full h-full object-cover object-center transition-opacity duration-700"
+               playsinline
+               muted
+               autoplay
+               loop
+               preload="auto"
+               poster="Assets/video/raw/dessert1_velvet_noir.jpg">
+          <source src="Assets/video/la_desio_intro_ad.mp4?v=4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
 
-                  <h2 class="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-md leading-tight">
-                    ${slide.title}
-                  </h2>
-                  
-                  <p class="text-xs sm:text-sm md:text-base text-[#F8F1E7]/90 font-light max-w-xl drop-shadow line-clamp-2">
-                    ${slide.subtitle}
-                  </p>
+        <!-- Ambient Luxury Dark Vignettes -->
+        <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none"></div>
 
-                  <div class="pt-2 sm:pt-4 flex flex-wrap items-center gap-3">
-                    <button onclick="window.ladesioApp.openProductModal('${slide.productId}')"
-                            class="px-6 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center gap-2">
-                      <span>View Creation</span> →
-                    </button>
-                    <a href="#menu" class="px-6 py-3 rounded-xl bg-black/40 hover:bg-black/70 backdrop-blur border border-white/30 text-white font-serif text-xs font-semibold tracking-wider uppercase transition-all">
-                      Explore Full Menu
-                    </a>
-                  </div>
-                </div>
+        <!-- Bottom Narrative & Chapter Tracking Overlay -->
+        <div class="absolute bottom-5 sm:bottom-6 inset-x-0 z-20 pointer-events-auto">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <!-- Active Dessert Story Details -->
+            <div class="max-w-xl space-y-1 sm:space-y-1.5 text-white">
+              <div class="flex items-center gap-2">
+                <span id="videoChapterBadge" class="px-2.5 py-0.5 rounded bg-[#B8945B]/90 text-[#140A06] text-[10px] sm:text-xs font-serif uppercase tracking-widest font-bold">
+                  Signature Reserve
+                </span>
               </div>
+
+              <h3 id="videoChapterTitle" class="font-display text-xl sm:text-2xl md:text-3xl text-white drop-shadow-md leading-tight">
+                Velvet Noir Royale
+              </h3>
+
+              <p id="videoChapterDesc" class="text-xs sm:text-sm text-[#F8F1E7]/80 font-light drop-shadow line-clamp-1">
+                72% Single-Origin Venezuelan Cocoa • Piedmont Hazelnut Praline • 24K Gold Leaf
+              </p>
             </div>
-          `).join('')}
-        </div>
 
-        <!-- Left & Right Arrow Navigation Controls -->
-        <button onclick="event.stopPropagation(); window.ladesioApp.prevFullBannerSlide()"
-                class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-[#B8945B] text-white backdrop-blur border border-white/30 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 hover:scale-110 shadow-2xl focus:outline-none text-2xl font-bold"
-                aria-label="Previous slide">
-          ‹
-        </button>
-        <button onclick="event.stopPropagation(); window.ladesioApp.nextFullBannerSlide()"
-                class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-[#B8945B] text-white backdrop-blur border border-white/30 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 hover:scale-110 shadow-2xl focus:outline-none text-2xl font-bold"
-                aria-label="Next slide">
-          ›
-        </button>
-
-        <!-- Bottom Pagination Indicators & Slide Counter -->
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full bg-black/60 backdrop-blur border border-white/20 shadow-xl">
-          <div class="flex items-center gap-2">
-            ${FULL_SIZE_BANNER_IMAGES.map((_, idx) => `
-              <button onclick="event.stopPropagation(); window.ladesioApp.setFullBannerSlide(${idx})"
-                      class="full-banner-dot h-2 rounded-full transition-all duration-300 ${idx === this.fullBannerSlideIndex ? 'bg-[#E6CA85] w-8' : 'bg-white/40 hover:bg-white/70 w-2.5'}"
-                      aria-label="Go to slide ${idx + 1}"></button>
-            `).join('')}
+            <!-- CTAs for the Customer -->
+            <div class="flex items-center gap-3 shrink-0">
+              <button id="videoOrderFeaturedBtn"
+                      onclick="window.ladesioApp.openFeaturedVideoProduct()"
+                      class="px-5 py-2.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center gap-2 cursor-pointer">
+                <span id="videoOrderFeaturedText">Taste Velvet Noir</span> →
+              </button>
+              <a href="#menu" class="px-4 py-2.5 rounded-xl bg-black/60 hover:bg-black/90 backdrop-blur border border-white/30 text-white font-serif text-xs font-semibold tracking-wider uppercase transition-all">
+                Explore Menu
+              </a>
+            </div>
           </div>
-          <span id="fullBannerCounter" class="text-[11px] font-mono text-[#E6CA85] font-bold pl-2 border-l border-white/20">
-            0${this.fullBannerSlideIndex + 1} / 0${FULL_SIZE_BANNER_IMAGES.length}
-          </span>
         </div>
 
       </section>
@@ -971,52 +1136,37 @@ class LaDesioApp {
       </section>
 
       <!-- DESIO NATURAL COLLECTION SPOTLIGHT -->
-      <section class="py-24 bg-[#140704] border-b border-[#B8945B]/20">
+      <section class="py-10 sm:py-12 bg-[#140704] border-b border-[#B8945B]/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-14">
-            <div class="lg:col-span-7 space-y-4">
-              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B8945B]/15 text-[#E6CA85] text-xs font-serif tracking-wider uppercase border border-[#B8945B]/40 shadow-md">
-                <span>✦</span> Ingredient-Conscious Patisserie
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+            <div class="space-y-1.5 max-w-2xl">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#B8945B]/15 text-[#E6CA85] text-[10px] font-serif tracking-wider uppercase border border-[#B8945B]/40 shadow-sm">
+                <span>🌿</span> 0% Artificial Sweeteners • Naturally Sweetened
               </div>
-              <h2 class="font-display text-3xl sm:text-4xl text-[#FFFDF9] drop-shadow-md">
+              <h2 class="font-display text-2xl sm:text-3xl text-[#FFFDF9] drop-shadow-md">
                 THE DESIO NATURAL COLLECTION
               </h2>
-              <p class="font-serif-elegant italic text-lg text-[#E6CA85]">"Thoughtfully crafted. Naturally inspired."</p>
-              <p class="text-xs sm:text-sm text-[#D6C2B0] leading-relaxed">
-                A collection created for those who want to be more mindful of their ingredients without giving up the pleasure of dessert. Made without artificial sweeteners and with reduced reliance on refined sugar, utilizing real fruit purées, Medjool dates, and single-origin raw cacao.
+              <p class="text-xs text-[#D6C2B0] leading-relaxed">
+                Mindful ingredient-conscious desserts sweetened solely with Medjool dates, Alfonso mango purée, wild blossom honey, and 80% raw Peruvian cacao.
               </p>
-
-              <!-- Key Ingredient-Conscious Pillars -->
-              <div class="grid grid-cols-2 gap-3 pt-2 text-xs text-[#F8F1E7]">
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-[#E6CA85]"></span>
-                  <span>No Artificial Sweeteners</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-[#E6CA85]"></span>
-                  <span>Naturally Sweet Ingredients</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-[#E6CA85]"></span>
-                  <span>Real Mountain Fruit Purées</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-[#E6CA85]"></span>
-                  <span>Pure Patisserie Craft</span>
-                </div>
+              <div class="flex flex-wrap items-center gap-2 pt-1 text-[10px] text-[#F8F1E7]">
+                <span class="px-2 py-0.5 rounded-full bg-[#1A0905] border border-[#B8945B]/30 text-[#E6CA85]">🌴 Medjool Dates</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#1A0905] border border-[#B8945B]/30 text-[#E6CA85]">🍓 Mountain Fruit Purées</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#1A0905] border border-[#B8945B]/30 text-[#E6CA85]">🍫 80% Raw Cacao</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-semibold">✓ 0% Refined Sugar</span>
               </div>
             </div>
 
-            <div class="lg:col-span-5 text-right">
-              <a href="#natural" class="inline-block px-8 py-4 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-widest uppercase shadow-xl">
-                EXPLORE DESIO NATURAL →
+            <div class="shrink-0">
+              <a href="#natural" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-lg">
+                <span>Explore Collection</span> →
               </a>
             </div>
           </div>
 
-          <!-- Desio Natural Product Cards -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Desio Natural Product Cards (Sleek Compact Grid) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             ${naturalProducts.map(product => this.renderProductCard(product, true)).join('')}
           </div>
 
@@ -1181,10 +1331,10 @@ class LaDesioApp {
       </section>
     `;
 
-    // Initialize Hero Carousel, Dishes Banner & Full-Size Image Banner
+    // Initialize Hero Carousel, Dishes Banner & Cinematic Intro Video Ad Banner
     this.initHeroCarousel();
     this.initDishesBannerCarousel();
-    this.initFullBannerCarousel();
+    this.initIntroVideoBanner();
 
 
     // Mount Interactive Dessert Studio on Home
@@ -1309,82 +1459,172 @@ class LaDesioApp {
   }
 
   // ==========================================
-  // FULL-SIZE IMAGE BANNER CONTROLLER METHODS
+  // INTRO VIDEO AD HERO BANNER CONTROLLER
   // ==========================================
-  initFullBannerCarousel() {
-    this.stopFullBannerTimer();
-    const container = document.getElementById('fullSizeBannerContainer');
-    if (!container) return;
+  initIntroVideoBanner() {
+    const video = document.getElementById('desioIntroVideo');
+    if (!video) return;
 
-    // Pause auto-rotation on mouse enter, resume on mouse leave
-    container.onmouseenter = () => this.stopFullBannerTimer();
-    container.onmouseleave = () => this.startFullBannerTimer();
+    this.introVideoActiveChapter = 0;
+    this.updateVideoChapterUI(0);
 
-    // Touch swipe support
-    let touchStartX = 0;
-    container.ontouchstart = (e) => {
-      touchStartX = e.touches[0].clientX;
-      this.stopFullBannerTimer();
-    };
-    container.ontouchend = (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
-      if (diff > 50) {
-        this.nextFullBannerSlide();
-      } else if (diff < -50) {
-        this.prevFullBannerSlide();
+    // Track timeupdate to update active chapter and 5 progress bar segments
+    video.ontimeupdate = () => {
+      const cur = video.currentTime;
+
+      // Find active chapter
+      const chapterIdx = INTRO_VIDEO_CHAPTERS.findIndex(ch => cur >= ch.start && cur < ch.end);
+      if (chapterIdx !== -1 && chapterIdx !== this.introVideoActiveChapter) {
+        this.introVideoActiveChapter = chapterIdx;
+        this.updateVideoChapterUI(chapterIdx);
       }
-      this.startFullBannerTimer();
+
+      // Update the 5 timeline segments
+      INTRO_VIDEO_CHAPTERS.forEach((ch, idx) => {
+        const segEl = document.getElementById(`videoSeg${idx + 1}`);
+        if (!segEl) return;
+        if (cur < ch.start) {
+          segEl.style.width = '0%';
+        } else if (cur >= ch.end) {
+          segEl.style.width = '100%';
+        } else {
+          const segPercent = Math.min(100, Math.max(0, ((cur - ch.start) / (ch.end - ch.start)) * 100));
+          segEl.style.width = `${segPercent}%`;
+        }
+      });
     };
 
-    // Start auto-advancing
-    this.startFullBannerTimer();
-  }
+    // Keep play/pause icon in sync
+    video.onplay = () => {
+      const icon = document.getElementById('introVideoPlayPauseIcon');
+      if (icon) icon.textContent = '❚❚';
+    };
+    video.onpause = () => {
+      const icon = document.getElementById('introVideoPlayPauseIcon');
+      if (icon) icon.textContent = '▶';
+    };
 
-  startFullBannerTimer() {
-    this.stopFullBannerTimer();
-    this.fullBannerTimer = setInterval(() => {
-      this.nextFullBannerSlide();
-    }, 4000);
-  }
-
-  stopFullBannerTimer() {
-    if (this.fullBannerTimer) {
-      clearInterval(this.fullBannerTimer);
-      this.fullBannerTimer = null;
-    }
-  }
-
-  setFullBannerSlide(index) {
-    const total = FULL_SIZE_BANNER_IMAGES.length;
-    this.fullBannerSlideIndex = ((index % total) + total) % total;
-
-    const track = document.getElementById('fullBannerTrack');
-    if (track) {
-      track.style.transform = `translateX(-${this.fullBannerSlideIndex * 100}%)`;
-    }
-
-    const dots = document.querySelectorAll('.full-banner-dot');
-    dots.forEach((dot, idx) => {
-      if (idx === this.fullBannerSlideIndex) {
-        dot.className = 'full-banner-dot h-2 rounded-full transition-all duration-300 bg-[#E6CA85] w-8';
+    // Mute/unmute sync
+    video.onvolumechange = () => {
+      const muteIcon = document.getElementById('introVideoMuteIcon');
+      const muteText = document.getElementById('introVideoMuteText');
+      if (video.muted || video.volume === 0) {
+        if (muteIcon) muteIcon.textContent = '🔇';
+        if (muteText) muteText.textContent = 'Sound Off';
       } else {
-        dot.className = 'full-banner-dot h-2 rounded-full transition-all duration-300 bg-white/40 hover:bg-white/70 w-2.5';
+        if (muteIcon) muteIcon.textContent = '🔊';
+        if (muteText) muteText.textContent = 'Sound On';
       }
-    });
+    };
 
-    const counter = document.getElementById('fullBannerCounter');
-    if (counter) {
-      counter.textContent = `0${this.fullBannerSlideIndex + 1} / 0${total}`;
+    // Ensure smooth autoplay
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const playIcon = document.getElementById('introVideoPlayPauseIcon');
+        if (playIcon) playIcon.textContent = '▶';
+      });
     }
   }
 
-  nextFullBannerSlide() {
-    this.setFullBannerSlide(this.fullBannerSlideIndex + 1);
+  updateVideoChapterUI(chapterIndex) {
+    const ch = INTRO_VIDEO_CHAPTERS[chapterIndex];
+    if (!ch) return;
+
+    const badge = document.getElementById('videoChapterBadge');
+    const idxEl = document.getElementById('videoChapterIndex');
+    const title = document.getElementById('videoChapterTitle');
+    const desc = document.getElementById('videoChapterDesc');
+    const btn = document.getElementById('videoOrderFeaturedBtn');
+    const btnText = document.getElementById('videoOrderFeaturedText');
+
+    if (badge) badge.textContent = ch.badge;
+    if (idxEl) idxEl.textContent = `0${chapterIndex + 1} / 0${INTRO_VIDEO_CHAPTERS.length}`;
+    if (title) title.textContent = ch.title;
+    if (desc) desc.textContent = ch.subtitle;
+
+    if (btn) {
+      if (ch.ctaText) {
+        btn.style.display = 'inline-flex';
+        if (btnText) btnText.textContent = ch.ctaText;
+      } else {
+        btn.style.display = 'none';
+      }
+    }
   }
 
+  toggleIntroVideoAudio() {
+    const video = document.getElementById('desioIntroVideo');
+    if (!video) return;
+    video.muted = !video.muted;
+    if (!video.muted) {
+      video.volume = 0.85;
+      const muteIcon = document.getElementById('introVideoMuteIcon');
+      const muteText = document.getElementById('introVideoMuteText');
+      if (muteIcon) muteIcon.textContent = '🔊';
+      if (muteText) muteText.textContent = 'Sound On';
+    } else {
+      const muteIcon = document.getElementById('introVideoMuteIcon');
+      const muteText = document.getElementById('introVideoMuteText');
+      if (muteIcon) muteIcon.textContent = '🔇';
+      if (muteText) muteText.textContent = 'Sound Off';
+    }
+  }
+
+  toggleIntroVideoPlayback() {
+    const video = document.getElementById('desioIntroVideo');
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
+
+  restartIntroVideo() {
+    const video = document.getElementById('desioIntroVideo');
+    if (!video) return;
+    video.currentTime = 0;
+    video.play();
+  }
+
+  seekIntroVideoToChapter(chapterIdx) {
+    const video = document.getElementById('desioIntroVideo');
+    if (!video) return;
+    const ch = INTRO_VIDEO_CHAPTERS[chapterIdx];
+    if (ch) {
+      video.currentTime = ch.start + 0.05;
+      video.play();
+      this.introVideoActiveChapter = chapterIdx;
+      this.updateVideoChapterUI(chapterIdx);
+    }
+  }
+
+  openFeaturedVideoProduct() {
+    const ch = INTRO_VIDEO_CHAPTERS[this.introVideoActiveChapter || 0];
+    if (ch && ch.productId) {
+      this.openProductModal(ch.productId);
+    } else {
+      this.openDessertStudio();
+    }
+  }
+
+  // Backwards compatibility aliases
+  initFullBannerCarousel() {
+    this.initIntroVideoBanner();
+  }
+  startFullBannerTimer() {}
+  stopFullBannerTimer() {}
+  setFullBannerSlide(idx) {
+    this.seekIntroVideoToChapter(idx);
+  }
+  nextFullBannerSlide() {
+    const nextIdx = ((this.introVideoActiveChapter + 1) % INTRO_VIDEO_CHAPTERS.length);
+    this.seekIntroVideoToChapter(nextIdx);
+  }
   prevFullBannerSlide() {
-    this.setFullBannerSlide(this.fullBannerSlideIndex - 1);
+    const prevIdx = ((this.introVideoActiveChapter - 1 + INTRO_VIDEO_CHAPTERS.length) % INTRO_VIDEO_CHAPTERS.length);
+    this.seekIntroVideoToChapter(prevIdx);
   }
 
   // ==========================================
@@ -1431,6 +1671,10 @@ class LaDesioApp {
       filteredProducts.sort((a, b) => b.rating - a.rating);
     }
 
+    const hasActiveFilters = this.activeFilter.onlyEggless || this.activeFilter.dietary !== 'all' || this.activeFilter.priceMax < 3500 || this.selectedCategory !== 'all' || this.activeFilter.sortBy !== 'recommended';
+    const isBirthdayDiscount = (typeof loyaltyStore !== 'undefined' && typeof loyaltyStore.isBirthdayDiscountAvailable === 'function' && loyaltyStore.isBirthdayDiscountAvailable());
+    const activePatron = (typeof loyaltyStore !== 'undefined' && typeof loyaltyStore.getActiveUser === 'function') ? loyaltyStore.getActiveUser() : null;
+
     container.innerHTML = `
       <div class="section-collection py-16 border-b border-[#B8945B]/25">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1445,66 +1689,131 @@ class LaDesioApp {
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
-        <!-- Category Tabs & Eggless Quick Filter -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
+        ${isBirthdayDiscount ? `
+          <!-- Birthday Privilege Menu Banner -->
+          <div class="mb-8 p-4 sm:p-6 rounded-3xl bg-gradient-to-r from-[#2F130A] via-[#1A0804] to-[#2F130A] border-2 border-amber-400/90 shadow-[0_0_40px_rgba(230,202,133,0.35)] flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#B8945B] via-[#F5D796] to-[#B8945B] text-black text-3xl flex items-center justify-center font-bold shadow-xl shrink-0 border border-white/40">
+                🎂
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center justify-center md:justify-start gap-2 flex-wrap">
+                  <span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-[#F5D796] text-black text-[10px] font-serif font-black uppercase tracking-wider shadow-sm">
+                    🎁 30% BIRTHDAY GIFT ACTIVE
+                  </span>
+                  <span class="text-[11px] text-emerald-400 font-serif font-semibold">
+                    ✓ Gifted on all creations below
+                  </span>
+                </div>
+                <h3 class="font-display text-xl sm:text-2xl text-white font-bold tracking-wide">
+                  ${(loyaltyStore && typeof loyaltyStore.hasUserBeenWishedThisYear === 'function' && loyaltyStore.hasUserBeenWishedThisYear(activePatron))
+                    ? `🎁 Exclusive Birthday Gift Active (30% OFF on 1 Treat)`
+                    : `Happy Birthday, ${activePatron ? activePatron.name : 'Dear Friend'}! 🎂 Enjoy 30% OFF Today!`
+                  }
+                </h3>
+                <p class="text-xs text-[#D6C2B0] max-w-xl font-serif leading-relaxed">
+                  ${(loyaltyStore && typeof loyaltyStore.hasUserBeenWishedThisYear === 'function' && loyaltyStore.hasUserBeenWishedThisYear(activePatron))
+                    ? `Your 30% birthday privilege is automatically applied to 1 handcrafted dessert in your shopping bag today.`
+                    : `Wishing you a day filled with sweetness, laughter, and delight. Enjoy 30% off your choice of handcrafted dessert today!`
+                  }
+                </p>
+              </div>
+            </div>
+            <div class="shrink-0 flex flex-col items-center md:items-end gap-1">
+              <div class="px-4 py-2 rounded-xl bg-amber-400/20 border border-amber-400/80 text-amber-300 text-xs font-mono font-bold tracking-wider shadow-md">
+                🎉 30% BIRTHDAY GIFT
+              </div>
+              <span class="text-[10px] text-[#A89280] italic">Enjoy your special celebration today</span>
+            </div>
+          </div>
+        ` : ''}
+        
+        <!-- Haute Patisserie Category Navigation -->
+        <div class="mb-5">
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 pt-1 scrollbar-none scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0">
             ${CATEGORIES.map(cat => `
               <button onclick="window.ladesioApp.setMenuCategory('${cat.id}')"
-                      class="px-4 py-2 rounded-xl text-xs font-serif font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${this.selectedCategory === cat.id ? 'bg-[#B8945B] text-[#140602] font-bold shadow-lg ring-2 ring-[#E6CA85]/50' : 'bg-[#1F0C06] text-[#E6CA85] border border-[#B8945B]/30 hover:border-[#E6CA85]/60 hover:text-white'}">
+                      class="px-4 py-2.5 rounded-2xl text-xs font-serif font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer shrink-0 ${this.selectedCategory === cat.id ? 'bg-gradient-to-r from-[#DFBA73] via-[#E8CD8C] to-[#C9A46B] text-[#140602] font-bold shadow-[0_4px_20px_rgba(223,186,115,0.35)] ring-1 ring-[#FFFDF9]/40 transform scale-[1.02]' : 'bg-[#180804] text-[#D6C2B0] border border-[#B8945B]/30 hover:border-[#E6CA85] hover:text-[#FFFDF9] hover:bg-[#240F08] shadow-sm'}">
                 <span>${cat.name}</span>
               </button>
             `).join('')}
           </div>
-
-          <!-- Prominent 100% Eggless Toggle Button -->
-          <button type="button"
-                  onclick="window.ladesioApp.toggleEgglessFilter()"
-                  class="px-4 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-md cursor-pointer shrink-0 ${this.activeFilter.onlyEggless ? 'bg-emerald-600 text-white ring-2 ring-emerald-300 shadow-emerald-900/50' : 'bg-[#140602] text-emerald-400 border border-emerald-500/50 hover:bg-emerald-950/40'}">
-            <span class="w-2.5 h-2.5 rounded-full ${this.activeFilter.onlyEggless ? 'bg-white' : 'bg-emerald-500'} ring-2 ring-emerald-400/40"></span>
-            <span class="w-2 h-2 rounded-full ${this.activeFilter.onlyEggless ? 'bg-white' : 'bg-emerald-400'} ring-2 ring-emerald-400/40"></span><span class="font-cinzel tracking-wider text-[11px]">100% EGGLESS ONLY</span>
-            ${this.activeFilter.onlyEggless ? '<span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded-full">ACTIVE</span>' : ''}
-          </button>
         </div>
 
-        <!-- Filter Bar & Sorting -->
-        <div class="p-4 rounded-2xl bg-[#180905] border border-[#B8945B]/35 shadow-xl mb-8 flex flex-wrap items-center justify-between gap-4 text-xs">
-          
-          <!-- Dietary Selection -->
-          <div class="flex items-center gap-2">
-            <span class="font-semibold text-[#FFFDF9]">Dietary:</span>
-            <select onchange="window.ladesioApp.setDietaryFilter(this.value)"
-                    class="px-3 py-1.5 rounded-lg border border-[#B8945B]/40 bg-[#241009] text-[#FFFDF9] focus:outline-none focus:ring-1 focus:ring-[#E6CA85]">
-              <option value="all" ${this.activeFilter.dietary === 'all' ? 'selected' : ''}>All Selections</option>
-              <option value="high protein" ${this.activeFilter.dietary === 'high protein' ? 'selected' : ''}>High Protein / Whey</option>
-              <option value="no added refined sugar" ${this.activeFilter.dietary === 'no added refined sugar' ? 'selected' : ''}>No Added Refined Sugar</option>
-              <option value="vegetarian" ${this.activeFilter.dietary === 'vegetarian' ? 'selected' : ''}>Vegetarian</option>
-              <option value="eggless" ${this.activeFilter.dietary === 'eggless' ? 'selected' : ''}>Eggless</option>
-              <option value="vegan" ${this.activeFilter.dietary === 'vegan' ? 'selected' : ''}>Vegan / Dairy-Free</option>
-              <option value="gluten-free" ${this.activeFilter.dietary === 'gluten-free' ? 'selected' : ''}>Gluten-Free</option>
-            </select>
-          </div>
+        <!-- Unified Luxury Filter Bar & Controls -->
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-[#180905] via-[#1F0C07] to-[#180905] border border-[#B8945B]/35 shadow-2xl mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+            
+            <!-- Left: Dietary Controls & Integrated 100% Eggless Toggle -->
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+              <!-- Integrated 100% Eggless Toggle Pill -->
+              <button type="button"
+                      onclick="window.ladesioApp.toggleEgglessFilter()"
+                      class="px-3.5 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-sm cursor-pointer shrink-0 ${this.activeFilter.onlyEggless ? 'bg-emerald-950 border-2 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.35)] ring-1 ring-emerald-400/40' : 'bg-[#220E08] text-[#D6C2B0] border border-[#B8945B]/35 hover:border-emerald-500/60 hover:text-white'}">
+                <span class="w-2 h-2 rounded-full ${this.activeFilter.onlyEggless ? 'bg-emerald-400 animate-pulse ring-2 ring-emerald-300' : 'bg-emerald-500'}"></span>
+                <span>🌱 100% Eggless Only</span>
+                ${this.activeFilter.onlyEggless ? '<span class="text-[9px] bg-emerald-500/30 text-emerald-200 px-1.5 py-0.2 rounded font-mono font-bold">ON</span>' : ''}
+              </button>
 
-          <!-- Price Max Slider -->
-          <div class="flex items-center gap-2">
-            <span class="font-semibold text-[#FFFDF9]">Max Price:</span>
-            <span class="font-bold text-[#E6CA85]">₹${this.activeFilter.priceMax}</span>
-            <input type="range" min="300" max="3500" step="100" value="${this.activeFilter.priceMax}"
-                   oninput="window.ladesioApp.setPriceFilter(this.value)"
-                   class="w-24 sm:w-32 accent-[#E6CA85]" />
-          </div>
+              <!-- Dietary Select Dropdown -->
+              <div class="flex items-center gap-1.5">
+                <span class="text-[11px] font-serif text-[#A89280] hidden sm:inline">Dietary:</span>
+                <div class="relative">
+                  <select onchange="window.ladesioApp.setDietaryFilter(this.value)"
+                          class="appearance-none pl-3 pr-8 py-2 rounded-xl border border-[#B8945B]/40 bg-[#220E08] text-[#FFFDF9] text-xs font-serif focus:outline-none focus:border-[#E6CA85] cursor-pointer shadow-sm">
+                    <option value="all" ${this.activeFilter.dietary === 'all' ? 'selected' : ''}>All Dietary Notes</option>
+                    <option value="high protein" ${this.activeFilter.dietary === 'high protein' ? 'selected' : ''}>High Protein & Whey</option>
+                    <option value="no added refined sugar" ${this.activeFilter.dietary === 'no added refined sugar' ? 'selected' : ''}>No Added Refined Sugar</option>
+                    <option value="vegetarian" ${this.activeFilter.dietary === 'vegetarian' ? 'selected' : ''}>Vegetarian</option>
+                    <option value="vegan" ${this.activeFilter.dietary === 'vegan' ? 'selected' : ''}>Vegan & Dairy-Free</option>
+                    <option value="gluten-free" ${this.activeFilter.dietary === 'gluten-free' ? 'selected' : ''}>Gluten-Free</option>
+                  </select>
+                  <span class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[#E6CA85] text-[10px]">▼</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Sort Select -->
-          <div class="flex items-center gap-2">
-            <span class="font-semibold text-[#FFFDF9]">Sort:</span>
-            <select onchange="window.ladesioApp.setSortFilter(this.value)"
-                    class="px-3 py-1.5 rounded-lg border border-[#B8945B]/40 bg-[#241009] text-[#FFFDF9] focus:outline-none focus:ring-1 focus:ring-[#E6CA85]">
-              <option value="recommended" ${this.activeFilter.sortBy === 'recommended' ? 'selected' : ''}>Recommended</option>
-              <option value="price-low" ${this.activeFilter.sortBy === 'price-low' ? 'selected' : ''}>Price: Low to High</option>
-              <option value="price-high" ${this.activeFilter.sortBy === 'price-high' ? 'selected' : ''}>Price: High to Low</option>
-              <option value="rating" ${this.activeFilter.sortBy === 'rating' ? 'selected' : ''}>Top Rated</option>
-            </select>
-          </div>
+            <!-- Right: Price Range, Sort, Count & Reset -->
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 ml-auto">
+              <!-- Price Slider -->
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-serif text-[#A89280]">Max:</span>
+                <span class="font-mono font-bold text-xs text-[#E6CA85] px-2 py-1 rounded-lg bg-[#220E08] border border-[#B8945B]/30 min-w-[54px] text-center">₹${this.activeFilter.priceMax}</span>
+                <input type="range" min="300" max="3500" step="100" value="${this.activeFilter.priceMax}"
+                       oninput="window.ladesioApp.setPriceFilter(this.value)"
+                       class="w-20 sm:w-28 accent-[#E6CA85] cursor-pointer" />
+              </div>
 
+              <!-- Sort Select -->
+              <div class="flex items-center gap-1.5">
+                <span class="text-[11px] font-serif text-[#A89280] hidden md:inline">Sort:</span>
+                <div class="relative">
+                  <select onchange="window.ladesioApp.setSortFilter(this.value)"
+                          class="appearance-none pl-3 pr-8 py-2 rounded-xl border border-[#B8945B]/40 bg-[#220E08] text-[#FFFDF9] text-xs font-serif focus:outline-none focus:border-[#E6CA85] cursor-pointer shadow-sm">
+                    <option value="recommended" ${this.activeFilter.sortBy === 'recommended' ? 'selected' : ''}>Recommended</option>
+                    <option value="price-low" ${this.activeFilter.sortBy === 'price-low' ? 'selected' : ''}>Price: Low to High</option>
+                    <option value="price-high" ${this.activeFilter.sortBy === 'price-high' ? 'selected' : ''}>Price: High to Low</option>
+                    <option value="rating" ${this.activeFilter.sortBy === 'rating' ? 'selected' : ''}>Top Rated</option>
+                  </select>
+                  <span class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[#E6CA85] text-[10px]">▼</span>
+                </div>
+              </div>
+
+              <!-- Reset Filters Button (Shown when filters active) -->
+              ${hasActiveFilters ? `
+                <button onclick="window.ladesioApp.resetFilters()"
+                        class="px-2.5 py-1.5 rounded-xl text-[11px] font-serif font-bold text-amber-300 hover:text-white border border-amber-400/40 bg-amber-950/40 hover:bg-amber-900/60 transition-colors flex items-center gap-1 shadow-sm cursor-pointer">
+                  <span>✕</span> Reset
+                </button>
+              ` : ''}
+
+              <!-- Results Counter -->
+              <div class="text-[11px] font-serif text-[#D6C2B0] pl-1 hidden sm:inline-block">
+                <span class="font-mono font-bold text-white">${filteredProducts.length}</span> creations
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <!-- Product Grid -->
@@ -1532,19 +1841,8 @@ class LaDesioApp {
   // ==========================================
   renderBuilderView(container) {
     container.innerHTML = `
-      <div class="bg-[#160703] py-14 border-b border-[#B8945B]/25">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span class="text-xs uppercase tracking-widest text-[#E6CA85] font-semibold font-serif">Bespoke Patisserie Studio</span>
-          <h1 class="font-display text-4xl sm:text-5xl text-[#FFFDF9] mt-1 drop-shadow-md">CREATE YOUR DESSERT</h1>
-          <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#B8945B] to-transparent mx-auto mt-3 mb-3"></div>
-          <p class="text-xs sm:text-sm text-[#D6C2B0] max-w-xl mx-auto">
-            Design your bespoke Italian dessert from base to sauce. Our master chefs prepare each custom creation fresh to order.
-          </p>
-        </div>
-      </div>
-
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div id="fullDessertStudioMount"></div>
+      <div class="w-full min-h-[calc(100vh-4.25rem)] lg:max-h-[calc(100vh-4.25rem)] bg-gradient-to-b from-[#140603] via-[#1A0A06] to-[#120502] flex flex-col justify-start px-2 sm:px-4 lg:px-6 py-2 sm:py-3 max-w-7xl mx-auto">
+        <div id="fullDessertStudioMount" class="w-full flex-1 flex flex-col justify-center"></div>
       </div>
     `;
 
@@ -1561,57 +1859,62 @@ class LaDesioApp {
     const naturalProducts = PRODUCTS.filter(p => p.category === 'natural');
 
     container.innerHTML = `
-      <div class="bg-gradient-to-b from-[#152618] via-[#170C07] to-[#120502] py-16 border-b border-[#8A9A86]/30">
+      <div class="bg-gradient-to-b from-[#152618] via-[#170C07] to-[#120502] py-8 sm:py-10 border-b border-[#8A9A86]/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8A9A86]/20 text-[#A3E635] text-xs font-serif tracking-wider uppercase mb-3 border border-[#8A9A86]/35">
+          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#8A9A86]/20 text-[#A3E635] text-[10px] font-serif tracking-wider uppercase mb-2 border border-[#8A9A86]/35">
             <span>🌿</span> The Mindful Patisserie Collection
           </div>
-          <h1 class="font-display text-4xl sm:text-6xl text-[#FFFDF9] drop-shadow-md">DESIO NATURAL</h1>
-          <p class="font-serif-elegant italic text-xl text-[#E6CA85] mt-2">"Thoughtfully crafted. Naturally inspired."</p>
-          <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#B8945B] to-transparent mx-auto mt-4 mb-4"></div>
-          <p class="text-xs sm:text-sm text-[#D6C2B0] max-w-2xl mx-auto leading-relaxed">
-            Created for those who want to be more mindful of ingredients without sacrificing the pure indulgence of authentic dessert. Made without artificial sweeteners and with reduced reliance on refined sugars.
+          <h1 class="font-display text-3xl sm:text-4xl text-[#FFFDF9] drop-shadow-md">DESIO NATURAL</h1>
+          <p class="font-serif-elegant italic text-base sm:text-lg text-[#E6CA85] mt-1">"Thoughtfully crafted. Naturally inspired."</p>
+          <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#B8945B] to-transparent mx-auto mt-2 mb-2"></div>
+          <p class="text-xs text-[#D6C2B0] max-w-xl mx-auto leading-relaxed">
+            Mindful patisserie crafted without artificial sweeteners and reduced reliance on refined sugars, celebrating Medjool dates, wild raw honey, and concentrated fruit purées.
           </p>
         </div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
-        <!-- Educational Pillars Banner -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl luxury-card border border-[#8A9A86]/40 shadow-xl space-y-2">
-            <span class="text-3xl">🍓</span>
-            <h4 class="font-serif text-base font-bold text-[#FFFDF9]">Real Fruit & Purées</h4>
-            <p class="text-xs text-[#D6C2B0] leading-relaxed">
-              Natural flavor from mountain strawberries, wild blueberries, and Ratnagiri Alphonso mangoes without synthetic aromas.
-            </p>
+        <!-- Educational Pillars Banner (Compact 1-row strip) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-xl luxury-card border border-[#8A9A86]/40 shadow-md flex items-center gap-3">
+            <span class="text-2xl shrink-0">🍓</span>
+            <div>
+              <h4 class="font-serif text-xs font-bold text-[#FFFDF9]">Real Fruit & Purées</h4>
+              <p class="text-[11px] text-[#D6C2B0]">Mountain strawberries, wild berries & Alphonso mangoes.</p>
+            </div>
           </div>
 
-          <div class="p-6 rounded-2xl luxury-card border border-[#8A9A86]/40 shadow-xl space-y-2">
-            <span class="text-3xl">🌴</span>
-            <h4 class="font-serif text-base font-bold text-[#FFFDF9]">Naturally Sweet Ingredients</h4>
-            <p class="text-xs text-[#D6C2B0] leading-relaxed">
-              Sweetened with sun-cured Medjool dates, wild raw blossom honey, and concentrated fruit reductions.
-            </p>
+          <div class="p-3.5 rounded-xl luxury-card border border-[#8A9A86]/40 shadow-md flex items-center gap-3">
+            <span class="text-2xl shrink-0">🌴</span>
+            <div>
+              <h4 class="font-serif text-xs font-bold text-[#FFFDF9]">Naturally Sweetened</h4>
+              <p class="text-[11px] text-[#D6C2B0]">Sun-cured Medjool dates & wild raw blossom honey.</p>
+            </div>
           </div>
 
-          <div class="p-6 rounded-2xl luxury-card border border-[#8A9A86]/40 shadow-xl space-y-2">
-            <span class="text-3xl">🍫</span>
-            <h4 class="font-serif text-base font-bold text-[#FFFDF9]">High-Percentage Cacao</h4>
-            <p class="text-xs text-[#D6C2B0] leading-relaxed">
-              80% Single-origin raw Peruvian cacao provides rich cocoa notes with less refined sweetness.
-            </p>
+          <div class="p-3.5 rounded-xl luxury-card border border-[#8A9A86]/40 shadow-md flex items-center gap-3">
+            <span class="text-2xl shrink-0">🍫</span>
+            <div>
+              <h4 class="font-serif text-xs font-bold text-[#FFFDF9]">80% Raw Cacao</h4>
+              <p class="text-[11px] text-[#D6C2B0]">Single-origin raw Peruvian cacao with deep cocoa complexity.</p>
+            </div>
           </div>
         </div>
 
         <!-- Natural Products Grid -->
         <div>
-          <div class="text-center max-w-xl mx-auto mb-10">
-            <h3 class="font-display text-2xl sm:text-3xl text-[#FFFDF9]">The Natural Atelier Menu</h3>
-            <p class="text-xs text-[#D6C2B0] mt-1">Every recipe is clearly transparent about ingredients and allergens.</p>
+          <div class="flex items-center justify-between mb-5 border-b border-[#B8945B]/20 pb-2">
+            <div>
+              <h3 class="font-display text-xl text-[#FFFDF9]">The Natural Atelier Menu</h3>
+              <p class="text-[11px] text-[#D6C2B0]">Transparent ingredients, clean nutrition, and zero synthetic additives.</p>
+            </div>
+            <span class="text-xs font-mono text-[#E6CA85] font-bold px-2.5 py-0.5 rounded-full bg-[#1A0905] border border-[#B8945B]/30">
+              ${naturalProducts.length} Creations
+            </span>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             ${naturalProducts.map(p => this.renderProductCard(p, true)).join('')}
           </div>
         </div>
@@ -1643,13 +1946,22 @@ class LaDesioApp {
         
         <!-- Gift Hampers Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          ${giftProducts.map(p => `
+          ${giftProducts.map(p => {
+            const pricing = this.getProductPricing(p);
+            return `
             <div class="luxury-card rounded-2xl border border-[#B8945B]/40 p-6 shadow-2xl flex flex-col md:flex-row gap-6 transition-all duration-300 bg-gradient-to-b from-[#583324] to-[#3E2014]">
               <div class="w-full md:w-1/2 h-64 rounded-xl overflow-hidden relative border border-[#B8945B]/30">
                 <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" />
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#180804] text-[#E6CA85] text-[10px] font-serif uppercase tracking-wider border border-[#B8945B]/50 backdrop-blur-md font-semibold shadow">
-                  ${p.badge}
-                </span>
+                <div class="absolute top-3 left-3 flex flex-col gap-1 z-10">
+                  ${pricing.isBirthdayDiscount ? `
+                    <span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-amber-400 via-[#F5D796] to-amber-400 text-black text-[9.5px] font-serif font-black tracking-wider uppercase shadow-xl border border-amber-300 flex items-center gap-1 animate-pulse">
+                      <span>🎂</span> 30% OFF BIRTHDAY
+                    </span>
+                  ` : ''}
+                  <span class="px-3 py-1 rounded-full bg-[#180804] text-[#E6CA85] text-[10px] font-serif uppercase tracking-wider border border-[#B8945B]/50 backdrop-blur-md font-semibold shadow">
+                    ${p.badge}
+                  </span>
+                </div>
               </div>
               <div class="w-full md:w-1/2 flex flex-col justify-between space-y-4">
                 <div>
@@ -1659,8 +1971,16 @@ class LaDesioApp {
                 </div>
                 <div class="pt-4 border-t border-[#B8945B]/25 flex items-center justify-between">
                   <div>
-                    <span class="text-xs text-[#C4B2A3] line-through ${p.originalPrice ? '' : 'hidden'}">₹${p.originalPrice}</span>
-                    <span class="font-display font-bold text-xl text-[#FFFDF9]">₹${p.price}</span>
+                    ${pricing.isBirthdayDiscount ? `
+                      <span class="text-xs text-rose-400/90 line-through font-mono">₹${pricing.originalPrice}</span>
+                      <div class="flex items-baseline gap-1.5">
+                        <span class="font-display font-bold text-xl text-[#F5D796]">₹${pricing.price}</span>
+                        <span class="text-[9px] font-bold text-emerald-400 uppercase bg-emerald-950/80 border border-emerald-500/50 px-1.5 py-0.2 rounded">30% OFF</span>
+                      </div>
+                    ` : `
+                      <span class="text-xs text-[#C4B2A3] line-through ${p.originalPrice ? '' : 'hidden'}">₹${p.originalPrice}</span>
+                      <span class="font-display font-bold text-xl text-[#FFFDF9]">₹${p.price}</span>
+                    `}
                   </div>
                   <button onclick="window.ladesioApp.quickAddToCart('${p.id}')"
                           class="px-5 py-2 rounded-lg btn-gold-luxury font-serif text-xs font-semibold shadow-md">
@@ -1669,7 +1989,8 @@ class LaDesioApp {
                 </div>
               </div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
 
         <!-- Digital Gift Card Studio -->
@@ -1897,6 +2218,424 @@ class LaDesioApp {
   }
 
   // ==========================================
+  // CUSTOMER SUPPORT & ATELIER CONCIERGE VIEW
+  // ==========================================
+  renderSupportView(container = document.getElementById('app-main-content')) {
+    const activeUser = loyaltyStore && typeof loyaltyStore.getActiveUser === 'function' ? loyaltyStore.getActiveUser() : null;
+    const defaultName = activeUser ? (activeUser.name || '') : '';
+    const defaultEmail = activeUser ? (activeUser.email || '') : '';
+    const defaultPhone = activeUser ? (activeUser.phone || '') : '';
+
+    container.innerHTML = `
+      <div class="min-h-screen pb-20">
+        
+        <!-- LUXURY HERO BANNER -->
+        <div class="relative py-14 md:py-20 bg-gradient-to-b from-[#140603] via-[#1F0A05] to-[#140603] border-b border-[#B8945B]/30 overflow-hidden text-center px-4">
+          <!-- Background Ambient Glow & Monogram Watermark -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#B8945B]/10 blur-3xl pointer-events-none"></div>
+          <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none select-none">
+            <img src="Assets/Logo/emblem_transparent.png" alt="" class="w-80 h-80 object-contain" />
+          </div>
+
+          <div class="relative z-10 max-w-4xl mx-auto space-y-3.5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#B8945B]/50 text-[10px] font-serif tracking-[0.25em] text-[#E6CA85] uppercase shadow-md">
+              <span>⚜️</span>
+              <span>HAUTE PATISSERIE CONCIERGE DESK</span>
+            </div>
+
+            <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl text-[#FFFDF9] font-bold tracking-wide">
+              Client Care & Tasting Inquiries
+            </h1>
+
+            <p class="text-xs sm:text-sm text-[#D6C2B0] font-serif max-w-2xl mx-auto leading-relaxed">
+              We welcome every culinary curiosity, bespoke 3D creation inquiry, and patron reflection. Our concierge ensures your sweet journeys across our flagship ateliers remain sublime.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-[11px] text-stone-300">
+              <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/30">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active Concierge Service</span>
+              </span>
+              <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A0905] border border-[#B8945B]/30">
+                <span>⏱️</span>
+                <span>Avg. Response: &lt; 2 Hours</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN SUPPORT WRAPPER -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20 space-y-10">
+          
+          <!-- 3 LUXURY CONTACT TOUCHPOINT CARDS -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            
+            <!-- Card 1: Official Email Desk -->
+            <div class="p-6 rounded-3xl bg-[#1C0A05]/95 backdrop-blur-md border border-[#B8945B]/40 hover:border-[#E6CA85] shadow-xl flex flex-col justify-between space-y-4 group transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D140C] to-[#120502] border border-[#B8945B]/50 flex items-center justify-center text-xl shadow-lg text-[#E6CA85] group-hover:scale-105 transition-transform">
+                  ✉️
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-serif font-bold block">Official Patron Dispatch</span>
+                  <h3 class="text-sm sm:text-base font-serif font-bold text-white mt-0.5 break-all">mohan.sakthivl@gmail.com</h3>
+                  <p class="text-xs text-[#D6C2B0] pt-1 leading-relaxed">Direct patron desk for order modifications, corporate gifting, and chef reflections.</p>
+                </div>
+              </div>
+              <div class="pt-2 flex items-center gap-2">
+                <a href="mailto:mohan.sakthivl@gmail.com?subject=La%20Desio%20Patron%20Inquiry" 
+                   class="flex-1 py-2 px-3 rounded-xl btn-gold-luxury text-center text-xs font-serif font-semibold tracking-wider uppercase transition-all shadow-md">
+                  Send Email →
+                </a>
+                <button type="button" 
+                        onclick="navigator.clipboard.writeText('mohan.sakthivl@gmail.com'); if(window.showToast) window.showToast('Copied mohan.sakthivl@gmail.com to clipboard', 'success');"
+                        class="py-2 px-3 rounded-xl border border-[#B8945B]/40 hover:border-[#E6CA85] text-[#E6CA85] hover:text-white bg-[#140804] text-xs font-serif transition-colors cursor-pointer"
+                        title="Copy Email Address">
+                  📋 Copy
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2: Priority Concierge Phone Helpline -->
+            <div class="p-6 rounded-3xl bg-[#1C0A05]/95 backdrop-blur-md border border-[#B8945B]/40 hover:border-[#E6CA85] shadow-xl flex flex-col justify-between space-y-4 group transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D140C] to-[#120502] border border-[#B8945B]/50 flex items-center justify-center text-xl shadow-lg text-[#E6CA85] group-hover:scale-105 transition-transform">
+                  📱
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-serif font-bold block">Priority Helpline Desk</span>
+                  <h3 class="text-sm sm:text-base font-serif font-bold text-white mt-0.5">+91 98401 23456</h3>
+                  <p class="text-xs text-[#D6C2B0] pt-1 leading-relaxed">Available 09:00 AM – 11:30 PM IST daily for active dispatch and delivery coordination.</p>
+                </div>
+              </div>
+              <div class="pt-2">
+                <a href="tel:+919840123456" 
+                   class="w-full block py-2 px-3 rounded-xl border border-[#B8945B]/50 hover:bg-[#B8945B] hover:text-[#120502] text-[#E6CA85] text-center text-xs font-serif font-semibold tracking-wider uppercase transition-all shadow-md">
+                  Call Concierge 📞
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 3: Flagship Atelier Kitchens -->
+            <div class="p-6 rounded-3xl bg-[#1C0A05]/95 backdrop-blur-md border border-[#B8945B]/40 hover:border-[#E6CA85] shadow-xl flex flex-col justify-between space-y-4 group transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D140C] to-[#120502] border border-[#B8945B]/50 flex items-center justify-center text-xl shadow-lg text-[#E6CA85] group-hover:scale-105 transition-transform">
+                  🏛️
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-serif font-bold block">In-Person Tasting Salons</span>
+                  <h3 class="text-sm sm:text-base font-serif font-bold text-white mt-0.5">Chennai • Bengaluru • Kochi</h3>
+                  <p class="text-xs text-[#D6C2B0] pt-1 leading-relaxed">Private tasting rooms available by appointment for wedding & celebration cakes.</p>
+                </div>
+              </div>
+              <div class="pt-2">
+                <a href="#boutiques" 
+                   class="w-full block py-2 px-3 rounded-xl border border-[#B8945B]/50 hover:bg-[#B8945B] hover:text-[#120502] text-[#E6CA85] text-center text-xs font-serif font-semibold tracking-wider uppercase transition-all shadow-md">
+                  View Boutiques & Maps →
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 2-COLUMN SPLIT: QUERY SUBMITTER FORM + FAQ ACCORDION -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT COLUMN: QUERY & EXPERIENCE SUBMISSION FORM (7 COLS) -->
+            <div class="lg:col-span-7 bg-[#1C0A05] rounded-3xl p-6 sm:p-8 lg:p-9 border border-[#B8945B]/40 shadow-2xl relative overflow-hidden space-y-6">
+              
+              <!-- Subtle Gold Accents -->
+              <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E6CA85] to-transparent"></div>
+              <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#E6CA85]/40 pointer-events-none"></div>
+
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">✉️</span>
+                  <span class="text-[10px] uppercase font-serif tracking-[0.25em] text-[#E6CA85] font-bold">CONCIERGE DISPATCH FORM</span>
+                </div>
+                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">
+                  Submit a Query or Share an Experience
+                </h2>
+                <p class="text-xs text-[#D6C2B0] leading-relaxed font-serif">
+                  Submissions are dispatched directly to <span class="text-[#E6CA85] font-semibold underline">mohan.sakthivl@gmail.com</span> and logged with an official reference ticket.
+                </p>
+              </div>
+
+              <!-- Interactive Form -->
+              <form id="supportQueryForm" onsubmit="window.ladesioApp.handleSupportQuerySubmit(event)" class="space-y-4">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Name Input -->
+                  <div class="space-y-1.5">
+                    <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Your Name *</label>
+                    <input type="text" id="supportNameInput" required
+                           value="${defaultName}"
+                           placeholder="e.g. Arjun Sundaram"
+                           class="w-full px-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                  </div>
+
+                  <!-- Email Input -->
+                  <div class="space-y-1.5">
+                    <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Email Address *</label>
+                    <input type="email" id="supportEmailInput" required
+                           value="${defaultEmail}"
+                           placeholder="e.g. arjun@example.com"
+                           class="w-full px-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Mobile Phone Input -->
+                  <div class="space-y-1.5">
+                    <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Mobile Number (Optional)</label>
+                    <div class="flex items-center rounded-xl border border-[#B8945B]/35 bg-[#120502] overflow-hidden">
+                      <span class="px-3 py-3 text-xs font-mono text-[#E6CA85] border-r border-[#B8945B]/25 bg-black/40">🇮🇳 +91</span>
+                      <input type="tel" id="supportPhoneInput" maxlength="10"
+                             value="${defaultPhone ? defaultPhone.replace('+91', '').trim() : ''}"
+                             placeholder="98401 23456"
+                             class="w-full px-3 py-3 bg-transparent text-white text-xs font-mono outline-none" />
+                    </div>
+                  </div>
+
+                  <!-- Inquiry Reason / Category -->
+                  <div class="space-y-1.5">
+                    <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Purpose of Message *</label>
+                    <select id="supportCategoryInput" required
+                            class="w-full px-4 py-3 rounded-xl auth-input text-xs font-sans bg-[#120502] text-white">
+                      <option value="experience">💬 Share an Atelier Experience / Feedback</option>
+                      <option value="order">📦 Delivery Status & Cold-Chain Tracking</option>
+                      <option value="bespoke">🎂 Bespoke 3D Studio & Multi-Tier Customization</option>
+                      <option value="gifting">🎁 Corporate, Wedding & VIP Gifting Concierge</option>
+                      <option value="ingredients">🌿 Dietary, 100% Eggless & Purity Queries</option>
+                      <option value="general">❓ General Inquiries & Atelier Information</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Subject Line -->
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Subject / Topic *</label>
+                  <input type="text" id="supportSubjectInput" required
+                         placeholder="e.g. Inquiring about a custom wedding tiered cake for December"
+                         class="w-full px-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                </div>
+
+                <!-- Message / Story Textarea -->
+                <div class="space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Your Message / Reflections *</label>
+                    <span class="text-[10px] text-stone-400">Be as detailed as you like</span>
+                  </div>
+                  <textarea id="supportMessageInput" required rows="5"
+                            placeholder="Share your experience, tasting reflections, celebration date, or any specific questions you have for our master chefs..."
+                            class="w-full px-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500 resize-y leading-relaxed"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                  <button type="submit" id="supportSubmitBtn"
+                          class="w-full py-4 rounded-xl btn-gold-luxury font-serif text-xs font-bold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer">
+                    <span>Dispatch Query to Concierge (mohan.sakthivl@gmail.com)</span>
+                    <span class="text-base">✉️</span>
+                  </button>
+                </div>
+
+                <!-- Trust Guarantee Notice -->
+                <p class="text-[11px] text-stone-400 text-center font-serif pt-1">
+                  🔒 Your confidential submission will open your email client pre-addressed to <span class="text-[#E6CA85]">mohan.sakthivl@gmail.com</span> and be logged into your private ticket registry.
+                </p>
+
+              </form>
+
+              <!-- Live Submission Confirmation Banner (hidden by default) -->
+              <div id="supportSuccessBanner" class="hidden p-5 rounded-2xl bg-[#140804] border border-[#B8945B]/60 shadow-xl space-y-3">
+                <div class="flex items-center gap-2.5 text-emerald-400 font-serif font-bold text-sm">
+                  <span>✨</span>
+                  <span>Dispatch Confirmed — Ticket Reference Generated</span>
+                </div>
+                <div class="p-3.5 rounded-xl bg-black/60 border border-[#B8945B]/30 font-mono text-xs space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-stone-400">Reference ID:</span>
+                    <span id="supportTicketId" class="text-[#E6CA85] font-bold">#LD-SUPPORT-10294</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-stone-400">Recipient:</span>
+                    <span class="text-white">mohan.sakthivl@gmail.com</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-stone-400">Status:</span>
+                    <span class="text-emerald-400">Delivered to Concierge Queue</span>
+                  </div>
+                </div>
+                <p class="text-xs text-[#D6C2B0] font-serif leading-relaxed">
+                  A representative will review your message and reply to your provided email address shortly. Thank you for connecting with La Desio Haute Patisserie.
+                </p>
+                <button type="button" onclick="document.getElementById('supportSuccessBanner').classList.add('hidden'); document.getElementById('supportQueryForm').classList.remove('hidden');"
+                        class="text-xs font-serif text-[#E6CA85] hover:underline cursor-pointer">
+                  ← Submit another query
+                </button>
+              </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: FREQUENTLY ASKED QUESTIONS (5 COLS) -->
+            <div class="lg:col-span-5 space-y-4">
+              
+              <div class="p-5 rounded-3xl bg-[#1A0905] border border-[#B8945B]/40 shadow-xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold">KNOWLEDGE SANCTUARY</span>
+                  <span class="text-[10px] text-stone-400 font-mono">7 Curated Answers</span>
+                </div>
+                <h3 class="font-display text-xl sm:text-2xl font-bold text-white">Frequently Asked Questions</h3>
+                <p class="text-xs text-[#D6C2B0] font-serif leading-relaxed">
+                  Immediate answers to common curiosities regarding our eggless formulations, 3D Studio, delivery chambers, and timing.
+                </p>
+              </div>
+
+              <!-- Accordion Container -->
+              <div class="space-y-3">
+                ${this.renderSupportFaqList()}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    `;
+  }
+
+  renderSupportFaqList() {
+    const supportFaqs = [
+      {
+        q: 'Are all La Desio creations 100% eggless and animal gelatin-free?',
+        a: 'Yes, without exception. Every creation across our menu and 3D Studio is 100% vegetarian, free of eggs and animal-derived gelatin. We use plant pectins, cold-pressed cocoa butters, and agar-agar where needed to achieve our signature velvety textures.'
+      },
+      {
+        q: 'How does the 3D Bespoke Dessert Atelier work?',
+        a: 'Our 3D Studio enables you to sculpt and personalize your dessert across 6 dimensions: Base, Flavor, Filling, Toppings, Luxury Sauce, and Custom Inscription in real-time WebGL. Once ordered, our master chefs prepare and dispatch your creation in 25–40 minutes.'
+      },
+      {
+        q: 'How do you prevent mousses and ganaches from melting in transit?',
+        a: 'Every order is transported inside our certified cold-chain chambers with active eco-chilled thermal insulation, maintaining a stable 4°C temperature from our ovens to your doorstep, regardless of ambient weather or traffic.'
+      },
+      {
+        q: 'Can I schedule delivery for a future celebration or midnight birthday?',
+        a: 'Yes! During checkout, you can select any future date up to 30 days ahead and choose specific time slots, including our signature Midnight White-Glove Surprise window (11:45 PM – 12:15 AM).'
+      },
+      {
+        q: 'What is your policy for modifying or cancelling an order?',
+        a: 'Because artisanal patisserie is freshly baked each dawn, orders may be modified or cancelled up to 2 hours prior to your scheduled dispatch time by calling our helpline or emailing mohan.sakthivl@gmail.com.'
+      },
+      {
+        q: 'How do I earn and redeem La Desio Privé loyalty points?',
+        a: 'Every patron receives 250 complimentary welcome points on registration and earns 1 point for every ₹10 spent. Points can be redeemed at checkout for direct discounts, complimentary anniversary cakes, and secret tasting invitations.'
+      },
+      {
+        q: 'Can I include handwritten gift cards and custom gift wrapping?',
+        a: 'Yes, complimentary handwritten Italian calligraphy gift cards and gilded satin ribbon sealing are available for every order at checkout at zero additional charge.'
+      }
+    ];
+
+    return supportFaqs.map((faq, idx) => `
+      <details class="bg-[#1C0A05] rounded-2xl border border-[#B8945B]/30 hover:border-[#E6CA85]/60 p-4 shadow-md group transition-all" ${idx === 0 ? 'open' : ''}>
+        <summary class="font-serif font-bold text-xs sm:text-sm text-[#FFFDF9] cursor-pointer flex justify-between items-center list-none select-none">
+          <span class="flex items-center gap-2">
+            <span class="text-[#E6CA85] text-xs">✦</span>
+            <span>${faq.q}</span>
+          </span>
+          <span class="text-[#B8945B] transition-transform duration-300 group-open:rotate-180 text-xs shrink-0 ml-2">▼</span>
+        </summary>
+        <p class="text-xs text-[#D6C2B0] mt-3 leading-relaxed border-t border-[#B8945B]/20 pt-3 font-serif">
+          ${faq.a}
+        </p>
+      </details>
+    `).join('');
+  }
+
+  handleSupportQuerySubmit(e) {
+    if (e) e.preventDefault();
+
+    const name = (document.getElementById('supportNameInput')?.value || '').trim();
+    const email = (document.getElementById('supportEmailInput')?.value || '').trim();
+    const phone = (document.getElementById('supportPhoneInput')?.value || '').trim();
+    const category = document.getElementById('supportCategoryInput')?.value || 'general';
+    const subject = (document.getElementById('supportSubjectInput')?.value || '').trim();
+    const message = (document.getElementById('supportMessageInput')?.value || '').trim();
+
+    if (!name || !email || !subject || !message) {
+      if (window.showToast) window.showToast('Please fill in all required fields.', 'warning');
+      return;
+    }
+
+    const ticketId = `LD-SUPPORT-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // Save ticket locally so user can reference it
+    try {
+      const existing = JSON.parse(localStorage.getItem('ladesio_support_tickets') || '[]');
+      existing.unshift({
+        ticketId,
+        date: new Date().toISOString(),
+        name,
+        email,
+        phone,
+        category,
+        subject,
+        message,
+        status: 'Delivered to Concierge (mohan.sakthivl@gmail.com)'
+      });
+      localStorage.setItem('ladesio_support_tickets', JSON.stringify(existing.slice(0, 30)));
+    } catch (err) {}
+
+    // Prepare mailto link to open patron's mail client directly to mohan.sakthivl@gmail.com
+    const emailSubject = encodeURIComponent(`[${ticketId}] ${subject}`);
+    const emailBody = encodeURIComponent(
+      `LA DESIO PATRON CONCIERGE DISPATCH\n` +
+      `====================================\n` +
+      `Ticket Reference: ${ticketId}\n` +
+      `Patron Name: ${name}\n` +
+      `Patron Email: ${email}\n` +
+      `Contact Phone: ${phone ? '+91 ' + phone : 'Not provided'}\n` +
+      `Inquiry Category: ${category}\n\n` +
+      `MESSAGE / REFLECTIONS:\n` +
+      `------------------------------------\n` +
+      `${message}\n\n` +
+      `Sent via La Desio Haute Patisserie Client Support Portal.`
+    );
+
+    // Open mailto link
+    const mailtoUrl = `mailto:mohan.sakthivl@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    window.location.href = mailtoUrl;
+
+    // Show UI confirmation
+    const form = document.getElementById('supportQueryForm');
+    const successBanner = document.getElementById('supportSuccessBanner');
+    const ticketElem = document.getElementById('supportTicketId');
+
+    if (ticketElem) ticketElem.textContent = `#${ticketId}`;
+    if (form) form.classList.add('hidden');
+    if (successBanner) successBanner.classList.remove('hidden');
+
+    if (window.showToast) {
+      window.showToast(`✨ Query dispatched! Ticket #${ticketId} created for mohan.sakthivl@gmail.com`, 'success');
+    }
+  }
+
+  formatBirthdayReadable(bdayStr) {
+    if (!bdayStr) return '';
+    try {
+      const parts = String(bdayStr).split('-');
+      if (parts.length === 3) {
+        const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      }
+    } catch (e) {}
+    return bdayStr;
+  }
+
+  // ==========================================
   // CUSTOMER ACCOUNT & LA DESIO PRIVÉ
   // ==========================================
   renderAccountView(container = document.getElementById('app-main-content')) {
@@ -1910,7 +2649,14 @@ class LaDesioApp {
       this.activeAccountTab = 'creations';
     }
     const data = loyaltyStore.getData();
-    const { profile, creations, orders, friends = [] } = data;
+    let { profile, creations, orders, friends = [] } = data;
+    if (profile && !profile.birthday) {
+      const remembered = loyaltyStore.getRememberedBirthday(profile.id, profile.phone, profile.email);
+      if (remembered) {
+        profile.birthday = remembered;
+        loyaltyStore.updateProfile({ birthday: remembered });
+      }
+    }
 
     container.innerHTML = `
       <!-- Privé Account Hero Header -->
@@ -1922,8 +2668,8 @@ class LaDesioApp {
             
             <!-- Left: Member Identity & Bio (7 cols) -->
             <div class="lg:col-span-7 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
-              <!-- Avatar with Camera Badge & Edit Trigger -->
-              <div class="relative group cursor-pointer shrink-0" onclick="window.ladesioApp.openEditProfileModal()" title="Click to edit profile & photo">
+              <!-- Avatar Display (Clean luxury frame) -->
+              <div class="relative shrink-0">
                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-1 shadow-2xl overflow-hidden relative">
                   ${profile.avatar ? `
                     <img src="${profile.avatar}" alt="${profile.name}" class="w-full h-full object-cover rounded-full" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';" />
@@ -1935,13 +2681,7 @@ class LaDesioApp {
                       ${(profile.name || 'Member').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
                     </div>
                   `}
-                  <div class="absolute inset-0 bg-black/50 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span class="text-white text-xs font-serif font-bold">📷 Change</span>
-                  </div>
                 </div>
-                <button type="button" class="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-[#B8945B] hover:bg-[#E6CA85] text-black text-xs flex items-center justify-center shadow-lg border-2 border-[#180A06] transition-colors" title="Change Avatar">
-                  ✏️
-                </button>
               </div>
 
               <div class="space-y-1.5 flex-1 min-w-0">
@@ -1965,7 +2705,43 @@ class LaDesioApp {
                     <span class="soundscape-pulse-dot absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 hidden animate-pulse border border-[#180A06]"></span>
                   </button>
                 </div>
-                <p class="text-xs text-[#D6C2B0]">${profile.email} • Client since ${profile.joinedDate}</p>
+                <!-- Credentials Row: DOB, Mobile Number & Email ID -->
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1.5 pt-1 text-xs text-[#D6C2B0]">
+                  ${profile.birthday ? `
+                    <span class="inline-flex items-center gap-1.5 text-[#E6CA85] bg-[#140603] px-2.5 py-1 rounded-lg border border-[#B8945B]/30 font-medium">
+                      <span>🎂</span> <span>${this.formatBirthdayReadable(profile.birthday)}</span>
+                    </span>
+                  ` : `
+                    <button type="button" onclick="window.ladesioApp.openEditProfileModal()" 
+                            class="inline-flex items-center gap-1.5 text-[#E6CA85] hover:text-white bg-[#140603] px-2.5 py-1 rounded-lg border border-dashed border-[#B8945B]/50 hover:border-[#E6CA85] transition-all cursor-pointer">
+                      <span>🎂</span> <span class="underline">Add Birthday (30% OFF)</span>
+                    </button>
+                  `}
+
+                  ${profile.phone ? `
+                    <span class="inline-flex items-center gap-1.5 text-white font-mono bg-[#140603] px-2.5 py-1 rounded-lg border border-[#B8945B]/30">
+                      <span>📱</span> <span>${profile.displayPhone || ('+91 ' + profile.phone)}</span>
+                    </span>
+                  ` : `
+                    <button type="button" onclick="window.ladesioApp.openEditProfileModal()" 
+                            class="inline-flex items-center gap-1.5 text-[#E6CA85] hover:text-white bg-[#140603] px-2.5 py-1 rounded-lg border border-dashed border-[#B8945B]/50 hover:border-[#E6CA85] transition-all cursor-pointer">
+                      <span>📱</span> <span class="underline">Add Mobile Number</span>
+                    </button>
+                  `}
+
+                  ${profile.email ? `
+                    <span class="inline-flex items-center gap-1.5 text-white bg-[#140603] px-2.5 py-1 rounded-lg border border-[#B8945B]/30">
+                      <span>✉️</span> <span>${profile.email}</span>
+                    </span>
+                  ` : `
+                    <button type="button" onclick="window.ladesioApp.openEditProfileModal()" 
+                            class="inline-flex items-center gap-1.5 text-[#E6CA85] hover:text-white bg-[#140603] px-2.5 py-1 rounded-lg border border-dashed border-[#B8945B]/50 hover:border-[#E6CA85] transition-all cursor-pointer">
+                      <span>✉️</span> <span class="underline">Add Email ID</span>
+                    </button>
+                  `}
+
+                  <span class="text-stone-500 text-[11px] self-center">• Client since ${profile.joinedDate || '2026'}</span>
+                </div>
                 ${profile.bio ? `
                   <p class="text-xs text-[#E6CA85]/90 italic max-w-xl leading-relaxed bg-black/25 p-2.5 rounded-xl border-l-2 border-[#B8945B]">
                     “${profile.bio}”
@@ -2053,51 +2829,51 @@ class LaDesioApp {
             </div>
 
             ${creations.length > 0 ? `
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 ${creations.map(creation => `
-                  <div class="p-5 rounded-2xl bg-[#241009] border border-[#B8945B]/30 hover:border-[#B8945B] shadow-xl flex flex-col justify-between transition-all group">
-                    <div class="space-y-3">
-                      <div class="relative rounded-xl overflow-hidden aspect-video border border-[#B8945B]/20">
+                  <div class="p-3.5 rounded-2xl bg-[#241009] border border-[#B8945B]/30 hover:border-[#B8945B] shadow-xl flex flex-col justify-between transition-all group">
+                    <div class="space-y-2">
+                      <div class="relative rounded-xl overflow-hidden h-36 border border-[#B8945B]/20">
                         <img src="${creation.image}" alt="${creation.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-[#180A06]/90 border border-[#B8945B]/40 text-[#E6CA85] text-[10px] font-serif uppercase tracking-wider font-semibold">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#180A06]/90 border border-[#B8945B]/40 text-[#E6CA85] text-[9.5px] font-serif uppercase tracking-wider font-semibold">
                           Bespoke Recipe
                         </span>
-                        <span class="absolute bottom-2.5 right-2.5 px-2.5 py-0.5 rounded-lg bg-black/80 font-display font-bold text-sm text-[#FFFDF9]">
+                        <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded-lg bg-black/85 font-display font-bold text-xs text-[#FFFDF9]">
                           ₹${creation.price}
                         </span>
                       </div>
 
                       <div>
-                        <div class="flex items-center justify-between">
-                          <h4 class="font-serif font-bold text-base text-[#FFFDF9]">${creation.name}</h4>
-                          <span class="text-[10px] text-[#D6C2B0] font-mono">${creation.createdDate}</span>
+                        <div class="flex items-center justify-between gap-1">
+                          <h4 class="font-serif font-bold text-sm text-[#FFFDF9] truncate">${creation.name}</h4>
+                          <span class="text-[9.5px] text-[#D6C2B0] font-mono shrink-0">${creation.createdDate}</span>
                         </div>
-                        <p class="text-xs text-[#E6CA85] mt-1 leading-relaxed line-clamp-2">
+                        <p class="text-[11px] text-[#E6CA85] mt-0.5 leading-snug line-clamp-1">
                           ${creation.recipe}
                         </p>
                       </div>
 
                       <!-- Nutrition pill if available -->
                       ${creation.nutrition ? `
-                        <div class="flex items-center justify-between p-2 rounded-lg bg-[#180A06] border border-[#B8945B]/20 text-[10px] text-[#D6C2B0]">
-                          <span>⚡ <strong>${creation.nutrition.calories} kcal</strong></span>
-                          <span>P: ${creation.nutrition.protein}g • C: ${creation.nutrition.carbs}g • F: ${creation.nutrition.fats}g</span>
+                        <div class="flex items-center justify-between p-1.5 rounded-lg bg-[#180A06] border border-[#B8945B]/20 text-[9.5px] text-[#D6C2B0]">
+                          <span>⚡ <strong class="text-[#E6CA85]">${creation.nutrition.calories} kcal</strong></span>
+                          <span>P: ${creation.nutrition.protein}g • C: ${creation.nutrition.carbs}g</span>
                         </div>
                       ` : ''}
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="pt-4 border-t border-[#B8945B]/20 mt-4 flex items-center gap-2">
+                    <div class="pt-2.5 border-t border-[#B8945B]/20 mt-2.5 flex items-center gap-1.5">
                       <button onclick='window.ladesioApp.cloneTrendingCreation(${JSON.stringify(creation.config || {}).replace(/'/g, "\\'")})'
-                              class="flex-1 py-2 px-3 rounded-lg border border-[#B8945B]/50 hover:border-[#B8945B] hover:bg-white/5 text-[#FFFDF9] text-xs font-serif font-semibold transition-all flex items-center justify-center gap-1.5">
-                        <span>✏️</span> Edit in Studio
+                              class="flex-1 py-1.5 px-2 rounded-lg border border-[#B8945B]/50 hover:border-[#B8945B] hover:bg-white/5 text-[#FFFDF9] text-[11px] font-serif font-semibold transition-all flex items-center justify-center gap-1">
+                        <span>✏️</span> Edit
                       </button>
                       <button onclick='window.ladesioApp.quickOrderCustomCreation(${JSON.stringify(creation).replace(/'/g, "\\'")})'
-                              class="flex-1 py-2 px-3 rounded-lg btn-gold-luxury text-xs font-serif font-semibold tracking-wider transition-all flex items-center justify-center gap-1 shadow-md">
-                        <span>🛒</span> Order (₹${creation.price})
+                              class="flex-1 py-1.5 px-2 rounded-lg btn-gold-luxury text-[11px] font-serif font-semibold tracking-wider transition-all flex items-center justify-center gap-1 shadow-md">
+                        <span>🛒</span> Order
                       </button>
                       <button onclick="if(confirm('Remove this recipe from your saved creations?')) window.loyaltyStore.deleteCreation('${creation.id}')"
-                              class="p-2 rounded-lg hover:bg-red-500/20 text-stone-400 hover:text-red-400 text-sm transition-all"
+                              class="p-1.5 rounded-lg hover:bg-red-500/20 text-stone-400 hover:text-red-400 text-xs transition-all"
                               title="Delete Creation">
                         🗑️
                       </button>
@@ -2299,18 +3075,26 @@ class LaDesioApp {
                 <span class="text-[10px] text-[#E6CA85] font-serif uppercase tracking-widest font-semibold">Flagship Fleet</span>
               </div>
 
-              <div class="space-y-3 text-xs">
-                ${profile.savedAddresses.map(addr => `
-                  <div class="p-4 rounded-xl border ${addr.isDefault ? 'border-[#B8945B] bg-[#1C0C07]' : 'border-stone-800 bg-[#180A06]'} space-y-1">
-                    <div class="flex items-center justify-between">
-                      <span class="font-bold text-[#FFFDF9]">${addr.name}</span>
-                      ${addr.isDefault ? `<span class="px-2 py-0.5 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/40 text-[#E6CA85] text-[9px] uppercase font-bold">Default</span>` : ''}
+              ${(profile.savedAddresses && profile.savedAddresses.length > 0) ? `
+                <div class="space-y-3 text-xs">
+                  ${profile.savedAddresses.map(addr => `
+                    <div class="p-4 rounded-xl border ${addr.isDefault ? 'border-[#B8945B] bg-[#1C0C07]' : 'border-stone-800 bg-[#180A06]'} space-y-1">
+                      <div class="flex items-center justify-between">
+                        <span class="font-bold text-[#FFFDF9]">${addr.name}</span>
+                        ${addr.isDefault ? `<span class="px-2 py-0.5 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/40 text-[#E6CA85] text-[9px] uppercase font-bold">Default</span>` : ''}
+                      </div>
+                      <p class="text-[#D6C2B0] text-[11px]">${addr.address}, ${addr.city} • ${addr.postal}</p>
+                      <p class="text-stone-400 text-[10px] font-mono">Contact: ${addr.phone}</p>
                     </div>
-                    <p class="text-[#D6C2B0] text-[11px]">${addr.address}, ${addr.city} • ${addr.postal}</p>
-                    <p class="text-stone-400 text-[10px] font-mono">Contact: ${addr.phone}</p>
-                  </div>
-                `).join('')}
-              </div>
+                  `).join('')}
+                </div>
+              ` : `
+                <div class="p-6 text-center rounded-xl bg-[#180A06] border border-[#B8945B]/20 space-y-2">
+                  <span class="text-2xl block">📍</span>
+                  <h5 class="font-serif font-semibold text-white text-xs">No Saved Addresses</h5>
+                  <p class="text-[11px] text-[#D6C2B0]">Your delivery destinations will be automatically saved here during your first artisanal checkout.</p>
+                </div>
+              `}
             </div>
 
           </div>
@@ -2319,8 +3103,9 @@ class LaDesioApp {
         ${this.activeAccountTab === 'friends' ? `
           <!-- TAB 4: FRIENDS & ATELIER CIRCLE -->
           ${(() => {
-            if (this.selectedFriendId) {
+            if (this.selectedFriendId && friends.length > 0) {
               const friend = friends.find(f => f.id === this.selectedFriendId) || friends[0];
+              if (!friend) return '';
               return `
                 <div class="space-y-8">
                   <!-- Navigation Back to Friends List -->
@@ -2335,17 +3120,11 @@ class LaDesioApp {
                   <!-- Friend Hero Spotlight Banner -->
                   <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#1F0D08] to-[#241009] border border-[#B8945B]/40 shadow-2xl relative overflow-hidden">
                     <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6">
-                      <!-- Friend Avatar with Change Photo Trigger -->
-                      <div class="relative group cursor-pointer shrink-0" onclick="window.ladesioApp.openEditFriendProfileModal('${friend.id}')" title="Click to edit ${friend.name}'s name & photo">
+                      <!-- Friend Avatar Display (Clean luxury frame) -->
+                      <div class="relative shrink-0">
                         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-1 shrink-0 shadow-2xl overflow-hidden relative">
                           <img id="activeFriendSpotlightAvatar" src="${friend.avatar}" alt="${friend.name}" class="w-full h-full object-cover rounded-full" />
-                          <div class="absolute inset-0 bg-black/50 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span class="text-white text-xs font-serif font-bold">✏️ Edit</span>
-                          </div>
                         </div>
-                        <button type="button" class="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-[#B8945B] hover:bg-[#E6CA85] text-black text-xs flex items-center justify-center shadow-lg border-2 border-[#180A06] transition-colors" title="Edit Name & Photo">
-                          ✏️
-                        </button>
                       </div>
 
                       <div class="flex-1 text-center md:text-left space-y-2.5">
@@ -2505,77 +3284,89 @@ class LaDesioApp {
                     <h4 class="font-display text-xl text-[#FFFDF9]">Active Circle Friends (${friends.length})</h4>
                   </div>
 
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    ${friends.map(f => `
-                      <div class="p-6 rounded-3xl bg-[#241009] border border-[#B8945B]/30 hover:border-[#B8945B] shadow-xl flex flex-col justify-between transition-all group hover:-translate-y-1">
-                        <div class="space-y-4">
-                          <!-- Friend Avatar & Info -->
-                          <div class="flex items-start justify-between gap-3">
-                            <div class="flex items-center gap-3.5">
-                              <div class="relative group cursor-pointer w-16 h-16 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shrink-0 shadow-lg overflow-hidden"
-                                   onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
-                                   title="Click to edit ${f.name}'s name & photo">
-                                <img src="${f.avatar}" alt="${f.name}" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-300" />
-                                <div class="absolute inset-0 bg-black/60 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-white font-serif font-bold">
-                                  ✏️ Edit
+                  ${friends.length > 0 ? `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      ${friends.map(f => `
+                        <div class="p-6 rounded-3xl bg-[#241009] border border-[#B8945B]/30 hover:border-[#B8945B] shadow-xl flex flex-col justify-between transition-all group hover:-translate-y-1">
+                          <div class="space-y-4">
+                            <!-- Friend Avatar & Info -->
+                            <div class="flex items-start justify-between gap-3">
+                              <div class="flex items-center gap-3.5">
+                                <div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#B8945B] to-[#E6CA85] p-0.5 shrink-0 shadow-lg overflow-hidden"
+                                     onclick="event.stopPropagation(); window.ladesioApp.viewFriendProfile('${f.id}')"
+                                     title="View ${f.name}'s profile">
+                                  <img src="${f.avatar}" alt="${f.name}" class="w-full h-full object-cover rounded-full" />
+                                </div>
+                                <div>
+                                  <span class="text-[9px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">${f.tier}</span>
+                                  <h4 class="font-display text-lg text-white font-bold">${f.name}</h4>
+                                  <p class="text-[11px] text-[#D6C2B0]">${f.handle} • 📍 ${f.location}</p>
                                 </div>
                               </div>
-                              <div>
-                                <span class="text-[9px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">${f.tier}</span>
-                                <h4 class="font-display text-lg text-white font-bold">${f.name}</h4>
-                                <p class="text-[11px] text-[#D6C2B0]">${f.handle} • 📍 ${f.location}</p>
+                              <div class="flex items-center gap-1.5 shrink-0">
+                                <button onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
+                                        class="p-2 rounded-xl bg-[#180A06] hover:bg-[#3A1F17] border border-[#B8945B]/30 hover:border-[#B8945B] text-[#E6CA85] hover:text-white text-xs transition-colors shrink-0"
+                                        title="Edit Friend Name, Bio & Photo">
+                                  ✏️
+                                </button>
+                                <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
+                                        class="p-2 rounded-xl bg-[#180A06] hover:bg-rose-950/70 border border-rose-500/30 hover:border-rose-500 text-rose-300 hover:text-white text-xs transition-colors shrink-0"
+                                        title="Remove ${f.name} from Circle">
+                                  🗑️
+                                </button>
                               </div>
                             </div>
-                            <div class="flex items-center gap-1.5 shrink-0">
-                              <button onclick="event.stopPropagation(); window.ladesioApp.openEditFriendProfileModal('${f.id}')"
-                                      class="p-2 rounded-xl bg-[#180A06] hover:bg-[#3A1F17] border border-[#B8945B]/30 hover:border-[#B8945B] text-[#E6CA85] hover:text-white text-xs transition-colors shrink-0"
-                                      title="Edit Friend Name, Bio & Photo">
-                                ✏️
-                              </button>
-                              <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
-                                      class="p-2 rounded-xl bg-[#180A06] hover:bg-rose-950/70 border border-rose-500/30 hover:border-rose-500 text-rose-300 hover:text-white text-xs transition-colors shrink-0"
-                                      title="Remove ${f.name} from Circle">
-                                🗑️
-                              </button>
+
+                            <!-- Bio -->
+                            <p class="text-xs text-[#D6C2B0] line-clamp-3 italic leading-relaxed bg-[#180A06] p-3 rounded-xl border-l-2 border-[#B8945B]">
+                              “${f.bio}”
+                            </p>
+
+                            <!-- Signature Creations Teaser -->
+                            <div class="space-y-2 pt-1">
+                              <span class="text-[10px] uppercase font-serif tracking-wider text-[#E6CA85] font-semibold block">Signature Creations:</span>
+                              <div class="grid grid-cols-2 gap-2">
+                                ${(f.creations || []).slice(0, 2).map(c => `
+                                  <div class="rounded-xl overflow-hidden bg-[#180A06] border border-[#B8945B]/20 p-2 text-left">
+                                    <img src="${c.image}" alt="${c.name}" class="w-full h-16 object-cover rounded-lg mb-1.5" />
+                                    <p class="text-[11px] font-serif font-bold text-[#FFFDF9] truncate">${c.name}</p>
+                                    <p class="text-[10px] text-[#E6CA85] font-mono">₹${c.price} ${c.nutrition?.protein ? `• ${c.nutrition.protein} P` : ''}</p>
+                                  </div>
+                                `).join('')}
+                              </div>
                             </div>
                           </div>
 
-                          <!-- Bio -->
-                          <p class="text-xs text-[#D6C2B0] line-clamp-3 italic leading-relaxed bg-[#180A06] p-3 rounded-xl border-l-2 border-[#B8945B]">
-                            “${f.bio}”
-                          </p>
-
-                          <!-- Signature Creations Teaser -->
-                          <div class="space-y-2 pt-1">
-                            <span class="text-[10px] uppercase font-serif tracking-wider text-[#E6CA85] font-semibold block">Signature Creations:</span>
-                            <div class="grid grid-cols-2 gap-2">
-                              ${f.creations.slice(0, 2).map(c => `
-                                <div class="rounded-xl overflow-hidden bg-[#180A06] border border-[#B8945B]/20 p-2 text-left">
-                                  <img src="${c.image}" alt="${c.name}" class="w-full h-16 object-cover rounded-lg mb-1.5" />
-                                  <p class="text-[11px] font-serif font-bold text-[#FFFDF9] truncate">${c.name}</p>
-                                  <p class="text-[10px] text-[#E6CA85] font-mono">₹${c.price} ${c.nutrition?.protein ? `• ${c.nutrition.protein} P` : ''}</p>
-                                </div>
-                              `).join('')}
-                            </div>
+                          <!-- Actions: View creations & Remove -->
+                          <div class="mt-6 flex items-center gap-2">
+                            <button onclick="window.ladesioApp.viewFriendProfile('${f.id}')"
+                                    class="flex-1 py-2.5 px-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-md">
+                              <span>View ${f.name.split(' ')[0]}'s Profile</span>
+                              <span>→</span>
+                            </button>
+                            <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
+                                    class="py-2.5 px-3 rounded-xl border border-rose-500/40 hover:border-rose-500 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 hover:text-white text-xs font-serif transition-colors flex items-center justify-center gap-1 shadow-sm shrink-0 cursor-pointer"
+                                    title="Remove ${f.name} from Circle">
+                              <span>🗑️</span> Remove
+                            </button>
                           </div>
                         </div>
-
-                        <!-- Actions: View creations & Remove -->
-                        <div class="mt-6 flex items-center gap-2">
-                          <button onclick="window.ladesioApp.viewFriendProfile('${f.id}')"
-                                  class="flex-1 py-2.5 px-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-md">
-                            <span>View ${f.name.split(' ')[0]}'s Profile</span>
-                            <span>→</span>
-                          </button>
-                          <button onclick="event.stopPropagation(); window.ladesioApp.handleRemoveFriend('${f.id}', '${f.name}')"
-                                  class="py-2.5 px-3 rounded-xl border border-rose-500/40 hover:border-rose-500 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 hover:text-white text-xs font-serif transition-colors flex items-center justify-center gap-1 shadow-sm shrink-0 cursor-pointer"
-                                  title="Remove ${f.name} from Circle">
-                            <span>🗑️</span> Remove
-                          </button>
-                        </div>
+                      `).join('')}
+                    </div>
+                  ` : `
+                    <div class="py-14 text-center rounded-3xl bg-[#241009] border border-[#B8945B]/20 p-8 space-y-4">
+                      <div class="w-16 h-16 rounded-full bg-[#180A06] border border-[#B8945B]/40 mx-auto flex items-center justify-center text-3xl">
+                        👥
                       </div>
-                    `).join('')}
-                  </div>
+                      <h4 class="font-display text-xl text-[#FFFDF9]">Your Friends Circle is Empty</h4>
+                      <p class="text-xs text-[#D6C2B0] max-w-md mx-auto">
+                        Connect with fellow patisserie connoisseurs! Search by their 10-digit mobile number above or tap "Add Friend" to add them to your circle and discover their bespoke recipes.
+                      </p>
+                      <button type="button" onclick="window.ladesioApp.openAddFriendModal()" class="inline-block px-8 py-3 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider shadow-lg">
+                        ➕ Connect With Connoisseurs
+                      </button>
+                    </div>
+                  `}
                 </div>
               `;
             }
@@ -2602,18 +3393,56 @@ class LaDesioApp {
       }
       return;
     }
-    container.innerHTML = `<div id="checkoutFlowMount"></div>`;
+    container.innerHTML = `
+      <div class="w-full min-h-[calc(100vh-4.25rem)] lg:max-h-[calc(100vh-4.25rem)] bg-gradient-to-b from-[#140603] via-[#1A0A06] to-[#120502] flex flex-col justify-start px-2 sm:px-4 lg:px-6 py-2 sm:py-3 max-w-7xl mx-auto overflow-y-auto lg:overflow-hidden">
+        <div id="checkoutFlowMount" class="w-full flex-1 flex flex-col justify-start min-h-0"></div>
+      </div>
+    `;
+    const summary = cartStore.getSummary();
+    if (summary && summary.items.length > 0) {
+      try {
+        localStorage.removeItem('ladesio_last_placed_order');
+      } catch (e) {}
+    }
     window.checkoutManager = new CheckoutManager('checkoutFlowMount', () => {
       this.renderNavigationBadges();
     });
+    if (summary && summary.items.length > 0) {
+      window.checkoutManager.lastPlacedOrder = null;
+      window.checkoutManager.currentStep = 1;
+    }
     window.checkoutManager.init();
   }
 
   // ==========================================
   // REUSABLE BESPOKE ATELIER CARD COMPONENT (INR)
   // ==========================================
+  getProductPricing(product) {
+    if (!product) return { price: 0, originalPrice: 0, isBirthdayDiscount: false, savings: 0, discountPercent: 0 };
+    const isBirthday = (typeof loyaltyStore !== 'undefined' && typeof loyaltyStore.isBirthdayDiscountAvailable === 'function' && loyaltyStore.isBirthdayDiscountAvailable());
+    const standardPrice = Number(product.price || 0);
+    if (isBirthday) {
+      const discountedPrice = Math.round(standardPrice * 0.7); // 30% OFF
+      return {
+        isBirthdayDiscount: true,
+        originalPrice: standardPrice,
+        price: discountedPrice,
+        savings: standardPrice - discountedPrice,
+        discountPercent: 30
+      };
+    }
+    return {
+      isBirthdayDiscount: false,
+      originalPrice: product.originalPrice || null,
+      price: standardPrice,
+      savings: 0,
+      discountPercent: 0
+    };
+  }
+
   renderProductCard(product, isNatural = false) {
     const inWishlist = cartStore.isInWishlist(product.id);
+    const pricing = this.getProductPricing(product);
     
     // Find index or generate catalog opus number
     let productIndex = 1;
@@ -2650,6 +3479,11 @@ class LaDesioApp {
 
             <!-- Top Left: Archival Catalog Number & Gilded Seal -->
             <div class="absolute top-2.5 left-2.5 flex flex-col items-start gap-1.5 z-10">
+              ${pricing.isBirthdayDiscount ? `
+                <span class="px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-400 via-[#F5D796] to-amber-400 text-black text-[9.5px] font-serif font-black tracking-wider uppercase shadow-xl border border-amber-300 flex items-center gap-1.5 animate-pulse">
+                  <span>🎂</span> 30% OFF BIRTHDAY
+                </span>
+              ` : ''}
               <span class="archival-opus-badge">
                 <span class="text-[#DFBA73]">❖</span> ${opusNumber} • ${product.badge ? product.badge.toUpperCase() : 'SIGNATURE'}
               </span>
@@ -2662,9 +3496,10 @@ class LaDesioApp {
 
             <!-- Top Right: Delicate Hairline Wishlist Seal -->
             <button onclick="event.stopPropagation(); window.ladesioApp.toggleWishlist('${product.id}')"
-                    class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-[#160703]/90 border border-[#B8945B]/40 hover:border-[#E6CA85] flex items-center justify-center transition-all hover:scale-110 shadow-lg z-10 group/wish"
-                    title="Save to Bespoke Wishlist">
-              <svg class="w-4 h-4 transition-colors ${inWishlist ? 'fill-rose-500 text-rose-500' : 'text-[#D4AF37] group-hover/wish:text-white'}" fill="${inWishlist ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+                    class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-[#160703]/90 border ${inWishlist ? 'border-rose-500/80 shadow-[0_0_12px_rgba(244,63,94,0.4)]' : 'border-[#B8945B]/40 hover:border-[#E6CA85]'} flex items-center justify-center transition-all hover:scale-110 shadow-lg z-10 group/wish"
+                    title="${inWishlist ? 'Remove from Wishlist' : 'Save to Bespoke Wishlist'}"
+                    data-wishlist-btn="${product.id}">
+              <svg data-wishlist-icon="${product.id}" class="w-4 h-4 transition-all duration-300 ${inWishlist ? 'fill-rose-500 text-rose-500 scale-110' : 'fill-none text-[#D4AF37] group-hover/wish:text-white'}" fill="${inWishlist ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
               </svg>
             </button>
@@ -2745,9 +3580,15 @@ class LaDesioApp {
           <div class="pt-3.5 border-t border-[#B8945B]/20 flex items-center justify-between gap-2">
             <div>
               <span class="text-[8px] uppercase tracking-[0.24em] text-[#B8945B] block font-cinzel font-semibold">PREZZO</span>
-              <div class="flex items-baseline gap-1.5">
-                ${product.originalPrice ? `<span class="text-[11px] text-[#A89280] line-through font-mono">₹${product.originalPrice}</span>` : ''}
-                <span class="font-bodoni font-bold text-2xl text-[#FFFDF9] tracking-tight">₹${product.price}</span>
+              <div class="flex items-baseline gap-1.5 flex-wrap">
+                ${pricing.isBirthdayDiscount ? `
+                  <span class="text-[11px] text-rose-400/90 line-through font-mono">₹${pricing.originalPrice}</span>
+                  <span class="font-bodoni font-bold text-2xl text-[#F5D796] tracking-tight">₹${pricing.price}</span>
+                  <span class="text-[9px] font-bold text-emerald-400 uppercase bg-emerald-950/90 border border-emerald-500/50 px-1.5 py-0.2 rounded shadow-xs">30% OFF</span>
+                ` : `
+                  ${product.originalPrice ? `<span class="text-[11px] text-[#A89280] line-through font-mono">₹${product.originalPrice}</span>` : ''}
+                  <span class="font-bodoni font-bold text-2xl text-[#FFFDF9] tracking-tight">₹${product.price}</span>
+                `}
               </div>
             </div>
 
@@ -2785,6 +3626,9 @@ class LaDesioApp {
     const content = document.getElementById('productModalContent');
     if (!modal || !content) return;
 
+    const pricing = this.getProductPricing(product);
+    const inWishlist = cartStore.isInWishlist(product.id);
+
     let selectedModifiers = {
       extraSauce: false,
       iceCream: false,
@@ -2793,7 +3637,7 @@ class LaDesioApp {
     };
 
     const updatePrice = () => {
-      let base = product.price;
+      let base = pricing.price;
       if (selectedModifiers.extraSauce) base += 50;
       if (selectedModifiers.iceCream) base += 90;
       if (selectedModifiers.goldPackaging) base += 120;
@@ -2801,96 +3645,140 @@ class LaDesioApp {
     };
 
     content.innerHTML = `
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start">
         
-        <!-- Left Photography Gallery -->
-        <div class="md:col-span-6 space-y-3">
-          <div class="relative rounded-2xl overflow-hidden border border-[#B8945B]/30 shadow-lg aspect-square">
+        <!-- Left Photography Gallery & Shrunk Customer Reviews -->
+        <div class="md:col-span-5 space-y-2.5">
+          <div class="relative rounded-2xl overflow-hidden border border-[#B8945B]/30 shadow-lg aspect-[16/10] sm:aspect-[4/3] max-h-[210px] md:max-h-[230px] w-full">
             <img id="modalMainImage" src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" />
-            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#3A1F17] text-[#E6CA85] text-xs font-serif uppercase tracking-wider">
+            <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#3A1F17] text-[#E6CA85] text-[10px] font-serif uppercase tracking-wider">
               ${product.badge}
             </span>
+            <button onclick="window.ladesioApp.toggleWishlist('${product.id}')"
+                    data-wishlist-btn="${product.id}"
+                    class="absolute top-2 right-2 w-7 h-7 rounded-full bg-[#160703]/90 border ${inWishlist ? 'border-rose-500/80 shadow-[0_0_12px_rgba(244,63,94,0.4)]' : 'border-[#B8945B]/40 hover:border-[#E6CA85]'} flex items-center justify-center transition-all hover:scale-110 shadow-lg z-10 group/modalwish"
+                    title="${inWishlist ? 'Remove from Wishlist' : 'Save to Bespoke Wishlist'}">
+              <svg data-wishlist-icon="${product.id}" class="w-3.5 h-3.5 transition-all duration-300 ${inWishlist ? 'fill-rose-500 text-rose-500 scale-110' : 'fill-none text-[#D4AF37] group-hover/modalwish:text-white'}" fill="${inWishlist ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
           </div>
 
           <!-- Gallery Thumbnails -->
           <div class="flex gap-2">
             ${product.gallery.map(img => `
               <button onclick="document.getElementById('modalMainImage').src = '${img}'"
-                      class="w-16 h-16 rounded-lg overflow-hidden border border-[#B8945B]/30 focus:ring-2 focus:ring-[#B8945B]">
+                      class="w-10 h-10 rounded-lg overflow-hidden border border-[#B8945B]/30 focus:ring-2 focus:ring-[#B8945B]">
                 <img src="${img}" class="w-full h-full object-cover" />
               </button>
             `).join('')}
           </div>
+
+          <!-- Shrunk Customer Reviews Module (Moved to Left Side under gallery) -->
+          <div class="p-2.5 rounded-xl bg-[#180804] border border-[#B8945B]/35 space-y-1.5 text-xs">
+            <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-1">
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-400 font-bold text-xs">★</span>
+                <span class="font-display font-bold text-xs text-[#FFFDF9]">${product.rating.toFixed(2)}</span>
+                <span class="text-[#D6C2B0]/70 text-[10px]">(${product.reviewsCount} reviews)</span>
+              </div>
+              <span class="px-2 py-0.2 rounded-full bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 text-[9px] font-serif">
+                ✓ Verified Buyers
+              </span>
+            </div>
+
+            <div class="space-y-1">
+              ${(product.reviews || [
+                { author: 'Atelier Patron', city: 'Chennai', rating: 5, date: 'Recent', title: 'Exceptional Balance', comment: 'Every layer of this dessert was executed with culinary precision.' }
+              ]).slice(0, 1).map(r => `
+                <div class="p-1.5 rounded-lg bg-[#241109] border border-[#B8945B]/20 space-y-0.5 text-left">
+                  <div class="flex items-center justify-between">
+                    <span class="font-serif font-bold text-[#E6CA85] text-[10px]">${r.author} <span class="text-stone-400 font-normal">(${r.city || 'Chennai'})</span></span>
+                    <span class="text-amber-400 text-[9px]">${'★'.repeat(r.rating || 5)}</span>
+                  </div>
+                  <p class="text-[10px] text-[#D6C2B0] italic leading-snug line-clamp-2">"${r.comment}"</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
         </div>
 
-        <!-- Right Specs & Modifiers -->
-        <div class="md:col-span-6 space-y-4">
+        <!-- Right Specs & Modifiers (Compact & Zero Scroll) -->
+        <div class="md:col-span-7 space-y-2.5">
+          ${pricing.isBirthdayDiscount ? `
+            <div class="p-2 rounded-xl bg-gradient-to-r from-amber-950/70 via-[#1A0905] to-amber-950/70 border border-amber-500/60 text-amber-300 text-xs flex items-center justify-between shadow-lg">
+              <span class="font-bold flex items-center gap-1.5 font-serif text-[11px]">
+                <span>🎂</span> Exclusive 30% Birthday Privilege Active
+              </span>
+              <span class="text-[9px] bg-amber-400 text-black px-2 py-0.5 rounded-full font-black uppercase tracking-wider">30% OFF</span>
+            </div>
+          ` : ''}
+
           <div>
-            <div class="flex items-center justify-between text-xs text-[#E6CA85] mb-1">
+            <div class="flex items-center justify-between text-xs text-[#E6CA85] mb-0.5">
               <span class="flex items-center gap-2">
-                <span class="text-amber-400">★ ${product.rating.toFixed(2)}</span>
-                <span class="text-[#D6C2B0]/70">(${product.reviewsCount} reviews)</span>
-                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold border ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} flex items-center gap-1">
+                <span class="px-2 py-0.2 rounded-md text-[9px] font-bold border ${product.isEggless ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-300' : 'bg-rose-950/70 border-rose-600/50 text-rose-300'} flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full ${product.isEggless ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
                   <span>${product.isEggless ? '100% Eggless' : 'Contains Egg'}</span>
                 </span>
               </span>
-              <span class="text-[#D6C2B0]/70 font-mono">${product.servingSize}</span>
+              <span class="text-[#D6C2B0]/70 font-mono text-[10.5px]">${product.servingSize}</span>
             </div>
-            <h2 class="font-display text-2xl sm:text-3xl text-[#FFFDF9]">${product.name}</h2>
-            <p class="text-xs font-serif italic text-[#E6CA85]">${product.subtitle}</p>
-            <p class="font-display text-2xl text-[#FFFDF9] font-bold mt-2">₹${product.price}</p>
+            <h2 class="font-display text-xl sm:text-2xl text-[#FFFDF9] leading-tight">${product.name}</h2>
+            <p class="text-[11px] font-serif italic text-[#E6CA85]">${product.subtitle}</p>
+            ${pricing.isBirthdayDiscount ? `
+              <div class="flex items-baseline gap-2 mt-0.5">
+                <span class="text-xs text-rose-400/90 line-through font-mono">₹${pricing.originalPrice}</span>
+                <span class="font-display text-2xl text-[#F5D796] font-bold">₹${pricing.price}</span>
+                <span class="text-[9.5px] font-bold text-emerald-400 uppercase bg-emerald-950/80 border border-emerald-500/50 px-1.5 py-0.2 rounded shadow-xs">30% OFF</span>
+              </div>
+            ` : `
+              <p class="font-display text-xl text-[#FFFDF9] font-bold mt-0.5">₹${product.price}</p>
+            `}
           </div>
 
-          <p class="text-xs text-[#D6C2B0] leading-relaxed">${product.description}</p>
+          <p class="text-[11px] text-[#D6C2B0] leading-snug line-clamp-2">${product.description}</p>
 
           <!-- Nutritional & Macro Profile Module -->
           ${product.nutrition ? `
-            <div class="p-3.5 rounded-xl bg-[#180804] border border-[#B8945B]/40 shadow-md space-y-2.5">
-              <div class="flex items-center justify-between">
-                <span class="text-[11px] font-serif uppercase tracking-wider font-bold text-[#FFFDF9] flex items-center gap-1.5">
-                  <span class="text-[#E6CA85]">⚡</span> Approximate Nutrition & Macros
+            <div class="p-2 rounded-xl bg-[#180804] border border-[#B8945B]/35 shadow-md space-y-1">
+              <div class="flex items-center justify-between text-[10px]">
+                <span class="font-serif uppercase tracking-wider font-bold text-[#FFFDF9] flex items-center gap-1">
+                  <span class="text-[#E6CA85]">⚡</span> Nutrition & Macros
                 </span>
-                <span class="text-[10px] font-mono text-[#E6CA85] bg-[#B8945B]/15 px-2 py-0.5 rounded-full border border-[#B8945B]/30">
+                <span class="font-mono text-[#E6CA85] bg-[#B8945B]/15 px-1.5 py-0.2 rounded-full border border-[#B8945B]/30 text-[9px]">
                   ${product.nutrition.serving}
                 </span>
               </div>
 
               <!-- Macro Metric Grid -->
-              <div class="grid grid-cols-4 gap-2 text-center">
-                <div class="p-2 rounded-lg bg-[#241109] border border-[#B8945B]/30 shadow-xs">
-                  <span class="block text-[9px] text-[#E6CA85] uppercase font-semibold">Calories</span>
-                  <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.nutrition.calories} <span class="text-[9px] font-sans font-normal text-[#D6C2B0]/60">kcal</span></span>
+              <div class="grid grid-cols-4 gap-1.5 text-center">
+                <div class="py-1 px-1.5 rounded-lg bg-[#241109] border border-[#B8945B]/25">
+                  <span class="block text-[8px] text-[#E6CA85] uppercase font-semibold">Calories</span>
+                  <span class="font-display font-bold text-xs text-[#FFFDF9]">${product.nutrition.calories} <span class="text-[7.5px] font-sans font-normal text-[#D6C2B0]/60">kcal</span></span>
                 </div>
-                <div class="p-2 rounded-lg bg-[#241109] border border-[#B8945B]/30 shadow-xs">
-                  <span class="block text-[9px] text-[#E6CA85] uppercase font-semibold">Protein</span>
-                  <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.nutrition.protein}</span>
+                <div class="py-1 px-1.5 rounded-lg bg-[#241109] border border-[#B8945B]/25">
+                  <span class="block text-[8px] text-[#E6CA85] uppercase font-semibold">Protein</span>
+                  <span class="font-display font-bold text-xs text-[#FFFDF9]">${product.nutrition.protein}</span>
                 </div>
-                <div class="p-2 rounded-lg bg-[#241109] border border-[#B8945B]/30 shadow-xs">
-                  <span class="block text-[9px] text-[#E6CA85] uppercase font-semibold">Carbs</span>
-                  <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.nutrition.carbs}</span>
+                <div class="py-1 px-1.5 rounded-lg bg-[#241109] border border-[#B8945B]/25">
+                  <span class="block text-[8px] text-[#E6CA85] uppercase font-semibold">Carbs</span>
+                  <span class="font-display font-bold text-xs text-[#FFFDF9]">${product.nutrition.carbs}</span>
                 </div>
-                <div class="p-2 rounded-lg bg-[#241109] border border-[#B8945B]/30 shadow-xs">
-                  <span class="block text-[9px] text-[#E6CA85] uppercase font-semibold">Fats</span>
-                  <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.nutrition.fats}</span>
+                <div class="py-1 px-1.5 rounded-lg bg-[#241109] border border-[#B8945B]/25">
+                  <span class="block text-[8px] text-[#E6CA85] uppercase font-semibold">Fats</span>
+                  <span class="font-display font-bold text-xs text-[#FFFDF9]">${product.nutrition.fats}</span>
                 </div>
               </div>
-              
-              ${product.nutrition.fiber ? `
-                <div class="flex items-center justify-between text-[10px] text-[#D6C2B0] px-1 pt-1 border-t border-[#B8945B]/25">
-                  <span>Dietary Fiber: <strong class="text-[#FFFDF9]">${product.nutrition.fiber}</strong></span>
-                  <span class="text-[#E6CA85] font-serif italic">Artisanal Patisserie Craft</span>
-                </div>
-              ` : ''}
             </div>
           ` : ''}
 
           <!-- Artisanal Modifiers -->
-          <div class="p-4 rounded-xl bg-[#180804] border border-[#B8945B]/35 space-y-2.5 text-xs">
-            <h4 class="font-serif font-bold text-[#FFFDF9]">Custom Patisserie Modifiers</h4>
+          <div class="p-2 rounded-xl bg-[#180804] border border-[#B8945B]/35 space-y-1 text-[10.5px]">
+            <h4 class="font-serif font-bold text-[#FFFDF9] text-xs">Custom Patisserie Modifiers</h4>
             
             <label class="flex items-center justify-between cursor-pointer">
-              <span class="flex items-center gap-2 text-[#D6C2B0]">
+              <span class="flex items-center gap-1.5 text-[#D6C2B0]">
                 <input type="checkbox" id="modExtraSauce" class="rounded text-[#B8945B] accent-[#B8945B]" />
                 Extra Warm Chocolate / Berry Coulis
               </span>
@@ -2898,7 +3786,7 @@ class LaDesioApp {
             </label>
 
             <label class="flex items-center justify-between cursor-pointer">
-              <span class="flex items-center gap-2 text-[#D6C2B0]">
+              <span class="flex items-center gap-1.5 text-[#D6C2B0]">
                 <input type="checkbox" id="modIceCream" class="rounded text-[#B8945B] accent-[#B8945B]" />
                 Artisanal Madagascar Vanilla Gelato Scoop
               </span>
@@ -2906,7 +3794,7 @@ class LaDesioApp {
             </label>
 
             <label class="flex items-center justify-between cursor-pointer">
-              <span class="flex items-center gap-2 text-[#D6C2B0]">
+              <span class="flex items-center gap-1.5 text-[#D6C2B0]">
                 <input type="checkbox" id="modGoldPackaging" class="rounded text-[#B8945B] accent-[#B8945B]" />
                 Luxury Keepsake Wooden Box with Wax Seal
               </span>
@@ -2915,13 +3803,13 @@ class LaDesioApp {
           </div>
 
           <!-- Accordion Specs -->
-          <div class="space-y-2 text-xs border-t border-[#B8945B]/25 pt-3">
+          <div class="space-y-1 text-[11px] border-t border-[#B8945B]/25 pt-1.5">
             <details class="group cursor-pointer">
               <summary class="font-serif font-bold text-[#FFFDF9] flex justify-between items-center group-hover:text-[#E6CA85]">
                 <span>✦ Key Ingredients</span>
                 <span class="text-[#E6CA85] text-xs">▼</span>
               </summary>
-              <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">${product.ingredients.join(' • ')}</p>
+              <p class="text-[#D6C2B0] mt-0.5 pl-2 leading-relaxed text-[10.5px]">${product.ingredients.join(' • ')}</p>
             </details>
 
             <details class="group cursor-pointer">
@@ -2929,7 +3817,7 @@ class LaDesioApp {
                 <span>✦ Allergens & Dietary</span>
                 <span class="text-[#E6CA85] text-xs">▼</span>
               </summary>
-              <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">
+              <p class="text-[#D6C2B0] mt-0.5 pl-2 leading-relaxed text-[10.5px]">
                 Dietary: ${product.isEggless ? '🟢 100% Eggless Pure Vegetarian' : '🔴 Contains Egg'}<br/>
                 Allergens: ${product.allergens.join(', ') || 'None'}
               </p>
@@ -2940,54 +3828,33 @@ class LaDesioApp {
                 <span>✦ Storage & Serving Advice</span>
                 <span class="text-[#E6CA85] text-xs">▼</span>
               </summary>
-              <p class="text-[#D6C2B0] mt-1 pl-2 leading-relaxed">${product.storageInfo}</p>
+              <p class="text-[#D6C2B0] mt-0.5 pl-2 leading-relaxed text-[10.5px]">${product.storageInfo}</p>
             </details>
           </div>
 
-          <!-- Verified Customer Reviews Module -->
-          <div class="p-3.5 rounded-xl bg-[#180804] border border-[#B8945B]/35 space-y-2.5 text-xs">
-            <div class="flex items-center justify-between border-b border-[#B8945B]/20 pb-2">
-              <div class="flex items-center gap-1.5">
-                <span class="text-amber-400 font-bold">★</span>
-                <span class="font-display font-bold text-sm text-[#FFFDF9]">${product.rating.toFixed(2)}</span>
-                <span class="text-[#D6C2B0]/70 text-[11px]">(${product.reviewsCount} customer reviews)</span>
-              </div>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 text-[10px] font-serif">
-                ✓ Verified Atelier Buyers
-              </span>
-            </div>
-
-            <div class="space-y-2 max-h-40 overflow-y-auto pr-1">
-              ${(product.reviews || [
-                { author: 'Atelier Patron', city: 'Chennai', rating: 5, date: 'Recent', title: 'Exceptional Balance', comment: 'Every layer of this dessert was executed with culinary precision.' }
-              ]).map(r => `
-                <div class="p-2.5 rounded-lg bg-[#241109] border border-[#B8945B]/20 space-y-1 text-left">
-                  <div class="flex items-center justify-between">
-                    <span class="font-serif font-bold text-[#E6CA85] text-[11px]">${r.author} <span class="text-stone-400 font-normal">(${r.city || 'Chennai'})</span></span>
-                    <span class="text-amber-400 text-[10px]">${'★'.repeat(r.rating || 5)}</span>
-                  </div>
-                  <p class="font-serif font-semibold text-[#FFFDF9] text-[11px]">${r.title}</p>
-                  <p class="text-[11px] text-[#D6C2B0] italic leading-relaxed">"${r.comment}"</p>
-                  <span class="text-[9px] text-stone-400 block pt-0.5">${r.date} • Verified Purchase</span>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-
           <!-- Quantity & Add to Cart -->
-          <div class="pt-4 border-t border-[#B8945B]/30 flex items-center gap-3">
+          <div class="pt-2 border-t border-[#B8945B]/30 flex items-center gap-2.5">
             <div class="flex items-center border border-[#B8945B]/40 rounded-lg bg-[#180804] overflow-hidden text-xs">
               <button onclick="let q = document.getElementById('modalQty'); q.value = Math.max(1, parseInt(q.value)-1)"
-                      class="px-3 py-2 text-[#FFFDF9] hover:bg-[#B8945B]/20 font-bold">-</button>
+                      class="px-2.5 py-1.5 text-[#FFFDF9] hover:bg-[#B8945B]/20 font-bold">-</button>
               <input type="number" id="modalQty" value="1" min="1" max="10"
-                     class="w-10 text-center font-bold text-[#FFFDF9] bg-transparent focus:outline-none" />
+                     class="w-9 text-center font-bold text-[#FFFDF9] bg-transparent focus:outline-none text-xs" />
               <button onclick="let q = document.getElementById('modalQty'); q.value = parseInt(q.value)+1"
-                      class="px-3 py-2 text-[#FFFDF9] hover:bg-[#B8945B]/20 font-bold">+</button>
+                      class="px-2.5 py-1.5 text-[#FFFDF9] hover:bg-[#B8945B]/20 font-bold">+</button>
             </div>
 
             <button id="modalAddToCartBtn"
-                    class="flex-1 py-3 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center justify-center gap-2 shadow-lg">
-              <span>Add to Shopping Bag</span> • ₹${product.price}
+                    class="flex-1 py-2.5 rounded-lg btn-gold-luxury font-serif text-xs font-semibold tracking-wider flex items-center justify-center gap-2 shadow-lg">
+              <span>Add to Shopping Bag</span> • ₹${pricing.price}
+            </button>
+
+            <button onclick="window.ladesioApp.toggleWishlist('${product.id}')"
+                    data-wishlist-btn="${product.id}"
+                    class="w-10 h-10 rounded-lg border ${inWishlist ? 'border-rose-500/80 bg-rose-950/40 shadow-[0_0_12px_rgba(244,63,94,0.3)]' : 'border-[#B8945B]/40 bg-[#180804] hover:border-[#E6CA85]'} flex items-center justify-center transition-all shadow-md group/modalwishbtn"
+                    title="${inWishlist ? 'Remove from Wishlist' : 'Save to Bespoke Wishlist'}">
+              <svg data-wishlist-icon="${product.id}" class="w-4 h-4 transition-all duration-300 ${inWishlist ? 'fill-rose-500 text-rose-500 scale-110' : 'fill-none text-[#D4AF37] group-hover/modalwishbtn:text-white'}" fill="${inWishlist ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
             </button>
           </div>
 
@@ -3018,11 +3885,14 @@ class LaDesioApp {
 
     if (addBtn) {
       addBtn.onclick = () => {
+        const unitPrice = pricing.price + (selectedModifiers.extraSauce ? 50 : 0) + (selectedModifiers.iceCream ? 90 : 0) + (selectedModifiers.goldPackaging ? 120 : 0);
         const item = {
           id: product.id,
           name: product.name,
           subtitle: product.subtitle,
-          price: product.price + (selectedModifiers.extraSauce ? 50 : 0) + (selectedModifiers.iceCream ? 90 : 0) + (selectedModifiers.goldPackaging ? 120 : 0),
+          price: unitPrice,
+          originalPrice: pricing.originalPrice,
+          isBirthdayDiscount: pricing.isBirthdayDiscount,
           image: product.image,
           quantity: selectedModifiers.quantity,
           options: {
@@ -3137,11 +4007,14 @@ class LaDesioApp {
     if (wishlistItems.length === 0) return;
 
     wishlistItems.forEach(p => {
+      const pricing = this.getProductPricing(p);
       cartStore.addItem({
         id: p.id,
         name: p.name,
         subtitle: p.subtitle,
-        price: p.price,
+        price: pricing.price,
+        originalPrice: pricing.originalPrice,
+        isBirthdayDiscount: pricing.isBirthdayDiscount,
         image: p.image,
         quantity: 1
       });
@@ -3158,7 +4031,14 @@ class LaDesioApp {
     this.renderNavigationBadges();
     this.renderWishlistDrawerContent();
     document.querySelectorAll('[data-wishlist-icon]').forEach(icon => {
-      icon.className = 'text-gray-400';
+      icon.setAttribute('fill', 'none');
+      icon.classList.remove('fill-rose-500', 'text-rose-500', 'scale-110');
+      icon.classList.add('fill-none', 'text-[#D4AF37]');
+    });
+    document.querySelectorAll('[data-wishlist-btn]').forEach(btn => {
+      btn.setAttribute('title', 'Save to Bespoke Wishlist');
+      btn.classList.remove('border-rose-500/80', 'bg-rose-950/40', 'shadow-[0_0_12px_rgba(244,63,94,0.4)]', 'shadow-[0_0_12px_rgba(244,63,94,0.3)]');
+      btn.classList.add('border-[#B8945B]/40');
     });
     window.showToast('Wishlist cleared.', 'info');
   }
@@ -3237,7 +4117,17 @@ class LaDesioApp {
                   <span class="px-2 text-xs font-bold">${item.quantity}</span>
                   <button onclick="window.cartStore.updateQuantity('${item.uid}', 1)" class="px-2 py-0.5 font-bold text-[#3A1F17]">+</button>
                 </div>
-                <span class="font-display font-bold text-sm text-[#3A1F17]">₹${(item.price * item.quantity)}</span>
+                <div class="text-right">
+                  ${item.isBirthdayDiscount ? `
+                    <span class="text-[10px] text-stone-400 line-through font-mono block">₹${(item.originalPrice * item.quantity).toFixed(2)}</span>
+                    <span class="font-display font-bold text-sm text-[#3A1F17]">₹${((item.originalPrice * item.quantity) - (item.birthdayDiscountAmount || 0)).toFixed(2)}</span>
+                    <span class="text-[9px] bg-amber-100 text-amber-900 border border-amber-300 font-bold px-1.5 py-0.5 rounded block mt-0.5">
+                      🎂 30% Birthday Treat (${item.quantity > 1 ? '1 unit discounted' : 'Applied'})
+                    </span>
+                  ` : `
+                    <span class="font-display font-bold text-sm text-[#3A1F17]">₹${(item.price * item.quantity).toFixed(2)}</span>
+                  `}
+                </div>
               </div>
             </div>
           </div>
@@ -3246,39 +4136,61 @@ class LaDesioApp {
     `;
 
     summaryContainer.innerHTML = `
-      <!-- Promo Code Input -->
-      <div class="mb-4">
-        <div class="flex gap-2">
-          <input type="text" id="promoCodeInput" placeholder="Promo code (e.g. LADESIO10)"
-                 class="flex-1 px-3 py-2 rounded-lg border border-[#B8945B]/40 text-xs text-[#3A1F17] focus:outline-none uppercase" />
-          <button onclick="window.ladesioApp.applyPromoCode()"
-                  class="px-4 py-2 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold">
-            Apply
-          </button>
-        </div>
-        ${summary.activePromo ? `
-          <div class="mt-1 flex justify-between items-center text-[10px] text-emerald-700 bg-emerald-50 px-2 py-1 rounded">
-            <span>✓ ${summary.activePromo.description}</span>
-            <button onclick="window.cartStore.removePromo()" class="text-red-500 font-bold">Remove</button>
+      ${summary.isBirthdayOrder ? `
+        <!-- Birthday Privilege Banner -->
+        <div class="mb-4 p-3 rounded-2xl bg-gradient-to-r from-amber-950/50 via-[#1A0A06] to-amber-950/50 border border-[#B8945B]/60 text-xs shadow-md">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">🎂</span>
+              <div>
+                <span class="font-serif font-bold text-[#E6CA85] block">30% Birthday Treat Applied!</span>
+                <span class="text-[10px] text-[#D6C2B0]">Saving ₹${(summary.birthdayDiscount || 0).toFixed(2)} on 1 Birthday Treat${summary.birthdayDiscountItemName ? ` (${summary.birthdayDiscountItemName})` : ''}</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-amber-400 text-black font-mono font-bold text-[10px] tracking-wider uppercase">30% OFF (1 TREAT)</span>
           </div>
-        ` : ''}
-      </div>
+        </div>
+      ` : `
+        <!-- Promo Code Input -->
+        <div class="mb-4">
+          <div class="flex gap-2">
+            <input type="text" id="promoCodeInput" placeholder="Promo code (e.g. LADESIO10)"
+                   class="flex-1 px-3 py-2 rounded-lg border border-[#B8945B]/40 text-xs text-[#3A1F17] focus:outline-none uppercase" />
+            <button onclick="window.ladesioApp.applyPromoCode()"
+                    class="px-4 py-2 rounded-lg btn-chocolate-luxury font-serif text-xs font-semibold">
+              Apply
+            </button>
+          </div>
+          ${summary.activePromo ? `
+            <div class="mt-1 flex justify-between items-center text-[10px] text-emerald-700 bg-emerald-50 px-2 py-1 rounded">
+              <span>✓ ${summary.activePromo.description}</span>
+              <button onclick="window.cartStore.removePromo()" class="text-red-500 font-bold">Remove</button>
+            </div>
+          ` : ''}
+        </div>
+      `}
 
       <!-- Price Breakdown -->
       <div class="space-y-1.5 text-xs text-[#6B3E2E] border-t border-[#B8945B]/20 pt-3">
         <div class="flex justify-between">
-          <span>Subtotal:</span>
-          <span>₹${summary.subtotal}</span>
+          <span>Creations Subtotal:</span>
+          <span class="font-mono font-semibold">₹${summary.subtotal.toFixed(2)}</span>
         </div>
-        ${summary.discount > 0 ? `
+        ${summary.birthdayDiscount > 0 ? `
+          <div class="flex justify-between text-amber-900 font-bold bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-300 shadow-xs">
+            <span class="flex items-center gap-1">🎂 30% Birthday Treat (1 Item):</span>
+            <span class="font-mono text-amber-800">-₹${summary.birthdayDiscount.toFixed(2)}</span>
+          </div>
+        ` : ''}
+        ${summary.promoDiscount > 0 ? `
           <div class="flex justify-between text-[#B8945B]">
-            <span>Discount:</span>
-            <span>-₹${summary.discount.toFixed(2)}</span>
+            <span>Promo Code Discount:</span>
+            <span class="font-mono">-₹${summary.promoDiscount.toFixed(2)}</span>
           </div>
         ` : ''}
         <div class="flex justify-between">
           <span>Delivery:</span>
-          <span>${summary.delivery === 0 ? '<span class="text-emerald-700 font-semibold">FREE</span>' : '₹' + summary.delivery}</span>
+          <span>${summary.delivery === 0 ? '<span class="text-emerald-700 font-semibold">FREE</span>' : '₹' + summary.delivery.toFixed(2)}</span>
         </div>
         <div class="flex justify-between font-display font-bold text-base text-[#3A1F17] border-t border-[#B8945B]/30 pt-2">
           <span>Total:</span>
@@ -3361,11 +4273,15 @@ class LaDesioApp {
     const prod = PRODUCTS.find(p => p.id === productId);
     if (!prod) return;
 
+    const pricing = this.getProductPricing(prod);
+
     cartStore.addItem({
       id: prod.id,
       name: prod.name,
       subtitle: prod.subtitle,
-      price: prod.price,
+      price: pricing.price,
+      originalPrice: pricing.originalPrice,
+      isBirthdayDiscount: pricing.isBirthdayDiscount,
       image: prod.image,
       quantity: 1
     });
@@ -3386,12 +4302,33 @@ class LaDesioApp {
       }
       window.showToast(`"${prod?.name || 'Item'}" added to your Wishlist!`, 'success');
     } else {
-      window.showToast(`Removed from Wishlist.`, 'info');
+      window.showToast(`"${prod?.name || 'Item'}" removed from Wishlist.`, 'info');
     }
     
-    // Dynamically update matching heart icons across page
-    document.querySelectorAll(`span[data-wishlist-icon="${productId}"]`).forEach(icon => {
-      icon.className = added ? 'text-rose-600 scale-125' : 'text-gray-400';
+    // Dynamically update matching heart icons across page (cards, modals, etc.)
+    document.querySelectorAll(`[data-wishlist-icon="${productId}"]`).forEach(icon => {
+      if (added) {
+        icon.setAttribute('fill', 'currentColor');
+        icon.classList.remove('fill-none', 'text-[#D4AF37]', 'text-gray-400');
+        icon.classList.add('fill-rose-500', 'text-rose-500', 'scale-110');
+      } else {
+        icon.setAttribute('fill', 'none');
+        icon.classList.remove('fill-rose-500', 'text-rose-500', 'scale-110');
+        icon.classList.add('fill-none', 'text-[#D4AF37]');
+      }
+    });
+
+    // Dynamically update matching wishlist buttons (borders, glows, titles)
+    document.querySelectorAll(`[data-wishlist-btn="${productId}"]`).forEach(btn => {
+      if (added) {
+        btn.setAttribute('title', 'Remove from Wishlist');
+        btn.classList.add('border-rose-500/80', 'shadow-[0_0_12px_rgba(244,63,94,0.4)]');
+        btn.classList.remove('border-[#B8945B]/40');
+      } else {
+        btn.setAttribute('title', 'Save to Bespoke Wishlist');
+        btn.classList.remove('border-rose-500/80', 'shadow-[0_0_12px_rgba(244,63,94,0.4)]', 'shadow-[0_0_12px_rgba(244,63,94,0.3)]', 'bg-rose-950/40');
+        btn.classList.add('border-[#B8945B]/40');
+      }
     });
 
     this.renderNavigationBadges();
@@ -3944,7 +4881,14 @@ class LaDesioApp {
   // ==========================================
   openEditProfileModal() {
     const data = loyaltyStore.getData();
-    const { profile } = data;
+    let { profile } = data;
+    if (profile && !profile.birthday) {
+      const remembered = loyaltyStore.getRememberedBirthday(profile.id, profile.phone, profile.email);
+      if (remembered) {
+        profile.birthday = remembered;
+        loyaltyStore.updateProfile({ birthday: remembered });
+      }
+    }
 
     let modal = document.getElementById('editProfileModal');
     if (!modal) {
@@ -4022,6 +4966,81 @@ class LaDesioApp {
             </div>
           </div>
 
+          <!-- Date of Birth -->
+          <div class="p-3.5 rounded-2xl bg-[#180A06] border border-[#B8945B]/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] font-bold flex items-center gap-1.5">
+                <span>🎂 Date of Birth (Annual 30% Privilege)</span>
+              </label>
+              ${profile.birthday && loyaltyStore.isUserBirthdayToday() ? `
+                <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/40 animate-pulse">
+                  🎉 Birthday Today! 30% OFF
+                </span>
+              ` : `
+                <span class="text-[10px] font-mono font-bold text-[#E6CA85] bg-[#B8945B]/20 px-2 py-0.5 rounded-full border border-[#B8945B]/40">
+                  30% OFF on Birthday
+                </span>
+              `}
+            </div>
+
+            <input type="date" id="editProfileBirthday" value="${profile.birthday || ''}" max="${new Date().toISOString().split('T')[0]}"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#140603] border border-[#B8945B]/50 focus:border-[#E6CA85] text-white text-xs outline-none font-mono" />
+            <p class="text-[10.5px] text-[#D6C2B0] leading-relaxed">
+              Set your date of birth to receive an exclusive <strong>30% OFF discount</strong> on your birthday every year!
+            </p>
+          </div>
+
+          <!-- Mobile Number & Email ID (Below DOB) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Mobile Number -->
+            <div class="p-3.5 rounded-2xl bg-[#180A06] border border-[#B8945B]/30 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <label class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] font-bold flex items-center gap-1.5">
+                  <span>📱 Mobile Number</span>
+                </label>
+                ${profile.phone ? `
+                  <span class="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">Verified</span>
+                ` : `
+                  <span class="text-[9px] font-mono text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-500/30">Optional</span>
+                `}
+              </div>
+              <div class="relative flex items-center rounded-xl bg-[#140603] border border-[#B8945B]/50 focus-within:border-[#E6CA85] overflow-hidden">
+                <span class="px-2.5 py-2 text-xs font-mono text-[#E6CA85] border-r border-[#B8945B]/25 bg-black/40">🇮🇳 +91</span>
+                <input type="tel" id="editProfilePhone" maxlength="10"
+                       value="${profile.phone ? profile.phone.replace(/\D/g, '').slice(-10) : ''}"
+                       placeholder="e.g. 9345396700"
+                       class="w-full px-3 py-2 bg-transparent text-white text-xs font-mono outline-none placeholder-stone-600" />
+              </div>
+              <p class="text-[10px] text-[#D6C2B0]">
+                Used for SMS consignment tracking and mobile login.
+              </p>
+            </div>
+
+            <!-- Email Address / ID -->
+            <div class="p-3.5 rounded-2xl bg-[#180A06] border border-[#B8945B]/30 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <label class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] font-bold flex items-center gap-1.5">
+                  <span>✉️ Email Address</span>
+                </label>
+                ${profile.email ? `
+                  <span class="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">Linked</span>
+                ` : `
+                  <span class="text-[9px] font-mono text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-500/30">Optional</span>
+                `}
+              </div>
+              <div class="relative flex items-center rounded-xl bg-[#140603] border border-[#B8945B]/50 focus-within:border-[#E6CA85] overflow-hidden">
+                <span class="pl-3 pr-1 text-stone-400 text-xs">✉️</span>
+                <input type="email" id="editProfileEmail"
+                       value="${profile.email || ''}"
+                       placeholder="e.g. connoisseur@gmail.com"
+                       class="w-full px-2.5 py-2 bg-transparent text-white text-xs font-sans outline-none placeholder-stone-600" />
+              </div>
+              <p class="text-[10px] text-[#D6C2B0]">
+                Used for digital invoices, invites, and Gmail OTP.
+              </p>
+            </div>
+          </div>
+
           <!-- Bio -->
           <div class="space-y-1.5">
             <label class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] block">Patisserie Bio & Flavor Passions</label>
@@ -4056,26 +5075,29 @@ class LaDesioApp {
     const file = event.target.files && event.target.files[0];
     if (!file) return;
     if (file.size > 5 * 1024 * 1024) {
-      if (window.showToast) window.showToast('Please select an image under 5MB.', 'info');
+      if (window.showToast) window.showToast('Avatar image must be under 5MB.', 'warning');
       return;
     }
     const reader = new FileReader();
     reader.onload = (e) => {
-      const base64 = e.target.result;
-      const preview = document.getElementById('profileModalAvatarPreview');
-      if (preview) preview.src = base64;
+      const dataUrl = e.target.result;
+      const preview = document.getElementById('editProfileAvatarPreview');
       const hidden = document.getElementById('editProfileAvatarValue');
-      if (hidden) hidden.value = base64;
-      if (window.showToast) window.showToast('Photo ready! Click Save Changes to apply.', 'info');
+      if (preview) preview.src = dataUrl;
+      if (hidden) hidden.value = dataUrl;
     };
     reader.readAsDataURL(file);
   }
 
-  setModalAvatarPreset(url) {
-    const preview = document.getElementById('profileModalAvatarPreview');
-    if (preview) preview.src = url;
+  selectPresetAvatar(url) {
+    const preview = document.getElementById('editProfileAvatarPreview');
     const hidden = document.getElementById('editProfileAvatarValue');
+    if (preview) preview.src = url;
     if (hidden) hidden.value = url;
+  }
+
+  setModalAvatarPreset(url) {
+    this.selectPresetAvatar(url);
   }
 
   saveProfileForm() {
@@ -4083,6 +5105,9 @@ class LaDesioApp {
     const cityInput = document.getElementById('editProfileCity');
     const bioInput = document.getElementById('editProfileBio');
     const avatarInput = document.getElementById('editProfileAvatarValue');
+    const bdayInput = document.getElementById('editProfileBirthday');
+    const emailInput = document.getElementById('editProfileEmail');
+    const phoneInput = document.getElementById('editProfilePhone');
 
     const updated = {
       name: nameInput ? nameInput.value.trim() : 'Guest',
@@ -4091,11 +5116,388 @@ class LaDesioApp {
       avatar: avatarInput ? avatarInput.value : ''
     };
 
+    if (emailInput) {
+      const emailVal = emailInput.value.trim();
+      if (emailVal) {
+        if (!emailVal.includes('@') || !emailVal.includes('.')) {
+          if (window.showToast) window.showToast('Please enter a valid email address.', 'warning');
+          return;
+        }
+        updated.email = emailVal.toLowerCase();
+      }
+    }
+
+    if (phoneInput) {
+      const phoneVal = phoneInput.value.trim().replace(/\D/g, '');
+      if (phoneVal) {
+        if (phoneVal.length !== 10) {
+          if (window.showToast) window.showToast('Please enter a valid 10-digit mobile number.', 'warning');
+          return;
+        }
+        updated.phone = phoneVal;
+      }
+    }
+
+    if (bdayInput && bdayInput.value) {
+      updated.birthday = bdayInput.value;
+      const curUser = loyaltyStore.getActiveUser() || loyaltyStore.getData().profile;
+      if (loyaltyStore && typeof loyaltyStore.resetBirthdayWishedState === 'function') {
+        loyaltyStore.resetBirthdayWishedState(curUser);
+      }
+      loyaltyStore.storeLockedBirthday(bdayInput.value, curUser?.id, updated.phone || curUser?.phone, updated.email || curUser?.email);
+    }
+
     loyaltyStore.updateProfile(updated);
     this.closeEditProfileModal();
     this.renderAccountView();
     if (window.showToast) {
-      window.showToast('Profile & Bio updated successfully!', 'success');
+      window.showToast('Profile updated successfully!', 'success');
+    }
+    this.checkBirthdayGreeting();
+    if (typeof cartStore !== 'undefined' && cartStore.notify) {
+      cartStore.notify();
+    }
+    if (this.renderNavigationBadges) {
+      this.renderNavigationBadges();
+    }
+  }
+
+  // ==========================================
+  // PRIVÉ BIRTHDAY PRIVILEGE & CELEBRATION MODALS
+  // ==========================================
+  openBirthdayPromptModal() {
+    const user = loyaltyStore.getActiveUser();
+    if (!user) {
+      this.navigateTo('login');
+      return;
+    }
+
+    let modal = document.getElementById('birthdayPromptModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'birthdayPromptModal';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300';
+      document.body.appendChild(modal);
+    }
+
+    const isAlreadySet = !!user.birthday;
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-[#241009] to-[#180A06] border border-[#B8945B]/50 shadow-2xl p-6 sm:p-8 text-[#FFFDF9] space-y-5">
+        <!-- Close Button -->
+        <button onclick="window.ladesioApp.closeBirthdayPromptModal()" 
+                class="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/40 border border-[#B8945B]/30 hover:border-[#B8945B] flex items-center justify-center text-stone-300 hover:text-white transition-colors cursor-pointer">
+          ✕
+        </button>
+
+        <div class="text-center space-y-2">
+          <div class="w-16 h-16 rounded-full bg-[#1A0905] border-2 border-[#B8945B] mx-auto flex items-center justify-center text-3xl shadow-lg">
+            🎂
+          </div>
+          <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">
+            Privé Privilege Program
+          </span>
+          <h3 class="font-display text-2xl text-white font-bold">
+            ${isAlreadySet ? 'Your Registered Birthday' : 'Register Your Birthday'}
+          </h3>
+          <p class="text-xs text-[#D6C2B0] leading-relaxed">
+            ${isAlreadySet 
+              ? 'Your date of birth is permanently recorded. When you visit on your special day, enjoy 30% OFF any order!' 
+              : 'Record your special day to receive an exclusive <strong>30% OFF discount</strong> on your birthday every year!'}
+          </p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); window.ladesioApp.saveQuickBirthday();" class="space-y-4">
+          <div class="space-y-1.5 text-left">
+            <label class="text-[11px] font-serif uppercase tracking-wider text-[#E6CA85] font-bold block">
+              ${isAlreadySet ? 'Registered Date of Birth:' : 'Select Your Date of Birth:'}
+            </label>
+            <input type="date" id="quickBirthdayInput" required
+                   value="${user.birthday || ''}"
+                   max="${new Date().toISOString().split('T')[0]}"
+                   class="w-full px-3.5 py-3 rounded-xl bg-[#140603] border border-[#B8945B]/60 focus:border-[#E6CA85] text-white text-sm outline-none font-mono" />
+            <div class="p-2.5 rounded-xl bg-amber-950/40 border border-amber-500/30 text-[10.5px] text-amber-200/90 leading-relaxed">
+              🎂 Enjoy an exclusive <strong>30% OFF discount</strong> across our patisserie menu on your special day!
+            </div>
+          </div>
+
+          <div class="flex items-center justify-end gap-3 pt-2">
+            <button type="button" onclick="window.ladesioApp.closeBirthdayPromptModal()"
+                    class="px-4 py-2.5 rounded-xl border border-stone-700 text-stone-300 text-xs font-serif">
+              Close
+            </button>
+            <button type="submit"
+                    class="px-6 py-2.5 rounded-xl btn-gold-luxury text-xs font-serif font-bold tracking-wider shadow-lg cursor-pointer">
+              ${isAlreadySet ? 'Update Birthday ✨' : 'Save Birthday ✨'}
+            </button>
+          </div>
+        </form>
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+  }
+
+  closeBirthdayPromptModal() {
+    const modal = document.getElementById('birthdayPromptModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  saveQuickBirthday() {
+    const input = document.getElementById('quickBirthdayInput');
+    if (!input || !input.value) {
+      if (window.showToast) window.showToast('Please select your date of birth.', 'warning');
+      return;
+    }
+    const res = loyaltyStore.setBirthday(input.value);
+    if (res.success) {
+      if (window.showToast) window.showToast(res.message, 'success');
+      this.closeBirthdayPromptModal();
+      this.renderAccountView();
+      this.checkBirthdayGreeting();
+      if (typeof cartStore !== 'undefined' && cartStore.notify) {
+        cartStore.notify();
+      }
+      if (this.renderNavigationBadges) {
+        this.renderNavigationBadges();
+      }
+    } else {
+      if (window.showToast) window.showToast(res.message, 'warning');
+    }
+  }
+
+  checkBirthdayGreeting() {
+    const user = loyaltyStore && typeof loyaltyStore.getActiveUser === 'function' ? loyaltyStore.getActiveUser() : null;
+    const isBday = user ? loyaltyStore.isUserBirthdayToday() : false;
+    const isAuth = loyaltyStore && typeof loyaltyStore.isUserAuthenticated === 'function' ? loyaltyStore.isUserAuthenticated() : false;
+
+    // Must be patron's birthday AND patron must be authenticated
+    if (!isBday || !user || !isAuth) {
+      const banner = document.getElementById('atelierBirthdayBanner');
+      if (banner) banner.remove();
+      this.closeBirthdayCelebrationModal();
+      return;
+    }
+
+    // Check if user has ALREADY been wished this year
+    // "i dont want that wish wish me once even i login again thats enough"
+    const alreadyWished = loyaltyStore && typeof loyaltyStore.hasUserBeenWishedThisYear === 'function'
+      ? loyaltyStore.hasUserBeenWishedThisYear(user)
+      : false;
+
+    if (alreadyWished) {
+      // User was already wished: DO NOT wish again, remove banner & modal
+      const banner = document.getElementById('atelierBirthdayBanner');
+      if (banner) banner.remove();
+      this.closeBirthdayCelebrationModal();
+      return;
+    }
+
+    // ONLY WISH ONCE: Permanently record wish now so subsequent logins or reloads never wish again
+    if (loyaltyStore && typeof loyaltyStore.markUserBirthdayWished === 'function') {
+      loyaltyStore.markUserBirthdayWished(user);
+    }
+
+    const discountAvail = loyaltyStore.isBirthdayDiscountAvailable();
+
+    // Show top celebratory banner for this single initial birthday greeting session
+    let banner = document.getElementById('atelierBirthdayBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'atelierBirthdayBanner';
+      banner.className = 'w-full bg-gradient-to-r from-[#B8945B] via-[#F5D796] to-[#B8945B] text-[#160703] py-2 px-4 text-center text-xs font-serif font-bold flex items-center justify-between shadow-lg z-30 relative';
+      const header = document.querySelector('header');
+      if (header && header.parentNode) {
+        header.parentNode.insertBefore(banner, header);
+      } else {
+        document.body.prepend(banner);
+      }
+    }
+
+    banner.innerHTML = `
+      <div class="flex-1 flex flex-wrap items-center justify-center gap-2">
+        <span>🎂🎉</span>
+        <span>Happy Birthday, ${user.name}! Wishing you a wonderful celebration!</span>
+        ${discountAvail 
+          ? `<span class="bg-[#160703] text-[#E6CA85] px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold">🎁 30% Birthday Gift on 1 Treat</span>
+             <a href="#menu" class="underline font-bold text-black hover:text-[#3A1F17] text-xs ml-1 font-serif">Pick Your Birthday Treat →</a>`
+          : `<span class="bg-[#160703]/80 text-[#E6CA85] px-2.5 py-0.5 rounded-full text-[10px] font-bold">✨ 30% Birthday Treat Enjoyed</span>`
+        }
+      </div>
+      <button type="button" onclick="window.ladesioApp.dismissBirthdayBanner()" 
+              class="ml-2 text-stone-900 hover:text-black hover:scale-110 p-1 text-sm font-bold transition-all cursor-pointer shrink-0"
+              title="Dismiss greeting banner">
+        ✕
+      </button>
+    `;
+
+    // Show celebratory modal ONCE
+    setTimeout(() => {
+      this.showBirthdayCelebrationModal(user, discountAvail);
+    }, 800);
+  }
+
+  dismissBirthdayBanner() {
+    const banner = document.getElementById('atelierBirthdayBanner');
+    if (banner) banner.remove();
+  }
+
+  showBirthdayCelebrationModal(user, discountAvail = true) {
+    if (!user) return;
+    if (loyaltyStore && typeof loyaltyStore.markUserBirthdayWished === 'function') {
+      loyaltyStore.markUserBirthdayWished(user);
+    }
+
+    let modal = document.getElementById('birthdayCelebrationModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'birthdayCelebrationModal';
+      modal.className = 'fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-opacity duration-300';
+      document.body.appendChild(modal);
+    } else {
+      modal.className = 'fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-opacity duration-300';
+    }
+
+    modal.innerHTML = `
+      <div class="relative w-full max-w-2xl md:max-w-3xl lg:max-w-4xl rounded-3xl bg-gradient-to-b from-[#2B0E07] via-[#1C0904] to-[#100402] border-2 border-[#E6CA85]/80 shadow-[0_0_80px_rgba(230,202,133,0.45),inset_0_1px_0_rgba(255,245,225,0.4)] p-5 sm:p-7 text-[#FFFDF9] max-h-[92vh] overflow-y-auto">
+        
+        <!-- Ornate Gold Corner Ornaments -->
+        <div class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#E6CA85]/70 pointer-events-none"></div>
+        <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#E6CA85]/70 pointer-events-none"></div>
+        <div class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#E6CA85]/70 pointer-events-none"></div>
+        <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#E6CA85]/70 pointer-events-none"></div>
+
+        <!-- Close Button -->
+        <button onclick="window.ladesioApp.closeBirthdayCelebrationModal()" 
+                class="absolute top-3.5 right-3.5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#B8945B]/60 hover:border-[#E6CA85] flex items-center justify-center text-stone-300 hover:text-white transition-all cursor-pointer z-20 hover:scale-105 shadow-xl"
+                title="Close greeting">
+          ✕
+        </button>
+
+        <!-- Ambient Golden Candle Glow -->
+        <div class="absolute top-0 left-1/3 w-80 h-32 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Horizontal 2-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-center pt-2 sm:pt-0">
+          
+          <!-- Left Column: Heartfelt Birthday Greeting & Note -->
+          <div class="text-center md:text-left space-y-2.5 sm:space-y-3">
+            <div class="flex flex-col sm:flex-row items-center md:items-start gap-3">
+              <!-- Festive Cake Emblem with Celebration Ribbon -->
+              <div class="relative shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#FFE099] via-[#C9A46B] to-[#7D531E] p-[2px] shadow-[0_0_25px_rgba(230,202,133,0.55)] transform hover:scale-105 transition-transform">
+                  <div class="w-full h-full rounded-[14px] bg-[#1A0703] flex items-center justify-center text-2xl sm:text-3xl">
+                    🎂
+                  </div>
+                </div>
+                <span class="absolute -bottom-1 -right-1 px-2 py-0.2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-black text-[9px] font-extrabold uppercase tracking-wider shadow">
+                  🎉 Day!
+                </span>
+              </div>
+
+              <div class="space-y-0.5 text-center sm:text-left">
+                <span class="font-script text-2xl sm:text-3xl text-[#E6CA85] tracking-wide block leading-tight">
+                  Happy Birthday!
+                </span>
+                <h2 class="font-display text-base sm:text-lg lg:text-xl text-white font-black tracking-wide leading-snug uppercase">
+                  HAPPY BIRTHDAY, ${(user.name || 'VALUED FRIEND').toUpperCase()}! 🥳
+                </h2>
+              </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-[#F5E6D3] font-serif leading-relaxed">
+              Wishing you a truly magical day filled with immense joy, laughter, and unforgettable moments with those you cherish most!
+            </p>
+
+            <!-- Personal Signature Note from the Atelier -->
+            <div class="pt-2 border-t border-[#B8945B]/25 text-[11px] font-serif text-[#C4AC97] italic">
+              "Here’s to another magnificent year of happiness, sweet memories, and big dreams!"
+              <div class="text-[#E6CA85] font-script text-base not-italic mt-0.5 font-normal">
+                — With all our love, The LA DESIO Atelier Family 💛
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Birthday Gift Box & Celebratory Action -->
+          <div class="relative rounded-2xl bg-gradient-to-b from-[#220B05] via-[#2A0E07] to-[#1A0603] border border-[#E6CA85]/60 p-4 sm:p-5 shadow-2xl text-center space-y-3">
+            <!-- Decorative Ribbon Badge -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-500/20 to-amber-400/10 border border-amber-400/50 text-[10px] font-serif uppercase tracking-widest text-[#F5D796] font-bold">
+              🎁 A Special Birthday Gift For You
+            </div>
+
+            <!-- Gift Headline -->
+            <div class="space-y-0.5">
+              <div class="font-display text-4xl sm:text-5xl font-black text-gold-gradient tracking-tight drop-shadow-md leading-none">
+                30% OFF
+              </div>
+              <p class="text-xs sm:text-sm font-serif text-[#E0CEBE] leading-snug pt-1">
+                To sweeten your special day, we’re treating you to <span class="text-amber-300 font-bold">30% off your entire celebration feast</span> today!
+              </p>
+            </div>
+
+            <!-- Glamorous Shimmer Action Button -->
+            <div class="pt-1">
+              <button onclick="window.ladesioApp.closeBirthdayCelebrationModal(); window.ladesioApp.navigateTo('menu');"
+                      class="relative w-full px-6 py-3 rounded-2xl bg-gradient-to-r from-[#DFBA73] via-[#F3E3B5] to-[#C9A46B] text-[#160703] font-serif text-xs sm:text-sm font-black tracking-wider shadow-[0_4px_25px_rgba(230,202,133,0.55)] hover:shadow-[0_6px_35px_rgba(230,202,133,0.8)] flex items-center justify-center gap-2 cursor-pointer active:scale-95 transition-all group overflow-hidden">
+                <!-- Light Sweep Shimmer Animation -->
+                <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+                <span class="text-base sm:text-lg">🕯️</span>
+                <span>Make a Wish & Choose Your Treats →</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+
+    // Audio celebration: Play joyful claps and cheering "Hurray!" sound
+    this.playClapsHurraySound();
+
+    if (window.ladesioSoundscape && typeof window.ladesioSoundscape.triggerCelebrationEffects === 'function') {
+      window.ladesioSoundscape.triggerCelebrationEffects();
+    } else if (typeof window.triggerCelebrationEffects === 'function') {
+      window.triggerCelebrationEffects();
+    } else if (window.checkoutManager && typeof window.checkoutManager.triggerCelebrationConfetti === 'function') {
+      window.checkoutManager.triggerCelebrationConfetti();
+    }
+  }
+
+  playClapsHurraySound() {
+    try {
+      // 1. Audio element playback with cache-busted claps & hurray audio
+      try {
+        const audio = new Audio('Assets/claps_hurray.wav?v=5.3.0');
+        audio.volume = 1.0;
+        const p = audio.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      } catch (e) {}
+
+      // 2. Delegate to soundscape engine for synchronized Web Audio API clapping & cheering
+      if (window.ladesioSoundscape && typeof window.ladesioSoundscape.playClapsHurraySound === 'function') {
+        window.ladesioSoundscape.playClapsHurraySound();
+      } else if (typeof window.playClapsHurraySound === 'function') {
+        window.playClapsHurraySound();
+      }
+    } catch (e) {}
+  }
+
+  playLotteryWinSound() {
+    this.playClapsHurraySound();
+  }
+
+  playBuzzerSound() {
+    this.playClapsHurraySound();
+  }
+
+  closeBirthdayCelebrationModal() {
+    const modal = document.getElementById('birthdayCelebrationModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
     }
   }
 
@@ -4398,6 +5800,13 @@ class LaDesioApp {
 
   handleProceedToCheckout() {
     this.closeCartDrawer();
+    try {
+      localStorage.removeItem('ladesio_last_placed_order');
+    } catch (e) {}
+    if (typeof window !== 'undefined' && window.checkoutManager) {
+      window.checkoutManager.lastPlacedOrder = null;
+      window.checkoutManager.currentStep = 1;
+    }
     if (!loyaltyStore.isUserAuthenticated()) {
       this.pendingRedirectRoute = 'checkout';
       window.location.hash = '#login';
@@ -4424,124 +5833,176 @@ class LaDesioApp {
     return `<div id="loginPortalContainer"></div>`;
   }
 
-  renderLoginView(container = document.getElementById('app-main-content'), initialTab = 'signin', authMethod = 'email') {
+  // 1-Tap Quick Demo Credentials Filler for instantaneous seamless testing
+  fillDemoCredentials(emailId = 'loginEmailInput', passId = 'loginPasswordInput') {
+    const emailElem = document.getElementById(emailId);
+    const passElem = document.getElementById(passId);
+    if (emailElem) emailElem.value = 'theroodyy@gmail.com';
+    if (passElem) passElem.value = 'desio123';
+    if (window.showToast) {
+      window.showToast('Demo Connoisseur credentials loaded! Click Sign In to enter.', 'info');
+    }
+  }
+
+  renderLoginView(container = document.getElementById('app-main-content'), initialTab = 'signin', authMethod = 'password') {
     if (!container) return;
     this.activeAuthTab = initialTab;
     this.activeAuthMethod = authMethod;
     if (!this.mobileAuthStep) this.mobileAuthStep = 'phone';
 
     container.innerHTML = `
-      <div class="min-h-[82vh] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center">
-        <!-- Breadcrumb & Brand Subhead -->
-        <div class="mb-6 sm:mb-8 text-center sm:text-left">
-          <div class="flex items-center justify-center sm:justify-start gap-2 text-xs font-serif tracking-wider uppercase text-stone-400">
-            <a href="#home" class="hover:text-[#E6CA85] transition-colors">Home Salon</a>
-            <span class="text-[#B8945B]/60">/</span>
-            <span class="text-[#E6CA85] font-semibold">La Desio Privé Club</span>
-            <span class="text-[#B8945B]/60">/</span>
-            <span class="text-stone-300" id="authBreadcrumbAction">${initialTab === 'signin' ? 'Sign In' : 'Privé Registration'}</span>
+      <div class="relative min-h-[92vh] py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center select-none">
+        
+        <!-- Ambient Warm Candlelight & Champagne Gold Glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 sm:w-[500px] h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-96 sm:w-[500px] h-96 bg-[#B8945B]/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <!-- Top Navigation / Return to Boutique Header -->
+        <div class="w-full mb-6 flex items-center justify-between pb-3 border-b border-[#B8945B]/25 relative z-10">
+          <a href="#home" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#1A0905] hover:bg-[#B8945B] text-[#E6CA85] hover:text-[#180703] border border-[#B8945B]/40 hover:border-[#E6CA85] text-xs font-serif tracking-wider uppercase transition-all shadow-md group">
+            <span class="transition-transform group-hover:-translate-x-1 font-bold">←</span>
+            <span class="font-semibold">Return to Boutique</span>
+          </a>
+
+          <!-- Subtle Atelier Breadcrumb -->
+          <div class="hidden sm:flex items-center gap-2 text-xs font-serif text-[#D6C2B0]">
+            <span>La Desio</span>
+            <span class="text-[#B8945B]">•</span>
+            <span class="text-[#E6CA85]">Atelier Privé</span>
+            <span class="text-[#B8945B]">•</span>
+            <span class="text-stone-300" id="authBreadcrumbAction">${initialTab === 'signin' ? 'Client Sign In' : 'Privé Registration'}</span>
           </div>
+
+          <!-- Brand Emblem & Logo -->
+          <a href="#home" class="flex items-center gap-2.5 group">
+            <img src="Assets/Logo/emblem_transparent.png" alt="LA DESIO" class="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105" />
+            <img src="Assets/Logo/logo_gold_transparent.png" alt="LA DESIO" class="h-5 sm:h-6 w-auto object-contain" />
+          </a>
         </div>
 
-        <!-- Split-Screen Editorial Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        <!-- HAUTE PATISSERIE SPLIT-SCREEN EDITORIAL GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch relative z-10">
           
-          <!-- LEFT COLUMN: EDITORIAL BRAND SHOWCASE (Desktop Luxury Editorial) -->
-          <div class="hidden lg:flex lg:col-span-5 relative rounded-3xl overflow-hidden border border-[#B8945B]/40 shadow-2xl flex-col justify-between p-8 xl:p-10 bg-cover bg-center"
-               style="background-image: linear-gradient(180deg, rgba(18, 7, 4, 0.84) 0%, rgba(26, 9, 5, 0.94) 75%, rgba(18, 7, 4, 0.98) 100%), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85');">
+          <!-- LEFT COLUMN: ARTISANAL PATISSERIE EDITORIAL SHOWCASE -->
+          <div class="hidden lg:flex lg:col-span-6 relative rounded-3xl overflow-hidden border border-[#B8945B]/40 shadow-2xl flex-col justify-between p-8 xl:p-10 bg-cover bg-center h-full"
+               style="background-image: linear-gradient(180deg, rgba(16, 7, 4, 0.78) 0%, rgba(26, 9, 5, 0.88) 55%, rgba(14, 5, 2, 0.98) 100%), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85');">
             
-            <!-- Top Crest & Heritage -->
+            <!-- Ornate Corner Filigree -->
+            <div class="atelier-corner-accent atelier-corner-tl"></div>
+            <div class="atelier-corner-accent atelier-corner-br"></div>
+
+            <!-- Top Crest & Philosophy -->
             <div class="space-y-6">
               <div class="flex items-center gap-3.5">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D140C] to-[#140804] border border-[#B8945B]/60 flex items-center justify-center shadow-lg p-2">
                   <img src="Assets/Logo/emblem_transparent.png" alt="La Desio Emblem" class="w-full h-full object-contain" onerror="this.outerHTML='<span class=\'text-2xl\'>👑</span>'" />
                 </div>
                 <div>
-                  <h3 class="font-serif text-base tracking-[0.2em] uppercase text-[#E6CA85] font-bold">La Desio Privé</h3>
-                  <p class="text-[11px] text-stone-300 font-sans tracking-wide">Italian Patisserie Connoisseurs</p>
+                  <span class="text-[10px] uppercase font-serif tracking-[0.25em] text-[#E6CA85] font-bold block">HAUTE CONFISERIE ITALIENNE</span>
+                  <h3 class="font-serif text-base tracking-wider uppercase text-white font-bold">La Desio Atelier Privé</h3>
                 </div>
               </div>
 
-              <div class="space-y-2">
-                <span class="text-[10px] uppercase font-serif tracking-[0.3em] text-[#B8945B] font-bold block">Exclusive Member Sanctuary</span>
+              <div class="space-y-2.5">
+                <span class="text-[10px] uppercase font-serif tracking-[0.3em] text-[#B8945B] font-bold block">Private Connoisseur Salon</span>
                 <h2 class="font-display text-3xl xl:text-4xl font-bold text-[#FFFDF9] leading-tight">
-                  Where Cravings Become Creations.
+                  Where Ephemeral Taste Becomes Timeless Art.
                 </h2>
                 <p class="text-xs text-[#D6C2B0] font-serif leading-relaxed pt-1">
-                  Step inside our private digital salon. Unlock reservations for limited-batch seasonal patisserie, personalized recipe storage, and white-glove delivery across our Indian flagship ateliers.
+                  Step into our private digital sanctuary. Handcrafted fresh each dawn by master Italian pâtissiers, featuring 100% eggless formulations, single-origin Venezuelan cacao, Tahitian vanilla beans, and white-glove chilled dispatch across our flagship ateliers.
                 </p>
               </div>
 
-              <!-- Privé Benefits Checklist -->
-              <div class="space-y-3.5 pt-4 border-t border-[#B8945B]/25">
-                <span class="text-[10px] uppercase tracking-widest text-[#E6CA85] font-bold block">Privé Member Privileges:</span>
+
+              <!-- Artisanal Showcase Gallery (Vibrant Real Dessert Imagery) -->
+              <div class="space-y-2.5 pt-1">
+                <div class="flex items-center justify-between text-xs font-serif">
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-[#E6CA85] font-bold">TODAY'S ATELIER CREATIONS</span>
+                  <span class="text-[10px] text-stone-400 font-serif italic">100% Eggless • Fresh Daily</span>
+                </div>
                 
-                <div class="flex items-start gap-3">
-                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">👑</div>
-                  <div>
-                    <h4 class="text-xs font-serif font-bold text-white">Tier Status Elevation</h4>
-                    <p class="text-[11px] text-stone-300">Advance from Amore to Élite and Royale for bespoke tasting invites & masterclasses.</p>
+                <div class="grid grid-cols-3 gap-3">
+                  <!-- Dessert 1 -->
+                  <div class="group/item relative rounded-2xl overflow-hidden border border-[#B8945B]/40 bg-black/40 hover:border-[#E6CA85] transition-all shadow-lg aspect-square">
+                    <img src="Assets/video/raw/dessert2_pistachio.jpg" alt="Bronte Pistacchio" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-2.5">
+                      <span class="text-[9px] font-serif text-[#E6CA85] uppercase tracking-wider font-bold truncate">Pistacchio</span>
+                      <span class="text-[8px] text-stone-300 font-sans truncate">Sicilian Sublime</span>
+                    </div>
+                  </div>
+
+                  <!-- Dessert 2 -->
+                  <div class="group/item relative rounded-2xl overflow-hidden border border-[#B8945B]/40 bg-black/40 hover:border-[#E6CA85] transition-all shadow-lg aspect-square">
+                    <img src="Assets/video/raw/dessert3_strawberry_tart.jpg" alt="Fraise Royale" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-2.5">
+                      <span class="text-[9px] font-serif text-[#E6CA85] uppercase tracking-wider font-bold truncate">Fraise Tart</span>
+                      <span class="text-[8px] text-stone-300 font-sans truncate">Wild Strawberry</span>
+                    </div>
+                  </div>
+
+                  <!-- Dessert 3 -->
+                  <div class="group/item relative rounded-2xl overflow-hidden border border-[#B8945B]/40 bg-black/40 hover:border-[#E6CA85] transition-all shadow-lg aspect-square">
+                    <img src="Assets/video/raw/dessert5_tiramisu.jpg" alt="Tiramisù Classico" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-2.5">
+                      <span class="text-[9px] font-serif text-[#E6CA85] uppercase tracking-wider font-bold truncate">Tiramisù</span>
+                      <span class="text-[8px] text-stone-300 font-sans truncate">Venetian Reserve</span>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="flex items-start gap-3">
-                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">✨</div>
-                  <div>
-                    <h4 class="text-xs font-serif font-bold text-white">+250 Welcome Points</h4>
-                    <p class="text-[11px] text-stone-300">Complimentary reward balance credited instantly upon joining your Privé profile.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">🎂</div>
-                  <div>
-                    <h4 class="text-xs font-serif font-bold text-white">Annual Birthday Patisserie</h4>
-                    <p class="text-[11px] text-stone-300">A handcrafted dessert gift presented by our master chef during your birthday week.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <div class="w-6 h-6 rounded-full bg-[#B8945B]/20 border border-[#B8945B]/50 flex items-center justify-center text-xs text-[#E6CA85] shrink-0 mt-0.5">🧪</div>
-                  <div>
-                    <h4 class="text-xs font-serif font-bold text-white">Private 3D Recipe Vault</h4>
-                    <p class="text-[11px] text-stone-300">Save bespoke creations from the Studio and reorder with your unique recipe code.</p>
-                  </div>
+              <!-- Chef's Philosophy & Signature Quote Plaque -->
+              <div class="p-3.5 rounded-2xl bg-[#1A0905]/70 border border-[#B8945B]/35 shadow-lg space-y-1 relative overflow-hidden">
+                <p class="text-xs italic text-[#E6CA85]/95 font-serif leading-relaxed">
+                  “Pastry is not merely confectionery; it is an intimate expression of architecture, passion, and affection.”
+                </p>
+                <div class="flex items-center justify-between pt-0.5">
+                  <span class="text-[10px] text-stone-400 font-serif block">— Chef Gianluca Rossi, Maître Pâtissier</span>
+                  <span class="text-[9px] uppercase font-mono tracking-widest text-[#B8945B]/70">Florentine Heritage</span>
                 </div>
               </div>
             </div>
 
-            <!-- Trust & Atelier Stamp -->
-            <div class="pt-6 border-t border-[#B8945B]/30 flex items-center justify-between text-[11px] text-stone-400">
-              <span class="flex items-center gap-1.5"><span class="text-emerald-400">🔒</span> 256-Bit SSL Encrypted</span>
-              <span>Ateliers: Chennai • Bengaluru • Kochi</span>
+            <!-- Atelier Dispatch & Encrypted Security Footnote -->
+            <div class="pt-6 border-t border-[#B8945B]/25 flex items-center justify-between text-[11px] text-stone-400">
+              <span class="flex items-center gap-1.5 text-stone-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Flagship Kitchens Active
+              </span>
+              <span class="font-serif italic text-stone-400">Chennai • Bengaluru • Kochi</span>
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: INTERACTIVE LUXURY AUTHENTICATION CARD -->
-          <div class="lg:col-span-7 flex flex-col justify-center">
-            <div class="auth-glass-panel rounded-3xl p-6 sm:p-10 text-[#FFFDF9] space-y-6 relative overflow-hidden">
+          <!-- RIGHT COLUMN: INTERACTIVE CLIENT PORTAL CARD -->
+          <div class="lg:col-span-6 flex flex-col h-full">
+            <div class="auth-glass-panel rounded-3xl p-6 sm:p-8 lg:p-9 text-[#FFFDF9] space-y-5 relative overflow-hidden border border-[#B8945B]/50 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(184,148,91,0.2)] h-full flex flex-col justify-between">
               
-              <!-- Subtle top gold highlight line -->
+              <!-- Ornate Gold Corner Filigree -->
+              <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#E6CA85]/60 pointer-events-none"></div>
+              <div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#E6CA85]/60 pointer-events-none"></div>
+              <div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#E6CA85]/60 pointer-events-none"></div>
+              <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#E6CA85]/60 pointer-events-none"></div>
+
+              <!-- Top Gold Shimmer Line -->
               <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E6CA85] to-transparent"></div>
 
-              <!-- Header with Brand Emblem -->
-              <div class="flex items-center justify-between">
+              <!-- Card Header -->
+              <div class="flex items-center justify-between pt-1">
                 <div>
-                  <span class="text-[10px] uppercase font-serif tracking-widest text-[#E6CA85] font-bold block">Client Portal</span>
-                  <h1 class="font-display text-2xl sm:text-3xl font-bold text-white mt-0.5" id="authMainTitle">
-                    ${initialTab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership'}
+                  <span class="text-[10px] uppercase font-serif tracking-[0.25em] text-[#E6CA85] font-bold block">CLIENT PORTAL</span>
+                  <h1 class="font-display text-2xl sm:text-3xl font-bold text-white mt-0.5 tracking-wide" id="authMainTitle">
+                    ${initialTab === 'signin' ? 'Sign In to Your Sanctuary' : 'Join the Privé Circle'}
                   </h1>
                   <p class="text-xs text-[#D6C2B0] mt-1 font-serif" id="authSubTitle">
-                    ${initialTab === 'signin' ? 'Welcome back. Please enter your credentials to access your account.' : 'Join our exclusive patisserie circle and receive 250 complimentary welcome points.'}
+                    ${initialTab === 'signin' ? 'Enter your credentials to access your private salon, rewards & orders.' : 'Create your private member profile to enjoy bespoke creations & personalized tasting orders.'}
                   </p>
                 </div>
-                <div class="w-11 h-11 rounded-2xl bg-[#140804] border border-[#B8945B]/40 flex items-center justify-center shadow-lg text-xl shrink-0 ml-3">
-                  👑
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2D140C] via-[#1A0905] to-[#120502] border border-[#B8945B]/70 flex items-center justify-center shadow-lg p-2 shrink-0 ml-3">
+                  <img src="Assets/Logo/emblem_transparent.png" alt="Emblem" class="w-full h-full object-contain" onerror="this.outerHTML='<span class=\'text-xl\'>👑</span>'" />
                 </div>
               </div>
 
               <!-- Primary Segment Switcher (Sign In vs Create Account) -->
-              <div class="grid grid-cols-2 p-1 rounded-2xl bg-[#140804] border border-[#B8945B]/30 text-xs font-serif font-semibold">
+              <div class="grid grid-cols-2 p-1 rounded-2xl bg-[#140804] border border-[#B8945B]/30 text-xs font-serif font-semibold shadow-inner">
                 <button type="button" onclick="window.ladesioApp.switchAuthTab('signin')" 
                         class="py-2.5 rounded-xl transition-all text-center ${initialTab === 'signin' ? 'bg-[#2A130B] text-[#E6CA85] shadow-md border border-[#B8945B]/40 font-bold' : 'text-stone-400 hover:text-white'}">
                   <span>Sign In</span>
@@ -4553,138 +6014,66 @@ class LaDesioApp {
                 </button>
               </div>
 
-              <!-- DYNAMIC CONTENT CONTAINER (Sign In or Register) -->
+              <!-- Dynamic Form Container (Password / Email OTP / Register) -->
               <div id="authDynamicFormArea">
                 ${this.renderAuthFormContent(initialTab, authMethod)}
+              </div>
+
+              <!-- Luxury Trust Seal & Atelier Footnote -->
+              <div class="pt-3 border-t border-[#B8945B]/20 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-400 gap-1">
+                <span class="flex items-center gap-1.5 text-stone-300">
+                  <span class="text-emerald-400">🔒</span> 256-Bit SSL Encrypted Client Portal
+                </span>
+                <span class="font-serif italic text-stone-400">Ateliers: Chennai • Bengaluru • Kochi</span>
               </div>
 
             </div>
           </div>
 
         </div>
+
       </div>
     `;
   }
 
   // Generate the internal form HTML (Sign In vs Register and Email vs Mobile)
   renderAuthFormContent(tab = 'signin', method = 'email', isModal = false) {
+    const emailCooldown = loyaltyStore.getCooldownRemaining('email', this.emailAuthEmail);
+    const mobileCooldown = loyaltyStore.getCooldownRemaining('mobile', this.mobileAuthPhone);
+
+    if (method === 'email' && this.emailAuthStep === 'otp' && emailCooldown > 0) {
+      setTimeout(() => this.startOtpCooldownTimer('email', this.emailAuthEmail, isModal), 30);
+    }
+    if (method === 'mobile' && this.mobileAuthStep === 'otp' && mobileCooldown > 0) {
+      setTimeout(() => this.startOtpCooldownTimer('mobile', this.mobileAuthPhone, isModal), 30);
+    }
+
     if (tab === 'signin') {
+      const activeMethod = method || this.activeAuthMethod || 'password';
       return `
-          <!-- Auth Method Sub-Tabs (Gmail OTP vs Mobile OTP vs Password) -->
-          <div class="flex items-center border-b border-[#B8945B]/30 pb-2 gap-4 sm:gap-6 text-xs font-serif overflow-x-auto">
-            <button type="button" onclick="window.ladesioApp.switchAuthMethod('email', ${isModal})"
-                    class="auth-tab-btn pb-1 whitespace-nowrap ${method === 'email' ? 'active font-bold' : ''}">
-              ✉️ Gmail OTP
-            </button>
-            <button type="button" onclick="window.ladesioApp.switchAuthMethod('mobile', ${isModal})"
-                    class="auth-tab-btn pb-1 whitespace-nowrap ${method === 'mobile' ? 'active font-bold' : ''}">
-              📱 Mobile OTP
-            </button>
-            <button type="button" onclick="window.ladesioApp.switchAuthMethod('password', ${isModal})"
-                    class="auth-tab-btn pb-1 whitespace-nowrap ${method === 'password' ? 'active font-bold' : ''}">
-              🔑 Password
-            </button>
-          </div>
+        <!-- Auth Method Sub-Tabs (🔑 Password vs ✉️ Gmail OTP) -->
+        <div class="flex items-center border-b border-[#B8945B]/30 pb-2.5 gap-6 text-xs font-serif">
+          <button type="button" onclick="window.ladesioApp.switchAuthMethod('password', ${isModal})"
+                  class="auth-tab-btn pb-1 whitespace-nowrap cursor-pointer transition-all ${activeMethod === 'password' ? 'active font-bold text-[#E6CA85] border-b-2 border-[#E6CA85]' : 'text-stone-400 hover:text-white'}">
+            🔑 Password
+          </button>
+          <button type="button" onclick="window.ladesioApp.switchAuthMethod('email', ${isModal})"
+                  class="auth-tab-btn pb-1 whitespace-nowrap cursor-pointer transition-all ${activeMethod === 'email' ? 'active font-bold text-[#E6CA85] border-b-2 border-[#E6CA85]' : 'text-stone-400 hover:text-white'}">
+            ✉️ Gmail OTP
+          </button>
+        </div>
 
-          ${method === 'email' ? `
-            <!-- GMAIL & EMAIL OTP FLOW -->
-            ${this.emailAuthStep === 'otp' ? `
-              <form onsubmit="window.ladesioApp.handleVerifyEmailOtp(event, ${isModal})" class="space-y-4">
-                <!-- Sleek Gmail Notification Banner -->
-                <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 shadow-xl space-y-1.5 text-left">
-                  <div class="flex items-center justify-between text-[11px] text-[#E6CA85] font-bold">
-                    <span class="flex items-center gap-1.5">
-                      <span class="text-rose-400">✉️</span> GMAIL VERIFICATION SENT TO:
-                    </span>
-                    <span class="text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/40">Dispatched</span>
-                  </div>
-                  <p class="text-xs text-white font-mono truncate">
-                    ${this.emailAuthEmail || 'user@gmail.com'}
-                  </p>
-                  <p class="text-xs text-white font-mono pt-1">
-                    Security Code: <strong class="text-[#E6CA85] font-bold text-base tracking-wider bg-black/50 px-2 py-0.5 rounded-lg border border-[#B8945B]/40">${this.emailAuthOtp || '582194'}</strong>
-                  </p>
-                  <button type="button" onclick="const inp = document.getElementById('${isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput'}'); if (inp) inp.value = '${this.emailAuthOtp}';"
-                          class="mt-1 text-[11px] font-serif text-[#E6CA85] hover:text-white underline font-bold cursor-pointer">
-                    ⚡ Click to Auto-Fill OTP (${this.emailAuthOtp})
-                  </button>
-                </div>
-
-                <div class="space-y-1.5">
-                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter 6-Digit Gmail Verification Code (OTP)</label>
-                  <input type="text" id="${isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput'}" required maxlength="6"
-                         value="${this.emailAuthOtp || ''}"
-                         placeholder="••••••"
-                         class="w-full px-4 py-3 rounded-xl border border-[#B8945B]/50 bg-[#120502] text-white text-base font-mono text-center tracking-[0.35em] outline-none focus:border-[#E6CA85]" />
-                </div>
-
-                <button type="submit" 
-                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 cursor-pointer">
-                  <span>Verify & Sign In</span> 👑
-                </button>
-
-                <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
-                  <button type="button" onclick="window.ladesioApp.resetEmailAuthStep(${isModal})" class="hover:text-white cursor-pointer">
-                    ← Change Email
-                  </button>
-                  <button type="button" onclick="window.ladesioApp.handleSendEmailOtp(null, '${this.emailAuthEmail}', ${isModal})" class="text-[#E6CA85] font-bold hover:underline cursor-pointer">
-                    Resend Code to Gmail
-                  </button>
-                </div>
-              </form>
-            ` : `
-              <form onsubmit="window.ladesioApp.handleSendEmailOtp(event, null, ${isModal})" class="space-y-4">
-                <div class="space-y-1.5">
-                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter Your Gmail / Email Address</label>
-                  <div class="relative flex items-center">
-                    <span class="absolute left-3.5 text-stone-400 text-sm">✉️</span>
-                    <input type="email" id="${isModal ? 'modalEmailAuthInput' : 'emailAuthInput'}" required
-                           value="${this.emailAuthEmail || 'theroodyy@gmail.com'}"
-                           placeholder="e.g. yourname@gmail.com"
-                           class="w-full pl-10 pr-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
-                  </div>
-                  <span class="text-[11px] text-stone-400">A 6-digit verification security code will be sent to your Gmail inbox.</span>
-                </div>
-
-                <button type="submit" 
-                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer">
-                  <span>Send OTP to Gmail</span> ✉️
-                </button>
-
-                <!-- Social / Express Auth Options -->
-                <div class="relative my-4 text-center">
-                  <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-[#B8945B]/20"></div></div>
-                  <span class="relative px-3 bg-[#241009] text-[10px] font-serif tracking-widest uppercase text-stone-400 font-semibold">Or 1-Tap Login</span>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                  <button type="button" onclick="window.ladesioApp.handleSocialLogin('Google', ${isModal})"
-                          class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white cursor-pointer">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24">
-                      <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/>
-                      <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"/>
-                      <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/>
-                      <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/>
-                    </svg>
-                    <span>Google 1-Tap</span>
-                  </button>
-
-                  <button type="button" onclick="window.ladesioApp.switchAuthMethod('password', ${isModal})"
-                          class="social-btn py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs font-sans text-stone-200 hover:text-white cursor-pointer">
-                    <span>🔑 Password</span>
-                  </button>
-                </div>
-              </form>
-            `}
-          ` : method === 'password' ? `
+        <div class="space-y-4 pt-1">
+          ${activeMethod === 'password' ? `
             <!-- EMAIL & PASSWORD FORM -->
             <form onsubmit="window.ladesioApp.handleEmailPasswordLogin(event, ${isModal})" class="space-y-4">
+              
               <div class="space-y-1.5">
                 <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Email Address or Connoisseur ID</label>
                 <div class="relative flex items-center">
                   <span class="absolute left-3.5 text-stone-400 text-sm">✉️</span>
                   <input type="email" id="${isModal ? 'modalLoginEmailInput' : 'loginEmailInput'}" required
-                         value="theroodyy@gmail.com"
+                         value=""
                          placeholder="e.g. connoisseur@ladesio.com"
                          class="w-full pl-10 pr-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
                 </div>
@@ -4701,11 +6090,11 @@ class LaDesioApp {
                 <div class="relative flex items-center">
                   <span class="absolute left-3.5 text-stone-400 text-sm">🔒</span>
                   <input type="password" id="${isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput'}" required
-                         value="desio123"
+                         value=""
                          placeholder="••••••••"
                          class="w-full pl-10 pr-11 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
                   <button type="button" onclick="window.ladesioApp.togglePasswordVisibility('${isModal ? 'modalLoginPasswordInput' : 'loginPasswordInput'}', '${isModal ? 'modalLoginEyeIcon' : 'loginEyeIcon'}')"
-                          class="absolute right-3.5 text-stone-400 hover:text-[#E6CA85] transition-colors p-1"
+                          class="absolute right-3.5 text-stone-400 hover:text-[#E6CA85] transition-colors p-1 cursor-pointer"
                           title="Show/Hide password">
                     <span id="${isModal ? 'modalLoginEyeIcon' : 'loginEyeIcon'}">👁️</span>
                   </button>
@@ -4722,68 +6111,89 @@ class LaDesioApp {
 
               <button type="submit" 
                       class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer">
-                <span>Sign In with Password</span> 🔑
+                <span>Sign In to Your Sanctuary</span> 🔑
               </button>
+
+              <div class="pt-1 text-center">
+                <button type="button" onclick="window.ladesioApp.switchAuthMethod('email', ${isModal})"
+                        class="text-xs font-serif text-[#E6CA85] hover:underline cursor-pointer inline-flex items-center gap-1.5">
+                  <span>Prefer instant verification code?</span>
+                  <span class="font-bold underline">Sign in with Gmail OTP ✉️</span>
+                </button>
+              </div>
             </form>
           ` : `
-            <!-- MOBILE & OTP FORM -->
-            ${this.mobileAuthStep === 'phone' ? `
-              <form onsubmit="window.ladesioApp.handleSendMobileOtp(event)" class="space-y-4">
-                <div class="space-y-1.5">
-                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter Your 10-Digit Mobile Number</label>
-                  <div class="flex items-center rounded-xl border border-[#B8945B]/40 bg-[#120502] focus-within:border-[#E6CA85] overflow-hidden">
-                    <span class="px-3.5 py-3 text-xs font-mono text-[#E6CA85] font-bold border-r border-[#B8945B]/30 bg-black/40">
-                      🇮🇳 +91
-                    </span>
-                    <input type="tel" id="mobileAuthPhoneInput" required maxlength="10"
-                           value="${this.mobileAuthPhone || '9345396700'}"
-                           placeholder="93453 96700"
-                           class="w-full px-3.5 py-3 bg-transparent text-white text-xs font-mono outline-none" />
-                  </div>
-                  <span class="text-[11px] text-stone-400">A 6-digit authentication code will be dispatched to this number.</span>
-                </div>
-
-                <button type="submit" 
-                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
-                  <span>Generate & Send OTP</span> 📲
-                </button>
-              </form>
-            ` : `
-              <form onsubmit="window.ladesioApp.handleVerifyMobileOtp(event)" class="space-y-4">
-                <!-- Sleek SMS Simulated Banner -->
-                <div class="p-3 rounded-2xl bg-[#1A0905] border border-[#B8945B]/40 shadow-xl space-y-1 text-left">
+            <!-- GMAIL & EMAIL OTP FLOW -->
+            ${this.emailAuthStep === 'otp' ? `
+              <form onsubmit="window.ladesioApp.handleVerifyEmailOtp(event, ${isModal})" class="space-y-4">
+                <!-- Sleek Gmail Notification Banner -->
+                <div class="p-3.5 rounded-2xl bg-[#1A0905] border border-[#B8945B]/50 shadow-xl space-y-1.5 text-left">
                   <div class="flex items-center justify-between text-[11px] text-[#E6CA85] font-bold">
-                    <span>📲 SMS VERIFICATION SENT TO +91 ${this.mobileAuthPhone}</span>
-                    <span class="text-[10px] text-stone-400">Delivered</span>
+                    <span class="flex items-center gap-1.5">
+                      <span class="text-rose-400">✉️</span> GMAIL VERIFICATION SENT TO:
+                    </span>
+                    <span class="text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/40">Dispatched</span>
                   </div>
-                  <p class="text-xs text-white font-mono">
-                    Security Code: <strong class="text-[#E6CA85] font-bold text-sm tracking-wider">${this.mobileAuthOtp || '645123'}</strong>
+                  <p class="text-xs text-white font-mono truncate">
+                    ${this.emailAuthEmail || 'user@gmail.com'}
                   </p>
-                  <button type="button" onclick="document.getElementById('mobileAuthOtpInput').value = '${this.mobileAuthOtp}';"
-                          class="mt-1 text-[11px] font-serif text-[#E6CA85] hover:text-white underline font-bold">
-                    ⚡ Click to Auto-Fill OTP (${this.mobileAuthOtp})
-                  </button>
+                  <p class="text-[11px] text-[#D6C2B0] pt-1 leading-relaxed">
+                    Check your Gmail inbox. <span class="text-[#E6CA85]">If not visible in Primary, please check your <strong>Spam</strong> or <strong>Promotions</strong> folder.</span>
+                  </p>
                 </div>
 
                 <div class="space-y-1.5">
-                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter 6-Digit Verification Code (OTP)</label>
-                  <input type="text" id="mobileAuthOtpInput" required maxlength="6"
-                         value="${this.mobileAuthOtp || ''}"
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter 6-Digit Gmail Verification Code (OTP)</label>
+                  <input type="text" id="${isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput'}" required maxlength="6"
+                         value=""
                          placeholder="••••••"
+                         autocomplete="one-time-code"
                          class="w-full px-4 py-3 rounded-xl border border-[#B8945B]/50 bg-[#120502] text-white text-base font-mono text-center tracking-[0.35em] outline-none focus:border-[#E6CA85]" />
+                  <span class="text-[11px] text-stone-400">⏱️ Valid for 5 minutes</span>
                 </div>
 
                 <button type="submit" 
-                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2">
-                  <span>Verify & Enter Salon</span> 👑
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 cursor-pointer">
+                  <span>Verify & Sign In</span> 👑
                 </button>
 
                 <div class="flex items-center justify-between text-xs text-[#D6C2B0] pt-1">
-                  <button type="button" onclick="window.ladesioApp.openMobileAuthModal('phone', '${this.mobileAuthPhone}')" class="hover:text-white">
-                    ← Change Phone
+                  <button type="button" onclick="window.ladesioApp.resetEmailAuthStep(${isModal})" class="hover:text-white cursor-pointer">
+                    ← Change Email
                   </button>
-                  <button type="button" onclick="window.ladesioApp.handleSendMobileOtp(null, '${this.mobileAuthPhone}')" class="text-[#E6CA85] font-bold hover:underline">
-                    Resend Code
+                  <button type="button" 
+                          id="${isModal ? 'modalResendEmailOtpBtn' : 'resendEmailOtpBtn'}"
+                          ${emailCooldown > 0 ? 'disabled' : ''}
+                          onclick="window.ladesioApp.handleSendEmailOtp(null, '${this.emailAuthEmail}', ${isModal})" 
+                          class="text-xs transition-all ${emailCooldown > 0 ? 'text-stone-500 cursor-not-allowed font-mono select-none' : 'text-[#E6CA85] font-bold hover:underline cursor-pointer'}">
+                    ${emailCooldown > 0 ? `⏳ Resend in ${emailCooldown}s` : 'Resend Code to Gmail'}
+                  </button>
+                </div>
+              </form>
+            ` : `
+              <form onsubmit="window.ladesioApp.handleSendEmailOtp(event, null, ${isModal})" class="space-y-4">
+                <div class="space-y-1.5">
+                  <label class="block text-xs font-serif font-semibold text-[#E6CA85]">Enter Your Gmail / Email Address</label>
+                  <div class="relative flex items-center">
+                    <span class="absolute left-3.5 text-stone-400 text-sm">✉️</span>
+                    <input type="email" id="${isModal ? 'modalEmailAuthInput' : 'emailAuthInput'}" required
+                           value="${this.emailAuthEmail || ''}"
+                           placeholder="e.g. yourname@gmail.com"
+                           class="w-full pl-10 pr-4 py-3 rounded-xl auth-input text-xs font-sans placeholder-stone-500" />
+                  </div>
+                  <span class="text-[11px] text-stone-400">Works with any Gmail address. A 6-digit verification security code will be sent to your inbox.</span>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 rounded-xl btn-gold-luxury font-serif text-xs font-semibold tracking-wider uppercase shadow-xl flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer">
+                  <span>Send OTP to Gmail</span> ✉️
+                </button>
+
+                <div class="pt-1 text-center">
+                  <button type="button" onclick="window.ladesioApp.switchAuthMethod('password', ${isModal})"
+                          class="text-xs font-serif text-[#E6CA85] hover:underline cursor-pointer inline-flex items-center gap-1.5">
+                    <span>Prefer account password?</span>
+                    <span class="font-bold underline">Sign in with Password 🔑</span>
                   </button>
                 </div>
               </form>
@@ -4881,26 +6291,26 @@ class LaDesioApp {
     this.activeAuthTab = tab;
     if (isModal) {
       const area = document.getElementById('modalAuthDynamicArea');
-      if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'email', true);
+      if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'password', true);
       const title = document.getElementById('modalAuthTitle');
-      if (title) title.textContent = tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership';
+      if (title) title.textContent = tab === 'signin' ? 'Sign In to Your Sanctuary' : 'Join the Privé Circle';
       return;
     }
 
     const area = document.getElementById('authDynamicFormArea');
-    if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'email', false);
+    if (area) area.innerHTML = this.renderAuthFormContent(tab, this.activeAuthMethod || 'password', false);
 
     const title = document.getElementById('authMainTitle');
     const subTitle = document.getElementById('authSubTitle');
     const breadcrumbAction = document.getElementById('authBreadcrumbAction');
 
-    if (title) title.textContent = tab === 'signin' ? 'Sign In to La Desio' : 'Create Privé Membership';
+    if (title) title.textContent = tab === 'signin' ? 'Sign In to Your Sanctuary' : 'Join the Privé Circle';
     if (subTitle) {
       subTitle.textContent = tab === 'signin' 
-        ? 'Welcome back. Please enter your credentials to access your account.' 
-        : 'Join our exclusive patisserie circle and receive 250 complimentary welcome points.';
+        ? 'Enter your credentials to access your private salon, rewards & orders.' 
+        : 'Create your private member profile to enjoy bespoke creations & personalized tasting orders.';
     }
-    if (breadcrumbAction) breadcrumbAction.textContent = tab === 'signin' ? 'Sign In' : 'Privé Registration';
+    if (breadcrumbAction) breadcrumbAction.textContent = tab === 'signin' ? 'Client Sign In' : 'Privé Registration';
 
     // Update segment buttons
     const container = document.getElementById('app-main-content');
@@ -5239,12 +6649,62 @@ class LaDesioApp {
   }
 
   // ==========================================
-  // GMAIL / EMAIL OTP CONTROLLERS
+  // GMAIL / EMAIL & MOBILE OTP CONTROLLERS
   // ==========================================
+  startOtpCooldownTimer(type = 'email', identifier, isModal = false) {
+    if (this.otpTimerInterval) {
+      clearInterval(this.otpTimerInterval);
+      this.otpTimerInterval = null;
+    }
+
+    const updateTimerUI = () => {
+      const remaining = loyaltyStore.getCooldownRemaining(type, identifier);
+      const btnId = type === 'email'
+        ? (isModal ? 'modalResendEmailOtpBtn' : 'resendEmailOtpBtn')
+        : 'resendMobileOtpBtn';
+      const btn = document.getElementById(btnId);
+
+      if (!btn) {
+        if (this.otpTimerInterval) {
+          clearInterval(this.otpTimerInterval);
+          this.otpTimerInterval = null;
+        }
+        return;
+      }
+
+      if (remaining > 0) {
+        btn.disabled = true;
+        btn.className = 'text-xs text-stone-500 cursor-not-allowed font-mono select-none';
+        btn.innerHTML = `⏳ Resend in ${remaining}s`;
+      } else {
+        btn.disabled = false;
+        btn.className = 'text-xs text-[#E6CA85] font-bold hover:underline cursor-pointer';
+        btn.innerHTML = type === 'email' ? 'Resend Code to Gmail' : 'Resend Code';
+        if (this.otpTimerInterval) {
+          clearInterval(this.otpTimerInterval);
+          this.otpTimerInterval = null;
+        }
+      }
+    };
+
+    updateTimerUI();
+    this.otpTimerInterval = setInterval(updateTimerUI, 1000);
+  }
+
   handleSendEmailOtp(e, overrideEmail, isModal = false) {
     if (e && e.preventDefault) e.preventDefault();
     const inputId = isModal ? 'modalEmailAuthInput' : 'emailAuthInput';
-    const email = overrideEmail || document.getElementById(inputId)?.value;
+    let email = overrideEmail;
+    if (!email) {
+      const primaryInput = document.getElementById(inputId);
+      const fallbackInput = document.getElementById(isModal ? 'emailAuthInput' : 'modalEmailAuthInput');
+      email = (primaryInput ? primaryInput.value : (fallbackInput ? fallbackInput.value : ''));
+    }
+    email = String(email || '').trim();
+    if (!email) {
+      if (window.showToast) window.showToast('Please enter your email address.', 'warning');
+      return;
+    }
     const res = loyaltyStore.generateEmailOtp(email);
 
     if (res.success) {
@@ -5253,7 +6713,7 @@ class LaDesioApp {
       this.emailAuthOtp = res.otp;
       this.playObstacleChime();
       if (window.showToast) {
-        window.showToast(`✉️ Security code sent to ${res.email}: OTP is ${res.otp}`, 'success');
+        window.showToast(`✉️ Verification code sent to ${res.email}! Please check your inbox.`, 'success');
       }
       // Re-render auth area
       if (isModal) {
@@ -5263,9 +6723,10 @@ class LaDesioApp {
         const area = document.getElementById('authDynamicFormArea');
         if (area) area.innerHTML = this.renderAuthFormContent('signin', 'email', false);
       }
+      this.startOtpCooldownTimer('email', res.email, isModal);
     } else {
       if (window.showToast) {
-        window.showToast(res.message, 'warning');
+        window.showToast(res.message, res.inCooldown ? 'info' : 'warning');
       } else {
         alert(res.message);
       }
@@ -5275,7 +6736,9 @@ class LaDesioApp {
   handleVerifyEmailOtp(e, isModal = false) {
     if (e && e.preventDefault) e.preventDefault();
     const inputId = isModal ? 'modalEmailAuthOtpInput' : 'emailAuthOtpInput';
-    const otp = document.getElementById(inputId)?.value;
+    const primaryInput = document.getElementById(inputId);
+    const fallbackInput = document.getElementById(isModal ? 'emailAuthOtpInput' : 'modalEmailAuthOtpInput');
+    const otp = (primaryInput ? primaryInput.value : (fallbackInput ? fallbackInput.value : '')).trim();
     const res = loyaltyStore.verifyEmailOtp(this.emailAuthEmail, otp);
 
     if (res.success) {
@@ -5324,7 +6787,7 @@ class LaDesioApp {
       this.mobileAuthOtp = res.otp;
       this.playObstacleChime();
       if (window.showToast) {
-        window.showToast(`📲 SMS Delivered to ${res.formattedPhone}: OTP is ${res.otp}`, 'warning');
+        window.showToast(`📲 Verification code sent to ${res.formattedPhone}! Please check your SMS.`, 'success');
       }
       // Re-render auth area with OTP step
       const isModal = !document.getElementById('authDynamicFormArea');
@@ -5335,9 +6798,10 @@ class LaDesioApp {
         const area = document.getElementById('authDynamicFormArea');
         if (area) area.innerHTML = this.renderAuthFormContent('signin', 'mobile', false);
       }
+      this.startOtpCooldownTimer('mobile', res.phone, isModal);
     } else {
       if (window.showToast) {
-        window.showToast(res.message, 'warning');
+        window.showToast(res.message, res.inCooldown ? 'info' : 'warning');
       } else {
         alert(res.message);
       }
@@ -5399,8 +6863,30 @@ class LaDesioApp {
     this.closePfpDropdown();
     this.closeAllModals();
     this.closeAuthModal();
+    this.closeBirthdayCelebrationModal();
+
+    // Immediately remove top celebratory birthday banner if present
+    const banner = document.getElementById('atelierBirthdayBanner');
+    if (banner) banner.remove();
+
     if (typeof this.closeWishlistDrawer === 'function') this.closeWishlistDrawer();
     if (typeof this.closeCartDrawer === 'function') this.closeCartDrawer();
+
+    const previousUser = loyaltyStore && typeof loyaltyStore.getActiveUser === 'function' ? loyaltyStore.getActiveUser() : null;
+    const prevUserId = previousUser ? previousUser.id : (loyaltyStore && loyaltyStore.profile ? loyaltyStore.profile.id : null);
+
+    // Save previous user's cart/wishlist and clear active in-memory cart/wishlist
+    if (typeof cartStore !== 'undefined' && typeof cartStore.onLogout === 'function') {
+      cartStore.onLogout(prevUserId);
+    } else if (typeof cartStore !== 'undefined') {
+      cartStore.cart = [];
+      cartStore.wishlist = [];
+      cartStore.activePromo = null;
+      if (cartStore.saveCart) cartStore.saveCart();
+      if (cartStore.saveWishlist) cartStore.saveWishlist();
+      if (cartStore.notify) cartStore.notify();
+    }
+
     loyaltyStore.logout();
     this.pendingRedirectRoute = null;
     try {
@@ -5409,10 +6895,16 @@ class LaDesioApp {
       localStorage.removeItem('ladesio_active_user_id_v4');
       localStorage.removeItem('ladesio_profile_v2');
       localStorage.removeItem('pendingAuthEmail');
+      localStorage.removeItem('ladesio_locked_birthday');
     } catch (e) {}
+
+
     
-    // Update navigation immediately
+    // Update navigation immediately (cart & wishlist count badges become 0 / hidden)
     this.renderNavigationBadges();
+
+    // Ensure birthday greeting banner and modal are removed
+    this.checkBirthdayGreeting();
     
     // Always navigate to login page and render sign in form
     this.currentRoute = 'login';
