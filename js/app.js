@@ -2605,9 +2605,34 @@ class LaDesioApp {
       `Sent via La Desio Haute Patisserie Client Support Portal.`
     );
 
-    // Open mailto link
     const mailtoUrl = `mailto:mohan.sakthivl@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    window.location.href = mailtoUrl;
+
+    // 1. Dispatch real email via Node.js server (Nodemailer to mohan.sakthivl@gmail.com)
+    try {
+      const apiUrl = (typeof window !== 'undefined' && window.location.port === '5000')
+        ? '/api/support/send-query'
+        : 'http://localhost:5000/api/support/send-query';
+
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ticketId,
+          name,
+          email,
+          phone,
+          category,
+          subject,
+          message
+        })
+      }).then(r => r.json()).then(data => {
+        if (data && data.success) {
+          console.log(`✨ [Support Desk]: Email query #${ticketId} dispatched to mohan.sakthivl@gmail.com`);
+        }
+      }).catch(err => {
+        console.warn('Backend server offline, saved ticket locally:', err.message);
+      });
+    } catch (err) {}
 
     // Show UI confirmation
     const form = document.getElementById('supportQueryForm');
@@ -2616,7 +2641,24 @@ class LaDesioApp {
 
     if (ticketElem) ticketElem.textContent = `#${ticketId}`;
     if (form) form.classList.add('hidden');
-    if (successBanner) successBanner.classList.remove('hidden');
+    if (successBanner) {
+      successBanner.classList.remove('hidden');
+      // Add a mail client launch button if not already present
+      let mailLink = document.getElementById('supportMailClientLink');
+      if (!mailLink) {
+        const linkWrapper = document.createElement('div');
+        linkWrapper.className = 'pt-2 flex items-center gap-3';
+        linkWrapper.innerHTML = `
+          <a id="supportMailClientLink" href="${mailtoUrl}"
+             class="py-2 px-4 rounded-xl border border-[#B8945B]/50 hover:bg-[#B8945B] hover:text-[#120502] text-[#E6CA85] text-xs font-serif transition-all inline-flex items-center gap-2">
+            <span>✉️ Open in Your Email App</span>
+          </a>
+        `;
+        successBanner.appendChild(linkWrapper);
+      } else {
+        mailLink.href = mailtoUrl;
+      }
+    }
 
     if (window.showToast) {
       window.showToast(`✨ Query dispatched! Ticket #${ticketId} created for mohan.sakthivl@gmail.com`, 'success');

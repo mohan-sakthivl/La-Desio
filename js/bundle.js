@@ -2730,6 +2730,9 @@ class LoyaltyManager {
       localStorage.setItem(EMAIL_OTP_STORE_KEY, JSON.stringify(this.pendingEmailOtp));
     } catch (e) {}
 
+    // Console debug display for local development & testing
+    console.log(`%c⚜️ [LA DESIO AUTH OTP]: ${otp} (for ${email})`, 'background: #1C0A05; color: #E6CA85; font-size: 13px; font-weight: bold; padding: 5px 10px; border: 1px solid #B8945B; border-radius: 6px;');
+
     // 1. Direct Node.js Nodemailer Dispatch (Native Gmail Server)
     try {
       const apiUrl = (typeof window !== 'undefined' && window.location.port === '5000')
@@ -2742,9 +2745,13 @@ class LoyaltyManager {
         body: JSON.stringify({ email, otp })
       }).then(res => res.json()).then(data => {
         if (data && data.success) {
-          console.log('✨ [Nodemailer Server]: Dispatched to Gmail:', email);
+          console.log(`✨ [Gmail Server]: Code ${otp} successfully dispatched to ${email}`);
+        } else {
+          console.warn('⚠️ [Gmail Server]:', data ? data.message : 'Unknown server response');
         }
-      }).catch(err => {});
+      }).catch(err => {
+        console.warn('⚠️ [LA DESIO]: Backend server on port 5000 is not reachable. Run "node server/server.js" in terminal for live email delivery. (Using simulated OTP: ' + otp + ')');
+      });
     } catch (e) {}
 
     // 2. Send real email via EmailJS
@@ -9613,9 +9620,34 @@ class LaDesioApp {
       `Sent via La Desio Haute Patisserie Client Support Portal.`
     );
 
-    // Open mailto link
     const mailtoUrl = `mailto:mohan.sakthivl@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    window.location.href = mailtoUrl;
+
+    // 1. Dispatch real email via Node.js server (Nodemailer to mohan.sakthivl@gmail.com)
+    try {
+      const apiUrl = (typeof window !== 'undefined' && window.location.port === '5000')
+        ? '/api/support/send-query'
+        : 'http://localhost:5000/api/support/send-query';
+
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ticketId,
+          name,
+          email,
+          phone,
+          category,
+          subject,
+          message
+        })
+      }).then(r => r.json()).then(data => {
+        if (data && data.success) {
+          console.log(`✨ [Support Desk]: Email query #${ticketId} dispatched to mohan.sakthivl@gmail.com`);
+        }
+      }).catch(err => {
+        console.warn('Backend server offline, saved ticket locally:', err.message);
+      });
+    } catch (err) {}
 
     // Show UI confirmation
     const form = document.getElementById('supportQueryForm');
@@ -9624,7 +9656,24 @@ class LaDesioApp {
 
     if (ticketElem) ticketElem.textContent = `#${ticketId}`;
     if (form) form.classList.add('hidden');
-    if (successBanner) successBanner.classList.remove('hidden');
+    if (successBanner) {
+      successBanner.classList.remove('hidden');
+      // Add a mail client launch button if not already present
+      let mailLink = document.getElementById('supportMailClientLink');
+      if (!mailLink) {
+        const linkWrapper = document.createElement('div');
+        linkWrapper.className = 'pt-2 flex items-center gap-3';
+        linkWrapper.innerHTML = `
+          <a id="supportMailClientLink" href="${mailtoUrl}"
+             class="py-2 px-4 rounded-xl border border-[#B8945B]/50 hover:bg-[#B8945B] hover:text-[#120502] text-[#E6CA85] text-xs font-serif transition-all inline-flex items-center gap-2">
+            <span>✉️ Open in Your Email App</span>
+          </a>
+        `;
+        successBanner.appendChild(linkWrapper);
+      } else {
+        mailLink.href = mailtoUrl;
+      }
+    }
 
     if (window.showToast) {
       window.showToast(`✨ Query dispatched! Ticket #${ticketId} created for mohan.sakthivl@gmail.com`, 'success');

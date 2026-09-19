@@ -730,6 +730,9 @@ export class LoyaltyManager {
       localStorage.setItem(EMAIL_OTP_STORE_KEY, JSON.stringify(this.pendingEmailOtp));
     } catch (e) {}
 
+    // Console debug display for local development & testing
+    console.log(`%c⚜️ [LA DESIO AUTH OTP]: ${otp} (for ${email})`, 'background: #1C0A05; color: #E6CA85; font-size: 13px; font-weight: bold; padding: 5px 10px; border: 1px solid #B8945B; border-radius: 6px;');
+
     // 1. Direct Node.js Nodemailer Dispatch (Native Gmail Server)
     try {
       const apiUrl = (typeof window !== 'undefined' && window.location.port === '5000')
@@ -742,9 +745,13 @@ export class LoyaltyManager {
         body: JSON.stringify({ email, otp })
       }).then(res => res.json()).then(data => {
         if (data && data.success) {
-          console.log('✨ [Nodemailer Server]: Dispatched to Gmail:', email);
+          console.log(`✨ [Gmail Server]: Code ${otp} successfully dispatched to ${email}`);
+        } else {
+          console.warn('⚠️ [Gmail Server]:', data ? data.message : 'Unknown server response');
         }
-      }).catch(err => {});
+      }).catch(err => {
+        console.warn('⚠️ [LA DESIO]: Backend server on port 5000 is not reachable. Run "node server/server.js" in terminal for live email delivery. (Using simulated OTP: ' + otp + ')');
+      });
     } catch (e) {}
 
     // 2. Send real email via EmailJS
