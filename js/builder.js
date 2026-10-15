@@ -76,16 +76,18 @@ export class Dessert3DViewer {
     this.scene.add(rimLight);
 
     // Luxury Ceramic & 24k Gold Trim Pedestal Platter
+    const isLightTheme = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'light';
     const plateGroup = new THREE.Group();
     const plateGeom = new THREE.CylinderGeometry(1.8, 1.55, 0.09, 64);
     const plateMat = new THREE.MeshPhysicalMaterial({
-      color: 0x140703,
+      color: isLightTheme ? 0xF8F4EB : 0x140703,
       roughness: 0.18,
       clearcoat: 0.9,
       clearcoatRoughness: 0.08
     });
     const plateMesh = new THREE.Mesh(plateGeom, plateMat);
     plateMesh.receiveShadow = true;
+    this.plateMesh = plateMesh;
     plateGroup.add(plateMesh);
 
     // 24k Gold Rim Trim
@@ -832,6 +834,10 @@ export class Dessert3DViewer {
     this.state = state || {};
     this.step = step || 1;
     if (this.isThree) {
+      if (this.plateMesh && this.plateMesh.material && typeof document !== 'undefined') {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        this.plateMesh.material.color.setHex(isLight ? 0xF8F4EB : 0x140703);
+      }
       this.buildDessertMesh();
       if (this.step === 6) {
         this.isAutoRotating = true;

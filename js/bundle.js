@@ -4108,16 +4108,18 @@ class Dessert3DViewer {
     this.scene.add(rimLight);
 
     // Luxury Ceramic & 24k Gold Trim Pedestal Platter
+    const isLightTheme = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'light';
     const plateGroup = new THREE.Group();
     const plateGeom = new THREE.CylinderGeometry(1.8, 1.55, 0.09, 64);
     const plateMat = new THREE.MeshPhysicalMaterial({
-      color: 0x140703,
+      color: isLightTheme ? 0xF8F4EB : 0x140703,
       roughness: 0.18,
       clearcoat: 0.9,
       clearcoatRoughness: 0.08
     });
     const plateMesh = new THREE.Mesh(plateGeom, plateMat);
     plateMesh.receiveShadow = true;
+    this.plateMesh = plateMesh;
     plateGroup.add(plateMesh);
 
     // 24k Gold Rim Trim
@@ -4864,6 +4866,10 @@ class Dessert3DViewer {
     this.state = state || {};
     this.step = step || 1;
     if (this.isThree) {
+      if (this.plateMesh && this.plateMesh.material && typeof document !== 'undefined') {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        this.plateMesh.material.color.setHex(isLight ? 0xF8F4EB : 0x140703);
+      }
       this.buildDessertMesh();
       if (this.step === 6) {
         this.isAutoRotating = true;
@@ -7204,11 +7210,13 @@ class LaDesioApp {
     this.mobileAuthPhone = '';
     this.mobileAuthOtp = '';
     this.otpTimerInterval = null;
+    this.currentTheme = 'dark';
 
     this.init();
   }
 
   init() {
+    this.initTheme();
     this.setupRouter();
     this.setupEventListeners();
     this.setupCartListeners();
@@ -7222,6 +7230,83 @@ class LaDesioApp {
       window.ladesioApp = this;
       window.cartStore = cartStore;
       window.loyaltyStore = loyaltyStore;
+    }
+  }
+
+  initTheme() {
+    try {
+      this.currentTheme = localStorage.getItem('ladesio_theme') || 'dark';
+    } catch (e) {
+      this.currentTheme = 'dark';
+    }
+    this.applyTheme(this.currentTheme);
+  }
+
+  applyTheme(theme) {
+    this.currentTheme = theme;
+    const isLight = theme === 'light';
+
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.classList.remove('theme-light', 'theme-dark');
+      document.documentElement.classList.add('theme-' + theme);
+
+      const body = document.getElementById('appBody') || document.body;
+      if (body) {
+        body.setAttribute('data-theme', theme);
+        if (isLight) {
+          body.classList.remove('bg-[#160703]', 'text-[#FFFDF9]');
+          body.classList.add('bg-[#EDE4D6]', 'text-[#3A1F17]');
+        } else {
+          body.classList.remove('bg-[#EDE4D6]', 'text-[#3A1F17]');
+          body.classList.add('bg-[#160703]', 'text-[#FFFDF9]');
+        }
+      }
+
+      // Update toggle icon and title
+      const icon = document.getElementById('themeToggleIcon');
+      const btn = document.getElementById('themeToggleBtn');
+      if (icon) {
+        icon.textContent = isLight ? '☕' : '🍨';
+      }
+      if (btn) {
+        btn.title = isLight
+          ? 'Current: Cream Patisserie (Click for Dark Espresso ☕)'
+          : 'Current: Dark Espresso (Click for Cream Patisserie 🍨)';
+      }
+
+      // Update 3D Dessert Studio Platter if active
+      try {
+        if (window.dessertStudio && window.dessertStudio.viewer3d && window.dessertStudio.viewer3d.plateMesh) {
+          window.dessertStudio.viewer3d.plateMesh.material.color.setHex(isLight ? 0xF8F4EB : 0x140703);
+        }
+      } catch (e) {}
+
+      // Update Header Logo Image (Dark espresso transparent on light, gold on dark)
+      try {
+        const logoImg = document.querySelector('#mainHeader .brand-logo-name');
+        if (logoImg) {
+          logoImg.src = isLight ? 'Assets/Logo/logo_transparent.png' : 'Assets/Logo/logo_gold_transparent.png';
+        }
+      } catch (e) {}
+    }
+  }
+
+  toggleTheme() {
+    const nextTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+    try {
+      localStorage.setItem('ladesio_theme', nextTheme);
+    } catch (e) {}
+    this.applyTheme(nextTheme);
+
+    const isLight = nextTheme === 'light';
+    if (window.showToast) {
+      window.showToast(
+        isLight
+          ? '🍨 Switched to Italian Cream Patisserie Palette (#EDE4D6)'
+          : '☕ Switched to Dark Espresso Palette (#160703)',
+        'info'
+      );
     }
   }
 
@@ -7713,6 +7798,19 @@ class LaDesioApp {
       badge.textContent = summary.wishlist.length;
       badge.style.display = summary.wishlist.length > 0 ? 'inline-flex' : 'none';
     });
+
+    // Sync theme toggle icon & tooltip
+    const themeIcon = document.getElementById('themeToggleIcon');
+    const themeBtn = document.getElementById('themeToggleBtn');
+    const isLight = this.currentTheme === 'light';
+    if (themeIcon) {
+      themeIcon.textContent = isLight ? '☕' : '🍨';
+    }
+    if (themeBtn) {
+      themeBtn.title = isLight
+        ? 'Current: Cream Patisserie (Click for Dark Espresso ☕)'
+        : 'Current: Dark Espresso (Click for Cream Patisserie 🍨)';
+    }
 
     // Update active page indicator title in header
     const routeTitles = {

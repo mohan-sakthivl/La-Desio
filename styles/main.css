@@ -2,23 +2,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
 
 :root {
-  --color-chocolate-dark: #120804;
-  --color-chocolate-main: #1F0D08;
-  --color-chocolate-warm: #2C140D;
+  --color-chocolate-dark: #23120C;
+  --color-chocolate-main: #3A1F17;
+  --color-chocolate-warm: #6B3E2E;
   --color-chocolate-card: #28120B;
-  --color-cream-bg: #1F0D08;
-  --color-cream-light: #2D160E;
-  --color-cream-text: #F8F1E7;
+  --color-cream-bg: #EDE4D6;
+  --color-cream-light: #F8F1E7;
+  --color-cream-text: #FFFDF9;
   --color-gold-main: #B8945B;
   --color-gold-light: #E6CA85;
   --color-gold-dark: #8F6D35;
   --color-rose-muted: #C98282;
   --color-sage-subtle: #8A9A86;
+  --color-parchment: #EDE4D6;
 }
 
 html, body {
   max-width: 100%;
   overflow-x: clip;
+}
+
+header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme="dark"],
+html[data-theme="dark"] body {
+  background-color: #160703;
+  color: #FFFDF9;
+}
+
+body[data-theme="light"],
+html[data-theme="light"] body {
+  background-color: #EDE4D6;
+  color: #3A1F17;
 }
 
 header {
@@ -426,102 +450,410 @@ a[data-nav="account"].active {
   transform: scale(1.12) !important;
 }
 
-/* Background Inversions */
-.bg-\[\#EDE4D6\] {
-  background-color: #150703 !important;
-}
-.bg-\[\#FFFDF9\] {
-  background-color: #241109 !important;
-}
-.bg-\[\#F8F1E7\] {
-  background-color: #341A10 !important;
-}
-.bg-\[\#F8F1E7\]\/80 {
-  background-color: rgba(52, 26, 16, 0.85) !important;
-}
-.bg-\[\#F8F1E7\]\/50 {
-  background-color: rgba(52, 26, 16, 0.55) !important;
-}
-.bg-white:not(.qr-code-canvas):not(.keep-white) {
-  background-color: #28120B !important;
-  color: #F8F1E7 !important;
-}
-
-/* Subtle Gradient Section Adaptations */
-.from-\[\#E4D7C5\] {
+/* ==========================================================================
+   THEME: DARK ESPRESSO UTILITY ADAPTATIONS ([data-theme="dark"])
+   ========================================================================== */
+[data-theme="dark"] .bg-\[\#EDE4D6\] { background-color: #150703 !important; }
+[data-theme="dark"] .bg-\[\#FFFDF9\] { background-color: #241109 !important; }
+[data-theme="dark"] .bg-\[\#F8F1E7\] { background-color: #341A10 !important; }
+[data-theme="dark"] .bg-\[\#F8F1E7\]\/80 { background-color: rgba(52, 26, 16, 0.85) !important; }
+[data-theme="dark"] .bg-\[\#F8F1E7\]\/50 { background-color: rgba(52, 26, 16, 0.55) !important; }
+[data-theme="dark"] .bg-white:not(.qr-code-canvas):not(.keep-white) { background-color: #28120B !important; color: #F8F1E7 !important; }
+[data-theme="dark"] .from-\[\#E4D7C5\] {
   --tw-gradient-from: #150804 var(--tw-gradient-from-position) !important;
   --tw-gradient-to: rgb(21 8 4 / 0) var(--tw-gradient-to-position) !important;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
-.via-\[\#EDE4D6\] {
+[data-theme="dark"] .via-\[\#EDE4D6\] {
   --tw-gradient-to: rgb(31 13 8 / 0) var(--tw-gradient-to-position) !important;
   --tw-gradient-stops: var(--tw-gradient-from), #1F0D08 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
 }
-.to-\[\#E4D7C5\] {
-  --tw-gradient-to: #150804 var(--tw-gradient-to-position) !important;
+[data-theme="dark"] .to-\[\#E4D7C5\] { --tw-gradient-to: #150804 var(--tw-gradient-to-position) !important; }
+[data-theme="dark"] .text-\[\#3A1F17\] { color: #F8F1E7 !important; }
+[data-theme="dark"] .text-\[\#23120C\] { color: #FFFDF9 !important; }
+[data-theme="dark"] .text-\[\#6B3E2E\] { color: #D6C2B0 !important; }
+[data-theme="dark"] .hover\:text-\[\#3A1F17\]:hover { color: #1F0D08 !important; }
+[data-theme="dark"] .hover\:bg-\[\#F8F1E7\]:hover { background-color: #3D1E13 !important; }
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea { background-color: #180905 !important; color: #F8F1E7 !important; border-color: rgba(184, 148, 91, 0.4) !important; }
+[data-theme="dark"] select option { background-color: #1F0D08 !important; color: #F8F1E7 !important; }
+[data-theme="dark"] #wishlistDrawer,
+[data-theme="dark"] #cartDrawer,
+[data-theme="dark"] #productDetailModal > div,
+[data-theme="dark"] #searchModal > div { background-color: #241009 !important; border-color: rgba(184, 148, 91, 0.35) !important; color: #F8F1E7 !important; }
+[data-theme="dark"] .md\:hidden.fixed.bottom-0 { background-color: rgba(24, 10, 6, 0.96) !important; border-top: 1px solid rgba(184, 148, 91, 0.3) !important; }
+[data-theme="dark"] .mobile-nav-item { color: #D6C2B0 !important; }
+[data-theme="dark"] .mobile-nav-item:hover, [data-theme="dark"] .mobile-nav-item.active { color: #E6CA85 !important; }
+[data-theme="dark"] .mobile-nav-item.active svg { stroke: #E6CA85 !important; filter: drop-shadow(0 0 6px rgba(230, 202, 133, 0.7)); }
+
+/* ==========================================================================
+   THEME: LIGHT CREAM PATISSERIE ([data-theme="light"])
+   ========================================================================== */
+
+/* 1. Page Canvas & Core Typography */
+[data-theme="light"] body {
+  background-color: #EDE4D6 !important;
+  color: #3A1F17 !important;
 }
 
-/* Typography Inversions */
-.text-\[\#3A1F17\] {
-  color: #F8F1E7 !important;
-}
-.text-\[\#23120C\] {
-  color: #FFFDF9 !important;
-}
-.text-\[\#6B3E2E\] {
-  color: #D6C2B0 !important;
-}
-.hover\:text-\[\#3A1F17\]:hover {
-  color: #1F0D08 !important;
-}
-.hover\:bg-\[\#F8F1E7\]:hover {
-  background-color: #3D1E13 !important;
+[data-theme="light"] h1:not(#desioIntroVideo *):not(footer *),
+[data-theme="light"] h2:not(#desioIntroVideo *):not(footer *),
+[data-theme="light"] h3:not(#desioIntroVideo *):not(footer *),
+[data-theme="light"] h4:not(#desioIntroVideo *):not(footer *) {
+  color: #23120C !important;
 }
 
-/* Form Inputs, Selects, and Textareas */
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
-select,
-textarea {
-  background-color: #180905 !important;
-  color: #F8F1E7 !important;
-  border-color: rgba(184, 148, 91, 0.4) !important;
-}
-input::placeholder,
-textarea::placeholder {
-  color: rgba(214, 194, 176, 0.45) !important;
-}
-select option {
-  background-color: #1F0D08 !important;
-  color: #F8F1E7 !important;
+[data-theme="light"] p:not(#desioIntroVideo *):not(.btn-gold-luxury *):not(footer *) {
+  color: #3A1F17 !important;
 }
 
-/* Modals, Drawers & Mobile Nav Surfaces */
-#wishlistDrawer,
-#cartDrawer,
-#productDetailModal > div,
-#searchModal > div {
-  background-color: #241009 !important;
+/* 2. Global Dark Background Hex Classes Inversion */
+[data-theme="light"] .bg-\[\#160703\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#140603\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1C0A05\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#120502\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1A0905\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1A0A06\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#180A06\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#140704\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#180804\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#28120B\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#240F08\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#220E08\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#180905\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#241009\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#140804\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1C0C07\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1A0804\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1A0A05\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#241109\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#120804\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#200E08\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#1A0703\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#2A130B\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#261008\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-\[\#120703\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *) {
+  background-color: #FFFDF9 !important;
   border-color: rgba(184, 148, 91, 0.35) !important;
-  color: #F8F1E7 !important;
+  color: #3A1F17 !important;
 }
 
-.md\:hidden.fixed.bottom-0 {
-  background-color: rgba(24, 10, 6, 0.96) !important;
-  border-top: 1px solid rgba(184, 148, 91, 0.3) !important;
+/* 3. Global Light & Muted Font Colors Inversion */
+[data-theme="light"] .text-white:not(.btn-gold-luxury *):not(.btn-gold-luxury):not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *):not(.badge-keep-white),
+[data-theme="light"] .text-\[\#FFFDF9\]:not(.btn-gold-luxury *):not(.btn-gold-luxury):not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .text-\[\#F8F1E7\]:not(.btn-gold-luxury *):not(.btn-gold-luxury):not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .text-\[\#F5E6D3\]:not(footer *),
+[data-theme="light"] .text-\[\#E8D7C7\]:not(footer *) {
+  color: #23120C !important;
 }
-.mobile-nav-item {
-  color: #D6C2B0 !important;
-  position: relative;
-  transition: all 0.25s ease;
+
+[data-theme="light"] .text-\[\#D6C2B0\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .text-\[\#A89280\]:not(footer *),
+[data-theme="light"] .text-\[\#C4B2A3\]:not(footer *),
+[data-theme="light"] .text-\[\#D8C6B6\]:not(footer *),
+[data-theme="light"] .text-\[\#C4AC97\]:not(footer *),
+[data-theme="light"] .text-\[\#E0CEBE\]:not(footer *),
+[data-theme="light"] .text-stone-300:not(footer *),
+[data-theme="light"] .text-stone-400:not(footer *),
+[data-theme="light"] .text-gray-300:not(footer *),
+[data-theme="light"] .text-gray-400:not(footer *) {
+  color: #6B3E2E !important;
 }
-.mobile-nav-item:hover,
-.mobile-nav-item.active {
-  color: #E6CA85 !important;
+
+[data-theme="light"] .text-\[\#E6CA85\]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *):not(.btn-gold-luxury *) {
+  color: #9B7840 !important;
+  font-weight: 600;
 }
-.mobile-nav-item.active svg {
-  stroke: #E6CA85 !important;
-  filter: drop-shadow(0 0 6px rgba(230, 202, 133, 0.7));
+
+/* 4. Section Backgrounds & Gradients Inversion */
+[data-theme="light"] .bg-gradient-to-b:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-gradient-to-r:not(.btn-gold-luxury):not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] .bg-gradient-to-br:not(.btn-gold-luxury):not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *) {
+  background-image: linear-gradient(180deg, #F8F1E7 0%, #EDE4D6 100%) !important;
 }
+
+[data-theme="light"] .section-collection,
+[data-theme="light"] .section-bespoke,
+[data-theme="light"] .section-natural,
+[data-theme="light"] .section-origins,
+[data-theme="light"] .section-creations,
+[data-theme="light"] .section-gifting,
+[data-theme="light"] .section-instagram,
+[data-theme="light"] .bg-section-dark,
+[data-theme="light"] .bg-section-alt {
+  background: #EDE4D6 !important;
+  color: #3A1F17 !important;
+}
+
+/* 5. Sticky Navigation Bar & Active Badges */
+[data-theme="light"] #mainHeader,
+[data-theme="light"] .glass-nav {
+  background: rgba(237, 228, 214, 0.96) !important;
+  border-bottom: 1px solid rgba(184, 148, 91, 0.35) !important;
+  box-shadow: 0 4px 25px rgba(58, 31, 23, 0.08) !important;
+}
+
+[data-theme="light"] .nav-link {
+  color: #3A1F17 !important;
+}
+[data-theme="light"] .nav-link:hover {
+  color: #B8945B !important;
+  background: rgba(184, 148, 91, 0.12) !important;
+}
+[data-theme="light"] .nav-link.active {
+  color: #FFFDF9 !important;
+  background: #B8945B !important;
+  border-color: #9B7840 !important;
+}
+[data-theme="light"] .nav-link::after {
+  background: #B8945B !important;
+  box-shadow: 0 0 8px rgba(184, 148, 91, 0.5) !important;
+}
+
+[data-theme="light"] #mainHeader button:not(.btn-gold-luxury),
+[data-theme="light"] #mainHeader a:not(.btn-gold-luxury) {
+  color: #3A1F17 !important;
+}
+[data-theme="light"] #mainHeader button:hover {
+  color: #B8945B !important;
+  background: rgba(58, 31, 23, 0.06) !important;
+}
+
+[data-theme="light"] #activePageBadge {
+  background-color: #F8F1E7 !important;
+  border-color: rgba(184, 148, 91, 0.5) !important;
+  color: #6B3E2E !important;
+}
+[data-theme="light"] #activePageBadge span#activePageTitle {
+  color: #3A1F17 !important;
+}
+
+/* 6. Luxury Cards Styling (Pastry, Chef, Gifting, Natural) */
+[data-theme="light"] .luxury-card {
+  background: #FFFDF9 !important;
+  border: 1px solid rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 10px 30px rgba(58, 31, 23, 0.08), 0 2px 6px rgba(58, 31, 23, 0.04) !important;
+}
+[data-theme="light"] .luxury-card:hover {
+  background: #FFFDF9 !important;
+  border-color: #B8945B !important;
+  box-shadow: 0 20px 45px rgba(58, 31, 23, 0.14), 0 0 20px rgba(184, 148, 91, 0.2) !important;
+}
+[data-theme="light"] .luxury-card h3,
+[data-theme="light"] .luxury-card .card-title {
+  color: #23120C !important;
+}
+[data-theme="light"] .luxury-card p,
+[data-theme="light"] .luxury-card .card-description {
+  color: #6B3E2E !important;
+}
+[data-theme="light"] .luxury-card .card-subtitle {
+  color: #9B7840 !important;
+}
+[data-theme="light"] .luxury-card .card-price {
+  color: #23120C !important;
+}
+[data-theme="light"] .luxury-card .card-pill {
+  background-color: #F8F1E7 !important;
+  border-color: rgba(184, 148, 91, 0.3) !important;
+  color: #6B3E2E !important;
+}
+[data-theme="light"] .luxury-card .card-pill strong,
+[data-theme="light"] .luxury-card .card-pill span {
+  color: #3A1F17 !important;
+}
+[data-theme="light"] .luxury-card .card-customize-btn {
+  border: 1px solid rgba(184, 148, 91, 0.5) !important;
+  color: #3A1F17 !important;
+  background: #F8F1E7 !important;
+}
+[data-theme="light"] .luxury-card .card-customize-btn:hover {
+  background: #B8945B !important;
+  color: #FFFDF9 !important;
+  border-color: #E6CA85 !important;
+}
+
+[data-theme="light"] .card-wishlist-btn {
+  background: rgba(255, 253, 249, 0.92) !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 4px 12px rgba(58, 31, 23, 0.1) !important;
+}
+[data-theme="light"] .card-wishlist-btn:hover {
+  background: #B8945B !important;
+  color: #FFFDF9 !important;
+  border-color: #E6CA85 !important;
+}
+
+/* 7. Drawers (Cart & Wishlist) */
+[data-theme="light"] #wishlistDrawer,
+[data-theme="light"] #cartDrawer {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+  color: #3A1F17 !important;
+  box-shadow: -10px 0 40px rgba(58, 31, 23, 0.15) !important;
+}
+
+[data-theme="light"] #wishlistDrawer .bg-\[\#1A0905\],
+[data-theme="light"] #cartDrawer .bg-\[\#1A0905\],
+[data-theme="light"] #wishlistDrawer .bg-\[\#241009\],
+[data-theme="light"] #cartDrawer .bg-\[\#241009\] {
+  background-color: #F8F1E7 !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] #cartDrawerItems > div,
+[data-theme="light"] #wishlistDrawerItems > div {
+  background-color: #F8F1E7 !important;
+  border: 1px solid rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+  border-radius: 1rem !important;
+}
+
+[data-theme="light"] #cartDrawerItems h4,
+[data-theme="light"] #wishlistDrawerItems h4 {
+  color: #23120C !important;
+}
+
+/* 8. Modals (Product Details & Search) */
+[data-theme="light"] #productDetailModal > div,
+[data-theme="light"] #searchModal > div {
+  background-color: #FFFDF9 !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 25px 60px rgba(58, 31, 23, 0.2) !important;
+}
+
+[data-theme="light"] #globalSearchInput {
+  color: #3A1F17 !important;
+}
+[data-theme="light"] #globalSearchInput::placeholder {
+  color: rgba(107, 62, 46, 0.5) !important;
+}
+
+/* 9. Forms, Inputs & Select Elements */
+[data-theme="light"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: #FFFDF9 !important;
+  color: #3A1F17 !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+}
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: rgba(107, 62, 46, 0.5) !important;
+}
+[data-theme="light"] select option {
+  background-color: #FFFDF9 !important;
+  color: #3A1F17 !important;
+}
+
+/* 10. Interactive 3D Dessert Studio / Builder */
+[data-theme="light"] #fullDessertStudioMount > div,
+[data-theme="light"] #homeDessertStudioMount > div {
+  background: #FFFDF9 !important;
+  border: 1px solid rgba(184, 148, 91, 0.4) !important;
+  box-shadow: 0 16px 40px rgba(58, 31, 23, 0.08) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] #fullDessertStudioMount .bg-radial,
+[data-theme="light"] #homeDessertStudioMount .bg-radial {
+  background: radial-gradient(circle at 50% 40%, #FFFDF9 0%, #F5EDE0 100%) !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+}
+
+[data-theme="light"] #fullDessertStudioMount [onclick^="window.dessertStudio.select"],
+[data-theme="light"] #homeDessertStudioMount [onclick^="window.dessertStudio.select"],
+[data-theme="light"] #fullDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"],
+[data-theme="light"] #homeDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"] {
+  background-color: #F8F1E7 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] #fullDessertStudioMount [onclick^="window.dessertStudio.select"]:hover,
+[data-theme="light"] #homeDessertStudioMount [onclick^="window.dessertStudio.select"]:hover,
+[data-theme="light"] #fullDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"]:hover,
+[data-theme="light"] #homeDessertStudioMount [onclick^="window.dessertStudio.toggleTopping"]:hover {
+  border-color: #B8945B !important;
+  background-color: #FFFDF9 !important;
+  box-shadow: 0 4px 15px rgba(184, 148, 91, 0.2) !important;
+}
+
+[data-theme="light"] #fullDessertStudioMount .bg-\[\#F8F1E7\],
+[data-theme="light"] #homeDessertStudioMount .bg-\[\#F8F1E7\] {
+  background-color: #F8F1E7 !important;
+  color: #9B7840 !important;
+}
+
+/* 11. Customer Support & Concierge View ([#support]) */
+[data-theme="light"] #supportQueryForm {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+[data-theme="light"] details {
+  background-color: #FFFDF9 !important;
+  border: 1px solid rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+[data-theme="light"] details summary {
+  color: #23120C !important;
+}
+[data-theme="light"] details p {
+  color: #6B3E2E !important;
+  border-top-color: rgba(184, 148, 91, 0.2) !important;
+}
+
+/* 12. Authentication Portal ([#login], [#register]) */
+[data-theme="light"] .auth-glass-panel {
+  background: #FFFDF9 !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+  box-shadow: 0 20px 45px rgba(58, 31, 23, 0.1) !important;
+  color: #3A1F17 !important;
+}
+[data-theme="light"] .auth-input {
+  background-color: #FFFDF9 !important;
+  color: #3A1F17 !important;
+  border-color: rgba(184, 148, 91, 0.45) !important;
+}
+
+/* 13. Mobile Bottom Sticky Navigation */
+[data-theme="light"] .md\:hidden.fixed.bottom-0 {
+  background-color: rgba(255, 253, 249, 0.96) !important;
+  border-top-color: rgba(184, 148, 91, 0.35) !important;
+  box-shadow: 0 -4px 20px rgba(58, 31, 23, 0.08) !important;
+}
+[data-theme="light"] .mobile-nav-item {
+  color: #6B3E2E !important;
+}
+[data-theme="light"] .mobile-nav-item:hover,
+[data-theme="light"] .mobile-nav-item.active {
+  color: #B8945B !important;
+}
+[data-theme="light"] .mobile-nav-item.active svg {
+  stroke: #B8945B !important;
+  filter: drop-shadow(0 0 6px rgba(184, 148, 91, 0.4));
+}
+[data-theme="light"] .mobile-nav-item.active span {
+  color: #3A1F17 !important;
+  font-weight: 700 !important;
+}
+
+/* 14. PFP User Dropdown Menu */
+[data-theme="light"] #headerPfpDropdown {
+  background-color: #FFFDF9 !important;
+  border: 1px solid rgba(184, 148, 91, 0.5) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 15px 40px rgba(58, 31, 23, 0.15) !important;
+}
+[data-theme="light"] #headerPfpDropdown .bg-\[\#140603\] {
+  background-color: #F8F1E7 !important;
+}
+
 .mobile-nav-item.active span {
   color: #FFFDF9 !important;
   font-weight: 700 !important;
@@ -977,3 +1309,792 @@ select option {
 
 
 
+
+/* ==========================================================================
+   EXHAUSTIVE LIGHT THEME CARD STYLING ([data-theme="light"])
+   Applied at end of CSS to ensure absolute override over earlier !important rules
+   ========================================================================== */
+
+/* 1. ATELIER GALLERY PRODUCT CARDS (Catalog, Menu, Signature, Desio Natural) */
+[data-theme="light"] .atelier-gallery-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%) !important;
+  background-color: #FFFDF9 !important;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%) !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+  box-shadow: 
+    0 12px 32px -6px rgba(58, 31, 23, 0.12),
+    0 2px 8px rgba(58, 31, 23, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 4px #F5EFE6,
+    inset 0 0 0 5px rgba(184, 148, 91, 0.25) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] .atelier-gallery-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: #B8945B !important;
+  box-shadow: 
+    0 22px 48px -10px rgba(58, 31, 23, 0.2),
+    0 0 25px rgba(184, 148, 91, 0.25),
+    inset 0 0 0 1px #FFFFFF,
+    inset 0 0 0 4px #F5EFE6,
+    inset 0 0 0 5px rgba(184, 148, 91, 0.45) !important;
+}
+
+/* Image frame inside product card */
+[data-theme="light"] .atelier-gallery-card .relative.h-64,
+[data-theme="light"] .atelier-gallery-card [class*="bg-[#160703]"] {
+  background-color: #F4ECE1 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+}
+
+/* Vignette hover overlay */
+[data-theme="light"] .atelier-gallery-card [class*="bg-gradient-to-t"] {
+  background-image: linear-gradient(to top, rgba(244, 236, 225, 0.95), transparent 60%) !important;
+}
+[data-theme="light"] .atelier-gallery-card [class*="bg-gradient-to-t"] span {
+  color: #3A1F17 !important;
+}
+[data-theme="light"] .atelier-gallery-card [class*="bg-gradient-to-t"] svg {
+  color: #9B7840 !important;
+}
+
+/* Corner filigree accents */
+[data-theme="light"] .atelier-gallery-card .atelier-corner-accent {
+  border-color: #B8945B !important;
+}
+
+/* Opus Catalog Badge */
+[data-theme="light"] .archival-opus-badge {
+  background: rgba(255, 253, 249, 0.95) !important;
+  color: #5C381E !important;
+  border: 1px solid rgba(184, 148, 91, 0.55) !important;
+  box-shadow: 0 2px 8px rgba(58, 31, 23, 0.12) !important;
+}
+[data-theme="light"] .archival-opus-badge span {
+  color: #9B7840 !important;
+}
+
+/* Wishlist Button */
+[data-theme="light"] .atelier-gallery-card button[data-wishlist-btn] {
+  background-color: rgba(255, 253, 249, 0.95) !important;
+  border-color: rgba(184, 148, 91, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(58, 31, 23, 0.12) !important;
+}
+[data-theme="light"] .atelier-gallery-card button[data-wishlist-btn] svg:not(.fill-rose-500) {
+  color: #9B7840 !important;
+}
+
+/* Rating Diamond Seal */
+[data-theme="light"] .atelier-gallery-card .rating-diamond-seal strong {
+  color: #23120C !important;
+}
+[data-theme="light"] .atelier-gallery-card .rating-diamond-seal .diamond-glyph {
+  color: #9B7840 !important;
+  text-shadow: none !important;
+}
+[data-theme="light"] .atelier-gallery-card .rating-diamond-seal span {
+  color: #6B3E2E !important;
+}
+
+/* Prep Time */
+[data-theme="light"] .atelier-gallery-card [class*="tracking-widest"][class*="uppercase"] {
+  color: #6B3E2E !important;
+}
+[data-theme="light"] .atelier-gallery-card [class*="tracking-widest"][class*="uppercase"] svg {
+  color: #9B7840 !important;
+}
+
+/* Dessert Name */
+[data-theme="light"] .atelier-gallery-card h3 {
+  color: #23120C !important;
+}
+[data-theme="light"] .atelier-gallery-card:hover h3 {
+  color: #9B7840 !important;
+}
+
+/* Sommelier Tasting Notes */
+[data-theme="light"] .atelier-gallery-card .sommelier-tasting-notes {
+  color: #6B3E2E !important;
+}
+
+/* Description Text */
+[data-theme="light"] .atelier-gallery-card p {
+  color: #4A281E !important;
+}
+
+/* Dietary Badges & Small Caps */
+[data-theme="light"] .atelier-gallery-card [class*="bg-[#1A0A05]"],
+[data-theme="light"] .atelier-gallery-card span.font-cinzel.uppercase {
+  background-color: #F3EAE0 !important;
+  color: #5C381E !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+}
+
+/* Nutrition Highlights Panel */
+[data-theme="light"] .atelier-gallery-card div[class*="mt-3 px-3 py-1.5"] {
+  background-color: #FAF4EB !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+[data-theme="light"] .atelier-gallery-card div[class*="mt-3 px-3 py-1.5"] span,
+[data-theme="light"] .atelier-gallery-card div[class*="mt-3 px-3 py-1.5"] strong {
+  color: #23120C !important;
+}
+
+/* Prezzo & Price Typography */
+[data-theme="light"] .atelier-gallery-card span.font-bodoni.font-bold {
+  color: #23120C !important;
+}
+[data-theme="light"] .atelier-gallery-card span[class*="text-[#B8945B]"] {
+  color: #8C6627 !important;
+}
+
+/* Action Buttons */
+[data-theme="light"] .atelier-gallery-card .btn-atelier-inspect {
+  background: #F4ECE1 !important;
+  border: 1px solid rgba(184, 148, 91, 0.6) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 2px 6px rgba(58, 31, 23, 0.08) !important;
+}
+[data-theme="light"] .atelier-gallery-card .btn-atelier-inspect:hover {
+  background: #E8DEC7 !important;
+  border-color: #9B7840 !important;
+  color: #160703 !important;
+}
+
+[data-theme="light"] .atelier-gallery-card .btn-atelier-acquire {
+  background: linear-gradient(135deg, #B8945B 0%, #9B7840 50%, #7D5926 100%) !important;
+  color: #FFFDF9 !important;
+  border: 1px solid #D4AF37 !important;
+  box-shadow: 0 4px 14px rgba(155, 120, 64, 0.35) !important;
+}
+[data-theme="light"] .atelier-gallery-card .btn-atelier-acquire:hover {
+  background: linear-gradient(135deg, #C7A46B 0%, #A88347 50%, #87622E 100%) !important;
+  box-shadow: 0 6px 20px rgba(155, 120, 64, 0.5) !important;
+}
+
+/* 2. ALL LUXURY CARDS ACROSS STORY, GIFTING, TRENDING, COMMUNITY, BOUTIQUES */
+[data-theme="light"] .luxury-card,
+[data-theme="light"] [class*="luxury-card"] {
+  background: #FFFDF9 !important;
+  background-color: #FFFDF9 !important;
+  background-image: none !important;
+  border: 1px solid rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 10px 30px -8px rgba(58, 31, 23, 0.12) !important;
+}
+
+[data-theme="light"] .luxury-card:hover,
+[data-theme="light"] [class*="luxury-card"]:hover {
+  background-color: #FFFFFF !important;
+  border-color: #B8945B !important;
+  box-shadow: 0 18px 40px -10px rgba(58, 31, 23, 0.18) !important;
+}
+
+[data-theme="light"] .luxury-card h3,
+[data-theme="light"] .luxury-card h4,
+[data-theme="light"] .luxury-card h5,
+[data-theme="light"] .luxury-card .card-title,
+[data-theme="light"] [class*="luxury-card"] h3,
+[data-theme="light"] [class*="luxury-card"] h4,
+[data-theme="light"] [class*="luxury-card"] h5 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] .luxury-card p,
+[data-theme="light"] .luxury-card .card-description,
+[data-theme="light"] [class*="luxury-card"] p {
+  color: #4A281E !important;
+}
+
+/* 3. HARDCODED DARK CONTAINER & OPACITY SLASH CLASSES */
+[data-theme="light"] [class*="bg-[#1C0A05]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#160703]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#180804]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#180A06]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#1A0905]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#1A0A06]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#241009]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#28120B]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="bg-[#140804]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *) {
+  background-color: #FFFDF9 !important;
+  color: #3A1F17 !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+}
+
+/* 4. GRADIENT CARDS & PANELS INVERSION */
+[data-theme="light"] [class*="from-[#583324]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="from-[#462619]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="from-[#351B11]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="from-[#2D140C]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="from-[#140603]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *),
+[data-theme="light"] [class*="from-[#150703]"]:not(#desioIntroVideo *):not(#introVideoBannerContainer *):not(footer *) {
+  background-image: linear-gradient(180deg, #FFFDF9 0%, #FAF5EC 100%) !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+}
+
+/* 5. MODAL CARDS (Product Detail Modal & Global Search) */
+[data-theme="light"] #productDetailModal > div,
+[data-theme="light"] #searchModal > div {
+  background-color: #FFFDF9 !important;
+  background-image: none !important;
+  border: 1px solid rgba(184, 148, 91, 0.45) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 25px 60px -12px rgba(58, 31, 23, 0.25) !important;
+}
+
+[data-theme="light"] #productDetailModal button[onclick*="closeAllModals"],
+[data-theme="light"] #searchModal button[onclick*="closeAllModals"] {
+  background-color: #F4ECE1 !important;
+  color: #3A1F17 !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+}
+
+/* 6. SUPPORT & CONCIERGE CONTACT TOUCHPOINT CARDS */
+[data-theme="light"] .grid.grid-cols-1.md\:grid-cols-3 > div {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 10px 30px -8px rgba(58, 31, 23, 0.12) !important;
+}
+
+[data-theme="light"] .grid.grid-cols-1.md\:grid-cols-3 > div h3 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] .grid.grid-cols-1.md\:grid-cols-3 > div p {
+  color: #6B3E2E !important;
+}
+
+[data-theme="light"] .grid.grid-cols-1.md\:grid-cols-3 > div span.font-serif {
+  color: #9B7840 !important;
+}
+
+/* 7. ACCOUNT VIEW SUMMARY & PRIVÉ TIER CARDS */
+[data-theme="light"] .lg\:col-span-5 > div {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+  color: #3A1F17 !important;
+}
+[data-theme="light"] .lg\:col-span-5 > div span {
+  color: #6B3E2E !important;
+}
+[data-theme="light"] .lg\:col-span-5 > div strong {
+  color: #23120C !important;
+}
+
+/* 8. AUTHENTICATION & LOGIN FORM CARD */
+[data-theme="light"] .auth-glass-panel,
+[data-theme="light"] #loginCardWrapper > div {
+  background: #FFFDF9 !important;
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.45) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 20px 50px -10px rgba(58, 31, 23, 0.18) !important;
+}
+
+/* ==========================================================================
+   THEME: LIGHT MODE COMPLETE SUITE (BRAND NAME, 3D STUDIO, BANNER, ALL PAGES)
+   ========================================================================== */
+
+/* 1. BRAND NAME "LA DESIO" TO DARK BROWN (#3A1F17 / #23120C) IN LIGHT MODE */
+[data-theme="light"] #mainHeader img.brand-logo-name,
+[data-theme="light"] #mainHeader img[alt*="LA DESIO Logo"],
+[data-theme="light"] header a img[alt*="LA DESIO Logo"] {
+  filter: brightness(0.25) contrast(1.4) sepia(0.6) hue-rotate(330deg) !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+[data-theme="light"] #mainHeader img.brand-logo-emblem,
+[data-theme="light"] #mainHeader img[alt*="LA DESIO Emblem"],
+[data-theme="light"] header a img[alt*="LA DESIO Emblem"] {
+  filter: brightness(0.32) contrast(1.3) sepia(0.6) hue-rotate(330deg) drop-shadow(0 1px 2px rgba(184, 148, 91, 0.4)) !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+[data-theme="light"] #activePageBadge {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.45) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 2px 8px rgba(58, 31, 23, 0.08) !important;
+}
+
+[data-theme="light"] #activePageTitle {
+  color: #23120C !important;
+}
+
+[data-theme="light"] #atelierCurtainLoader {
+  background-color: #EDE4D6 !important;
+}
+[data-theme="light"] #atelierCurtainLoader h1 {
+  color: #23120C !important;
+}
+[data-theme="light"] #atelierCurtainLoader p {
+  color: #6B3E2E !important;
+}
+
+/* 2. CINEMATIC INTRO VIDEO HERO BANNER IN LIGHT MODE */
+[data-theme="light"] #introVideoBannerContainer {
+  background-color: #EDE4D6 !important;
+  border-bottom: 1px solid rgba(184, 148, 91, 0.35) !important;
+}
+
+[data-theme="light"] #introVideoBannerContainer .bg-gradient-to-t {
+  background-image: linear-gradient(0deg, rgba(237, 228, 214, 0.96) 0%, rgba(237, 228, 214, 0.65) 45%, transparent 100%) !important;
+}
+
+[data-theme="light"] #introVideoBannerContainer .bg-gradient-to-b {
+  background-image: linear-gradient(180deg, rgba(237, 228, 214, 0.5) 0%, transparent 100%) !important;
+}
+
+[data-theme="light"] #videoChapterBadge {
+  background-color: #B8945B !important;
+  color: #FFFDF9 !important;
+}
+
+[data-theme="light"] #videoChapterTitle {
+  color: #23120C !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] #videoChapterDesc {
+  color: #3A1F17 !important;
+  text-shadow: none !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] #introVideoBannerContainer a[href="#menu"] {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border: 1px solid rgba(184, 148, 91, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(58, 31, 23, 0.1) !important;
+}
+
+[data-theme="light"] #introVideoBannerContainer a[href="#menu"]:hover {
+  background-color: #F4ECE1 !important;
+  border-color: #B8945B !important;
+}
+
+/* 3. HERO SECTION BELOW VIDEO BANNER */
+[data-theme="light"] .bg-hero-dark {
+  background: radial-gradient(ellipse at 50% 18%, #FAF6EE 0%, #F5ECE0 50%, #EDE4D6 100%) !important;
+}
+
+[data-theme="light"] .bg-hero-dark h1 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] .bg-hero-dark p {
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] .bg-hero-dark a[href="#menu"] {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border-color: #B8945B !important;
+  box-shadow: 0 4px 14px rgba(58, 31, 23, 0.1) !important;
+}
+
+[data-theme="light"] .bg-hero-dark a[href="#menu"]:hover {
+  background-color: #F4ECE1 !important;
+  border-color: #9B7840 !important;
+}
+
+/* 4. HOME PAGE CREATE YOUR OWN DESIO SECTION & 3D STUDIO MOUNTS */
+[data-theme="light"] #home-builder-section {
+  background-color: #EDE4D6 !important;
+  border-bottom: 1px solid rgba(184, 148, 91, 0.35) !important;
+}
+
+[data-theme="light"] #home-builder-section h2 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] #home-builder-section p {
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] #home-builder-section span.text-\[\#E6CA85\] {
+  color: #9B7840 !important;
+}
+
+/* Apply 3D Studio styling to BOTH Home studio and Dedicated studio */
+[data-theme="light"] #homeDessertStudioMount,
+[data-theme="light"] #homeDessertStudioMount > div,
+[data-theme="light"] #fullDessertStudioMount,
+[data-theme="light"] #fullDessertStudioMount > div,
+[data-theme="light"] [id$="DessertStudioMount"],
+[data-theme="light"] [id$="DessertStudioMount"] > div {
+  background: #FFFDF9 !important;
+  background-color: #FFFDF9 !important;
+  background-image: none !important;
+  border: 1px solid rgba(184, 148, 91, 0.4) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 16px 40px -10px rgba(58, 31, 23, 0.12) !important;
+}
+
+/* Studio step navigation pills */
+[data-theme="light"] [id$="DessertStudioMount"] button[onclick*="setStep"] {
+  background-color: #F4ECE1 !important;
+  color: #6B3E2E !important;
+  border: 1px solid rgba(184, 148, 91, 0.4) !important;
+}
+
+[data-theme="light"] [id$="DessertStudioMount"] button[onclick*="setStep"].bg-\[\#E6CA85\] {
+  background-color: #B8945B !important;
+  color: #FFFDF9 !important;
+  border-color: #9B7840 !important;
+  font-weight: bold !important;
+}
+
+/* Progress bar in studio */
+[data-theme="light"] [id$="DessertStudioMount"] .bg-\[\#140603\] {
+  background-color: #EFE6D8 !important;
+  border-color: rgba(184, 148, 91, 0.3) !important;
+}
+
+/* 3D Visualizer Left Container */
+[data-theme="light"] [id$="DessertStudioMount"] .lg\:col-span-6:first-child,
+[data-theme="light"] [id$="DessertStudioMount"] [class*="bg-[#180904]"] {
+  background-color: #FAF6EE !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+
+/* 3D Canvas Mount Frame */
+[data-theme="light"] [id$="DessertStudioMount"] #dessert3dCanvas,
+[data-theme="light"] [id$="DessertStudioMount"] #dessert3dCanvas + div,
+[data-theme="light"] [id$="DessertStudioMount"] div:has(> #dessert3dCanvas) {
+  background: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #EDE4D6 100%) !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+}
+
+/* 3D controls overlay */
+[data-theme="light"] [id$="DessertStudioMount"] .bg-black\/80,
+[data-theme="light"] [id$="DessertStudioMount"] [class*="bg-black/80"] {
+  background-color: rgba(255, 253, 249, 0.95) !important;
+  color: #3A1F17 !important;
+  border-color: rgba(184, 148, 91, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(58, 31, 23, 0.1) !important;
+}
+[data-theme="light"] [id$="DessertStudioMount"] .bg-black\/80:hover {
+  background-color: #B8945B !important;
+  color: #FFFDF9 !important;
+}
+
+/* Calorie & Macro Hub */
+[data-theme="light"] [id$="DessertStudioMount"] [class*="bg-[#241009]"] {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] [id$="DessertStudioMount"] [class*="bg-[#190904]"] {
+  background-color: #F4ECE1 !important;
+  border-color: rgba(184, 148, 91, 0.3) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] [id$="DessertStudioMount"] [class*="bg-[#190904]"] span,
+[data-theme="light"] [id$="DessertStudioMount"] [class*="bg-[#190904]"] strong {
+  color: #23120C !important;
+}
+
+/* Right Step Customization Panel */
+[data-theme="light"] [id$="DessertStudioMount"] .lg\:col-span-6:last-child {
+  background-color: #FAF6EE !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+}
+
+/* Option Cards (Bases, Flavors, Fillings, Toppings, Glazes) */
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectBase"],
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectFlavor"],
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectFilling"],
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="toggleTopping"],
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectSauce"] {
+  background: #FFFDF9 !important;
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectBase"]:hover,
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectFlavor"]:hover,
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectFilling"]:hover,
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="toggleTopping"]:hover,
+[data-theme="light"] [id$="DessertStudioMount"] [onclick*="selectSauce"]:hover {
+  background-color: #FDF9F2 !important;
+  border-color: #B8945B !important;
+}
+
+/* Selected Option Card Highlight */
+[data-theme="light"] [id$="DessertStudioMount"] [class*="ring-[#E6CA85]"],
+[data-theme="light"] [id$="DessertStudioMount"] [class*="border-[#E6CA85]"] {
+  background: linear-gradient(135deg, #FFFDF9 0%, #F5EDE1 100%) !important;
+  border: 2px solid #B8945B !important;
+  box-shadow: 0 4px 14px rgba(184, 148, 91, 0.25) !important;
+}
+
+[data-theme="light"] [id$="DessertStudioMount"] span.font-serif,
+[data-theme="light"] [id$="DessertStudioMount"] h3,
+[data-theme="light"] [id$="DessertStudioMount"] h4 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] [id$="DessertStudioMount"] p,
+[data-theme="light"] [id$="DessertStudioMount"] span[class*="text-[#D6C2B0]"] {
+  color: #6B3E2E !important;
+}
+
+/* Creation Title Input */
+[data-theme="light"] [id$="DessertStudioMount"] #creationNameInput {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border-color: rgba(184, 148, 91, 0.5) !important;
+}
+
+/* Step navigation Prev button */
+[data-theme="light"] [id$="DessertStudioMount"] button[onclick*="setStep("] {
+  background-color: #F4ECE1 !important;
+  color: #3A1F17 !important;
+  border-color: rgba(184, 148, 91, 0.45) !important;
+}
+
+/* 5. CUSTOMER PROFILE & ACCOUNT VIEW (#account) */
+[data-theme="light"] div[class*="from-[#180A06]"][class*="to-[#241009]"],
+[data-theme="light"] div[class*="from-[#180A06]"] {
+  background: linear-gradient(180deg, #F8F1E7 0%, #EDE4D6 100%) !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+}
+
+[data-theme="light"] .lg\:col-span-7 h2 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] .lg\:col-span-7 span {
+  color: #6B3E2E !important;
+}
+
+[data-theme="light"] .lg\:col-span-7 span.text-stone-500 {
+  color: #8C6627 !important;
+}
+
+[data-theme="light"] .lg\:col-span-7 p {
+  background-color: rgba(255, 253, 249, 0.85) !important;
+  color: #3A1F17 !important;
+  border-left-color: #B8945B !important;
+}
+
+[data-theme="light"] button[onclick*="openEditProfileModal"],
+[data-theme="light"] .soundscape-toggle-btn {
+  background-color: #FFFDF9 !important;
+  color: #3A1F17 !important;
+  border-color: rgba(184, 148, 91, 0.45) !important;
+}
+
+[data-theme="light"] .lg\:col-span-7 span.bg-\[\#140603\],
+[data-theme="light"] .lg\:col-span-7 button.bg-\[\#140603\],
+[data-theme="light"] .lg\:col-span-7 [class*="bg-[#140603]"] {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border: 1px solid rgba(184, 148, 91, 0.4) !important;
+}
+
+[data-theme="light"] .lg\:col-span-7 span.bg-\[\#140603\] span,
+[data-theme="light"] .lg\:col-span-7 span.bg-\[\#140603\] strong {
+  color: #23120C !important;
+}
+
+/* Privé Status & Metrics Dual Cards */
+[data-theme="light"] .lg\:col-span-5 > div {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 10px 30px -8px rgba(58, 31, 23, 0.12) !important;
+}
+
+[data-theme="light"] .lg\:col-span-5 > div strong {
+  color: #23120C !important;
+}
+
+[data-theme="light"] .lg\:col-span-5 > div span {
+  color: #6B3E2E !important;
+}
+
+[data-theme="light"] .lg\:col-span-5 .bg-black\/50 {
+  background-color: #EFE6D8 !important;
+}
+
+/* Navigation Tabs */
+[data-theme="light"] button[onclick*="setActiveAccountTab"] {
+  color: #6B3E2E !important;
+}
+
+[data-theme="light"] button[onclick*="setActiveAccountTab"].border-\[\#E6CA85\] {
+  border-color: #B8945B !important;
+  color: #8C6627 !important;
+  font-weight: bold !important;
+}
+
+[data-theme="light"] button[onclick*="setActiveAccountTab"] span.rounded-full {
+  background-color: #F4ECE1 !important;
+  color: #3A1F17 !important;
+}
+
+/* Saved Creations Tab */
+[data-theme="light"] div[class*="bg-[#241009]"] {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 8px 24px -6px rgba(58, 31, 23, 0.1) !important;
+}
+
+[data-theme="light"] div[class*="bg-[#241009]"] h3,
+[data-theme="light"] div[class*="bg-[#241009]"] h4,
+[data-theme="light"] div[class*="bg-[#241009]"] h5 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] div[class*="bg-[#241009]"] p {
+  color: #4A281E !important;
+}
+
+[data-theme="light"] div[class*="bg-[#241009]"] span[class*="bg-[#180A06]"] {
+  background-color: #F4ECE1 !important;
+  color: #5C381E !important;
+}
+
+[data-theme="light"] div[class*="bg-[#241009]"] span[class*="bg-black"] {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border: 1px solid rgba(184, 148, 91, 0.3) !important;
+}
+
+/* Order History Tab */
+[data-theme="light"] div[class*="bg-[#1C0C07]"] {
+  background-color: #F8F1E7 !important;
+  border-color: rgba(184, 148, 91, 0.3) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] div[class*="bg-[#1C0C07]"] span.font-mono {
+  color: #23120C !important;
+  font-weight: bold !important;
+}
+
+/* Friends Circle Spotlight Banner */
+[data-theme="light"] div[class*="from-[#1F0D08]"][class*="to-[#241009]"] {
+  background: linear-gradient(180deg, #F8F1E7 0%, #FAF4EB 100%) !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+}
+
+[data-theme="light"] div[class*="from-[#1F0D08]"][class*="to-[#241009]"] h3 {
+  color: #23120C !important;
+}
+
+[data-theme="light"] div[class*="from-[#1F0D08]"][class*="to-[#241009]"] p {
+  color: #4A281E !important;
+}
+
+[data-theme="light"] div[class*="from-[#1F0D08]"][class*="to-[#241009]"] [class*="bg-[#180A06]"] {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.35) !important;
+  color: #3A1F17 !important;
+}
+
+/* 6. OTHER PAGES (MENU, NATURAL, STORY, GIFTING, BOUTIQUES, SUPPORT) */
+/* Section Headers */
+[data-theme="light"] .section-collection h1,
+[data-theme="light"] .section-natural h1,
+[data-theme="light"] .section-origins h1,
+[data-theme="light"] .section-bespoke h1 {
+  color: #23120C !important;
+}
+
+/* Category Filter Pills on Menu */
+[data-theme="light"] .category-pill,
+[data-theme="light"] .filter-pill,
+[data-theme="light"] button[onclick*="setCategory"],
+[data-theme="light"] button[onclick*="resetFilters"] {
+  background-color: #FFFDF9 !important;
+  color: #3A1F17 !important;
+  border: 1px solid rgba(184, 148, 91, 0.4) !important;
+}
+
+[data-theme="light"] button[onclick*="setCategory"].active,
+[data-theme="light"] button[onclick*="setCategory"].bg-\[\#B8945B\] {
+  background-color: #B8945B !important;
+  color: #FFFDF9 !important;
+  border-color: #9B7840 !important;
+}
+
+/* Dropdown Filters */
+[data-theme="light"] select#categorySelect,
+[data-theme="light"] select#sortBySelect,
+[data-theme="light"] select#dietaryFilterSelect {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border-color: rgba(184, 148, 91, 0.4) !important;
+}
+
+/* Desio Natural Banner Header */
+[data-theme="light"] .section-natural > div:first-child,
+[data-theme="light"] div[class*="from-[#152618]"] {
+  background-image: linear-gradient(180deg, #F0F4EE 0%, #EDE4D6 100%) !important;
+}
+
+/* Story Page Timeline & Origins */
+[data-theme="light"] .story-timeline-card,
+[data-theme="light"] .origins-card {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+}
+
+/* Boutiques Page Salon Cards & Map Canvas */
+[data-theme="light"] #boutiquesGrid > div,
+[data-theme="light"] .boutique-card {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+  box-shadow: 0 10px 30px -8px rgba(58, 31, 23, 0.12) !important;
+}
+
+/* Gifting Studio & Hampers */
+[data-theme="light"] #giftingHamperCard,
+[data-theme="light"] .gifting-card {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+}
+
+/* Support Inquiry Form & FAQ Accordion */
+[data-theme="light"] form#supportInquiryForm,
+[data-theme="light"] #supportInquiryForm input,
+[data-theme="light"] #supportInquiryForm textarea,
+[data-theme="light"] #supportInquiryForm select {
+  background-color: #FFFDF9 !important;
+  color: #23120C !important;
+  border-color: rgba(184, 148, 91, 0.45) !important;
+}
+
+[data-theme="light"] details.group[class*="bg-[#1C0A05]"],
+[data-theme="light"] details[class*="rounded-2xl"] {
+  background-color: #FFFDF9 !important;
+  border-color: rgba(184, 148, 91, 0.38) !important;
+  color: #3A1F17 !important;
+}
+
+[data-theme="light"] details summary span {
+  color: #23120C !important;
+}
+
+[data-theme="light"] details div p {
+  color: #4A281E !important;
+}

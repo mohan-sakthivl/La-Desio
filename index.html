@@ -26,7 +26,8 @@
             'desio-gold': '#B8945B',
             'desio-gold-light': '#E6CA85',
             'desio-rose': '#C98282',
-            'desio-sage': '#8A9A86'
+            'desio-sage': '#8A9A86',
+            'desio-parchment': '#EDE4D6'
           },
           fontFamily: {
             cinzel: ['"Cinzel"', 'Georgia', 'serif'],
@@ -45,6 +46,23 @@
     }
   </script>
 
+  <!-- Early Theme Initialization to Prevent FOUC -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('ladesio_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.classList.add('theme-' + savedTheme);
+        if (savedTheme === 'light') {
+          window.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('#mainHeader .brand-logo-name');
+            if (logo) logo.src = 'Assets/Logo/logo_transparent.png';
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Assets/Logo/emblem_transparent.png" />
   <link rel="shortcut icon" type="image/png" href="Assets/Logo/emblem_transparent.png" />
@@ -54,10 +72,10 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css?v=6.4.0" />
+  <link rel="stylesheet" href="styles/main.css?v=6.8.4" />
 </head>
 
-<body class="bg-[#160703] text-[#FFFDF9] min-h-screen flex flex-col selection:bg-[#B8945B] selection:text-[#160703]">
+<body id="appBody" data-theme="dark" class="bg-[#160703] text-[#FFFDF9] min-h-screen flex flex-col selection:bg-[#B8945B] selection:text-[#160703] transition-colors duration-300">
 
   <!-- ========================================== -->
   <!-- BESPOKE GILDED MONOGRAM PRE-LOADER CURTAIN -->
@@ -110,10 +128,10 @@
           <a href="#home" class="flex items-center gap-2 sm:gap-3 group focus:outline-none py-1.5">
             <img src="Assets/Logo/emblem_transparent.png"
                  alt="LA DESIO Emblem"
-                 class="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6 drop-shadow-sm brightness-110" />
+                 class="brand-logo-emblem h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6 drop-shadow-sm brightness-110" />
             <img src="Assets/Logo/logo_gold_transparent.png"
                  alt="LA DESIO Logo"
-                 class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                 class="brand-logo-name h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
           </a>
 
           <!-- Live Active Page Indicator Pill (Visible on tablets and wide 2XL screens) -->
@@ -162,6 +180,15 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
             </svg>
             <span class="cart-count-badge absolute top-1 right-1 w-4 h-4 bg-[#B8945B] text-white text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
+          </button>
+
+          <!-- Luxury Theme Switcher Button (Cream Patisserie / Dark Espresso) -->
+          <button id="themeToggleBtn"
+                  type="button"
+                  onclick="window.ladesioApp ? window.ladesioApp.toggleTheme() : null"
+                  class="p-1.5 sm:p-2 rounded-full text-[#F8F1E7] hover:text-[#E6CA85] hover:bg-white/10 transition-all cursor-pointer flex items-center justify-center shrink-0"
+                  title="Switch Palette (Cream Patisserie / Dark Espresso)">
+            <span id="themeToggleIcon" class="text-sm sm:text-base select-none leading-none">🍨</span>
           </button>
 
           <!-- Customer Privé Profile & Auth Trigger -->
@@ -486,8 +513,8 @@
   </script>
 
   <!-- Atmospheric Soundscapes & Pre-Loader Engine -->
-  <script src="js/soundscape.js?v=6.7.5"></script>
+  <script src="js/soundscape.js?v=6.8.4"></script>
   <!-- Universal Standalone Application Bundle (100% Client & LocalStorage) -->
-  <script src="js/bundle.js?v=6.7.5"></script>
+  <script src="js/bundle.js?v=6.8.4"></script>
 </body>
 </html>
